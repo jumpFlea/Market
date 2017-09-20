@@ -8,17 +8,14 @@
 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
 通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false.  -->
 	<constant name="struts.devMode" value="true" />
-	
+
 	<!--Struts 2的Action都必须配置在package里,此处使用默认package -->
 	<package name="a" namespace="/" extends="struts-default">
-		
-		<action name="login" class="userAction" method="login">
-			<!-- 配置execute()方法返回值与视图资源之间的映射关系 -->
-			<result name="success">/success.jsp</result>
-			<result name="error">/error.jsp</result>
-		</action>
+
+		<action name="login" class="userAction" method="login"/>
+		<action name="signup" class="userAction" method="signup"/>
 	</package>
-	
-	
-	
+
+
+
 </struts>

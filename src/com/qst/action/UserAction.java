@@ -1,20 +1,24 @@
 package com.qst.action;
 
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.User;
 import com.qst.service.UserService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Component
 public class UserAction extends ActionSupport{
-	
+
 	@Resource
 	private UserService userService;
-	
+
 	private User user;
+	private String loginResult;
 
 	public UserService getUserService() {
 		return userService;
@@ -32,18 +36,58 @@ public class UserAction extends ActionSupport{
 		this.user = user;
 	}
 
-	
-	
-	public String login(){
-		System.out.println(user.getUsername());
-		User u=userService.login(user);
-		System.out.println(u);
-		if(u!=null){
-			return SUCCESS;
+
+
+	public void login(){
+		HttpServletResponse response= ServletActionContext.getResponse();
+		PrintWriter out = null;
+		String jsonString;
+		try {
+			out = response.getWriter();
+			User u=userService.login(user);
+			if(u!=null){
+				jsonString="yes";
+			}
+			else {
+				jsonString="no";
+			}
+
+		} catch (IOException e) {
+			jsonString="no";
+			e.printStackTrace();
 		}
-		return ERROR;
+
+		if (out != null) {
+			out.println(jsonString);
+			out.flush();
+			out.close();
+		}
 	}
-	
-	
-	
+
+	public void signup(){
+		HttpServletResponse response= ServletActionContext.getResponse();
+		PrintWriter out = null;
+		String jsonString;
+		try {
+			out = response.getWriter();
+			User u=userService.add(user);
+			if(u!=null){
+				jsonString="yes";
+			}
+			else {
+				jsonString="no";
+			}
+
+		} catch (IOException e) {
+			jsonString="no";
+			e.printStackTrace();
+		}
+
+		if (out != null) {
+			out.println(jsonString);
+			out.flush();
+			out.close();
+		}
+	}
+
 }
