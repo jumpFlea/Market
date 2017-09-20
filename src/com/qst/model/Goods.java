@@ -12,11 +12,16 @@ public class Goods {
 	private Integer userId;
 	private Integer imageId;
 	private Integer restNum;
-
+	private String introduce;
+	
 	public Goods() {
 	}
 
-	public Goods(Integer id, Double price, String name, String attribute, Integer userId, Integer imageId, Integer restNum) {
+
+
+	public Goods(Integer id, Double price, String name, String attribute, Integer userId, Integer imageId,
+			Integer restNum, String introduce) {
+		super();
 		this.id = id;
 		this.price = price;
 		this.name = name;
@@ -24,7 +29,10 @@ public class Goods {
 		this.userId = userId;
 		this.imageId = imageId;
 		this.restNum = restNum;
+		this.introduce = introduce;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -108,5 +116,13 @@ public class Goods {
 		result = 31 * result + (imageId != null ? imageId.hashCode() : 0);
 		result = 31 * result + (restNum != null ? restNum.hashCode() : 0);
 		return result;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 }
