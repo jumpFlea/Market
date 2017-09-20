@@ -22,6 +22,7 @@
 		<property name="url" value="jdbc:mysql://45.32.64.26:3306/fleamarket?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="flea" />
 		<property name="password" value="market" />
+
 	</bean>
 
 	<!-- 需要这样对MyBatis和Spring进行集成，把sqlSessionFactory交给Spring管理 -->
