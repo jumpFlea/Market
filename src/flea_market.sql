@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-09-20 09:17:30
+Date: 2017-09-20 11:31:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,6 +27,7 @@ CREATE TABLE `goods` (
   `g_name` varchar(225) NOT NULL,
   `u_id` int(11) NOT NULL,
   `image_id` int(50) DEFAULT NULL,
+  `introduce` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`g_id`),
   KEY `u_id2` (`u_id`),
   KEY `image_id` (`image_id`),
