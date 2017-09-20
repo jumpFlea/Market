@@ -10,10 +10,27 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-09-20 11:31:32
+Date: 2017-09-20 15:16:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `adress_table`
+-- ----------------------------
+DROP TABLE IF EXISTS `adress_table`;
+CREATE TABLE `adress_table` (
+  `adress_id` int(11) NOT NULL AUTO_INCREMENT,
+  `adress1` varchar(200) DEFAULT NULL,
+  `adress2` varchar(200) DEFAULT NULL,
+  `adress3` varchar(200) DEFAULT NULL,
+  `adress4` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`adress_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of adress_table
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `goods`
@@ -141,15 +158,16 @@ CREATE TABLE `usertable` (
   `username` varchar(30) NOT NULL,
   `psw` varchar(30) NOT NULL,
   `state_type` int(11) NOT NULL DEFAULT '0',
-  `adress` varchar(50) DEFAULT NULL,
+  `adress_id` int(11) DEFAULT NULL,
   `integral` int(11) DEFAULT '0',
-  PRIMARY KEY (`uid`)
+  PRIMARY KEY (`uid`),
+  KEY `adress_id` (`adress_id`),
+  CONSTRAINT `adress_id` FOREIGN KEY (`adress_id`) REFERENCES `adress_table` (`adress_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of usertable
 -- ----------------------------
-INSERT INTO `usertable` VALUES ('1', '773814380@qq.com', 'asd1234', '0', '江苏省如皋市软件园', null);
 
 -- ----------------------------
 -- Table structure for `user_goods`
