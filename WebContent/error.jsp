@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-	error
-=======
 	erroraeouaeu
->>>>>>> branch 'master' of https://github.com/jumpFlea/Market.git
 </body>
 </html>
