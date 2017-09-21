@@ -1,0 +1,19 @@
+$(document).ready(function(){
+	$("#x1").hide();
+	$("#y1").hide();
+	$("#j1").click(function(){
+		$("#x1").hide();
+	    $("#y1").hide();
+	    $("#g1").show();
+	})
+	$("#j2").click(function(){
+		$("#y1").hide();
+	    $("#g1").hide();
+	    $("#x1").show();
+	})
+	$("#j3").click(function(){
+		$("#x1").hide();
+	    $("#g1").hide();
+	    $("#y1").show();
+	})
+})
