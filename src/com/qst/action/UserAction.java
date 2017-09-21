@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 @Component
 //kaid
 public class UserAction extends ActionSupport{
-//aeouth1123
+//aeouth1123123212213
 	@Resource
 	private UserService userService;
 
