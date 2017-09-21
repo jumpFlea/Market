@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @Component
-//kaid
 public class UserAction extends ActionSupport{
-//aeouth1123123212213
 	@Resource
 	private UserService userService;
 
