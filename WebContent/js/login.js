@@ -50,7 +50,7 @@ function login() {
         method: 'post',
         data: $('#login-form').serialize(),
         success:function (data) {
-            if(data === "yes\n"){
+            if(data.search("yes") !== -1){
                 $('#login').find('h1').text("登录成功, 跳转中......");
                 setTimeout(refresh,2000);
             }
@@ -69,7 +69,7 @@ function signup() {
         method: 'post',
         data: $('#signup-form').serialize()
     }).done(function (data) {
-        if(data === "yes\n"){
+        if(data.search("yes") !== -1){
             $('#signup').find('h1').text("注册成功, 刷新中......");
             setTimeout(refresh,2000);
         }
