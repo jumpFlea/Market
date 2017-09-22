@@ -91,7 +91,7 @@ public class shopcarAction {
 	{
 		HttpServletRequest request=ServletActionContext.getRequest();
 		HttpSession session =request.getSession();
-		int ordernumber =(int) request.getAttribute("ordernumber");
+		long ordernumber =(long) request.getAttribute("ordernumber");
 		int uid=(int) session.getAttribute("uid");
 		ArrayList<Integer> arrayList =orderService.getgid(ordernumber);
 		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
@@ -100,7 +100,7 @@ public class shopcarAction {
 			goods=goodsService.getAllgoods(integer);
 			arrayList2.add(goods);
 		}
-		session.setAttribute("goodlist", arrayList2);
+		session.setAttribute("goodlist1", arrayList2);
 		return "dyj";
 	}
 

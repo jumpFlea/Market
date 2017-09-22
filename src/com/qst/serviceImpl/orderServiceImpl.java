@@ -29,7 +29,7 @@ public class orderServiceImpl implements orderService {
 		return orderDao.creatorder_good(ordernumber,g_id,prince,og_num);
 	}
 
-	public ArrayList<Integer> getgid(int ordernumber) {
+	public ArrayList<Integer> getgid(long ordernumber) {
 		
 		return orderDao.getgid(ordernumber);
 	}

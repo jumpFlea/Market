@@ -11,7 +11,7 @@
 </insert>
 
 <select id="getgid" parameterType="java.lang.Long" resultType="int">
-	select g_id from order_gooods where ordernumber=#{ordernumber};
+	select g_id from order_goods where ordernumber=#{ordernumber};
 </select>
 
 

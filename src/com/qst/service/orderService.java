@@ -9,7 +9,7 @@ public interface orderService {
 	int creatorder_good(long ordernumber,int g_id,float prince, int og_num);//创建order_good表
 
 	//void creatorder_good(Long ordernumber, int g_id, float prince, int og_num);
-	ArrayList<Integer> getgid(int ordernumber);
+	ArrayList<Integer> getgid(long ordernumber);
 	
 	
 }

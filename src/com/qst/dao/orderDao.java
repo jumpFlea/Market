@@ -10,6 +10,6 @@ public interface orderDao {
 	
 	public int creatorder_good(@Param("ordernumber") long ordernumber,@Param("g_id") int g_id,@Param("prince") float prince, @Param("og_num") int og_num);
 	
-	public ArrayList<Integer> getgid(int getOrderItem);
+	public ArrayList<Integer> getgid(long getOrderItem);
 
 }
