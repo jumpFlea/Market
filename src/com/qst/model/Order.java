@@ -5,60 +5,92 @@ package com.qst.model;
  * Email: tomatofrommars@gmail.com
  */
 public class Order {
-	private Integer id;
-	private Integer userId;
-	private Integer payType;
+	private Integer o_id;
+	private Integer u_id;
+	private Integer pay_type;
+	private String message;
+	private String evaluate;
+	private String reply;
+	private long ordernumber;
+	
+	@Override
+	public String toString() {
+		return "Order [o_id=" + o_id + ", u_id=" + u_id + ", pay_type=" + pay_type + ", message=" + message
+				+ ", evaluate=" + evaluate + ", reply=" + reply + ", ordernumber=" + ordernumber + "]";
+	}
 
+	
 	public Order() {
 	}
 
-	public Order(Integer id, Integer userId, Integer payType) {
-		this.id = id;
-		this.userId = userId;
-		this.payType = payType;
+
+	public Integer getO_id() {
+		return o_id;
 	}
 
-	public Integer getId() {
-		return id;
+	public void setO_id(Integer o_id) {
+		this.o_id = o_id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Integer getU_id() {
+		return u_id;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public void setU_id(Integer u_id) {
+		this.u_id = u_id;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public Integer getPay_type() {
+		return pay_type;
 	}
 
-	public Integer getPayType() {
-		return payType;
+	public void setPay_type(Integer pay_type) {
+		this.pay_type = pay_type;
 	}
 
-	public void setPayType(Integer payType) {
-		this.payType = payType;
+	public String getMessage() {
+		return message;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Order)) return false;
-
-		Order order = (Order) o;
-
-		if (!id.equals(order.id)) return false;
-		if (userId != null ? !userId.equals(order.userId) : order.userId != null) return false;
-		return payType != null ? payType.equals(order.payType) : order.payType == null;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
-	@Override
-	public int hashCode() {
-		int result = id.hashCode();
-		result = 31 * result + (userId != null ? userId.hashCode() : 0);
-		result = 31 * result + (payType != null ? payType.hashCode() : 0);
-		return result;
+	public String getEvaluate() {
+		return evaluate;
 	}
+
+	public void setEvaluate(String evaluate) {
+		this.evaluate = evaluate;
+	}
+
+	public String getReply() {
+		return reply;
+	}
+
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+
+	public Order(Integer o_id, Integer u_id, Integer pay_type, String message, String evaluate, String reply,
+			Integer ordernumber) {
+		super();
+		this.o_id = o_id;
+		this.u_id = u_id;
+		this.pay_type = pay_type;
+		this.message = message;
+		this.evaluate = evaluate;
+		this.reply = reply;
+		this.ordernumber = ordernumber;
+	}
+
+	public long getOrdernumber() {
+		return ordernumber;
+	}
+
+	public void setOrdernumber(Integer ordernumber) {
+		this.ordernumber = ordernumber;
+	}
+
+
 }

@@ -5,13 +5,13 @@ package com.qst.model;
  * Email: tomatofrommars@gmail.com
  */
 public class Goods {
-	private Integer id;
-	private Double price;
-	private String name;
-	private String attribute;
-	private Integer userId;
-	private Integer imageId;
-	private Integer restNum;
+	private Integer g_id;
+	private Double g_price;
+	private String g_name;
+	private String g_attribute;
+	private Integer u_id;
+	private Integer image_id;
+	private Integer restnum;
 	private String introduce;
 	
 	public Goods() {
@@ -19,104 +19,120 @@ public class Goods {
 
 
 
-	public Goods(Integer id, Double price, String name, String attribute, Integer userId, Integer imageId,
-			Integer restNum, String introduce) {
+	
+	public Goods(Integer g_id, Double g_price, String g_name, String g_attribute, Integer u_id, Integer image_id,
+			Integer restnum, String introduce) {
 		super();
-		this.id = id;
-		this.price = price;
-		this.name = name;
-		this.attribute = attribute;
-		this.userId = userId;
-		this.imageId = imageId;
-		this.restNum = restNum;
+		this.g_id = g_id;
+		this.g_price = g_price;
+		this.g_name = g_name;
+		this.g_attribute = g_attribute;
+		this.u_id = u_id;
+		this.image_id = image_id;
+		this.restnum = restnum;
 		this.introduce = introduce;
 	}
 
 
 
-	public Integer getId() {
-		return id;
+
+	public Integer getG_id() {
+		return g_id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+
+
+	public void setG_id(Integer g_id) {
+		this.g_id = g_id;
 	}
 
-	public Double getPrice() {
-		return price;
+
+
+
+	public Double getG_price() {
+		return g_price;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+
+
+
+	public void setG_price(Double g_price) {
+		this.g_price = g_price;
 	}
 
-	public String getName() {
-		return name;
+
+
+
+	public String getG_name() {
+		return g_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+
+
+	public void setG_name(String g_name) {
+		this.g_name = g_name;
 	}
 
-	public String getAttribute() {
-		return attribute;
+
+
+
+	public String getG_attribute() {
+		return g_attribute;
 	}
 
-	public void setAttribute(String attribute) {
-		this.attribute = attribute;
+
+
+
+	public void setG_attribute(String g_attribute) {
+		this.g_attribute = g_attribute;
 	}
 
-	public Integer getUserId() {
-		return userId;
+
+
+
+	public Integer getU_id() {
+		return u_id;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+
+
+
+	public void setU_id(Integer u_id) {
+		this.u_id = u_id;
 	}
 
-	public Integer getImageId() {
-		return imageId;
+
+
+
+	public Integer getImage_id() {
+		return image_id;
 	}
 
-	public void setImageId(Integer imageId) {
-		this.imageId = imageId;
+
+
+
+	public void setImage_id(Integer image_id) {
+		this.image_id = image_id;
 	}
 
-	public Integer getRestNum() {
-		return restNum;
+
+
+
+	public Integer getRestnum() {
+		return restnum;
 	}
 
-	public void setRestNum(Integer restNum) {
-		this.restNum = restNum;
+
+
+
+	public void setRestnum(Integer restnum) {
+		this.restnum = restnum;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Goods)) return false;
 
-		Goods goods = (Goods) o;
 
-		if (!id.equals(goods.id)) return false;
-		if (price != null ? !price.equals(goods.price) : goods.price != null) return false;
-		if (name != null ? !name.equals(goods.name) : goods.name != null) return false;
-		if (attribute != null ? !attribute.equals(goods.attribute) : goods.attribute != null) return false;
-		if (userId != null ? !userId.equals(goods.userId) : goods.userId != null) return false;
-		if (imageId != null ? !imageId.equals(goods.imageId) : goods.imageId != null) return false;
-		return restNum != null ? restNum.equals(goods.restNum) : goods.restNum == null;
-	}
-
-	@Override
-	public int hashCode() {
-		int result = id.hashCode();
-		result = 31 * result + (price != null ? price.hashCode() : 0);
-		result = 31 * result + (name != null ? name.hashCode() : 0);
-		result = 31 * result + (attribute != null ? attribute.hashCode() : 0);
-		result = 31 * result + (userId != null ? userId.hashCode() : 0);
-		result = 31 * result + (imageId != null ? imageId.hashCode() : 0);
-		result = 31 * result + (restNum != null ? restNum.hashCode() : 0);
-		return result;
-	}
 
 	public String getIntroduce() {
 		return introduce;
