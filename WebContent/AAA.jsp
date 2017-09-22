@@ -9,7 +9,7 @@
 <body>
 	<%
 		int uid = 2;
-		session.setAttribute("uid", uid); 
+		session.setAttribute("uid", uid);  
 	%>
 	<a href="getshopcargoods">我的购物车</a>
 </body>
