@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 
 @Component
 public class UserAction extends ActionSupport{
-
 	@Resource
 	private UserService userService;
 
