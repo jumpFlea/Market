@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.orderDao">
+
+<insert id="creatorder">
+	insert into `order` (u_id,ordernumber) values (#{u_id},#{ordernumber});
+</insert>
+
+<insert id="creatorder_good">
+	insert into order_goods (ordernumber,g_id,prince,og_num) values(#{ordernumber},#{g_id},#{prince},#{og_num});
+</insert>
+
+<select id="getoid" parameterType="int" resultType="int" >
+	select o_id from order where u_id=#{u_id}
+</select>
+
+
+</mapper>

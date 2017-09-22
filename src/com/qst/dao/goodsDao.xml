@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.goodsDao">
+<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
+	
+	<!--将获取到的g_id,u_id 插入到 购物车中 -->
+	<insert id="setInShopcar" parameterType="int" >
+		insert into shopcar_goods (g_id,u_id) values(#{g_id},#{u_id});
+	</insert>
+	
+	<!--通过用户id 查找商品id 从购物车中  -->
+	<select id="get_gid" parameterType="int" resultType="Integer"> 
+		select g_id from shopcar_goods where u_id=#{u_id} ;
+	</select>
+	
+	<!--通过商品id查找 所有商品详细信息 返回一个list集合  -->
+	<select id="getAllgoods" parameterType="int" resultType="Goods">
+		select * from goods where g_id=#{g_id};
+	</select>
+	
+	<!--通过 image_id 查找所有的imageUrl 返回一个list集合 -->
+	<select id ="getImageUrl" parameterType="int" resultType="List">
+		select * from image where image_id=#{image_id};
+	</select>
+</mapper>

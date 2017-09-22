@@ -19,7 +19,7 @@
 	<!-- 1. 数据源 : DriverManagerDataSource -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://45.32.64.26:3306/fleamarket?useUnicode=true&amp;characterEncoding=utf8" />
+		<property name="url" value="jdbc:mysql://139.199.10.223:3306/fleamarket?useUnicode=true&amp;characterEncoding=utf8" />
 		<property name="username" value="flea" />
 		<property name="password" value="market" />
 	</bean>
