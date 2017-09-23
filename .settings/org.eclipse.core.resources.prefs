@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//WebContent/AAA.jsp=UTF-8
 encoding//WebContent/shopcar.jsp=UTF-8
 encoding/<project>=UTF-8
+=======
+encoding//WebContent/css/index_1.css=UTF-8
+encoding//src/com/qst/serviceImpl/UserServiceImpl.java=UTF-8
+>>>>>>> dy
