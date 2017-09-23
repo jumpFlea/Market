@@ -19,6 +19,7 @@
 			<result name="diao">shopcar.jsp</result>
 		</action>
 
+
 		<action name="setGoodinOrder" class="com.qst.action.shopcarAction"
 			method="setGoodinOrder" >
 			<result name="order" type="chain">getOrderItem</result>
