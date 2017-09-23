@@ -73,7 +73,7 @@
 					</div>
 				</li>
 				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl">
+				<li class="fl"
 					<div class="menu">
 						<div class="menu_hd">
 							<a href="#">网站导航</a><b><em></em></b>
@@ -233,6 +233,8 @@
 							</div>
 							<div class="box-bd">
 								<div class="clearfix xm-address-list" id="checkoutAddrList">
+								
+								<c:forEach items="${User}" var="user">
 									<dl class="item">
 										<dt>
 											<strong class="itemConsignee">潘骏杰</strong> <span
@@ -249,6 +251,8 @@
 												class="addressId" value="10140916720030323">
 										</dd>
 									</dl>
+									
+									</c:forEach>
 									<div class="item use-new-addr" id="J_useNewAddr"
 										data-state="off">
 										<span class="iconfont icon-add"><img

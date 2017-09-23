@@ -15,6 +15,8 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
 import com.qst.model.Goods;
+import com.qst.model.User;
+import com.qst.service.UserService;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
 
@@ -25,7 +27,9 @@ public class shopcarAction {
 	private goodsService goodsService;
 	@Resource
 	private orderService orderService;
-
+	@Resource
+	private UserService userService;
+	
 	public orderService getOrderService() {
 		return orderService;
 	}
@@ -35,13 +39,20 @@ public class shopcarAction {
 	}
 
 	
-
 	public goodsService getGoodsService() {
 		return goodsService;
 	}
 
 	public void setGoodsService(goodsService goodsService) {
 		this.goodsService = goodsService;
+	}
+	
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 
 	public String  setGoodinOrder() {
@@ -100,8 +111,14 @@ public class shopcarAction {
 			goods=goodsService.getAllgoods(integer);
 			arrayList2.add(goods);
 		}
-		session.setAttribute("goodlist1", arrayList2);
+		
+		User user =userService.findUserbyID(uid);
+		String  address=user.getAddress();
+		request.setAttribute("goodlist1", arrayList2);
+		request .setAttribute("adress", address);
 		return "dyj";
 	}
+
+
 
 }
