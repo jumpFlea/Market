@@ -15,7 +15,7 @@ public class IndexShowAction extends ActionSupport{
 	@Resource
 	private IndexShowService indexShowService;
 	int page=1;
-	int sum =0;
+	/*int sum =0;*/
 
 //	HttpServletRequest request = ServletActionContext.getRequest();
 
@@ -29,11 +29,10 @@ public class IndexShowAction extends ActionSupport{
 
 	public String indexShow(){
 		List<Image> image =indexShowService.indexShow(page);
-		sum=indexShowService.findImageNum();
 		if(image!=null){
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.setAttribute("imageList",image);
-			request.setAttribute("sumNum",sum);
+			/*request.setAttribute("sumNum",sum);*/
 			return SUCCESS;
 		}else
 			return ERROR;

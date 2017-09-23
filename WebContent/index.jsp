@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -10,7 +11,7 @@
 		<link href="css/index_2.css" type="text/css" rel="stylesheet">
 	</head>
 	<body>
-		<div id="o1">
+	<div id="o1">
 		    <div id="top">
 				<div class="shortcut_v2013 alink_v2013">
 			<div class="w">
@@ -36,10 +37,14 @@
 					</li>
 					<li class="fl">
 						<div class="menu_hd">
-							<a href="login.html">请登录</a>
+							<a href="login">请登录</a>
 						</div>
 					</li>
-				
+					<li class="fl">
+						<div class="menu_hd">
+							<a href="#">免费注册</a>
+						</div>
+					</li>
 				</ul>
 				<ul class="fr 1h">
 					<li class="fl">
@@ -88,18 +93,20 @@
 		</div>
 
 			</div>
-			<div id="middle">
-				<div id="middle_01"><img src="img/index/logo.jpg" height="50" width="120" class="img-rounded" /></div>
-				<div id="middle_02">
+		
+		<!--中间的搜索-->
+		<div id="middle">
+				<div id="middle_01"><!--<img src="img/logo.jpg" height="50" width="120" class="img-rounded" />--></div>
 					<div id="middle_03">
 	                    <div id="middle_in"><form><input type="text" style="height: 32px;width: 400px;"></form></div>
-	                    <div id="middle_04">搜索</div>
+	                    <div id="middle_04"><a href="#">搜索</a></div>
 	                    <div class="clearFloat"></div>
 
 	
                     </div>
                 <div id="middle_05">
 						
+				</div>
 				</div>
 				
 				<div class="clearFloat"></div>
@@ -216,13 +223,15 @@
 			<!--图片展示区-->
 			<div id="g1">
 				<ul>
+				<c:forEach items="${imageList}" var="ima">
 					<li>
-						<img src="img/perfume/01.jpg" height="220" width="220">
+					
+						<img src="${pageContext.request.contextPath}/${ima.url1}" height="220" width="220">
 							A075迪奥 真我香水5ml<p class="my_price">￥58.8</p>
 					</li>
+					</c:forEach>
 				</ul>
 			</div>
-			
 			<div id="x1">
 				<ul>
 					<li>
@@ -240,7 +249,14 @@
 				</ul>
 			</div>
 			
-			<!--首页底层-->
+			<div id="page">
+				<a href="#">上一页</a>
+				<a href="#">下一页</a>
+			</div>
+			
+			
+			
+			
 			<div id="a7">
 				<div id="mybottom_top">
 				<div id="top_in01">
@@ -267,8 +283,7 @@
 							<td width="200" height="40"class="ban_title"><a href="">关于我们</a></td>
 							<td width="200" height="40"class="ban_title"><a href="">帮助中心</a></td>
 							<td width="200" height="40"class="ban_title"><a href="">免费开店</a></td>
-							<td width="280" height="40"class="ban_title"><img src="img/index/image82.jpg" height="40" width="100">
-								</td>
+							<td width="280" height="40"class="ban_title"><img src="img/index/image82.jpg" height="40" width="100"></td>
 						</tr>
 						<tr>
 							<td width="200" height="40"class="ban_title"><a href="">招聘信息</a></td>
@@ -291,11 +306,14 @@
 					</table>
 				</div>
 			</div>
+			
+
 			<div id="mybottom_under">
 				<p class="ban_title">友情链接:&nbsp; &nbsp;淘粉吧&nbsp;&nbsp; &nbsp;爱尚网购团购网&nbsp;&nbsp; &nbsp;爱尚网购女装&nbsp;&nbsp; &nbsp;爱尚网购男装&nbsp;&nbsp; &nbsp;爱尚网购鞋子&nbsp;&nbsp; &nbsp;爱尚网购包包&nbsp;&nbsp; &nbsp;爱尚网购家居&nbsp;&nbsp; &nbsp;家具网&nbsp;&nbsp; &nbsp;时尚品牌网&nbsp;&nbsp; &nbsp;装修&nbsp;&nbsp;
 					&nbsp;爱尚网购母婴&nbsp;&nbsp; &nbsp;衣联网&nbsp;&nbsp; &nbsp;播视网视频
 				</p>
 			</div>
+		</div>
 		</div>
 		<!--引用js文件 -->
 		<script src="js/jquery-3.2.1.min.js"></script>

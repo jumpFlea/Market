@@ -14,11 +14,17 @@
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
 
+		<!-- 界面显示的图片,及分页的效果 -->
+		<action name="indexShow" class="indexShowAction" method="indexShow">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
 		<action name="getshopcargoods" class="com.qst.action.shopcarAction"
 			method="getshopcargoods">
 			<result name="diao">shopcar.jsp</result>
 		</action>
-
 
 		<action name="setGoodinOrder" class="com.qst.action.shopcarAction"
 			method="setGoodinOrder" >
@@ -29,6 +35,8 @@
 			method="getOrderItem">
 			<result name="dyj">order.jsp</result>
 		</action>
+		
+		
 
 	</package>
 
