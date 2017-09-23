@@ -14,4 +14,8 @@
 		SELECT * FROM usertable
 		WHERE username = #{username}
 	</select>
+	
+	<select id="findUserbyID"  parameterType="int " resultType="com.qst.model.User">
+			select * from usertable where u_id=#{uid};
+	</select>
 </mapper>
