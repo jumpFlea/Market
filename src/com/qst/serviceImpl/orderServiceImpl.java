@@ -1,5 +1,7 @@
 package com.qst.serviceImpl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,11 @@ public class orderServiceImpl implements orderService {
 
 	public int creatorder_good(long ordernumber,int g_id,float prince, int og_num) {
 		return orderDao.creatorder_good(ordernumber,g_id,prince,og_num);
+	}
+
+	public ArrayList<Integer> getgid(long ordernumber) {
+		
+		return orderDao.getgid(ordernumber);
 	}
 
 

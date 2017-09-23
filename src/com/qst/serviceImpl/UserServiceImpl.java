@@ -13,13 +13,13 @@ public class UserServiceImpl implements UserService {
 	private UserDao dao;
 
 	//用户登录
-	@Override
+
 	public User login(User user) {
-		// TODO Auto-generated method stub
+	
 		return dao.login(user);
 	}
 
-	@Override
+
 	public User add(User user) {
 		User exist = dao.findByName(user.getUsername());
 		if( exist == null ){
@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
 		else {
 			return null;
 		}
+	}
+
+
+	public User findUserbyID(int uid) {
+		
+		return dao.findUserbyID(uid);
 	}
 
 }

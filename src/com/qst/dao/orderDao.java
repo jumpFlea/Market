@@ -1,5 +1,7 @@
 package com.qst.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface orderDao {
@@ -8,7 +10,6 @@ public interface orderDao {
 	
 	public int creatorder_good(@Param("ordernumber") long ordernumber,@Param("g_id") int g_id,@Param("prince") float prince, @Param("og_num") int og_num);
 	
-	public int getoid(int u_id);//通過用戶id得到訂單id
-	
+	public ArrayList<Integer> getgid(long getOrderItem);
 
 }
