@@ -1,26 +1,24 @@
 package com.qst.action;
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.Image;
 import com.qst.service.IndexShowService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Component
 public class IndexShowAction extends ActionSupport{
-	
+
 	@Resource
 	private IndexShowService indexShowService;
 	int page=1;
 	int sum =0;
-	
+
 //	HttpServletRequest request = ServletActionContext.getRequest();
-	
+
 	public int getPage() {
 		return page;
 	}
@@ -38,10 +36,10 @@ public class IndexShowAction extends ActionSupport{
 			request.setAttribute("sumNum",sum);
 			return SUCCESS;
 		}else
-			return ERROR;		
+			return ERROR;
 	}
-	
-/*	//µÃµ½Í¼Æ¬×ÜµÄÊýÄ¿£¬·½±ãÏÔÊ¾¼¸Ò³
+
+/*	//å¾—åˆ°å›¾ç‰‡æ€»çš„æ•°ç›®ï¼Œæ–¹ä¾¿æ˜¾ç¤ºå‡ é¡µ
 	public String sumNum(){
 		sum=indexShowService.findImageNum();
 		if(sum!=0){
@@ -51,9 +49,9 @@ public class IndexShowAction extends ActionSupport{
 		}else{
 			return ERROR;
 		}
-		
+
 	}*/
-	
+
 
 	public IndexShowService getIndexShowService() {
 		return indexShowService;
