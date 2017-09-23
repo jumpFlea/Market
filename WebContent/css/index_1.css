@@ -26,11 +26,15 @@ body {
 	width: 1346px;
 	/*border: solid 1px black;*/
 	/*margin-left: 40px;*/
+	background-color: #F9F9F9;
 }
 
+//gen
 #top {
 	height: 30px;
-	border: solid #CCC 1px;
+	
+	/*border: solid #CCC 5px;*/
+	background-color: red;
 }
 
 #top_01 {
@@ -81,32 +85,31 @@ body {
 	font-weight: bolder;
 }
 
+//gen
 #middle {
-	height: 130px;
-	/*border: solid 1px black;*/
-	/*border:solid #CCC 1px;*/
+	height:500px;
+	margin-top: 50px;
+	margin-left: 10px;
+	width:100%;
+	border: solid 20px black;
 }
 
 #middle_01 {
-	height: 120px;
-	width: 400px;
-	margin-top:50px;
+	height: 50px;
+	width: 120px;
+	margin-top: 50px;
+	margin-left: 200px;
 	float: left;
-	/*border: solid 1px black;*/
-}
-
-#middle_02 {
-	height: 120px;
-	width: 570px;
-	float: left;
+	background-image: url(../img/index/logo.jpg);
 	/*border: solid 1px black;*/
 }
 
 #middle_03 {
 	height: 35x;
-	width: 470px;
+	width: 500px;
+	float:left;
 	margin-top: 60px;
-	margin-left: 60px;
+	margin-left:100px;
 	/*border: solid 1px black;*/
 	/*border: solid 1px #CCCCCC;*/
 }
@@ -115,7 +118,7 @@ body {
 	height: 32px;
 	width: 400px;
 	float: left;
-	border: solid 1px #CCCCCC;
+	border: solid px #CCCCCC;
 }
 
 #middle_04 {
@@ -181,10 +184,10 @@ body {
 
 #m1 {
 	height: 250px;
-	width: 1260px;
-	margin-left: -350px;
+	width: 95%;
 	margin-top: 10px;
-	border: solid 1px #CCCCCC;
+	
+	/* border: solid 2px #CCCCCC; */
 }
 
 #m01 {
@@ -208,8 +211,8 @@ body {
 
 #m02 {
 	height: 250px;
-	width: 1150px;
-	float: left;
+	width:100%;
+	/* float: left; */
 	/*border: solid 1px black;*/
 }
 
@@ -266,7 +269,8 @@ body {
 #i3 {
 	height: 40px;
 	width: 1260px;
-	margin-left: -350px;
+	/*margin-left: -350px;*/
+	margin-left:20px;
 	margin-top: 40px;
 	float: left;
 	color: black;
@@ -357,12 +361,13 @@ body {
 #g1 {
 	height: 1200px;
 	width: 1260px;
-	margin-left: -350px;
-	margin-top: 20px;
-	float: left;
+	/*margin-left: -350px;*/
+	margin-left:20px;
+	margin-top: 100px;
+	/*float: left;*/
 	color: black;
 	cursor: pointer;
-	/*border: solid 1px black;*/
+	/* border: solid 10px black; */
 }
 
 #g1 ul li {
@@ -395,7 +400,8 @@ body {
 #x1 {
 	height: 1200px;
 	width: 1260px;
-	margin-left: -350px;
+/*	margin-left: -350px;*/
+	margin-left:20px;
 	margin-top: 20px;
 	float: left;
 	color: black;
@@ -420,7 +426,8 @@ body {
 #y1 {
 	height: 1200px;
 	width: 1260px;
-	margin-left: -350px;
+/*	margin-left: -350px;*/
+	margin-left:20px;	
 	margin-top: 20px;
 	float: left;
 	color: black;
@@ -442,13 +449,21 @@ body {
 	/*border: solid 1px black;*/
 }
 
+#page {
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	text-align: center;
+}
+
 #a7 {
 	height: 400px;
 	width: 1330px;
-	margin-left: -400px;
-	margin-top: 1360px;
+	/*margin-left: -400px;*/
+	/*margin-left: 20px;*/
+	margin-top:80px;
 	background-color: #ccc;
-	border: solid gainsboro 1px;
+	border: solid gainsboro 20px;
 }
 
 #mybottom_top {
@@ -519,3 +534,6 @@ body {
 	display: block;
 	margin-left: 300px;
 }
+
+
+

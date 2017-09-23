@@ -3,9 +3,10 @@
 <mapper namespace="com.qst.dao.IndexShowDao">
 
 	<!--寻找图片地址的语句,用来显示到index界面-->
-	<select id="indexShow" parameterType="int"   resultType="Image">
-		select * from image limit #{page},20;
+	<select id="indexShow" parameterType="Page"   resultType="Image">
+		select * from image limit #{currentPage},#{limitPage};
 	</select>
+	
 	
 	<select id="findImageNum" resultType="int">
 		select count(image_id) from image;

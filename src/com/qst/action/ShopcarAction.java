@@ -20,7 +20,7 @@ import com.qst.service.orderService;
 
 
 @Component
-public class shopcarAction {
+public class ShopcarAction {
 	@Resource
 	private goodsService goodsService;
 	@Resource
