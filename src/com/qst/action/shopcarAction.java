@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.NativeWebRequest;
 
 import com.qst.model.Goods;
+import com.qst.model.Image;
 import com.qst.model.User;
 import com.qst.service.UserService;
 import com.qst.service.goodsService;
@@ -107,21 +108,21 @@ public class shopcarAction {
 		int uid=(int) session.getAttribute("uid");
 		ArrayList<Integer> arrayList =orderService.getgid(ordernumber);
 		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
-		ArrayList<String> image=new ArrayList<String>(); 
 		Goods goods;
-		long goodsnumber;
+		Image image;
+		ArrayList<Image> imageslist =new ArrayList<Image>();
 		for (Integer integer : arrayList) {
 			goods=goodsService.getAllgoods(integer);
-			goodsnumber=goods.getGoodsnumber();
-			arrayList2.add(goods);
-			
+			image= goodsService.getImage(goods.getGoodsnumber());
+			imageslist.add(image);
+			arrayList2.add(goods);		
 		}
 		
 		User user =userService.findUserbyID(uid);
 		String  address=user.getAdress();
 		request.setAttribute("goodlist1", arrayList2);
 		request .setAttribute("User", user);
-		
+		request.setAttribute("imagelist", imageslist);
 		return "dyj";
 	}
 
