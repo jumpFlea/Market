@@ -13,6 +13,7 @@ public class Goods {
 	private Integer image_id;
 	private Integer restnum;
 	private String introduce;
+	private long goodsnumber ;
 	
 	public Goods() {
 	}
@@ -140,5 +141,19 @@ public class Goods {
 
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
+	}
+
+
+
+
+	public long getGoodsnumber() {
+		return goodsnumber;
+	}
+
+
+
+
+	public void setGoodsnumber(long goodsnumber) {
+		this.goodsnumber = goodsnumber;
 	}
 }

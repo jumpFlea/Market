@@ -1,3 +1,4 @@
+<%@page import="com.qst.model.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -73,7 +74,7 @@
 					</div>
 				</li>
 				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl"
+				<li class="fl">
 					<div class="menu">
 						<div class="menu_hd">
 							<a href="#">网站导航</a><b><em></em></b>
@@ -234,16 +235,15 @@
 							<div class="box-bd">
 								<div class="clearfix xm-address-list" id="checkoutAddrList">
 								
-								<c:forEach items="${User}" var="user">
+								
 									<dl class="item">
 										<dt>
-											<strong class="itemConsignee">潘骏杰</strong> <span
+											<strong class="itemConsignee"><c:out value="${User. username}"></c:out></strong> <span
 												class="itemTag tag">家</span>
 										</dt>
 										<dd>
-											<p class="tel itemTel">15961726437</p>
-											<p class="itemRegion">江苏 无锡市 北塘区</p>
-											<p class="itemStreet">民丰西苑82号202室(214045)</p>
+											<p class="tel itemTel"><c:out value="${User.adress }"></c:out></p>
+											
 											<span class="edit-btn J_editAddr">编辑</span>
 										</dd>
 										<dd style="display: none">
@@ -252,7 +252,8 @@
 										</dd>
 									</dl>
 									
-									</c:forEach>
+									
+									
 									<div class="item use-new-addr" id="J_useNewAddr"
 										data-state="off">
 										<span class="iconfont icon-add"><img
@@ -484,7 +485,7 @@
 														<div class="col col-1">
 															<div class="g-pic">
 																<img
-																	src="http://i1.mifile.cn/a1/T11lLgB5YT1RXrhCrK!40x40.jpg"
+																	src="images/index/image01.jpg"
 																	srcset="http://i1.mifile.cn/a1/T11lLgB5YT1RXrhCrK!80x80.jpg 2x"
 																	width="40" height="40" />
 															</div>

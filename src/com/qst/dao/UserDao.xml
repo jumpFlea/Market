@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.qst.dao.UserDao">
+
 	<insert id="add" parameterType="User" >
 		INSERT INTO usertable (username, psw, email,state_type, adress, integral)
 		VALUES (#{username},#{psw},#{email},#{stateType},#{address},#{integral})
@@ -10,12 +12,14 @@
 		select * from
 		usertable where username = #{username} and psw = #{psw}
 	</select>
+	
 	<select id="findByName" resultType="com.qst.model.User" parameterType="string">
 		SELECT * FROM usertable
 		WHERE username = #{username}
 	</select>
 	
-	<select id="findUserbyID"  parameterType="int " resultType="com.qst.model.User">
-			select * from usertable where u_id=#{uid};
+	 <select id="findByID"  parameterType="Integer" resultType="User">
+			select * from usertable where uid=#{uid};
 	</select>
+	 
 </mapper>

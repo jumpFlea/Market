@@ -3,6 +3,7 @@ package com.qst.dao;
 import java.util.ArrayList;
 
 import com.qst.model.Goods;
+import com.qst.model.Image;
 
 public interface goodsDao {
 
@@ -14,5 +15,5 @@ public interface goodsDao {
 	
 	 ArrayList<String> getImageUrl(int image_id);
 	 
-	 
+	 Image getImage(long goodsnumber);
 }
