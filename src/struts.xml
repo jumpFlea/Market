@@ -4,22 +4,31 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、
-更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
-通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false.  -->
+	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false. 
+		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
 	<!--Struts 2的Action都必须配置在package里,此处使用默认package -->
 	<package name="a" namespace="/" extends="struts-default">
 
-		<action name="login" class="userAction" method="login"/>
-		<action name="signup" class="userAction" method="signup"/>
-		<action name ="setGoodinOrder" class="com.qst.action.shopcarAction" method="setGoodinOrder"/>
-		
-		<action name="getshopcargoods" class="com.qst.action.shopcarAction" method="getshopcargoods" >
-		<result name="diao">shopcar.jsp</result>
+		<action name="login" class="userAction" method="login" />
+		<action name="signup" class="userAction" method="signup" />
+
+		<action name="getshopcargoods" class="com.qst.action.shopcarAction"
+			method="getshopcargoods">
+			<result name="diao">shopcar.jsp</result>
 		</action>
-		
+
+		<action name="setGoodinOrder" class="com.qst.action.shopcarAction"
+			method="setGoodinOrder" >
+			<result name="order" type="chain">getOrderItem</result>
+		</action>
+
+		<action name="getOrderItem" class="com.qst.action.shopcarAction"
+			method="getOrderItem">
+			<result name="dyj">order.jsp</result>
+		</action>
+
 	</package>
 
 

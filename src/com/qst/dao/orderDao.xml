@@ -10,9 +10,10 @@
 	insert into order_goods (ordernumber,g_id,prince,og_num) values(#{ordernumber},#{g_id},#{prince},#{og_num});
 </insert>
 
-<select id="getoid" parameterType="int" resultType="int" >
-	select o_id from order where u_id=#{u_id}
+<select id="getgid" parameterType="java.lang.Long" resultType="int">
+	select g_id from order_goods where ordernumber=#{ordernumber};
 </select>
+
 
 
 </mapper>
