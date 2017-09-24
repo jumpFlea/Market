@@ -9,5 +9,5 @@ public interface UserDao {
 
 	User findByName(String username);
 	
-	User findUserbyID(int uid);
+	User findByID(Integer uid);
 }

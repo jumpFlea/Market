@@ -10,9 +10,11 @@ public class Goods {
 	private String g_name;
 	private String g_attribute;
 	private Integer u_id;
-	private Integer image_id;
 	private Integer restnum;
 	private String introduce;
+	private long goodsnumber ;
+	private String image_zhanshi;
+	
 	
 	public Goods() {
 	}
@@ -20,17 +22,17 @@ public class Goods {
 
 
 	
-	public Goods(Integer g_id, Double g_price, String g_name, String g_attribute, Integer u_id, Integer image_id,
-			Integer restnum, String introduce) {
+	public Goods(Integer g_id, Double g_price, String g_name, String g_attribute, Integer u_id,
+			Integer restnum, String introduce,String image_zhanshi) {
 		super();
 		this.g_id = g_id;
 		this.g_price = g_price;
 		this.g_name = g_name;
 		this.g_attribute = g_attribute;
 		this.u_id = u_id;
-		this.image_id = image_id;
 		this.restnum = restnum;
 		this.introduce = introduce;
+		this.image_zhanshi =image_zhanshi;
 	}
 
 
@@ -105,21 +107,6 @@ public class Goods {
 
 
 
-
-	public Integer getImage_id() {
-		return image_id;
-	}
-
-
-
-
-	public void setImage_id(Integer image_id) {
-		this.image_id = image_id;
-	}
-
-
-
-
 	public Integer getRestnum() {
 		return restnum;
 	}
@@ -140,5 +127,33 @@ public class Goods {
 
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
+	}
+
+
+
+
+	public long getGoodsnumber() {
+		return goodsnumber;
+	}
+
+
+
+
+	public void setGoodsnumber(long goodsnumber) {
+		this.goodsnumber = goodsnumber;
+	}
+
+
+
+
+	public String getImage_zhanshi() {
+		return image_zhanshi;
+	}
+
+
+
+
+	public void setImage_zhanshi(String image_zhanshi) {
+		this.image_zhanshi = image_zhanshi;
 	}
 }

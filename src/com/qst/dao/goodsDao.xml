@@ -22,4 +22,8 @@
 	<select id ="getImageUrl" parameterType="int" resultType="List">
 		select * from image where image_id=#{image_id};
 	</select>
+	
+	 <select id="getImage" parameterType="java.lang.Long" resultType="Image">
+		select * from image where goodsnumber=#{goodsnumber};
+	</select> 
 </mapper>

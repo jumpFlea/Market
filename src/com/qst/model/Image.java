@@ -5,29 +5,35 @@ package com.qst.model;
  * Email: tomatofrommars@gmail.com
  */
 public class Image {
-	private Integer id;
+	private Integer image_id;
 	private String url1;
 	private String url2;
 	private String url3;
 	private String url4;
+	private long goodsnumber;
+	
 
 	public Image() {
 	}
 
-	public Image(Integer id, String url1, String url2, String url3, String url4) {
-		this.id = id;
+
+	public Image(Integer image_id, String url1, String url2, String url3, String url4, long goodsnumber) {
+		super();
+		this.image_id = image_id;
 		this.url1 = url1;
 		this.url2 = url2;
 		this.url3 = url3;
 		this.url4 = url4;
+		this.goodsnumber = goodsnumber;
 	}
 
+
 	public Integer getId() {
-		return id;
+		return image_id;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.image_id = id;
 	}
 
 	public String getUrl1() {
@@ -69,7 +75,7 @@ public class Image {
 
 		Image image = (Image) o;
 
-		if (!id.equals(image.id)) return false;
+		if (!image_id.equals(image.image_id)) return false;
 		if (url1 != null ? !url1.equals(image.url1) : image.url1 != null) return false;
 		if (url2 != null ? !url2.equals(image.url2) : image.url2 != null) return false;
 		if (url3 != null ? !url3.equals(image.url3) : image.url3 != null) return false;
@@ -78,11 +84,19 @@ public class Image {
 
 	@Override
 	public int hashCode() {
-		int result = id.hashCode();
+		int result = image_id.hashCode();
 		result = 31 * result + (url1 != null ? url1.hashCode() : 0);
 		result = 31 * result + (url2 != null ? url2.hashCode() : 0);
 		result = 31 * result + (url3 != null ? url3.hashCode() : 0);
 		result = 31 * result + (url4 != null ? url4.hashCode() : 0);
 		return result;
+	}
+
+	public long getGoodsnumber() {
+		return goodsnumber;
+	}
+
+	public void setGoodsnumber(long goodsnumber) {
+		this.goodsnumber = goodsnumber;
 	}
 }

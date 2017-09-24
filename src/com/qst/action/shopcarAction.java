@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.NativeWebRequest;
 
 import com.qst.model.Goods;
+import com.qst.model.Image;
 import com.qst.model.User;
 import com.qst.service.UserService;
 import com.qst.service.goodsService;
@@ -22,7 +24,7 @@ import com.qst.service.orderService;
 
 
 @Component
-public class ShopcarAction {
+public class shopcarAction {
 	@Resource
 	private goodsService goodsService;
 	@Resource
@@ -107,15 +109,20 @@ public class ShopcarAction {
 		ArrayList<Integer> arrayList =orderService.getgid(ordernumber);
 		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
 		Goods goods;
+		Image image;
+		ArrayList<Image> imageslist =new ArrayList<Image>();
 		for (Integer integer : arrayList) {
 			goods=goodsService.getAllgoods(integer);
-			arrayList2.add(goods);
+			image= goodsService.getImage(goods.getGoodsnumber());
+			imageslist.add(image);
+			arrayList2.add(goods);		
 		}
 		
 		User user =userService.findUserbyID(uid);
-		String  address=user.getAddress();
+		String  address=user.getAdress();
 		request.setAttribute("goodlist1", arrayList2);
-		request .setAttribute("adress", address);
+		request .setAttribute("User", user);
+		request.setAttribute("imagelist", imageslist);
 		return "dyj";
 	}
 

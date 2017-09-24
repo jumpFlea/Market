@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.qst.model.Goods;
+import com.qst.model.Image;
 
 public interface goodsService {
 	int setInShopcar(int g_id, int u_id);
@@ -13,4 +14,6 @@ public interface goodsService {
 	Goods getAllgoods(int g_id);
 
 	ArrayList<String> getImageUrl(int image_id);
+	
+	Image getImage(long goodsnumber );
 }

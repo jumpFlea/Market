@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	public User add(User user) {
 		User exist = dao.findByName(user.getUsername());
 		if( exist == null ){
-			user.setStateType(0);
+			user.setState_type(0);
 			user.setIntegral(0);
 			dao.add(user);
 			return dao.findByName(user.getUsername());
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
 	public User findUserbyID(int uid) {
 		
-		return dao.findUserbyID(uid);
+		return dao.findByID(uid);
 	}
 
 }
