@@ -519,3 +519,76 @@ body {
 	display: block;
 	margin-left: 300px;
 }
+<<<<<<< HEAD
+=======
+
+/* 分页效果的样式 */
+.pagination a.previousPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/index/common.gif) 0px -180px no-repeat;
+}
+
+.pagination span.previousPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/index/common.gif) -30px -180px no-repeat;
+}
+
+.pagination a.nextPage {
+	width: 18px;
+	display:inline-block;
+	height:18px;
+	line-height: 30px;
+	padding: 0px;
+	background: url(../img/index/common.gif) 0px -210px no-repeat;
+}
+
+.pagination span.nextPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/index/common.gif) -30px -210px no-repeat;
+}
+
+.pagination a.firstPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/index/common.gif) -60px -180px no-repeat;
+}
+
+.pagination span.firstPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/index/common.gif) -90px -180px no-repeat;
+}
+
+.pagination a.lastPage {
+	width: 18px;
+	display:inline-block;
+	line-height: 30px;
+	height:18px;
+	padding: 0px;
+	background: url(../img/index/common.gif) -60px -210px no-repeat;
+}
+
+.pagination span.lastPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/index/common.gif) -90px -210px no-repeat;
+}
+
+.pagination .currentPage {
+	padding: 0px 5px;
+	color: #fd6d01!important;
+	font-weight: bold;
+	cursor: default;
+	border: 1px solid #fd6d01;
+	background-color: #ffede1;
+}
+
+
+>>>>>>> refs/heads/master
