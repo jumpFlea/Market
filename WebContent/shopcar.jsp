@@ -42,7 +42,7 @@
 				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
                     <tr>
                         <td class="tb2_td1">
-                            <input type="checkbox" value="${ goods.g_price}" name="newslist" id="newslist-1"/></td>
+                            <input type="checkbox" value="${ goods.g_price}" name="newslist"/></td>
                         <td class="tb2_td2">
                             <a href="#">
                                 <img src="images/img1.jpg"/>
@@ -54,11 +54,11 @@
                         <td class="tb1_td4">一件</td>
                         <td class="tb1_td5">
                             <input class="min1" name="min1" style="width: 20px; height: 18px; border: 1px solid #ccc;" type="button" value="-"/>
-                            <input id="text_box1" name="text_box1" type="text" value="1" style="width: 30px; text-align: center; border: 1px solid #ccc;"/>
+                            <input name="text_box1" type="text" value="1" style="width: 30px; text-align: center; border: 1px solid #ccc;"/>
                             <input class="add1" name="add1" style="width: 20px; height: 18px; border: 1px solid #ccc;" type="button" value="+"/>
                         </td>
                         <td class="tb1_td6">
-                            <label id="total1" class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
+                            <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
                         </td>
                         <td class="tb1_td7"><a href="#">删除</a></td>
                         <td class="tb1_td7">商品号：
@@ -108,7 +108,11 @@
         $(".allselect").click(function() {
             $(".gwc_tb2 input[name=newslist]").each(function() {
                 $(this).attr("checked", true);
-                // $(this).next().css({ "background-color": "#3366cc", "color": "#ffffff" });
+                if ($('.allselect').prop("checked") === true) {
+                    $(this).attr("checked", true);
+                } else {
+                    $(this).attr("checked", false);
+                }
             });
             GetCount();
         });
@@ -138,18 +142,13 @@
 
         // 所有复选(:checkbox)框点击事件
         $(".gwc_tb2 input[name=newslist]").click(function() {
-            if ($(this).attr("checked")) {
-                //$(this).next().css({ "background-color": "#3366cc", "color": "#ffffff" });
-            } else {
-                // $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
-            }
+            GetCount();
         });
 
         // 输出
         $(".gwc_tb2 input[name=newslist]").click(function() {
             // $("#total2").html() = GetCount($(this));
             GetCount();
-            //alert(conts);
         });
     });
     //******************
@@ -158,11 +157,11 @@
         var aa = 0;
         $(".gwc_tb2 input[name=newslist]").each(function() {
             if ($(this).attr("checked")) {
-                for (var i = 0; i < $(this).length; i++) {
-                    conts += parseInt($(this).val());
-                    aa += 1;
-                }
-            }
+				conts += parseInt($(this).val()) * parseInt(
+                    $(this).closest('td').parent().find('input:nth-child(2)').val()
+				);
+				aa += 1;
+			}
         });
         $("#shuliang").text(aa);
         $("#zong1").html((conts).toFixed(2));
@@ -177,10 +176,12 @@
         if(v > 1){
             $(this).next().val(v - 1);
         }
+        GetCount();
     });
     $('.add1').click(function () {
         var v = parseInt( $(this).prev().val() );
         $(this).prev().val(1 + v);
+        GetCount();
     })
 </script>
 
