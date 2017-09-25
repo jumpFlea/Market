@@ -119,7 +119,7 @@ public class shopcarAction {
 		User user =userService.findUserbyID(uid);
 		String  address=user.getAdress();
 		request.setAttribute("goodlist1", arrayList2);
-		request .setAttribute("User", user);
+		request .setAttribute("user", user);
 		return "dyj";
 	}
 

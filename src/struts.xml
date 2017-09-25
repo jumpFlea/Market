@@ -16,7 +16,7 @@
 
 		<action name="getshopcargoods" class="com.qst.action.shopcarAction"
 			method="getshopcargoods">
-			<result name="diao">shop_head.html</result>
+			<result name="diao">shopcar.jsp</result>
 		</action>
 
 
@@ -27,7 +27,7 @@
 
 		<action name="getOrderItem" class="com.qst.action.shopcarAction"
 			method="getOrderItem">
-			<result name="dyj">order.jsp</result>
+			<result name="dyj" type="redirect">order.jsp</result>
 		</action>
 
 	</package>
