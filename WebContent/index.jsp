@@ -33,7 +33,7 @@
 						</li>
 						<li class="fl">
 							<div class="menu_hd">
-								<a href="login">请登录</a>
+								<a href="login.html">请登录</a>
 							</div>
 						</li>
 						<li class="fl">
