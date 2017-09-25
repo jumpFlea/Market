@@ -113,8 +113,6 @@ public class shopcarAction {
 		ArrayList<Image> imageslist =new ArrayList<Image>();
 		for (Integer integer : arrayList) {
 			goods=goodsService.getAllgoods(integer);
-			image= goodsService.getImage(goods.getGoodsnumber());
-			imageslist.add(image);
 			arrayList2.add(goods);		
 		}
 		
@@ -122,7 +120,6 @@ public class shopcarAction {
 		String  address=user.getAdress();
 		request.setAttribute("goodlist1", arrayList2);
 		request .setAttribute("User", user);
-		request.setAttribute("imagelist", imageslist);
 		return "dyj";
 	}
 

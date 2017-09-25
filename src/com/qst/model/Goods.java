@@ -5,6 +5,7 @@ package com.qst.model;
  * Email: tomatofrommars@gmail.com
  */
 public class Goods {
+	
 	private Integer g_id;
 	private Double g_price;
 	private String g_name;
@@ -117,9 +118,6 @@ public class Goods {
 	public void setRestnum(Integer restnum) {
 		this.restnum = restnum;
 	}
-
-
-
 
 	public String getIntroduce() {
 		return introduce;

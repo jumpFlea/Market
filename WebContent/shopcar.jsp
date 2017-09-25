@@ -116,7 +116,7 @@
 						<td class="tb2_td1"><input type="checkbox"
 							value="${ goods.g_price}" name="newslist" id="newslist-1" /></td>
 						<td class="tb2_td2"><a href="#"><img
-								src="images/img1.jpg" /></a></td>
+								src="${goods.image_zhanshi }" /></a></td>
 						<td class="tb2_td3"><a href="#"><c:out
 									value="${ goods.g_name}"></c:out></a></td>
 						<td class="tb1_td4">一件</td>
