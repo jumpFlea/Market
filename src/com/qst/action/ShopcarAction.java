@@ -61,6 +61,7 @@ public class ShopcarAction {
 		float Fprice[] = new float[price.length];
 		int Fgoodsum[] = new int[goodsnum.length];
 		int Fgid[] = new int[gid.length];
+		
 		for (int i = 0; i < price.length; i++) {
 			Fprice[i]=Float.parseFloat(price[i]);
 			Fgoodsum[i]=Integer.parseInt(goodsnum[i]);

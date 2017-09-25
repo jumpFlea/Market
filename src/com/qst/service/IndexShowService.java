@@ -1,10 +1,9 @@
 package com.qst.service;
 
-import java.util.List;
-
 import com.qst.model.Image;
+import com.qst.model.Page;
 
 public interface IndexShowService {
-	public List<Image> indexShow(int currentPage);
+	public Page<Image> indexShow(int currentPage);
 	public int findImageNum();
 }

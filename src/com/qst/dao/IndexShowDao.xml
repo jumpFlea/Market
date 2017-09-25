@@ -4,7 +4,7 @@
 
 	<!--寻找图片地址的语句,用来显示到index界面-->
 	<select id="indexShow" parameterType="Page"   resultType="Image">
-		select * from image limit #{currentPage},#{limitPage};
+		select * from image limit #{begin},#{limitPage};
 	</select>
 	
 	
