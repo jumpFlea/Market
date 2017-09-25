@@ -1,39 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%>
-=======
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> refs/heads/master
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<<<<<<< HEAD
-	<head>
-		<meta charset="utf-8">
-		<title>爱尚网购_海淘馆_香水</title>
-		
-		<link rel="stylesheet" href="css/index_1.css" />
-		<link href="css/index_2.css" type="text/css" rel="stylesheet">
-	</head>
-	<body>
-		<div id="o1">
-		    <div id="top">
-				<div class="shortcut_v2013 alink_v2013">
-			<div class="w">
-				<ul class="fl 1h">
-					<li class="fl">
-						<div class="menu">
-							
-							<div class="menu_bd">
-								<ul>
-									<li>
-										<a href="#">App For Android</a>
-									</li>
-									<li>
-										<a href="#">App For IOS</a>
-									</li>
-								</ul>
-=======
 <head>
 <meta charset="utf-8">
 <title>爱尚网购_海淘馆_香水</title>
@@ -56,64 +25,15 @@
 										<li><a href="#">App For IOS</a></li>
 									</ul>
 								</div>
->>>>>>> refs/heads/master
 							</div>
-<<<<<<< HEAD
-						</div>
-					</li>
-					<li class="fl"><i class="shortcut_s"></i></li>
-					<li class="fl">
-						<div class="menu_hd">您好，欢迎来到锡货网！</div>
-					</li>
-					<li class="fl">
-						<div class="menu_hd">
-							<a href="login.html">请登录</a>
-						</div>
-					</li>
-				
-				</ul>
-				<ul class="fr 1h">
-					<li class="fl">
-						<div class="menu_hd">
-							<a href="#">我的订单</a>
-						</div>
-					</li>
-					<li class="fl"><i class="shortcut_s"></i></li>
-					<li class="fl">
-						<div class="menu_hd">
-							<a href="#">我的锡货</a>
-						</div>
-					</li>
-					<li class="fl"><i class="shortcut_s"></i></li>
-					<li class="fl">
-						<div class="menu_hd">
-							<a href="#">服务中心</a>
-						</div>
-					</li>
-					<li class="fl"><i class="shortcut_s"></i></li>
-					<li class="fl">
-						<div class="menu_hd">
-							<a href="#">商家入驻</a>
-						</div>
-					</li>
-					<li class="fl"><i class="shortcut_s"></i></li>
-					<li class="fl">
-						<div class="menu">
-=======
 						</li>
 						<li class="fl"><i class="shortcut_s"></i></li>
 						<li class="fl">
 							<div class="menu_hd">您好，欢迎来到锡货网！</div>
 						</li>
 						<li class="fl">
->>>>>>> refs/heads/master
 							<div class="menu_hd">
 								<a href="login.html">请登录</a>
-							</div>
-						</li>
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="#">免费注册</a>
 							</div>
 						</li>
 					</ul>
@@ -162,21 +82,6 @@
 
 		</div>
 
-<<<<<<< HEAD
-			</div>
-			<div id="middle">
-				<div id="middle_01"><img src="img/index/logo.jpg" height="50" width="120" class="img-rounded" /></div>
-				<div id="middle_02">
-					<div id="middle_03">
-	                    <div id="middle_in"><form><input type="text" style="height: 32px;width: 400px;"></form></div>
-	                    <div id="middle_04">搜索</div>
-	                    <div class="clearFloat"></div>
-
-	
-                    </div>
-                <div id="middle_05">
-						
-=======
 		<!--中间的搜索-->
 		<div id="middle">
 			<div id="middle_01">
@@ -187,15 +92,10 @@
 					<form>
 						<input type="text" style="height: 32px; width: 400px;">
 					</form>
->>>>>>> refs/heads/master
 				</div>
-<<<<<<< HEAD
-				
-=======
 				<div id="middle_04">
 					<a href="#">搜索</a>
 				</div>
->>>>>>> refs/heads/master
 				<div class="clearFloat"></div>
 
 
@@ -211,10 +111,6 @@
 			<div id="m02">
 				<ul>
 					<li>
-<<<<<<< HEAD
-						<img src="img/perfume/01.jpg" height="220" width="220">
-							A075迪奥 真我香水5ml<p class="my_price">￥58.8</p>
-=======
 						<div class="n1">美妆个护</div>
 						<div class="n2">
 							<table width="220" border="0" cellspacing="0" cellpadding="0">
@@ -236,16 +132,7 @@
 								</tr>
 							</table>
 						</div>
->>>>>>> refs/heads/master
 					</li>
-<<<<<<< HEAD
-				</ul>
-			</div>
-			
-			<div id="x1">
-				<ul>
-=======
->>>>>>> refs/heads/master
 					<li>
 						<div class="n1">美鞋潮包</div>
 						<div class="n2">
@@ -326,21 +213,15 @@
 					<li id="j3">最新</li>
 				</ul>
 			</div>
-<<<<<<< HEAD
-			
-			<!--首页底层-->
-			<div id="a7">
-				<div id="mybottom_top">
-=======
 		</div>
 		<!--图片展示区-->
 		<div id="g1">
 			<ul>
 				<c:forEach items="${pImageList.list}" var="list">
 						<li><img
-							src="${pageContext.request.contextPath}/${list.url1}"
+							src="${pageContext.request.contextPath}/${list.image_zhanshi}"
 							height="220" width="220"> A075迪奥 真我香水5ml
-							<p class="my_price">￥58.8</p></li>		
+							<p class="my_price">${list.g_price}</p></li>		
 				</c:forEach>
 			</ul>
 		</div>
@@ -380,12 +261,8 @@
 	
 		</div>
 
-
-
-
 		<div id="a7">
 			<div id="mybottom_top">
->>>>>>> refs/heads/master
 				<div id="top_in01">
 					<p class="Big_logo">
 						爱尚网购</br>loveing shopping
@@ -410,19 +287,11 @@
 							<td width="200" height="40" class="table_logo">权威认证</td>
 						</tr>
 						<tr>
-<<<<<<< HEAD
-							<td width="200" height="40"class="ban_title"><a href="">关于我们</a></td>
-							<td width="200" height="40"class="ban_title"><a href="">帮助中心</a></td>
-							<td width="200" height="40"class="ban_title"><a href="">免费开店</a></td>
-							<td width="280" height="40"class="ban_title"><img src="img/index/image82.jpg" height="40" width="100">
-								</td>
-=======
 							<td width="200" height="40" class="ban_title"><a href="">关于我们</a></td>
 							<td width="200" height="40" class="ban_title"><a href="">帮助中心</a></td>
 							<td width="200" height="40" class="ban_title"><a href="">免费开店</a></td>
 							<td width="280" height="40" class="ban_title"><img
-								src="img/index/image82.jpg" height="40" width="100"></td>
->>>>>>> refs/heads/master
+								src="images/index/image82.jpg" height="40" width="100"></td>
 						</tr>
 						<tr>
 							<td width="200" height="40" class="ban_title"><a href="">招聘信息</a></td>
@@ -445,11 +314,8 @@
 					</table>
 				</div>
 			</div>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> refs/heads/master
 			<div id="mybottom_under">
 				<p class="ban_title">友情链接:&nbsp; &nbsp;淘粉吧&nbsp;&nbsp;
 					&nbsp;爱尚网购团购网&nbsp;&nbsp; &nbsp;爱尚网购女装&nbsp;&nbsp;
@@ -459,16 +325,9 @@
 					&nbsp;爱尚网购母婴&nbsp;&nbsp; &nbsp;衣联网&nbsp;&nbsp; &nbsp;播视网视频</p>
 			</div>
 		</div>
-<<<<<<< HEAD
-		<!--引用js文件 -->
-		<script src="js/jquery-3.2.1.min.js"></script>
-		<script src="js/index.js"></script>
-	</body>
-=======
 	</div>
 	<!--引用js文件 -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/index.js"></script>
 </body>
->>>>>>> refs/heads/master
 </html>

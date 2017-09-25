@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.qst.dao.IndexShowDao;
-import com.qst.model.Image;
+import com.qst.model.Goods;
 import com.qst.model.Page;
 import com.qst.service.IndexShowService;
 
@@ -19,10 +19,10 @@ public class IndexShowImpl implements IndexShowService {
 	private IndexShowDao indexDao;
 
 	@Override
-	public Page<Image> indexShow(int currentPage) {
+	public Page<Goods> indexShow(int currentPage) {
 
 		// TODO Auto-generated method stub
-		Page<Image> p = new Page<Image>();
+		Page<Goods> p = new Page<Goods>();
 		// 将当前的页面设置到page中
 		int page = currentPage;
 		p.setCurrentPage(page);
@@ -46,7 +46,7 @@ public class IndexShowImpl implements IndexShowService {
 		p.setBegin(begin);
 
 		// 获取图片的信息，存于page中
-		List<Image> imageList = new ArrayList<Image>();
+		List<Goods> imageList = new ArrayList<Goods>();
 		imageList = indexDao.indexShow(p);
 		p.setList(imageList);
 		return p;
