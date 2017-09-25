@@ -127,14 +127,14 @@
             GetCount();
         });
 
-        //取消
-        $("#cancel").click(function() {
-            $(".gwc_tb2 input[name=newslist]").each(function() {
-                $(this).attr("checked", false);
-                // $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
-            });
-            GetCount();
-        });
+		//取消
+		$("#cancel").click(function() {
+			$(".gwc_tb2 input[name=newslist]").each(function() {
+				$(this).attr("checked", false);
+				// $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
+			});
+			GetCount();
+		});
 
         // 所有复选(:checkbox)框点击事件
         $(".gwc_tb2 input[name=newslist]").click(function() {
