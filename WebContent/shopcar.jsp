@@ -170,7 +170,8 @@
         $("#jz2").css("display", "block");
     }
 
-    //修改购物车商品数量函数
+
+    //修改购物车商品数量
     $('.min1').click(function () {
         var v = parseInt( $(this).next().val() );
         if(v > 1){
