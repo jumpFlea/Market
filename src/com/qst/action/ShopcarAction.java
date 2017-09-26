@@ -1,22 +1,22 @@
+
 package com.qst.action;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import com.qst.model.Goods;
+import com.qst.model.Image;
+import com.qst.model.User;
+import com.qst.service.UserService;
+import com.qst.service.goodsService;
+import com.qst.service.orderService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
-import org.springframework.stereotype.Component;
-
-import com.qst.model.Goods;
-import com.qst.service.goodsService;
-import com.qst.service.orderService;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 
 @Component
@@ -25,6 +25,8 @@ public class ShopcarAction {
 	private goodsService goodsService;
 	@Resource
 	private orderService orderService;
+	@Resource
+	private UserService userService;
 
 	public orderService getOrderService() {
 		return orderService;
@@ -34,7 +36,6 @@ public class ShopcarAction {
 		this.orderService = orderService;
 	}
 
-	
 
 	public goodsService getGoodsService() {
 		return goodsService;
@@ -43,15 +44,20 @@ public class ShopcarAction {
 	public void setGoodsService(goodsService goodsService) {
 		this.goodsService = goodsService;
 	}
-	/*
-	 * 此类的功能为将商品设置进入订单
-	 */
 
-	public String  setGoodinOrder() {													//此功能为将购物车里面的商品设置进入订单
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public String  setGoodinOrder() {
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date=new Date();
 		long  ordernumber =Long.parseLong(dateFormater.format(date)) ;	//生成唯一的订单号
-		
+
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -64,7 +70,6 @@ public class ShopcarAction {
 		float Fprice[] = new float[price.length];
 		int Fgoodsum[] = new int[goodsnum.length];
 		int Fgid[] = new int[gid.length];
-		
 		for (int i = 0; i < price.length; i++) {
 			Fprice[i]=Float.parseFloat(price[i]);
 			Fgoodsum[i]=Integer.parseInt(goodsnum[i]);
@@ -75,9 +80,6 @@ public class ShopcarAction {
 		return "order";
 	}
 
-	/*
-	 * 得到购物车里面的商品
-	 */
 	public String getshopcargoods() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -93,11 +95,7 @@ public class ShopcarAction {
 		session.setAttribute("goodlist", arrayList2);
 		return "diao";
 	}
-	
-	
-	/*
-	 * 得到订单的每一行商品信息
-	 */
+
 	public String getOrderItem()
 	{
 		HttpServletRequest request=ServletActionContext.getRequest();
@@ -107,12 +105,20 @@ public class ShopcarAction {
 		ArrayList<Integer> arrayList =orderService.getgid(ordernumber);
 		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
 		Goods goods;
+		Image image;
+		ArrayList<Image> imageslist =new ArrayList<Image>();
 		for (Integer integer : arrayList) {
 			goods=goodsService.getAllgoods(integer);
 			arrayList2.add(goods);
 		}
-		session.setAttribute("goodlist1", arrayList2);
+
+		User user =userService.findUserbyID(uid);
+		String  address=user.getAdress();
+		request.setAttribute("goodlist1", arrayList2);
+		request .setAttribute("user", user);
 		return "dyj";
 	}
+
+
 
 }
