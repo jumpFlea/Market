@@ -38,8 +38,14 @@
 
 		<action name="getOrderItem" class="com.qst.action.shopcarAction"
 			method="getOrderItem">
-			<result name="dyj" type="redirect">order.jsp</result>
+
+			<result name="dyj">order.jsp</result>
 		</action>
+		
+		<action  name="pay" class="com.qst.action.shopcarAction" method="pay"> 
+	 			<result name="pay">order_submit.html</result>
+	 	</action>
+		
 
 	</package>
 

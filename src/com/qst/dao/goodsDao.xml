@@ -26,4 +26,6 @@
 	 <select id="getImage" parameterType="java.lang.Long" resultType="Image">
 		select * from image where goodsnumber=#{goodsnumber};
 	</select> 
+	
+
 </mapper>
