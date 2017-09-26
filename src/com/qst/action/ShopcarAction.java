@@ -43,8 +43,11 @@ public class ShopcarAction {
 	public void setGoodsService(goodsService goodsService) {
 		this.goodsService = goodsService;
 	}
+	/*
+	 * 此类的功能为将商品设置进入订单
+	 */
 
-	public String  setGoodinOrder() {
+	public String  setGoodinOrder() {													//此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date=new Date();
 		long  ordernumber =Long.parseLong(dateFormater.format(date)) ;	//生成唯一的订单号
@@ -72,6 +75,9 @@ public class ShopcarAction {
 		return "order";
 	}
 
+	/*
+	 * 得到购物车里面的商品
+	 */
 	public String getshopcargoods() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -88,6 +94,10 @@ public class ShopcarAction {
 		return "diao";
 	}
 	
+	
+	/*
+	 * 得到订单的每一行商品信息
+	 */
 	public String getOrderItem()
 	{
 		HttpServletRequest request=ServletActionContext.getRequest();
