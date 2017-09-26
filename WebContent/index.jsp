@@ -4,330 +4,411 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<title>爱尚网购_海淘馆_香水</title>
-
-<link rel="stylesheet" href="css/index_1.css" />
-<link href="css/index_2.css" type="text/css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>手机壳 - 商品搜索</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/mall.css">
 </head>
-<body>
-	<div id="o1">
-		<div id="top">
-			<div class="shortcut_v2013 alink_v2013">
-				<div class="w">
-					<ul class="fl 1h">
-						<li class="fl">
-							<div class="menu">
-
-								<div class="menu_bd">
-									<ul>
-										<li><a href="#">App For Android</a></li>
-										<li><a href="#">App For IOS</a></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class="fl"><i class="shortcut_s"></i></li>
-						<li class="fl">
-							<div class="menu_hd">您好，欢迎来到锡货网！</div>
-						</li>
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="login.html">请登录</a>
-							</div>
-						</li>
-					</ul>
-					<ul class="fr 1h">
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="#">我的订单</a>
-							</div>
-						</li>
-						<li class="fl"><i class="shortcut_s"></i></li>
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="#">我的锡货</a>
-							</div>
-						</li>
-						<li class="fl"><i class="shortcut_s"></i></li>
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="#">服务中心</a>
-							</div>
-						</li>
-						<li class="fl"><i class="shortcut_s"></i></li>
-						<li class="fl">
-							<div class="menu_hd">
-								<a href="#">商家入驻</a>
-							</div>
-						</li>
-						<li class="fl"><i class="shortcut_s"></i></li>
-						<li class="fl">
-							<div class="menu">
-								<div class="menu_hd">
-									<a href="#">网站导航</a><b><em></em></b>
-								</div>
-								<div class="menu_bd">
-									<ul>
-										<li><a href="#">网站导航</a></li>
-										<li><a href="#">网站导航</a></li>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<span class="clr"></span>
-				</div>
+<body class="search-page">
+	<!-- 顶部导航条 -->
+	<div class="nav">
+		<ul>
+			<li class="nav-pull-down location"><img
+				src="images/index/icon_location.png"> 送至珠海</li>
+			<li><a href="#">手机商城</a></li>
+			<li><a href="#">网站导航</a></li>
+			<li><a href="#">客户服务</a> </span></li>
+			<li><a href="#">企业采购</a></li>
+			<li><a href="#">商城会员</a></li>
+			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
+				class="glyphicon glyphicon-menu-down"></span></li>
+			<li class="login-signup">你好，请 <a href="login.html">登录 </a><span
+				class="text-color-red"><a href="signup.html">免费注册</a></span></li>
+		</ul>
+	</div>
+	<!-- 搜索框 -->
+	<div class="search">
+		<div class="search-body">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="输入你想要的商品">
+				<span class="input-group-btn">
+					<button class="btn btn-danger btn-search" type="button">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
 			</div>
-
-		</div>
-
-		<!--中间的搜索-->
-		<div id="middle">
-			<div id="middle_01">
-				<!--<img src="img/logo.jpg" height="50" width="120" class="img-rounded" />-->
-			</div>
-			<div id="middle_03">
-				<div id="middle_in">
-					<form>
-						<input type="text" style="height: 32px; width: 400px;">
-					</form>
-				</div>
-				<div id="middle_04">
-					<a href="#">搜索</a>
-				</div>
-				<div class="clearFloat"></div>
-
-
-			</div>
-			<div id="middle_05"></div>
-		</div>
-
-		<div class="clearFloat"></div>
-		<div id="m1">
-			<div id="m01">
-				<div id="m001">海淘馆</div>
-			</div>
-			<div id="m02">
-				<ul>
-					<li>
-						<div class="n1">美妆个护</div>
-						<div class="n2">
-							<table width="220" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td height="30" class="n1_style">&nbsp;卸妆</td>
-									<td height="30" class="n1_style">&nbsp;保湿乳液</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;悦诗风吟</td>
-									<td height="30" class="n1_style">&nbsp;口红</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;补水</td>
-									<td height="30" class="n1_style">&nbsp;粉底</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;科颜氏</td>
-									<td height="30">&nbsp;</td>
-								</tr>
-							</table>
-						</div>
-					</li>
-					<li>
-						<div class="n1">美鞋潮包</div>
-						<div class="n2">
-							<table width="220" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td height="30" class="n1_style">&nbsp;手包</td>
-									<td height="30" class="n1_style">&nbsp;贝壳包</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;手提包</td>
-									<td height="30" class="n1_style">&nbsp;靴子</td>
-								</tr>
-								<tr>
-									<td height="30">&nbsp;</td>
-									<td height="30">&nbsp;</td>
-								</tr>
-								<tr>
-									<td height="30">&nbsp;</td>
-									<td height="30">&nbsp;</td>
-								</tr>
-							</table>
-						</div>
-					</li>
-					<li>
-						<div class="n1">配饰</div>
-						<div class="n2">
-							<table width="220" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td height="30" class="n1_style">&nbsp;耳钉</td>
-									<td height="30" class="n1_style">&nbsp;手链</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;时尚手表</td>
-									<td height="30" class="n1_style">&nbsp;项链</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;围巾</td>
-									<td height="30" class="n1_style">&nbsp;海淘配饰</td>
-								</tr>
-								<tr>
-									<td height="30">&nbsp;</td>
-									<td height="30">&nbsp;</td>
-								</tr>
-							</table>
-						</div>
-					</li>
-					<li>
-						<div class="n1">食品保健</div>
-						<div class="n2" id="n2_ex">
-							<table width="220" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td height="30" class="n1_style">&nbsp;酵素</td>
-									<td height="30" class="n1_style">&nbsp;零食</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;黑糖</td>
-									<td height="30" class="n1_style">&nbsp;Swisse</td>
-								</tr>
-								<tr>
-									<td height="30" class="n1_style">&nbsp;母婴</td>
-									<td height="30" class="n1_style">&nbsp;</td>
-								</tr>
-								<tr>
-									<td height="30">&nbsp;</td>
-									<td height="30">&nbsp;</td>
-								</tr>
-							</table>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div id="i3">
-			<div id="f1">
-				<ul>
-					<li id="j1">综合</li>
-					<li id="j2">销量</li>
-					<li id="j3">最新</li>
-				</ul>
-			</div>
-		</div>
-		<!--图片展示区-->
-		<div id="g1">
-			<ul>
-				<c:forEach items="${pImageList.list}" var="list">
-						<li><img
-							src="${pageContext.request.contextPath}/${list.image_zhanshi}"
-							height="220" width="220"> A075迪奥 真我香水5ml
-							<p class="my_price">${list.g_price}</p></li>		
-				</c:forEach>
-			</ul>
-		</div>
-		<div id="x1">
-			<ul>
-				<li><img src="img/perfume/21.jpg" height="220" width="220">
-					凯卓KENZO纯净之水香水
-					<p class="my_price">￥169.00</p></li>
-			</ul>
-		</div>
-		<div id="y1">
-			<ul>
-				<li><img src="img/perfume/41.jpg" height="220" width="220">
-					男士ck香水100ml
-					<p class="my_price">￥179.00</p></li>
-			</ul>
-		</div>
-
-		<div id="page" class="pagination">
-			<span>第${pImageList.currentPage}/${pImageList.countPage}页</span>
-			<c:if test="${pImageList.currentPage!=1}">
-				<a href="indexShow?page=1" class="firstPage">&nbsp;</a>
-				<a href="indexShow?page=${pImageList.currentPage-1}" class="previousPage">&nbsp;</a>
-			</c:if>
-			<c:forEach var="i" begin="1" end="${pImageList.countPage}">
-				<c:if test="${i==pImageList.currentPage}">
-					<span class="currentPage">${i}</span>
-				</c:if>
-				<c:if test="${i!=pImageList.currentPage}">
-					<a href="indexShow?page=${i}">${i}</a>
-				</c:if>		
-			</c:forEach>
-			<c:if test="${pImageList.currentPage!=pImageList.countPage}">
-				<a class="nextPage" href="indexShow?page=${pImageList.currentPage+1}"></a>
-				<a class="lastPage" href="indexShow?page=${pImageList.countPage}"></a>
-			</c:if>
-	
-		</div>
-
-		<div id="a7">
-			<div id="mybottom_top">
-				<div id="top_in01">
-					<p class="Big_logo">
-						爱尚网购</br>loveing shopping
-					</p>
-					</br>
-					<p class="ban_title">营业执照注册号：330106000129004</p>
-					</br>
-					<p class="ban_title">增值电信业务经营许可证：浙B2-20110349</p>
-					</br>
-					<p class="ban_title">ICP备案号：浙ICP备10044327号-3</p>
-					</br>
-					<p class="ban_title">©2015 Mogujie.com 杭州卷瓜网络有限公司</p>
-
-				</div>
-				<div id="top_in02">
-					<table width="880" border="0" cellspacing="0" cellpadding="0">
-						<tr></tr>
-						<tr>
-							<td width="200" height="40" class="table_logo">公司</td>
-							<td width="200" height="80" class="table_logo">消费者</td>
-							<td width="200" height="40" class="table_logo">商家</td>
-							<td width="200" height="40" class="table_logo">权威认证</td>
-						</tr>
-						<tr>
-							<td width="200" height="40" class="ban_title"><a href="">关于我们</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">帮助中心</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">免费开店</a></td>
-							<td width="280" height="40" class="ban_title"><img
-								src="images/index/image82.jpg" height="40" width="100"></td>
-						</tr>
-						<tr>
-							<td width="200" height="40" class="ban_title"><a href="">招聘信息</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">意见反馈</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">商家社区</a></td>
-							<td width="200" height="40" class="ban_title">&nbsp;</td>
-						</tr>
-						<tr>
-							<td width="200" height="40" class="ban_title"><a href="">联系我们</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">手机版下载</a></td>
-							<td width="200" height="40" class="ban_title"><a href="">商家入驻</a></td>
-							<td width="200" height="40" class="ban_title">&nbsp;</td>
-						</tr>
-						<tr>
-							<td width="200" height="40" class="ban_title">&nbsp;</td>
-							<td width="200" height="40" class="ban_title">&nbsp;</td>
-							<td width="200" height="40" class="ban_title"><a href="">管理后台</a></td>
-							<td width="200" height="40" class="ban_title">&nbsp;</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-
-
-			<div id="mybottom_under">
-				<p class="ban_title">友情链接:&nbsp; &nbsp;淘粉吧&nbsp;&nbsp;
-					&nbsp;爱尚网购团购网&nbsp;&nbsp; &nbsp;爱尚网购女装&nbsp;&nbsp;
-					&nbsp;爱尚网购男装&nbsp;&nbsp; &nbsp;爱尚网购鞋子&nbsp;&nbsp;
-					&nbsp;爱尚网购包包&nbsp;&nbsp; &nbsp;爱尚网购家居&nbsp;&nbsp;
-					&nbsp;家具网&nbsp;&nbsp; &nbsp;时尚品牌网&nbsp;&nbsp; &nbsp;装修&nbsp;&nbsp;
-					&nbsp;爱尚网购母婴&nbsp;&nbsp; &nbsp;衣联网&nbsp;&nbsp; &nbsp;播视网视频</p>
+			<div class="search-keyword">
+				<p>手机壳6plus 手机壳6 手机壳7 手机壳6s plus 手机壳7 手机壳华为 手机</p>
 			</div>
 		</div>
 	</div>
-	<!--引用js文件 -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/index.js"></script>
+	<!-- 导航栏 -->
+	<div class="search-nav">
+		<div class="search-nav-container">
+			<ul>
+				<li>全部商品分类</li>
+				<li>首页</li>
+				<li>服装城</li>
+				<li>美妆馆</li>
+				<li>京东超市</li>
+				<li>生鲜</li>
+				<li>全球购</li>
+				<li>闪购</li>
+				<li>拍卖</li>
+				<li>金融</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 内容主题开始 -->
+	<div class="container-full">
+		<div class="host-location">
+			全部结果 > <span class="host-location-text">"手机壳"</span>
+		</div>
+		<div class="item-class-show">
+			<div class="item-class-group item-class-group-top">
+				<div class="item-class-name">
+					<span>品牌：</span>
+				</div>
+				<div class="item-class-select">
+					<span>华为（HUAWEI）</span> <span>三星（SAMSUNG）</span> <span>MATE</span>
+					<span>摩斯维（msvii）</span> <span>OPPO</span> <span>莫凡（Mofi）</span> <span>耐尔金（NILLKIN）</span>
+					<span>洛克（ROCK）</span> <span>亿色（ESR）</span> <span>Apple</span> <span>优加</span>
+				</div>
+			</div>
+			<div class="item-class-group">
+				<div class="item-class-name">
+					<span>手机配件：</span>
+				</div>
+				<div class="item-class-select">
+					<span>手机保护套</span> <span>苹果周边</span> <span>手机贴膜</span> <span>移动电源</span>
+					<span>创意配件</span> <span>手机耳机</span> <span>手机支架</span>
+				</div>
+			</div>
+			<div class="item-class-group">
+				<div class="item-class-name">
+					<span>款式：</span>
+				</div>
+				<div class="item-class-select">
+					<span>软壳</span> <span>硬壳</span> <span>翻盖式</span> <span>边框</span> <span>运动臂包</span>
+					<span>钱包式</span> <span>定制</span> <span>防水袋</span> <span>布袋</span> <span>其他</span>
+				</div>
+			</div>
+			<div class="item-class-group">
+				<div class="item-class-name">
+					<span>材质：</span>
+				</div>
+				<div class="item-class-select">
+					<span>塑料/PC</span> <span>硅胶</span> <span>金属</span> <span>电镀</span>
+					<span>真皮</span> <span>树脂</span> <span>木质</span> <span>镶钻</span> <span>液态硅胶</span>
+					<span>TPU</span>
+				</div>
+			</div>
+		</div>
+		<div class="item-list">
+			<div class="item-list-left">
+				<div class="item-as-title">
+					<span>商品精选</span> <span>广告</span>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-1.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">39.9</span></span>
+					</div>
+					<div class="item-as-intro">
+						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>3140</span>人评价
+					</div>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-2.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">36.6</span></span>
+					</div>
+					<div class="item-as-intro">
+						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>6160</span>人评价
+					</div>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-1.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">39.9</span>
+					</div>
+					<div class="item-as-intro">
+						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>3140</span>人评价
+					</div>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-2.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">36.6</span></span>
+					</div>
+					<div class="item-as-intro">
+						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>6160</span>人评价
+					</div>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-1.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">39.9</span>
+					</div>
+					<div class="item-as-intro">
+						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>3140</span>人评价
+					</div>
+				</div>
+				<div class="item-as">
+					<div class="item-as-img">
+						<img src="img/item-as-img-2.jpg" alt="">
+					</div>
+					<div class="item-as-price">
+						<span><i class="fa fa-rmb text-danger"></i><span
+							class="seckill-price text-danger">36.6</span></span>
+					</div>
+					<div class="item-as-intro">
+						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
+						</span>
+					</div>
+					<div class="item-as-selled">
+						已有<span>6160</span>人评价
+					</div>
+				</div>
+			</div>
+			<!--右边图片展示区-->
+			<!---->
+			<div class="item-list-right">
+				<div class="item-list-tool">
+					<ul>
+						<li><span>综合 <strong><i
+									class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>销量 <strong><i
+									class="fa fa-long-arrow-down"></i></span></strong></li>
+						<li><span>评论数 <strong><i
+									class="fa fa-long-arrow-down"></i></span></strong></li>
+						<li><span>新品 <strong><i
+									class="fa fa-long-arrow-down"></i></span></strong></li>
+						<li><span>价格 <strong><i
+									class="fa fa-long-arrow-down"></i></span></strong></li>
+					</ul>
+				</div>
+				<c:forEach items="${pImageList.list}" var="list">
+					<div class="item-container">
+						<div class="item-row">
+							<div class="item-show-info">
+								<div class="item-show-img">
+									<img
+										src="${pageContext.request.contextPath}/${list.image_zhanshi}">
+								</div>
+								<div class="item-show-price">
+									<span><i class="fa fa-rmb text-danger"></i><span
+										class="seckill-price text-danger">${list.g_price}</span></span>
+								</div>
+								<!--<div class="item-show-detail">
+								<span>SKSK 苹果7/7plus手机壳 iPhone 7 Plus保护套全包硬壳男女磨砂防摔 火影红(苹</span>
+							</div>
+							<div class="item-show-num">
+								已有<span>6160</span>人评价
+							</div>
+							<div class="item-show-seller">
+								<span>元亨利配件专营店</span>
+							</div>-->
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		<!--分页的样式-->
+		<div class="page-num">
+			<nav>
+			<ul class="pagination">
+				<c:if test="${pImageList.currentPage!=1}">
+					<li><a><span aria-hidden="true">&laquo;</span></a></li>
+				</c:if>
+				<c:forEach var="i" begin="1" end="${pImageList.countPage}">
+					<c:if test="${i==pImageList.currentPage}">
+						<li class="active"><a>${i}</a></li>
+					</c:if>
+					<c:if test="${i!=pImageList.currentPage}">
+						<li><a href="indexShow?page=${i}">${i}</a></li>
+					</c:if>
+				</c:forEach>
+				<c:if test="${pImageList.currentPage!=pImageList.countPage}">
+					<li><a href="indexShow?page=${pImageList.currentPage+1}"><span>&raquo;</span></a></li>
+				</c:if>
+			</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- 内容主题结束 -->
+
+	<!-- 清除浮动 -->
+	<div class="clearfix"></div>
+	<!-- 底部 -->
+	<footer class="footer">
+	<div class="clearfix"></div>
+	<div class="icon-row">
+		<div class="footer-icon">
+			<h5 class="footer-icon-child"></h5>
+			<span class="footer-icon-text">品类齐全，轻松购物</span>
+		</div>
+		<div class="footer-icon">
+			<h5 class="footer-icon-child footer-icon-child-2"></h5>
+			<span class="footer-icon-text">多仓直发，极速配送</span>
+		</div>
+		<div class="footer-icon">
+			<h5 class="footer-icon-child footer-icon-child-3"></h5>
+			<span class="footer-icon-text">正品行货，精致服务</span>
+		</div>
+		<div class="footer-icon">
+			<h5 class="footer-icon-child footer-icon-child-4"></h5>
+			<span class="footer-icon-text">天天低价，畅选无忧</span>
+		</div>
+	</div>
+	<div class="service-intro">
+		<div class="servece-type">
+			<div class="servece-type-info">
+				<ul>
+					<li>购物指南</li>
+					<li>购物流程</li>
+					<li>会员介绍</li>
+					<li>生活旅行</li>
+					<li>常见问题</li>
+					<li>大家电</li>
+					<li>联系客服</li>
+				</ul>
+			</div>
+			<div class="servece-type-info">
+				<ul>
+					<li>配送方式</li>
+					<li>上门自提</li>
+					<li>211限时达</li>
+					<li>配送服务查询</li>
+					<li>配送费收取标准</li>
+					<li>海外配送</li>
+				</ul>
+			</div>
+			<div class="servece-type-info">
+				<ul>
+					<li>支付方式</li>
+					<li>货到付款</li>
+					<li>在线支付</li>
+					<li>分期付款</li>
+					<li>邮局汇款</li>
+					<li>公司转账</li>
+				</ul>
+			</div>
+			<div class="servece-type-info">
+				<ul>
+					<li>售后服务</li>
+					<li>售后政策</li>
+					<li>价格保护</li>
+					<li>退款说明</li>
+					<li>返修/退换货</li>
+					<li>取消订单</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="friend-link">
+			<div class="friend-link-item">
+				<ul>
+					<li><span class="link-item">关于我们</span></li>
+					<li><span class="link-item">联系我们</span></li>
+					<li><span class="link-item">联系客服</span></li>
+					<li><span class="link-item">合作招商</span></li>
+					<li><span class="link-item">商家帮助</span></li>
+					<li><span class="link-item">营销中心</span></li>
+					<li><span class="link-item">销售联盟</span></li>
+					<li><span class="link-item">校园社区</span></li>
+					<li><span class="link-item">风险监测</span></li>
+					<li><span class="link-item link-last-item">隐私政策</span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="copyright">
+			<p>Copyright © 2017 BY Gavin 林智杰</p>
+		</div>
+	</div>
+	</footer>
+
+	<!-- 页面上的各种浮窗 -->
+	<!-- 地理位置 -->
+	<div class="city">
+		<p>
+			<span class="city-item">北京 </span> <span class="city-item">上海
+			</span> <span class="city-item">天津 </span> <span class="city-item">重庆
+			</span> <span class="city-item">河北 </span>
+		</p>
+		<p>
+			<span class="city-item">山西 </span> <span class="city-item">河南
+			</span> <span class="city-item">辽宁 </span> <span class="city-item">吉林
+			</span> <span class="city-item">江苏 </span>
+		</p>
+		<p>
+			<span class="city-item">福建 </span> <span class="city-item">湖北
+			</span> <span class="city-item">湖南 </span> <span class="city-item">广东
+			</span> <span class="city-item">广西 </span>
+		</p>
+		<p>
+			<span class="city-item">江西 </span> <span class="city-item">四川
+			</span> <span class="city-item">海南 </span> <span class="city-item">贵州</span>
+			<span class="city-item">云南</span>
+		</p>
+		<p>
+			<span class="city-item">西藏</span> <span class="city-item">陕西</span> <span
+				class="city-item">甘肃</span> <span class="city-item">青海</span> <span
+				class="city-item">宁夏</span>
+		</p>
+	</div>
+	<!-- 我的商城 -->
+	<div class="my-shop-panel">
+		<p>
+			<span class="my-item">待处理订单</span> <span class="my-item">返修退换货</span>
+		</p>
+		<p>
+			<span class="my-item">返修退换货</span> <span class="my-item">降价商品</span>
+		</p>
+		<p>
+			<span class="my-item">我的新消息</span> <span class="my-item">我的问答</span>
+		</p>
+	</div>
 </body>
+<script src="js/mall.js"></script>
 </html>
