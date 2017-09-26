@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.IndexShowDao">
+
+	<!--寻找图片地址的语句,用来显示到index界面-->
+	<select id="indexShow" parameterType="Page"   resultType="Goods">
+		select * from goods limit #{begin},#{limitPage};
+	</select>
+	
+	
+	<select id="findImageNum" resultType="int">
+		select count(g_id) from goods;
+	</select>
+
+</mapper>
