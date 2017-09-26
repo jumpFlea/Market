@@ -19,7 +19,12 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-	
+		<!-- 商品详情页面展示-->
+		<action name="goodsDetail" class="goodsDetailAction" method="showGoods">
+			<result name="success">/goods_detail.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
 
 		<action name="getshopcargoods" class="com.qst.action.shopcarAction"
 			method="getshopcargoods">
