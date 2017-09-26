@@ -228,17 +228,18 @@
 				</div>
 				<c:forEach items="${pImageList.list}" var="list">
 					<div class="item-container">
-						<div class="item-row">
-							<div class="item-show-info">
-								<div class="item-show-img">
-									<img
-										src="${pageContext.request.contextPath}/${list.image_zhanshi}">
-								</div>
-								<div class="item-show-price">
-									<span><i class="fa fa-rmb text-danger"></i><span
-										class="seckill-price text-danger">${list.g_price}</span></span>
-								</div>
-								<!--<div class="item-show-detail">
+						<a href="goodsDetail?goodId=${list.g_id}">
+							<div class="item-row">
+								<div class="item-show-info">
+									<div class="item-show-img">
+										<img
+											src="${pageContext.request.contextPath}/${list.image_zhanshi}">
+									</div>
+									<div class="item-show-price">
+										<span><i class="fa fa-rmb text-danger"></i><span
+											class="seckill-price text-danger">${list.g_price}</span></span>
+									</div>
+									<!--<div class="item-show-detail">
 								<span>SKSK 苹果7/7plus手机壳 iPhone 7 Plus保护套全包硬壳男女磨砂防摔 火影红(苹</span>
 							</div>
 							<div class="item-show-num">
@@ -247,8 +248,9 @@
 							<div class="item-show-seller">
 								<span>元亨利配件专营店</span>
 							</div>-->
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</c:forEach>
 			</div>

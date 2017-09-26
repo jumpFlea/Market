@@ -35,7 +35,7 @@
 				<div class="preview">
 					<div id="vertical" class="bigImg">
 						<!-- 第一张中等大小图 -->
-						<img src="image/img/small-pic1-mid.png" alt="" id="midimg" />
+						<img src="${good.image_zhanshi}" alt="" id="midimg" />
 						<div id="winSelector"></div>
 					</div>
 					<div class="smallImg">
@@ -45,18 +45,18 @@
 						<div id="imageMenu">
 							<ul class="list-ul">
 								<!-- src 为最小缩略图 data-mid 中等大小图 data-big 大图-->
-								<li id="onlickImg"><img src="image/img/small-pic1.png"
-									alt="" data-mid="image/img/small-pic1-mid.png"
-									data-big="image/img/small-pic1-big.png" /></li>
-								<li><img src="image/img/small-pic2.png" alt=""
-									data-mid="image/img/small-pic2-mid.png"
-									data-big="image/img/small-pic2-big.png" /></li>
-								<li><img src="image/img/small-pic3.png" alt=""
-									data-mid="image/img/small-pic3-mid.png"
-									data-big="image/img/small-pic3-big.png" /></li>
-								<li><img src="image/img/small-pic3.png" alt=""
-									data-mid="image/img/small-pic3-mid.png"
-									data-big="image/img/small-pic3-big.png" /></li>
+								<li id="onlickImg"><img src="${good.image_zhanshi}"
+									alt="" data-mid="${good.image_zhanshi}"
+									data-big="${good.image_zhanshi}" /></li>
+								<li><img src="${good.image_zhanshi}" alt=""
+									data-mid="${good.image_zhanshi}"
+									data-big="${good.image_zhanshi}" /></li>
+								<li><img src="${good.image_zhanshi}" alt=""
+									data-mid="${good.image_zhanshi}"
+									data-big="${good.image_zhanshi}" /></li>
+								<li><img src="${good.image_zhanshi}" alt=""
+									data-mid="${good.image_zhanshi}"
+									data-big="${good.image_zhanshi}" /></li>
 							</ul>
 						</div>
 						<div class="next-img-wrap">
@@ -66,32 +66,33 @@
 
 					<div id="bigView">
 						<!-- 第一张大图 -->
-						<img alt="" src="image/img/small-pic1-big.png" />
+						<img alt="" src="${good.image_zhanshi}" />
 					</div>
 
 				</div>
 			</div>
 			<div class="de-info">
 				<div class="basic-info">
-					<div class="b-title">NOPAIN NOGAIN 牛男原创运动潮T 健身励志</div>
+					<div class="b-title">${good.g_name}</div>
 					<div class="b-qu">牛男原创专区</div>
 					<div class="b-price clear">
-						<span class="fl"> 牛男价 ：<span class="price-value-now">￥188</span>
-						</span> <span class="fr on-market"> 市场价 ：<del>￥219</del>
+						<span class="fl"> 跳蚤价 ：<span class="price-value-now">${good.g_price}</span>
+						</span> <span class="fr on-market"> 市场价：<del>${good.market_price}</del>
 						</span>
 					</div>
 				</div>
 				<!-- 已经添加到购物车状态 -->
 				<div class="add-cart">
 					<div class="add-car-tips">
-						<p class="tips-value">商品已成功添加到购物车！</p>
+						<!-- <p class="tips-value">商品已成功添加到购物车！</p>
 						<p class="cart-info">
 							购物车现有<span>2</span>件商品
-						</p>
+						</p> -->
+						
 					</div>
 					<div class="btn-row">
-						<a href="" class="to-buy"> 去购物车结算 <span></span>
-						</a> <a href="" class="continue-find"> 继续购物 <span></span>
+						<a href="" class="to-buy">添加到购物车<span></span>
+						</a> <a href="" class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
 				</div>
@@ -174,27 +175,29 @@
 					</p>
 				</div>
 			</div>
-			<div class="size-info colorfff">
+			<!-- <div class="size-info colorfff">
 				<div class="tab-wrap">
 					<div class="tab-text">尺码信息 SIZE INFO</div>
 				</div>
 				<div class="side-detail">
 					<img src="image/img/size-info.png">
 				</div>
-			</div>
+			</div> -->
 			<div class="size-info colorfff goods-pic">
 				<div class="tab-wrap">
 					<div class="tab-text">商品详情 DETAILS</div>
 				</div>
 				<div class="side-detail">
-					<img src="image/img/goods-pic.png">
+					<img src="${good.image_zhanshi}">
+					<img src="${good.image_zhanshi}">
+					<img src="${good.image_zhanshi}">
+					<img src="${good.image_zhanshi}">
 				</div>
-				<p class="goods-copy-right">all photos are copyrighted to their
-					respective</p>
-				<p class="goods-copy-right">owners and were used in
+				<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
+				<!-- <p class="goods-copy-right">owners and were used in
 					demonstration purposes in order to set</p>
 				<p class="goods-copy-right">the certain quality level of the
-					future image content</p>
+					future image content</p> -->
 			</div>
 			<div class="size-info colorfff">
 				<div class="tab-wrap">
@@ -231,6 +234,7 @@
 							</div>
 						</div>
 						<!-- 评论列表项结束 -->
+						
 					</div>
 				</div>
 			</div>

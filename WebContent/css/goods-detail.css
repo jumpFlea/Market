@@ -31,7 +31,11 @@
 .bigImg #winSelector{width:200px; height:180px;}
 #winSelector{position:absolute; cursor:crosshair; filter:alpha(opacity=15); -moz-opacity:0.15; opacity:0.15; background-color:#000; border:1px solid #fff; display: none;}
 #bigView{position:absolute;overflow: hidden; z-index:999;display: none;}
-#bigView img{position:absolute;}
+#bigView img {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+}
 .per-img-wrap{
 	position: absolute;
 	top: 0;
@@ -340,10 +344,10 @@
 	padding: 52px 0 64px 0
 }
 .goods-copy-right{
-	font-size: 14px;
-	color: #d1d1d1;
+	font-size: 20px;
+	color:black;
 	line-height: 26px;
-	text-align: center;
+	/* text-align: center; */
 }
 .goods-pic{
 	padding-bottom: 86px;

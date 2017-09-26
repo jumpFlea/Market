@@ -15,8 +15,20 @@ public class Goods {
 	private String introduce;
 	private long goodsnumber ;
 	private String image_zhanshi;
+	private Double market_price;
+	private String g_content;
 	
 	
+	
+
+
+
+
+
+
+
+
+
 	public Goods() {
 	}
 
@@ -24,7 +36,7 @@ public class Goods {
 
 	
 	public Goods(Integer g_id, Double g_price, String g_name, String g_attribute, Integer u_id,
-			Integer restnum, String introduce,String image_zhanshi) {
+			Integer restnum, String introduce,String image_zhanshi,Double market_price,String g_content) {
 		super();
 		this.g_id = g_id;
 		this.g_price = g_price;
@@ -34,6 +46,8 @@ public class Goods {
 		this.restnum = restnum;
 		this.introduce = introduce;
 		this.image_zhanshi =image_zhanshi;
+		this.market_price=market_price;
+		this.g_content=g_content;
 	}
 
 
@@ -154,4 +168,27 @@ public class Goods {
 	public void setImage_zhanshi(String image_zhanshi) {
 		this.image_zhanshi = image_zhanshi;
 	}
+	
+	public Double getMarket_price() {
+		return market_price;
+	}
+
+
+
+
+	public void setMarket_price(Double market_price) {
+		this.market_price = market_price;
+	}
+	
+	public String getG_content() {
+		return g_content;
+	}
+
+
+
+
+	public void setG_content(String g_content) {
+		this.g_content = g_content;
+	}
+
 }
