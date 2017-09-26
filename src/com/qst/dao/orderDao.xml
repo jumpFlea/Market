@@ -2,18 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.dao.orderDao">
 
-<insert id="creatorder">
-	insert into `order` (u_id,ordernumber) values (#{u_id},#{ordernumber});
-</insert>
+	<insert id="creatorder">
+		insert into `order` (u_id,ordernumber) values (#{u_id},#{ordernumber});
+	</insert>
 
-<insert id="creatorder_good">
-	insert into order_goods (ordernumber,g_id,prince,og_num) values(#{ordernumber},#{g_id},#{prince},#{og_num});
-</insert>
+	<insert id="creatorder_good">
+		insert into order_goods (ordernumber,g_id,prince,og_num)
+		values(#{ordernumber},#{g_id},#{prince},#{og_num});
+	</insert>
 
-<select id="getgid" parameterType="java.lang.Long" resultType="int">
-	select g_id from order_goods where ordernumber=#{ordernumber};
-</select>
+	<select id="getgid" parameterType="java.lang.Long" resultType="int">
+		select g_id from order_goods where ordernumber=#{ordernumber};
+	</select>
 
-
+	<select id="getorder_goods" parameterType="java.lang.Long"
+		resultType="OrderGoods">
+		select * from order_goods where ordernumber=#{ordernumber};
+	</select>
+	
+	<select id ="getgoods_item" resultType="Goods_item" >
+		SELECT b.g_name as g_name,a.prince as prince ,a.og_num as og_num ,image_zhanshi FROM order_goods a, goods b WHERE a.ordernumber=#{ordernumber} AND b.g_id=#{g_id} AND b.g_id=a.g_id;
+	</select>
+	
+	<select id="getSumprince" parameterType="java.lang.Long" resultType="float">
+		SELECT SUM(prince*og_num) FROM order_goods where ordernumber=#{ordernumber};
+	</select>
 
 </mapper>

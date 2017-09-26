@@ -221,7 +221,7 @@
 		</script>
 		<div class="container">
 			<div class="checkout-box">
-				<form id="checkoutForm" action="#" method="post">
+				<form id="checkoutForm" action="pay" method="post">
 					<div class="checkout-box-bd">
 						<!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
 						<input type="hidden" name="Checkout[addressState]" id="addrState"
@@ -479,13 +479,13 @@
 											<span class="col col-3">购买数量</span> <span class="col col-4">小计（元）</span>
 										</dt>
 									
-											<c:forEach items="${goodlist1}" var="goods">
+											<c:forEach items="${goods_items_list}" var="goods">
 												<dd class="item clearfix">
 													<div class="item-row">
 														<div class="col col-1">
 															<div class="g-pic">
 																<img
-																	src="${goods.image_zhanshi}"
+																	src="${goods.image_zhanshi }"
 																	
 																	width="40" height="40" />
 															</div>
@@ -494,9 +494,9 @@
 															</div>
 														</div>
 
-														<div class="col col-2"><c:out value="${goods.g_price}"></c:out></div>
-														<div class="col col-3">1</div>
-														<div class="col col-4">39元</div>
+														<div class="col col-2" >${goods.prince}</div>
+														<div class="col col-3">${goods.og_num}</div>
+														<div class="col col-4">${goods.prince * goods.og_num}</div>
 													</div>
 												</dd>
 											</c:forEach>
@@ -513,7 +513,7 @@
 										<div class="checkout-price">
 											<ul>
 
-												<li>订单总额：<span>244元</span>
+												<li>订单总额：<span><c:out value="${sumprince }"></c:out></span>
 												</li>
 												<li>活动优惠：<span>-0元</span> <script
 														type="text/javascript">
@@ -527,7 +527,7 @@
 												</li>
 											</ul>
 											<p class="checkout-total">
-												应付总额：<span><strong id="totalPrice">244</strong>元</span>
+												应付总额：<span><strong id="totalPrice">${sumprince }</strong>元</span>
 											</p>
 										</div>
 										<!--  -->
@@ -571,7 +571,7 @@
 							name="Checkout[couponsValue]">
 						<div class="checkout-confirm">
 
-							<a href="#" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
+							<a href="shopcar.jsp" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
 							<input type="submit" class="btn btn-primary" value="立即下单"
 								id="checkoutToPay" />
 						</div>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.qst.model.Goods;
 import com.qst.model.Image;
+import com.qst.model.OrderGoods;
 
 public interface goodsDao {
 
@@ -16,4 +17,5 @@ public interface goodsDao {
 	 ArrayList<String> getImageUrl(int image_id);
 	 
 	 Image getImage(long goodsnumber);
+	 
 }
