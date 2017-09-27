@@ -234,8 +234,8 @@
 							</div>
 							<div class="box-bd">
 								<div class="clearfix xm-address-list" id="checkoutAddrList">
-								
-								
+
+
 									<dl class="item">
 										<dt>
 											<strong class="itemConsignee"><c:out value="${user. username}"></c:out></strong> <span
@@ -243,7 +243,7 @@
 										</dt>
 										<dd>
 											<p class="tel itemTel"><c:out value="${user.adress }"></c:out></p>
-											
+
 											<span class="edit-btn J_editAddr">编辑</span>
 										</dd>
 										<dd style="display: none">
@@ -251,9 +251,9 @@
 												class="addressId" value="10140916720030323">
 										</dd>
 									</dl>
-									
-									
-									
+
+
+
 									<div class="item use-new-addr" id="J_useNewAddr"
 										data-state="off">
 										<span class="iconfont icon-add"><img
@@ -452,7 +452,7 @@
 												name="Checkout[invoice_type]" value="2"> 单位</li>
 										</ul>
 										<div id='CheckoutInvoiceTitle' class=" hide  invoice-title">
-											<label for="Checkout[invoice_title]">单位名称：</label> <input
+											<label>单位名称：</label> <input
 												name="Checkout[invoice_title]" type="text" maxlength="49"
 												value="" class="input"> <span
 												class="tip-msg J_tipMsg"></span>
@@ -478,7 +478,7 @@
 											<span class="col col-1">商品名称</span> <span class="col col-2">购买价格</span>
 											<span class="col col-3">购买数量</span> <span class="col col-4">小计（元）</span>
 										</dt>
-									
+
 											<c:forEach items="${goods_items_list}" var="goods">
 												<dd class="item clearfix">
 													<div class="item-row">
@@ -486,7 +486,7 @@
 															<div class="g-pic">
 																<img
 																	src="${goods.image_zhanshi }"
-																	
+
 																	width="40" height="40" />
 															</div>
 															<div class="g-info">
@@ -500,13 +500,13 @@
 													</div>
 												</dd>
 											</c:forEach>
-										
+
 									</dl>
 									<div class="checkout-count clearfix">
 										<div class="checkout-count-extend xm-add-buy">
 											<h3 class="title">
 												会员留言
-												</h2>
+												</h3>
 												</br> <input type="text" />
 										</div>
 										<!-- checkout-count-extend -->
@@ -630,7 +630,6 @@
 		</div>
 		<!--  预售提示 E-->
 
-		<script id="newAddrTemplate" type="text/x-dot-template">
 						<dl class="item selected" data-isnew="true" data-consignee="{{=it.consignee}}" data-tel="{{=it.tel}}" data-province="{{=it.province}}" data-provincename="{{=it.provinceName}}" data-city="{{=it.city}}" data-cityname="{{=it.cityName}}" data-county="{{=it.county}}" data-countyname="{{=it.countyName}}" data-zipcode="{{=it.zipcode}}" data-street="{{=it.street}}" data-tag="{{=it.tag}}">
 							<dt>
                 <strong class="itemConsignee">{{=it.consignee}}</strong>
@@ -645,7 +644,7 @@
 								<span class="edit-btn J_editAddr">编辑</span>
 							</dd>
 						</dl>
-					</script>
+		<script id="newAddrTemplate" type="text/x-dot-template"></script>
 
 		<!-- 保险弹窗 -->
 		<!-- 保险弹窗 -->

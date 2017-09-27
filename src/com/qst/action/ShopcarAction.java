@@ -1,22 +1,18 @@
 package com.qst.action;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-import javax.annotation.Resource;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
-import org.springframework.stereotype.Component;
-
 import com.qst.model.Goods;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 
 @Component
@@ -34,7 +30,7 @@ public class ShopcarAction {
 		this.orderService = orderService;
 	}
 
-	
+
 
 	public goodsService getGoodsService() {
 		return goodsService;
@@ -44,14 +40,14 @@ public class ShopcarAction {
 		this.goodsService = goodsService;
 	}
 	/*
-	 * 此类的功能为将商品设置进入订单
+	 * 此类的功能为将商品设置进入订单,
 	 */
 
 	public String  setGoodinOrder() {													//此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date=new Date();
 		long  ordernumber =Long.parseLong(dateFormater.format(date)) ;	//生成唯一的订单号
-		
+
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -64,7 +60,6 @@ public class ShopcarAction {
 		float Fprice[] = new float[price.length];
 		int Fgoodsum[] = new int[goodsnum.length];
 		int Fgid[] = new int[gid.length];
-		
 		for (int i = 0; i < price.length; i++) {
 			Fprice[i]=Float.parseFloat(price[i]);
 			Fgoodsum[i]=Integer.parseInt(goodsnum[i]);
@@ -93,8 +88,8 @@ public class ShopcarAction {
 		session.setAttribute("goodlist", arrayList2);
 		return "diao";
 	}
-	
-	
+
+
 	/*
 	 * 得到订单的每一行商品信息
 	 */

@@ -20,7 +20,7 @@
 				src="images/index/icon_location.png"> 送至珠海</li>
 			<li><a href="#">手机商城</a></li>
 			<li><a href="#">网站导航</a></li>
-			<li><a href="#">客户服务</a> </span></li>
+			<li><a href="#">客户服务</a></li>
 			<li><a href="#">企业采购</a></li>
 			<li><a href="#">商城会员</a></li>
 			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
@@ -149,7 +149,7 @@
 						<img src="img/item-as-img-1.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
+						<span><i class="fa fa-rmb text-danger"></i></span><span
 							class="seckill-price text-danger">39.9</span>
 					</div>
 					<div class="item-as-intro">
@@ -181,7 +181,7 @@
 						<img src="img/item-as-img-1.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
+						<span><i class="fa fa-rmb text-danger"></i></span><span
 							class="seckill-price text-danger">39.9</span>
 					</div>
 					<div class="item-as-intro">
@@ -217,13 +217,13 @@
 						<li><span>综合 <strong><i
 									class="fa fa-long-arrow-down"></i></strong></span></li>
 						<li><span>销量 <strong><i
-									class="fa fa-long-arrow-down"></i></span></strong></li>
+									class="fa fa-long-arrow-down"></i></strong></span></li>
 						<li><span>评论数 <strong><i
-									class="fa fa-long-arrow-down"></i></span></strong></li>
+									class="fa fa-long-arrow-down"></i></strong></span></li>
 						<li><span>新品 <strong><i
-									class="fa fa-long-arrow-down"></i></span></strong></li>
+									class="fa fa-long-arrow-down"></i></strong></span></li>
 						<li><span>价格 <strong><i
-									class="fa fa-long-arrow-down"></i></span></strong></li>
+									class="fa fa-long-arrow-down"></i></strong></span></li>
 					</ul>
 				</div>
 				<c:forEach items="${pImageList.list}" var="list">
@@ -412,5 +412,5 @@
 		</p>
 	</div>
 </body>
-<script src="js/mall.js"></script>
+<script src="js/mall.js" type="text/javascript"></script>
 </html>
