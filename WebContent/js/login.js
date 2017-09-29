@@ -52,6 +52,7 @@ function login() {
         success:function (data) {
             if(data.search("yes") !== -1){
                 $('#login').find('h1').text("登录成功, 跳转中......");
+                location.href="index.jsp" 
                 setTimeout(refresh,2000);
             }
             else {

@@ -13,6 +13,12 @@
 
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
+		
+		<!--个人资料界面显示信息-->
+		<action name="showUserInfor" class="userAction" method="showUserInfor">
+			<result name="success">/user_infor.jsp</result>
+			<result name="error">/login.html</result>
+		</action>
 
 		<!-- 界面显示的图片,及分页的效果 -->
 		<action name="indexShow" class="indexShowAction" method="indexShow">
@@ -24,7 +30,7 @@
 			<result name="success">/goods_detail.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-
+		
 
 		<action name="getshopcargoods" class="com.qst.action.ShopcarAction"
 			method="getshopcargoods">

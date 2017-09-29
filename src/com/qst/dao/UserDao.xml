@@ -3,23 +3,33 @@
 
 <mapper namespace="com.qst.dao.UserDao">
 
-	<insert id="add" parameterType="User" >
-		INSERT INTO usertable (username, psw, email,state_type, adress, integral)
-		VALUES (#{username},#{psw},#{email},#{stateType},#{address},#{integral})
+	<insert id="add" parameterType="User">
+		INSERT INTO usertable
+		(username, psw, email,state_type, adress, integral)
+		VALUES
+		(#{username},#{psw},#{email},#{stateType},#{address},#{integral})
 	</insert>
 	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 	<select id="login" parameterType="User" resultType="User">
 		select * from
 		usertable where username = #{username} and psw = #{psw}
 	</select>
-	
-	<select id="findByName" resultType="com.qst.model.User" parameterType="string">
+
+	<select id="findByName" resultType="com.qst.model.User"
+		parameterType="string">
 		SELECT * FROM usertable
 		WHERE username = #{username}
 	</select>
-	
-	 <select id="findByID"  parameterType="Integer" resultType="User">
-			select * from usertable where uid=#{uid};
+
+	<select id="findByID" parameterType="Integer" resultType="User">
+		select * from usertable where uid=#{uid};
 	</select>
-	 
+	
+	<!-- 个人信息页的显示 -->
+	<select id="showUserInfor" parameterType="User" resultType="User">
+		select * from usertable where username = #{username};
+	</select>
+
+
+
 </mapper>

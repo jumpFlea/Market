@@ -7,12 +7,13 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @Component
-public class UserAction extends ActionSupport{
+public class UserAction extends ActionSupport {
 	@Resource
 	private UserService userService;
 
@@ -35,24 +36,21 @@ public class UserAction extends ActionSupport{
 		this.user = user;
 	}
 
-
-
-	public void login(){
-		HttpServletResponse response= ServletActionContext.getResponse();
+	public void login() {
+		HttpServletResponse response = ServletActionContext.getResponse();
 		PrintWriter out = null;
 		String jsonString;
 		try {
 			out = response.getWriter();
-			User u=userService.login(user);
-			if(u!=null){
-				jsonString="yes";
-			}
-			else {
-				jsonString="no";
+			User u = userService.login(user);
+			if (u != null) {
+				jsonString = "yes";
+			} else {
+				jsonString = "no";
 			}
 
 		} catch (IOException e) {
-			jsonString="no";
+			jsonString = "no";
 			e.printStackTrace();
 		}
 
@@ -63,22 +61,21 @@ public class UserAction extends ActionSupport{
 		}
 	}
 
-	public void signup(){
-		HttpServletResponse response= ServletActionContext.getResponse();
+	public void signup() {
+		HttpServletResponse response = ServletActionContext.getResponse();
 		PrintWriter out = null;
 		String jsonString;
 		try {
 			out = response.getWriter();
-			User u=userService.add(user);
-			if(u!=null){
-				jsonString="yes";
-			}
-			else {
-				jsonString="no";
+			User u = userService.add(user);
+			if (u != null) {
+				jsonString = "yes";
+			} else {
+				jsonString = "no";
 			}
 
 		} catch (IOException e) {
-			jsonString="no";
+			jsonString = "no";
 			e.printStackTrace();
 		}
 
@@ -87,6 +84,17 @@ public class UserAction extends ActionSupport{
 			out.flush();
 			out.close();
 		}
+	}
+
+	// 根据用户登录时的名字显示个人信息，（此处功能需要待添加判读用户是否登录）
+	public String showUserInfor() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		User u = userService.ShowUserInfor(user);
+		if (u != null) {
+			request.setAttribute("u2", u);
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 
 }
