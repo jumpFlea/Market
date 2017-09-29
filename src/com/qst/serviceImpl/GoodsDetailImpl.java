@@ -14,7 +14,7 @@ public class GoodsDetailImpl implements GoodsDetailService {
 	private GoodsDetailDao gdd;
 	@Override
 	public Goods showGoods(int goodId) {
-		// TODO Auto-generated method stub
+	
 		return gdd.showGoods(goodId);
 	}
 

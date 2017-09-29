@@ -26,23 +26,23 @@
 		</action>
 
 
-		<action name="getshopcargoods" class="com.qst.action.shopcarAction"
+		<action name="getshopcargoods" class="com.qst.action.ShopcarAction"
 			method="getshopcargoods">
 			<result name="diao">shopcar.jsp</result>
 		</action>
 
-		<action name="setGoodinOrder" class="com.qst.action.shopcarAction"
+		<action name="setGoodinOrder" class="com.qst.action.ShopcarAction"
 			method="setGoodinOrder">
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
-		<action name="getOrderItem" class="com.qst.action.shopcarAction"
+		<action name="getOrderItem" class="com.qst.action.ShopcarAction"
 			method="getOrderItem">
 
 			<result name="dyj">order.jsp</result>
 		</action>
 		
-		<action  name="pay" class="com.qst.action.shopcarAction" method="pay"> 
+		<action  name="pay" class="com.qst.action.ShopcarAction" method="pay"> 
 	 			<result name="pay">order_submit.html</result>
 	 	</action>
 		
