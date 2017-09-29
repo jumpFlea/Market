@@ -26,7 +26,7 @@
 			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
 				class="glyphicon glyphicon-menu-down"></span></li>
 			<li class="login-signup">你好，请 <a href="login.html">登录 </a><span
-				class="text-color-red"><a href="signup.html">免费注册</a></span></li>
+				class="text-color-red"><a href="login.html">免费注册</a></span></li>
 		</ul>
 	</div>
 	<!-- 搜索框 -->
