@@ -19,6 +19,13 @@
 			<result name="success">/user_infor.jsp</result>
 			<result name="error">/login.html</result>
 		</action>
+		
+		<!--个人帐号信息修改-->
+		<action name="updateUserInfor" class="userAction" method="updateUserInfor">
+			<result name="success">/user_infor.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="input">/error.jsp</result>
+		</action>
 
 		<!-- 界面显示的图片,及分页的效果 -->
 		<action name="indexShow" class="indexShowAction" method="indexShow">

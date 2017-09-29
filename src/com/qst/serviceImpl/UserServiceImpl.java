@@ -39,4 +39,25 @@ public class UserServiceImpl implements UserService {
 		return dao.findByID(uid);
 	}
 
+
+	@Override
+	public User ShowUserInfor(User user) {
+		// TODO Auto-generated method stub
+		return dao.showUserInfor(user);
+	}
+
+
+	@Override
+	public int updateUserInfor(User user1) {
+		// TODO Auto-generated method stub
+		return dao.updateUserInfor(user1);
+	}
+
+
+	@Override
+	public int findIdByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.findIdByName(name);
+	}
+
 }

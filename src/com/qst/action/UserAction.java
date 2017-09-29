@@ -3,12 +3,17 @@ package com.qst.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.User;
 import com.qst.service.UserService;
+
+import sun.print.resources.serviceui;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,8 +23,27 @@ public class UserAction extends ActionSupport {
 	private UserService userService;
 
 	private User user;
+	private User user1;
 	private String loginResult;
+	
+	
+/*	public String getUsername() {
+		return username;
+	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}*/
+
+	public User getUser1() { 
+		return user1;
+	}
+
+	public void setUser1(User user1) {
+		this.user1 = user1;
+	}
+
+	
 	public UserService getUserService() {
 		return userService;
 	}
@@ -87,14 +111,32 @@ public class UserAction extends ActionSupport {
 	}
 
 	// 根据用户登录时的名字显示个人信息，（此处功能需要待添加判读用户是否登录）
-	public String showUserInfor() {
+	public String showUserInfor(){
 		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
 		User u = userService.ShowUserInfor(user);
 		if (u != null) {
-			request.setAttribute("u2", u);
+			session.setAttribute("u2", u);
 			return SUCCESS;
 		}
 		return ERROR;
+	}
+
+	// 个人信息修改，存session会话域是为了后续的修改
+	public String updateUserInfor() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		String username=((User)session.getAttribute("u2")).getUsername();
+		int id = userService.findIdByName(username);
+		user1.setUid(id);
+		int re = userService.updateUserInfor(user1);
+		if(re!=0){
+			User u = userService.ShowUserInfor(user1);
+			session.setAttribute("u2", u);
+			return SUCCESS;
+		}
+		return ERROR;
+		
 	}
 
 }

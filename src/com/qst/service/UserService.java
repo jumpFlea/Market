@@ -10,4 +10,9 @@ public interface UserService {
 	User findUserbyID(int uid);
 	
 	User ShowUserInfor(User user);
+	
+	int updateUserInfor(User user);
+	
+	int findIdByName(String name);
+	
 }
