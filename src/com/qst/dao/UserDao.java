@@ -10,4 +10,6 @@ public interface UserDao {
 	User findByName(String username);
 	
 	User findByID(Integer uid);
+	
+	User showUserInfor(User user);
 }

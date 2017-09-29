@@ -8,4 +8,6 @@ public interface UserService {
 	User add(User user);
 	
 	User findUserbyID(int uid);
+	
+	User ShowUserInfor(User user);
 }

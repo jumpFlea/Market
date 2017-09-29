@@ -71,9 +71,9 @@
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
-							<li class="sub-list-item"><a href="" class="item-link">
+							<li class="sub-list-item"><a href="userinfor_update.jsp" class="item-link">
 									<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">个人资料</span>
+									class="sub-list-txt">个人信息修改</span>
 							</a></li>
 							<li class="sub-list-item"><a href="" class="item-link">
 									<span class="triangle-right pull-left"></span> <span
@@ -91,7 +91,7 @@
 
 				<div class="nn-info-settings">
 					<p class="info-settings">
-						<span class="info-settings-txt">已筛选条件</span>
+						<span class="info-settings-txt">个人信息页显示</span>
 					</p>
 
 					<p class="info-avatar">
@@ -104,24 +104,14 @@
 
 					<div class="info-input-row">
 						<p class="input-wrap">
-							<input type="text" placeholder="请填写昵称" />
+						用户名:<input type="text"  value="${u2.username}"/>
 						</p>
 					</div>
 					<div class="info-input-row">
 						<p class="input-wrap">
-							<input type="text" placeholder="1243565432(注册手机号/账号)" />
+						邮箱:<input type="text" value="${u2.email}" />
 						</p>
 					</div>
-					<div class="info-input-row">
-						<p class="input-wrap">
-							<input type="text" placeholder="请填写常用邮箱" />
-						</p>
-					</div>
-					<div class="button-group">
-						<button class="save-btn">保存</button>
-					</div>
-
-
 				</div>
 
 
