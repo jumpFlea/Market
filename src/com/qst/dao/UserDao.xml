@@ -29,7 +29,16 @@
 	<select id="showUserInfor" parameterType="User" resultType="User">
 		select * from usertable where username = #{username};
 	</select>
-
+	<!--根据名字查找id -->
+	<select id="findIdByName" parameterType="String" resultType="int">
+		select uid from usertable where username=#{name};
+	</select>
+	
+	<!--个人信息的修改 -->
+	<update id="updateUserInfor">
+		update usertable set username=#{username},psw=#{psw},email=#{email}
+		where uid=#{uid};
+	</update>
 
 
 </mapper>

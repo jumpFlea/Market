@@ -12,4 +12,8 @@ public interface UserDao {
 	User findByID(Integer uid);
 	
 	User showUserInfor(User user);
+	
+	int findIdByName(String username);
+	
+	int updateUserInfor(User user1);
 }
