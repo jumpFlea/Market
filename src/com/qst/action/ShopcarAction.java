@@ -25,7 +25,7 @@ public class ShopcarAction {
 	private goodsService goodsService;
 	@Resource
 	private orderService orderService;
-	@ Resource
+	@Resource
 	private AdressService adressService;
 
 	public AdressService getAdressService() {
