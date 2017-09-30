@@ -59,7 +59,10 @@
 	 			<result name="pay">order_submit.html</result>
 	 	</action>
 		
-
+		
+		<action name="setAdress" class="com.qst.action.AdressAction" method="setAdress">
+			
+		</action>
 	</package>
 
 

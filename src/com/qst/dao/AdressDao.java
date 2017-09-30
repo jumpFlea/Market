@@ -10,6 +10,8 @@ public interface AdressDao {
 
 	public Adress getAdress(int ad_id);
 	
-	public void setAdress(String name,String phone,String region,String street);
+	public int setAdress(String name,String phone,String region,String street);
+	
+	public int updateAdress(String name,String phone,String region,String street);
 	
 }
