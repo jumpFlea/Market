@@ -21,7 +21,6 @@ public class AdressServiceImpl implements AdressService {
 	}
 
 	public Adress getAdress(int ad_id) {
-
 		return adressDao.getAdress(ad_id);
 	}
 
