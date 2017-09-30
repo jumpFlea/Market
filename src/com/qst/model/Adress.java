@@ -19,11 +19,6 @@ public class Adress {
 	}
 
 
-	public String toString() {
-		return "Adress [name=" + name + ", phone=" + phone + ", region=" + region + ", street=" + street + "]";
-	}
-
-
 	public String getPhone() {
 		return phone;
 	}
@@ -47,4 +42,9 @@ public class Adress {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+	
+	public String toString() {
+		return "Adress [name=" + name + ", phone=" + phone + ", region=" + region + ", street=" + street + "]";
+	}
+
 }

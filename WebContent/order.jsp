@@ -283,6 +283,8 @@
 								<input type="hidden" name="newAddress[tag_name]" id="newTag">
 								<!--点击弹出新增/收货地址界面start-->
 								<div class="xm-edit-addr-box" id="J_editAddrBox">
+								<table>
+								<form action="setAdress"  method="post">
 									<div class="bd">
 										<div class="item">
 											<label>收货人姓名<span>*</span></label> <input type="text"
@@ -329,9 +331,11 @@
 									<div class="ft clearfix">
 										<button type="button" class="btn btn-lineDake btn-small "
 											id="J_editAddrCancel">取消</button>
-										<button type="button" class="btn btn-primary  btn-small "
-											id="J_editAddrOk">保存</button>
+										<input type="submit" class="btn btn-primary  btn-small "
+											id="J_editAddrOk" value="保存"/>
 									</div>
+									</form>
+									</table>
 								</div>
 								<!--点击弹出新增/收货地址界面end-->
 								<div class="xm-edit-addr-backdrop" id="J_editAddrBackdrop"></div>
