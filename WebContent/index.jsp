@@ -23,11 +23,11 @@
 			<li><a href="#">商城会员</a></li>
 			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
-			<li class="login-signup">你好， <a href="login.html">登录 </a><span
+			<li class="login-signup">你好， 请<a href="login.html">登录 </a><span
 				class="text-color-red"><a href="login.html#signup">免费注册</a></span></li>
 			</c:if>
 			<c:if test="${user != null}">
-				<li class="login-signup">你好，请${user.username}</li>
+				<li class="login-signup">你好，${user.username}</li>
 			</c:if>
 		</ul>
 	</div>
