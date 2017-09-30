@@ -8,6 +8,10 @@ public class User {
 	private Integer state_type;
 	private String adress;
 	private Integer integral;
+	private String u_image;
+	
+
+
 
 	public User() {
 	}
@@ -19,7 +23,7 @@ public class User {
 	}
 
 	public User(Integer uid, String username, String psw, String email, Integer state_type, String adress,
-			Integer integral) {
+			Integer integral,String u_image) {
 		super();
 		this.uid = uid;
 		this.username = username;
@@ -28,6 +32,7 @@ public class User {
 		this.state_type = state_type;
 		this.adress = adress;
 		this.integral = integral;
+		this.u_image=u_image;
 	}
 
 	public Integer getUid() {
@@ -85,5 +90,12 @@ public class User {
 	public void setIntegral(Integer integral) {
 		this.integral = integral;
 	}
+	
+	public String getU_image() {
+		return u_image;
+	}
 
+	public void setU_image(String u_image) {
+		this.u_image = u_image;
+	}
 }

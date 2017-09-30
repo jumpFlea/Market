@@ -96,8 +96,8 @@
 
 					<p class="info-avatar">
 						<span class="info-avatar-settings"> <img
-							src="images/head-img.png" alt="" /> <span class="cover-show">
-								<a href="">点击修改头像</a>
+							src="${u2.u_image}" alt="" /> <span class="cover-show">
+								
 						</span>
 						</span>
 					</p>

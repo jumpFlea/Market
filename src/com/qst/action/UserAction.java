@@ -6,6 +6,7 @@ import com.qst.service.UserService;
 
 import sun.print.resources.serviceui;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
@@ -14,8 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.UUID;
 
 @Component
 public class UserAction extends ActionSupport {
@@ -26,6 +29,9 @@ public class UserAction extends ActionSupport {
 	private User user1;
 	private String loginResult;
 	
+	//变量名字固定写法
+	private File upload;
+	private String uploadFileName;
 	
 /*	public String getUsername() {
 		return username;
@@ -34,6 +40,22 @@ public class UserAction extends ActionSupport {
 	public void setUsername(String username) {
 		this.username = username;
 	}*/
+
+	public File getUpload() {
+		return upload;
+	}
+
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
 
 	public User getUser1() { 
 		return user1;
@@ -123,12 +145,18 @@ public class UserAction extends ActionSupport {
 	}
 
 	// 个人信息修改，存session会话域是为了后续的修改
-	public String updateUserInfor() {
+	public String updateUserInfor() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		String username=((User)session.getAttribute("u2")).getUsername();
-		int id = userService.findIdByName(username);
-		user1.setUid(id);
+		if(upload!=null){
+			String savePath = ServletActionContext.getServletContext().getRealPath("/images/upload");
+			//随机产生一个文件名
+			String fileName= UUID.randomUUID().toString() + "_" + uploadFileName;
+			File file = new File(savePath+fileName);
+			FileUtils.copyFile(upload,file);
+			user1.setU_image("images"+File.separator+"upload"+fileName);
+		}
 		int re = userService.updateUserInfor(user1);
 		if(re!=0){
 			User u = userService.ShowUserInfor(user1);
