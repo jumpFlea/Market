@@ -1,6 +1,7 @@
 package com.qst.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.qst.model.Session;
 import com.qst.model.User;
 import com.qst.service.UserService;
 
@@ -62,6 +63,8 @@ public class UserAction extends ActionSupport {
 
 	public void login() {
 		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request =ServletActionContext.getRequest();
+		HttpSession session =request.getSession();
 		PrintWriter out = null;
 		String jsonString;
 		try {
@@ -69,6 +72,7 @@ public class UserAction extends ActionSupport {
 			User u = userService.login(user);
 			if (u != null) {
 				jsonString = "yes";
+				session.setAttribute("user",u);
 			} else {
 				jsonString = "no";
 			}
