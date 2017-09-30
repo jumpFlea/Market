@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/user-public.css" />
 <link rel="stylesheet" href="css/user-info-settings.css" />
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -72,9 +74,9 @@
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
-							<li class="sub-list-item"><a href="showUserInfor" class="item-link">
-									<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">个人资料</span>
+							<li class="sub-list-item"><a href="showUserInfor"
+								class="item-link"> <span class="triangle-right pull-left"></span>
+									<span class="sub-list-txt">个人资料</span>
 							</a></li>
 							<li class="sub-list-item"><a href="" class="item-link">
 									<span class="triangle-right pull-left"></span> <span
@@ -89,39 +91,41 @@
 
 			<!-- 右边内容分区栏 -->
 			<div class="nn-right-content">
-				<form action="updateUserInfor" method="post"
-					onsubmit="return update()">
+				<form action="updateUserInfor" enctype="multipart/form-data" method="post">
 					<div class="nn-info-settings">
 						<p class="info-settings">
 							<span class="info-settings-txt">已筛选条件</span>
 						</p>
 
-						<p class="info-avatar">
-							<span class="info-avatar-settings"> <img
-								src="images/head-img.png" alt="" /> <span class="cover-show">
-									<a href="">点击修改头像</a>
+						<p class="info-avatar" id="preview">
+							<span class="info-avatar-settings"> <img src="${u2.u_image}" alt=""
+								width="170" height="170" /> <span class="cover-show"> <a
+									onclick="$('input[name=upload]').click()">点击修改头像</a>
 							</span>
 							</span>
 						</p>
-
+						<div>
+							<input type="file" name="upload" onchange="previewImage(this)" style="display:none">
+						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								<input type="text" placeholder="请填写昵称" name="user1.username" />
+								请填写昵称:<input type="text" placeholder="请填写昵称" name="user1.username" value="${u2.username}"/>
 							</p>
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								<input type="text" placeholder="请填写密码" name="user1.psw" />
+							<input type="text" value="${u2.uid}" style="display:none" name="user1.uid"/>
+							请填写密码:<input type="password" placeholder="请填写密码" name="user1.psw" value="${u2.psw}"/>
 							</p>
 						</div>
-					<!-- 	<div class="info-input-row">
+						<!-- 	<div class="info-input-row">
 							<p class="input-wrap">
 								<input type="text" placeholder="请确认密码" name="psw" />
 							</p>
 						</div> -->
 						<div class="info-input-row">
 							<p class="input-wrap">
-								<input type="text" placeholder="请填写常用邮箱" name="user1.email" />
+							请填写常用邮箱:<input type="text" placeholder="请填写常用邮箱" name="user1.email" value="${u2.email}"/>
 							</p>
 						</div>
 						<div class="button-group">
@@ -245,7 +249,7 @@
 	</div>
 
 	<script src="js/sea.js"></script>
-	
+
 	<script>
 		seajs.config({
 			/* base: "js",*/
@@ -259,7 +263,54 @@
 			init.initPage();
 		});
 	</script>
+	<!--在div框中显示本张上传图片-->
+	<script>
+		function previewImage(file) {
+			var MAXWIDTH = 180;
+			var MAXHEIGHT = 180;
+			var div = document.getElementById('preview');
+			if (file.files && file.files[0]) {
+				div.innerHTML = '<img id=imghead>';
+				var img = document.getElementById('imghead');
+				img.onload = function() {
+					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
+							img.offsetWidth, img.offsetHeight);
+					img.width = rect.width;
+					img.height = rect.height;
+					img.style.marginLeft = rect.left + 'px';
+					img.style.marginTop = rect.top + 'px';
+				}
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					img.src = evt.target.result;
+				}
+				reader.readAsDataURL(file.files[0]);
+			}
+		}
 
+		function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+			var param = {
+				top : 0,
+				left : 0,
+				width : width,
+				height : height
+			};
+			if (width > maxWidth || height > maxHeight) {
+				rateWidth = width / maxWidth;
+				rateHeight = height / maxHeight;
+				if (rateWidth > rateHeight) {
+					param.width = maxWidth;
+					param.height = Math.round(height / rateWidth);
+				} else {
+					param.width = Math.round(width / rateHeight);
+					param.height = maxHeight;
+				}
+			}
+			param.left = Math.round((maxWidth - param.width) / 2);
+			param.top = Math.round((maxHeight - param.height) / 2);
+			return param;
+		}
+	</script>
 
 
 </body>

@@ -5,9 +5,9 @@
 
 	<insert id="add" parameterType="User">
 		INSERT INTO usertable
-		(username, psw, email,state_type, adress, integral)
+		(username, psw, email,state_type, adress, integral,u_image)
 		VALUES
-		(#{username},#{psw},#{email},#{stateType},#{address},#{integral})
+		(#{username},#{psw},#{email},#{stateType},#{address},#{integral},#{u_image})
 	</insert>
 	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 	<select id="login" parameterType="User" resultType="User">
@@ -36,7 +36,7 @@
 	
 	<!--个人信息的修改 -->
 	<update id="updateUserInfor">
-		update usertable set username=#{username},psw=#{psw},email=#{email}
+		update usertable set username=#{username},psw=#{psw},email=#{email},u_image=#{u_image}
 		where uid=#{uid};
 	</update>
 
