@@ -85,7 +85,9 @@
 		</action>
 
 		<action name="getAllorder" class="com.qst.action.GetAllOrderAction"
-			method="getAllorder"></action>
+			method="getAllorder">
+			<result name="getorder">Outstanding_Order.jsp</result>
+		</action>
 	</package>
 
 
