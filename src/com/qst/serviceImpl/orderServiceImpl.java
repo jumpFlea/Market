@@ -56,4 +56,13 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getOrdernumByUid(uid);
 	}
 
+	public ArrayList<Integer> getG_idByOrdernum(long ordernumber) {
+		return orderDao.getG_idByOrdernum(ordernumber);
+	}
+
+
+	public ArrayList<Integer> getG_idByUid(int uid) {
+		return orderDao.getG_idByUid(uid);
+	}
+
 }

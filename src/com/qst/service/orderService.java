@@ -23,4 +23,9 @@ public interface orderService {
 	int setOrderType( long ordernumber);
 	
 	ArrayList<Long> getOrdernumByUid(int uid);
+	
+	ArrayList<Integer> getG_idByOrdernum(long ordernumber); 
+	
+	ArrayList<Integer> getG_idByUid(int uid);
+	
 }

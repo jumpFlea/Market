@@ -34,4 +34,9 @@ public interface orderDao {
 
 	@Select("SELECT g_id FROM order_goods WHERE ordernumber=#{ordernumber}")
 	public ArrayList<Integer> getG_idByOrdernum(@Param("ordernumber") long ordernumber );//通过ordernumber找到对应的所有gid
+	/*
+	 * 通过uid找到用户所有的订单的商品id;
+	 */
+	@Select("SELECT DISTINCT b.g_id FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{uid} AND a.ordernumber=b.ordernumber AND pay_type=0")
+	public ArrayList<Integer> getG_idByUid(@Param("uid") int uid);
 }
