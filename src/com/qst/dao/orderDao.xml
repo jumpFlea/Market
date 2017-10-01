@@ -6,7 +6,7 @@
 		insert into `order` (u_id,ordernumber) values (#{u_id},#{ordernumber});
 	</insert>
 
-	<insert id="creatorder_good">
+	<insert id="creatorder_good" >
 		insert into order_goods (ordernumber,g_id,prince,og_num)
 		values(#{ordernumber},#{g_id},#{prince},#{og_num});
 	</insert>

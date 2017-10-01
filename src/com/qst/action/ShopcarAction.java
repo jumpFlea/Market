@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 @Component
 public class ShopcarAction {
 	@Resource
@@ -52,12 +51,12 @@ public class ShopcarAction {
 	public void setGoodsService(goodsService goodsService) {
 		this.goodsService = goodsService;
 	}
-	
+
 	/*
 	 * 此类的功能为将商品设置进入订单,
 	 */
 
-	public String setGoodinOrder() {								 // 此功能为将购物车里面的商品设置进入订单
+	public String setGoodinOrder() { // 此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
 		long ordernumber = Long.parseLong(dateFormater.format(date)); // 生成唯一的订单号
@@ -78,8 +77,9 @@ public class ShopcarAction {
 			Fprice[i] = Float.parseFloat(price[i]);
 			Fgoodsum[i] = Integer.parseInt(goodsnum[i]);
 			Fgid[i] = Integer.parseInt(gid[i]);
-			orderService.creatorder(u_id, ordernumber);
-			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]);
+			orderService.creatorder(u_id, ordernumber); // 创建订单表
+			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建顶到商品连接表
+			orderService.setOrderType(ordernumber); // 将订单转台转化为1 待支付状态
 		}
 		return "order";
 	}
@@ -111,32 +111,31 @@ public class ShopcarAction {
 		HttpSession session = request.getSession();
 		long ordernumber = (long) request.getAttribute("ordernumber");
 		int uid = (int) session.getAttribute("uid");
-		
+
 		ArrayList<Integer> gid_list = orderService.getgid(ordernumber);
 		ArrayList<Goods_item> goods_itemslist = new ArrayList<Goods_item>();
-		ArrayList<Integer> adid_list =new ArrayList<Integer>();
-		
+		ArrayList<Integer> adid_list = new ArrayList<Integer>();
+
 		float sumprince = orderService.getSumprince(ordernumber);
 		Goods_item goods_item;
-		Adress adress ;
-		ArrayList<Adress> adress_list =new ArrayList<Adress>();
-		adid_list=adressService.getAlladid(uid);
-		
+		Adress adress;
+		ArrayList<Adress> adress_list = new ArrayList<Adress>();
+		adid_list = adressService.getAlladid(uid);
+
 		for (Integer ad_id : adid_list) {
-			adress=adressService.getAdress(ad_id);
+			adress = adressService.getAdress(ad_id);
 			adress_list.add(adress);
 		}
-		
+
 		for (Integer gid : gid_list) {
 			goods_item = orderService.getgoods_item(ordernumber, gid);
 			goods_itemslist.add(goods_item);
-		}	
-		
+		}
+
 		request.setAttribute("sumprince", sumprince);
 		request.setAttribute("goods_items_list", goods_itemslist);
-		request.setAttribute("adress_list",adress_list );
+		request.setAttribute("adress_list", adress_list);
 		return "dyj";
 	}
 
 }
-

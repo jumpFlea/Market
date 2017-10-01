@@ -47,4 +47,9 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getSumprince(ordernumber);
 	}
 
+	public int setOrderType(long ordernumber) {
+		
+		return orderDao.setOrderType(ordernumber);
+	}
+
 }

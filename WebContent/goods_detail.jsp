@@ -20,7 +20,7 @@
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
 					<li class="nav-item end-item"><a href="">手机版</a></li>
-					<li class="nav-item"><a href="">购物车</a></li>
+					<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
 					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
 						href="" class="regester">立即注册</a>］

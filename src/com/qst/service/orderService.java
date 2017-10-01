@@ -18,4 +18,6 @@ public interface orderService {
 	Goods_item getgoods_item(long ordernumber,int g_id);
 	
 	float getSumprince(long ordernumber);
+	
+	int setOrderType( long ordernumber);
 }
