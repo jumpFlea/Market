@@ -52,6 +52,7 @@ public class ShopcarAction {
 	public void setGoodsService(goodsService goodsService) {
 		this.goodsService = goodsService;
 	}
+	
 	/*
 	 * 此类的功能为将商品设置进入订单,
 	 */

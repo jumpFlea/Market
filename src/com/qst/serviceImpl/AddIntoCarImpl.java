@@ -11,8 +11,8 @@ public class AddIntoCarImpl implements AddIntoCar{
 @Resource
 AddInCarDao addincardao;
 	@Override
-	public void  addInshopcar(int u_id, int g_id) {
-		addincardao.addintocar(u_id, g_id);
+	public int  addInshopcar(int u_id, int g_id) {
+		return addincardao.addintocar(u_id, g_id);
 	}
 
 }
