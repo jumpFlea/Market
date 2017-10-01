@@ -5,11 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>手机壳 - 商品搜索</title>
+<title>小马交易</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/mall.css">
 </head>
 <body class="search-page">
@@ -23,10 +21,14 @@
 			<li><a href="#">客户服务</a></li>
 			<li><a href="#">企业采购</a></li>
 			<li><a href="#">商城会员</a></li>
-			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
-				class="glyphicon glyphicon-menu-down"></span></li>
-			<li class="login-signup">你好，请 <a href="login.html">登录 </a><span
-				class="text-color-red"><a href="login.html">免费注册</a></span></li>
+			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span class="glyphicon glyphicon-menu-down"></span></li>
+			<c:if test="${user == null}">
+			<li class="login-signup">你好， 请<a href="login.html">登录 </a><span
+				class="text-color-red"><a href="login.html#signup">免费注册</a></span></li>
+			</c:if>
+			<c:if test="${user != null}">
+				<li class="login-signup">你好，${user.username}</li>
+			</c:if>
 		</ul>
 	</div>
 	<!-- 搜索框 -->
@@ -412,5 +414,7 @@
 		</p>
 	</div>
 </body>
+<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/mall.js" type="text/javascript"></script>
 </html>

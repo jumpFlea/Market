@@ -6,7 +6,6 @@ import com.qst.model.Goods_item;
 import com.qst.service.AdressService;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
-import com.sun.jndi.cosnaming.IiopUrl.Address;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,7 @@ public class ShopcarAction {
 	private goodsService goodsService;
 	@Resource
 	private orderService orderService;
-	@ Resource
+	@Resource
 	private AdressService adressService;
 
 	public AdressService getAdressService() {
