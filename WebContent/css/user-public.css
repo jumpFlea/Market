@@ -1,4 +1,4 @@
-/* ×ó±ß²Ëµ¥À¸ */
+/* å·¦è¾¹èœå•æ  */
 .nn-left-menu {
     width: 250px;
     background-color: #fff;
@@ -7,6 +7,7 @@
     padding: 10px 15px;
     font-size: 16px;
     color: #333;
+    font-weight: bold;
 }
 .nn-all-sort .list-item .avatar-box {
     padding: 30px 0;
@@ -36,7 +37,7 @@
 .nn-all-sort .list-item .plus-icon,
 .nn-all-sort .list-item .subtraction-icon {
     font-weight: bold;
-    color: #eee;
+    color: #000;
     font-size: 20px;
     line-height: 28px;
     cursor: pointer;
@@ -56,7 +57,7 @@
 }
 .sub-menu-list .sub-list-item .item-link {
     display: block;
-    color: #cecece;
+    color: #142a49;
 }
 .sub-menu-list .sub-list-item .item-link .triangle-right {
     display: inline-block;
@@ -72,7 +73,7 @@
     opacity: 1;
 }
 
-/* ÄÚÈİÇø¹²ÓĞ */
+/* å†…å®¹åŒºå…±æœ‰ */
 .nn-right-content {
     margin-left: 260px;
     padding: 0 20px 50px 20px;
@@ -80,7 +81,7 @@
     min-height: 450px;
 }
 
-/* ½ûÖ¹bodyÔªËØ¹ö¶¯ */
+/* ç¦æ­¢bodyå…ƒç´ æ»šåŠ¨ */
 .forbidden-scroll {
     overflow: hidden;
 }

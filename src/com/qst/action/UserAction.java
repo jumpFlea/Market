@@ -1,11 +1,9 @@
 package com.qst.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.qst.model.Session;
 import com.qst.model.User;
 import com.qst.service.UserService;
 
-import sun.print.resources.serviceui;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -95,6 +93,8 @@ public class UserAction extends ActionSupport {
 			if (u != null) {
 				jsonString = "yes";
 				session.setAttribute("user",u);
+				int uid=userService.findIdByName(u.getUsername());
+				session.setAttribute("uid", uid);
 			} else {
 				jsonString = "no";
 			}

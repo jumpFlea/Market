@@ -1,3 +1,4 @@
+
 package com.qst.action;
 
 import com.qst.model.Adress;
@@ -6,7 +7,6 @@ import com.qst.model.Goods_item;
 import com.qst.service.AdressService;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
-import com.sun.jndi.cosnaming.IiopUrl.Address;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 
 @Component
 public class ShopcarAction {
@@ -137,3 +138,4 @@ public class ShopcarAction {
 	}
 
 }
+
