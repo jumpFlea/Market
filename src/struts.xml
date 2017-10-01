@@ -78,10 +78,14 @@
 			method="setgoodsinordre">
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
+		<!--删除购物车的某一个商品 -->
+		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction"
+			method="delGoodsShopCar">
 
-		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction" method="delGoodsShopCar">
-			
 		</action>
+
+		<action name="getAllorder" class="com.qst.action.GetAllOrderAction"
+			method="getAllorder"></action>
 	</package>
 
 

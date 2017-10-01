@@ -404,7 +404,7 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<span class="my-item">待处理订单</span> <span class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span class="my-item">返修退换货</span>
 		</p>
 		<p>
 			<span class="my-item">返修退换货</span> <span class="my-item">降价商品</span>

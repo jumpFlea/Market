@@ -48,8 +48,12 @@ public class orderServiceImpl implements orderService {
 	}
 
 	public int setOrderType(long ordernumber) {
-		
+
 		return orderDao.setOrderType(ordernumber);
+	}
+
+	public ArrayList<Long> getOrdernumByUid(int uid) {
+		return orderDao.getOrdernumByUid(uid);
 	}
 
 }
