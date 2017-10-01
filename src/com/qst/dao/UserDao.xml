@@ -5,9 +5,9 @@
 
 	<insert id="add" parameterType="User">
 		INSERT INTO usertable
-		(username, psw, email,state_type, adress, integral,u_image)
+		(username, psw, email,state_type, integral,u_image)
 		VALUES
-		(#{username},#{psw},#{email},#{stateType},#{address},#{integral},#{u_image})
+		(#{username},#{psw},#{email},#{state_type},#{integral},#{u_image})
 	</insert>
 	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 	<select id="login" parameterType="User" resultType="User">
@@ -24,7 +24,7 @@
 	<select id="findByID" parameterType="Integer" resultType="User">
 		select * from usertable where uid=#{uid};
 	</select>
-	
+
 	<!-- 个人信息页的显示 -->
 	<select id="showUserInfor" parameterType="User" resultType="User">
 		select * from usertable where username = #{username};
@@ -33,7 +33,7 @@
 	<select id="findIdByName" parameterType="String" resultType="int">
 		select uid from usertable where username=#{name};
 	</select>
-	
+
 	<!--个人信息的修改 -->
 	<update id="updateUserInfor">
 		update usertable set username=#{username},psw=#{psw},email=#{email},u_image=#{u_image}

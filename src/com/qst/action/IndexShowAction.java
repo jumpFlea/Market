@@ -36,7 +36,7 @@ public class IndexShowAction extends ActionSupport{
 			/*request.setAttribute("sumNum",sum);*/
 			return SUCCESS;
 		}else
-			return ERROR;
+			return ERROR; 
 	}
 
 

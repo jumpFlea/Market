@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,9 +23,14 @@
 					<li class="nav-item end-item"><a href="">手机版</a></li>
 					<li class="nav-item"><a href="">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
+					<c:if test="${user == null}">
 					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
 						href="" class="regester">立即注册</a>］
 					</li>
+					</c:if>
+					<c:if test="${user != null}">
+						<li class="login-signup">你好，${user.username}</li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -42,7 +48,7 @@
 					</li>
 					<li class="list-item">
 						<div class="avatar-box text-center">
-							<img src="images/head-img.png" alt="" />
+							<img src="${user.u_image}" alt="" />
 						</div>
 					</li>
 					<li class="list-item">
@@ -97,7 +103,7 @@
 					<p class="info-avatar">
 						<span class="info-avatar-settings"> <img
 							src="${u2.u_image}" alt="" /> <span class="cover-show">
-								
+
 						</span>
 						</span>
 					</p>
