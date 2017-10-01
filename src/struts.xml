@@ -74,7 +74,7 @@
 		<!--将某单个商品设置进入我的订单并且跳转到我的订单界面 -->
 		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction"
 			method="setgoodsinordre">
-			<result name="order">/order.jsp</result>
+			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
 	</package>
