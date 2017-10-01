@@ -27,8 +27,9 @@ public class IndexShowAction extends ActionSupport{
 	public void setPage(int page) {
 		this.page = page;
 	}
-
+	
 	public String indexShow(){
+		System.out.println(page);
 		Page<Goods> pageImage =indexShowService.indexShow(page);
 		if(pageImage!=null){
 			HttpServletRequest request = ServletActionContext.getRequest();

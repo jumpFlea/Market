@@ -46,17 +46,17 @@
 							<ul class="list-ul">
 								<!-- src 为最小缩略图 data-mid 中等大小图 data-big 大图-->
 								<li id="onlickImg"><img src="${good.image_zhanshi}"
-									alt="" data-mid="${good.image_zhanshi}"
-									data-big="${good.image_zhanshi}" /></li>
-								<li><img src="${good.image_zhanshi}" alt=""
-									data-mid="${good.image_zhanshi}"
-									data-big="${good.image_zhanshi}" /></li>
-								<li><img src="${good.image_zhanshi}" alt=""
-									data-mid="${good.image_zhanshi}"
-									data-big="${good.image_zhanshi}" /></li>
-								<li><img src="${good.image_zhanshi}" alt=""
-									data-mid="${good.image_zhanshi}"
-									data-big="${good.image_zhanshi}" /></li>
+									alt="" data-mid="${image.url2}"
+									data-big="${image.url2}" /></li>
+								<li><img src="${image.url2}" alt=""
+									data-mid="${image.url2}"
+									data-big="${image.url2}" /></li>
+								<li><img src="${image.url3}" alt=""
+									data-mid="${image.url3}"
+									data-big="${image.url3}" /></li>
+								<li><img src="${image.url4}" alt=""
+									data-mid="${image.url4}"
+									data-big="${image.url4}" /></li>
 							</ul>
 						</div>
 						<div class="next-img-wrap">
@@ -87,8 +87,7 @@
 						<!-- <p class="tips-value">商品已成功添加到购物车！</p>
 						<p class="cart-info">
 							购物车现有<span>2</span>件商品
-						</p> -->
-						
+						</p> -->				
 					</div>
 					<div class="btn-row">
 						<a href="" class="to-buy">添加到购物车<span></span>
