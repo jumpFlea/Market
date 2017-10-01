@@ -79,6 +79,9 @@
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
+		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction" method="delGoodsShopCar">
+			
+		</action>
 	</package>
 
 

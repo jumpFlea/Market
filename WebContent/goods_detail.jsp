@@ -91,7 +91,7 @@
 					</div>
 					<div class="btn-row">
 						<a href="addInshopcar?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
-						</a> <a href="" class="continue-find">立即购买 <span></span>
+						</a> <a href="setgoodsinordre?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}" class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
 				</div>

@@ -78,7 +78,7 @@ public class ShopcarAction {
 			Fgoodsum[i] = Integer.parseInt(goodsnum[i]);
 			Fgid[i] = Integer.parseInt(gid[i]);
 			orderService.creatorder(u_id, ordernumber); // 创建订单表
-			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建顶到商品连接表
+			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建商品连接表
 			orderService.setOrderType(ordernumber); // 将订单转台转化为1 待支付状态
 		}
 		return "order";
@@ -138,4 +138,18 @@ public class ShopcarAction {
 		return "dyj";
 	}
 
+	
+		/*
+		 * 删除购物车里的某一个商品
+		 */
+	public String delGoodsShopCar()		
+	{
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		int uid =(int)session.getAttribute("uid");
+		int gid =Integer.parseInt(request.getParameter("goodsid"));
+		goodsService.deleteShopcarGoodByid(uid, gid);
+		return "del";
+		
+	}
 }

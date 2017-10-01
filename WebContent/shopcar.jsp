@@ -230,7 +230,7 @@
                         <td class="tb1_td6">
                             <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
                         </td>
-                        <td class="tb1_td7"><a href="#">删除</a></td>
+                        <td class="tb1_td7"><a href="delGoodsShopCar?goodsid=${goods.g_id }">删除</a></td>
                         <td class="tb1_td7">商品号：
                             <input style="width: 20px; height: 18px; border: 1px solid #ccc;" type="text" value="${goods.g_id  }" name="gid"/>
                         </td>
