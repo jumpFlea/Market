@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
+	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false. 
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -16,13 +16,13 @@
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
 
-		<!--个人资料界面显示信息-->
+		<!--个人资料界面显示信息 -->
 		<action name="showUserInfor" class="userAction" method="showUserInfor">
 			<result name="success">/user_infor.jsp</result>
 			<result name="error">/login.html</result>
 		</action>
 
-		<!--个人帐号信息修改-->
+		<!--个人帐号信息修改 -->
 		<action name="updateUserInfor" class="userAction" method="updateUserInfor">
 			<result name="success">/user_infor.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -34,7 +34,7 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<!-- 商品详情页面展示-->
+		<!-- 商品详情页面展示 -->
 		<action name="goodsDetail" class="goodsDetailAction" method="showGoods">
 			<result name="success">/goods_detail.jsp</result>
 			<result name="error">/error.jsp</result>
@@ -56,19 +56,27 @@
 
 			<result name="dyj">order.jsp</result>
 		</action>
-
+		<!--支付action -->
 		<action name="pay" class="com.qst.action.ShopcarAction" method="pay">
-	 			<result name="pay">order_submit.html</result>
-	 	</action>
+			<result name="pay">order_submit.html</result>
+		</action>
 
-
-		<action name="setAdress" class="com.qst.action.AdressAction" method="setAdress">
+		<!-- 设置我的地址 -->
+		<action name="setAdress" class="com.qst.action.AdressAction"
+			method="setAdress">
 
 		</action>
-		
-		<action name="addInshopcar" class="com.qst.action.AddInShopCarAction" method="addInshopcar"> 
+		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
+		<action name="addInshopcar" class="com.qst.action.AddInShopCarAction"
+			method="addInshopcar">
 			<result name="success">/shopcar.jsp</result>
 		</action>
+		<!--将某单个商品设置进入我的订单并且跳转到我的订单界面 -->
+		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction"
+			method="setgoodsinordre">
+			<result name="order">/order.jsp</result>
+		</action>
+
 	</package>
 
 
