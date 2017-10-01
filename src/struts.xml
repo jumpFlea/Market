@@ -40,17 +40,19 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
-
+		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopcarAction"
 			method="getshopcargoods">
 			<result name="diao">shopcar.jsp</result>
 		</action>
 
+		<!--设置从购物车选中的商品进入订单表 -->
 		<action name="setGoodinOrder" class="com.qst.action.ShopcarAction"
 			method="setGoodinOrder">
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
+		<!-- 查询订单的每个商品的详情 -->
 		<action name="getOrderItem" class="com.qst.action.ShopcarAction"
 			method="getOrderItem">
 
