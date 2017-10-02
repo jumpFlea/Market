@@ -28,7 +28,7 @@ public class AdressAction {
 		this.adressService = adressService;
 	}
 	
-	public void setAdress()
+	public String setAdress()
 	{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -42,7 +42,9 @@ public class AdressAction {
 		int ad_id=adressService.getMaxAd_id();
 		int a =adressService.setUs_Ad(uid, ad_id);
 		if (a>0) {
-			
+			return "success";
+		}else {
+			return "error";
 		}
 	}
 	
