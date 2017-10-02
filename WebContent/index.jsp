@@ -17,7 +17,7 @@
 			<li class="nav-pull-down location"><img
 				src="images/index/icon_location.png"> 送至珠海</li>
 			<li><a href="showUserInfor">个人信息</a></li>
-			<li><a href="#">网站导航</a></li>
+			<li><a href="getshopcargoods">我的购物车</a></li>
 			<li><a href="#">客户服务</a></li>
 			<li><a href="#">企业采购</a></li>
 			<li><a href="#">商城会员</a></li>
