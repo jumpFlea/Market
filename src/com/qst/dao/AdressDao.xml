@@ -10,12 +10,12 @@
 		select * from adress where ad_id=#{ad_id}
 	</select>
 	
-	<insert id="setAdress" parameterType="String">
+	<!-- <insert id="setAdress" parameterType="Adress">
 		insert into adress (name,phone,region,street) values(#{name},#{phone},#{region},#{street});
-	</insert> 
+	</insert>  -->
 	
-	<update id="updateAdress" parameterType="String" >
+	<!-- <update id="updateAdress" parameterType="String" >
 		update adress set name=#{name},phone=#{phone},region=#{retgion},street=#{street};
-	</update>
+	</update> -->
 		
 </mapper>

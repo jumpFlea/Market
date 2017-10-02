@@ -1,23 +1,20 @@
 package com.qst.model;
 
-
 public class Adress {
-	
+
 	private String name;
 	private String phone;
 	private String region;
 	private String street;
-	
+	private String ad_id;
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public String getPhone() {
 		return phone;
@@ -42,9 +39,21 @@ public class Adress {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
-	public String toString() {
-		return "Adress [name=" + name + ", phone=" + phone + ", region=" + region + ", street=" + street + "]";
+
+	public String getAd_id() {
+		return ad_id;
 	}
+
+	public void setAd_id(String ad_id) {
+		this.ad_id = ad_id;
+	}
+
+	@Override
+	public String toString() {
+		return "Adress [name=" + name + ", phone=" + phone + ", region=" + region + ", street=" + street + ", ad_id="
+				+ ad_id + "]";
+	}
+
+
 
 }

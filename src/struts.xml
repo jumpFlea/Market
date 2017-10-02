@@ -71,7 +71,7 @@
 		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
 		<action name="addInshopcar" class="com.qst.action.AddInShopCarAction"
 			method="addInshopcar">
-			<result name="success">/shopcar.jsp</result>
+			<result name="success" type="chain">getshopcargoods</result>
 		</action>
 		<!--将某单个商品设置进入我的订单并且跳转到我的订单界面 -->
 		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction"
@@ -81,13 +81,15 @@
 		<!--删除购物车的某一个商品 -->
 		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction"
 			method="delGoodsShopCar">
-
 		</action>
-
+		
+		<!-- 得到所有的未完成订单 -->
 		<action name="getAllorder" class="com.qst.action.GetAllOrderAction"
 			method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
+		<!--编辑本地用户的某一个用户地址  -->
+		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
 	</package>
 
 

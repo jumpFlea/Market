@@ -30,7 +30,6 @@ public class SetGoodsInOrderAction {
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
 		long ordernumber = Long.parseLong(dateFormater.format(date)); // 生成唯一的订单号
-
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
