@@ -8,4 +8,10 @@
 		g_content)
 		VALUES(#{g_price},#{g_name},#{g_attribute},#{u_id},#{restnum},#{introduce},#{image_zhanshi},#{market_price},#{g_content})
 	</insert>
+	
+	<insert id="saveUserGoods" parameterType="Goods">
+		insert into
+		user_goods(g_id,u_id,ug_date)
+		VALUES(#{goodsId},#{userId},#{date})
+	</insert>
 </mapper>
