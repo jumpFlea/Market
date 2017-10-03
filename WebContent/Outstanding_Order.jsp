@@ -237,7 +237,7 @@
                         <td class="tb1_td6">
                             <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
                         </td>
-                        <td class="tb1_td7"><a href="?goodsid=${goods.ordernumber }">放弃订单</a>|<a href="?goodsid=${goods.ordernumber }">马上去支付</a></td>
+                        <td class="tb1_td7"><a href="delOrder?ordernumber=${goods.ordernumber }">放弃订单</a>|<a href="?ordernumber=${goods.ordernumber }">马上去支付</a></td>
                         
                     </tr>
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;import com.qst.model.Goods;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
+import com.sun.org.apache.bcel.internal.generic.INVOKEINTERFACE;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public interface orderService {
@@ -32,5 +33,9 @@ public interface orderService {
 	ArrayList<Long> getOrderNumber(int u_id);
 	
 	ArrayList<GoodsOrder>  getOrderItemByOrdernumber(long ordernumber);
+	
+	int delOrderInorder(long ordernumber);
+	
+	int delOrderInorder_goods(long ordernumber);
 	
 }

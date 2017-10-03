@@ -3,6 +3,7 @@ package com.qst.action;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,7 @@ import com.qst.model.Goods;
 import com.qst.model.GoodsOrder;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
+import com.sun.org.apache.regexp.internal.recompile;
 
 @Component
 public class OrderAction {
@@ -37,7 +39,9 @@ public class OrderAction {
 	public void setOrderService(orderService orderService) {
 		this.orderService = orderService;
 	}
-	
+	/*
+	 * 通过uid寻找所有的未完成订单  paytype为0
+	 */
 	public String getAllorder() {						 // 本用户的所有未完成订单信息
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -60,10 +64,15 @@ public class OrderAction {
 		return "getorder";
 
 	}
-	
+	/*
+	 * 删除完成订单 中的某一个订单
+	 */
 	public String  delOrder()
 	{
-						//先删除order_goods表中的数据！
+		HttpServletRequest request = ServletActionContext.getRequest();
+		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
+		orderService.delOrderInorder_goods(ordernumber);	//先删除order_goods表中的数据！
+		orderService.delOrderInorder(ordernumber);			//删除order表中的数据
 		return "delOrder";
 	}
 	

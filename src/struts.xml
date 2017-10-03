@@ -93,7 +93,7 @@
 		</action>
 		
 		<!-- 得到所有的未完成订单 -->
-		<action name="getAllorder" class="com.qst.action.GetAllOrderAction"
+		<action name="getAllorder" class="com.qst.action.OrderAction"
 			method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
@@ -101,7 +101,7 @@
 		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
 		
 		<!-- 删除未完成订单 -->
-		<action name="delOrder" class="com.qst.action.AdressAction" method="delOrder">
+		<action name="delOrder" class="com.qst.action.OrderAction" method="delOrder">
 				<result name="delOrder"></result>
 		</action>
 	</package>

@@ -75,4 +75,12 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getOrderItemByOrdernumber(ordernumber);
 	}
 
+	public int delOrderInorder(long ordernumber) {
+			return orderDao.delOrderInorder(ordernumber);
+	}
+
+	public int delOrderInorder_goods(long ordernumber) {
+		return orderDao.delOrderInorder_goods(ordernumber);
+	}
+
 }
