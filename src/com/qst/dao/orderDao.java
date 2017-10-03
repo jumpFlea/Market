@@ -1,5 +1,7 @@
 package com.qst.dao;
 
+import com.qst.model.Goods;
+import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
 
@@ -37,6 +39,19 @@ public interface orderDao {
 	/*
 	 * 通过uid找到用户所有的订单的商品id;
 	 */
-	@Select("SELECT DISTINCT b.g_id FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{uid} AND a.ordernumber=b.ordernumber AND pay_type=0")
+	@Select("SELECT  b.g_id FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{uid} AND a.ordernumber=b.ordernumber AND pay_type=0")
 	public ArrayList<Integer> getG_idByUid(@Param("uid") int uid);
+	
+	/*
+	 * 通过uid找到所有的订单号
+	 */
+	@Select("SELECT  DISTINCT b.ordernumber FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{u_id} AND a.ordernumber=b.ordernumber AND pay_type=0")
+	public ArrayList<Long> getOrderNumber(@Param("u_id")int u_id);
+	
+	/*
+	 * 通过订单号 找到每个订单的所有商品
+	 */
+	@Select("SELECT a.g_name,a.g_price,b.ordernumber FROM goods AS a,order_goods AS b WHERE ordernumber=#{ordernumber} AND a.g_id=b.g_id")
+	public ArrayList<GoodsOrder> getOrderItemByOrdernumber(@Param("ordernumber")long ordernumber);
+	
 }

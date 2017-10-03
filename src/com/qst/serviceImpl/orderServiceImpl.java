@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qst.dao.orderDao;
+import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
 import com.qst.service.orderService;
@@ -63,6 +64,15 @@ public class orderServiceImpl implements orderService {
 
 	public ArrayList<Integer> getG_idByUid(int uid) {
 		return orderDao.getG_idByUid(uid);
+	}
+
+	public ArrayList<Long> getOrderNumber(int u_id) {
+		return orderDao.getOrderNumber(u_id);
+	}
+
+
+	public ArrayList<GoodsOrder> getOrderItemByOrdernumber(long ordernumber) {
+		return orderDao.getOrderItemByOrdernumber(ordernumber);
 	}
 
 }

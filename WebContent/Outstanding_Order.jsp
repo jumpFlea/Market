@@ -1,3 +1,6 @@
+<%@page import="com.qst.serviceImpl.orderServiceImpl"%>
+<%@page import="com.qst.service.orderService"%>
+<%@page import="com.qst.model.GoodsOrder"%>
 <%@page import="com.qst.model.Goods"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
@@ -203,9 +206,10 @@
 		</table>
 
 
-		<form action="setGoodinOrder" method="post">
+		<form action="" method="post">
+	
 
-			<c:forEach items="${goods_list}" var="goods">
+			<c:forEach items="${goodsOrders2_list}" var="goods">
 
 
 
@@ -221,6 +225,9 @@
                         <td class="tb2_td3">
                             <a href="#"><c:out value="${ goods.g_name}"></c:out></a>
                         </td>
+                        <td class="tb2_td3">
+                            <a href="#"><c:out value="${ goods.ordernumber}"></c:out></a>
+                        </td>
                         <td class="tb1_td4">一件</td>
                         <td class="tb1_td5">
                             <input class="min1" name="min1" style="width: 20px; height: 18px; border: 1px solid #ccc;" type="button" value="-"/>
@@ -230,13 +237,11 @@
                         <td class="tb1_td6">
                             <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
                         </td>
-                        <td class="tb1_td7"><a href="delGoodsShopCar?goodsid=${goods.g_id }">删除</a></td>
-                        <td class="tb1_td7">商品号：
-                            <input style="width: 20px; height: 18px; border: 1px solid #ccc;" type="text" value="${goods.g_id  }" name="gid"/>
-                        </td>
+                        <td class="tb1_td7"><a href="?goodsid=${goods.ordernumber }">放弃订单</a>|<a href="?goodsid=${goods.ordernumber }">马上去支付</a></td>
+                        
                     </tr>
 
-					</c:forEach>
+					</c:forEach> 
 
 
 

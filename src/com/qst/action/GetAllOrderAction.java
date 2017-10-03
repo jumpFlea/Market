@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.executor.ReuseExecutor;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
 import com.qst.model.Goods;
+import com.qst.model.GoodsOrder;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
 
@@ -41,15 +43,24 @@ public class GetAllOrderAction {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
 		int u_id = (int) session.getAttribute("uid");
-		ArrayList<Integer> gid_list = new ArrayList<Integer>();
-		ArrayList<Goods> goods_list =new ArrayList<Goods>();
-		gid_list=orderService.getG_idByUid(u_id);
-		Goods goods;
-		for (Integer gid : gid_list) {
-			goods= goodsService.getAllgoods(gid);
-			goods_list.add(goods);
+		ArrayList<Long> ordernumber_list =new ArrayList<Long>();
+		ordernumber_list= orderService.getOrderNumber(u_id);
+		request.setAttribute("ordernumber_list", ordernumber_list);
+		ArrayList<GoodsOrder> goodsOrders2_list=new ArrayList<GoodsOrder>();
+//		orderService orderservice=new orderServiceImpl();
+//		ArrayList<Long> ordernumber_list =(ArrayList<Long>)request.getAttribute("ordernumber_list");
+		for(Long ordernumber :ordernumber_list)
+		{
+			ArrayList<GoodsOrder> goodsOrders_list=orderService.getOrderItemByOrdernumber(ordernumber);
+			for(GoodsOrder goodsOrder :goodsOrders_list)
+			{
+				goodsOrders2_list.add(goodsOrder);
+			}
+			
 		}
-		request.setAttribute("goods_list",goods_list );
+		request.setAttribute("goodsOrders2_list", goodsOrders2_list);
+		
+	//	System.out.println("------------------>"+goodsOrders2_list);
 		return "getorder";
 
 	}
