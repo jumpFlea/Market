@@ -29,11 +29,11 @@ public class IndexShowAction extends ActionSupport{
 	}
 	
 	public String indexShow(){
-		System.out.println(page);
 		Page<Goods> pageImage =indexShowService.indexShow(page);
 		if(pageImage!=null){
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.setAttribute("pImageList",pageImage);
+			
 			/*request.setAttribute("sumNum",sum);*/
 			return SUCCESS;
 		}else

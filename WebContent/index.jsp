@@ -21,10 +21,11 @@
 			<li><a href="#">客户服务</a></li>
 			<li><a href="#">企业采购</a></li>
 			<li><a href="#">商城会员</a></li>
-			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span class="glyphicon glyphicon-menu-down"></span></li>
+			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
+				class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
-			<li class="login-signup">你好， 请<a href="login.html">登录 </a><span
-				class="text-color-red"><a href="login.html#signup">免费注册</a></span></li>
+				<li class="login-signup">你好， 请<a href="login.html">登录 </a><span
+					class="text-color-red"><a href="login.html#signup">免费注册</a></span></li>
 			</c:if>
 			<c:if test="${user != null}">
 				<li class="login-signup">你好，${user.username}</li>
@@ -234,22 +235,22 @@
 							<div class="item-row">
 								<div class="item-show-info">
 									<div class="item-show-img">
-										<img
-											src="${pageContext.request.contextPath}/${list.image_zhanshi}">
+										<img src="${list.image_zhanshi}">
+									</div>
+									<div class="item-show-detail">
+										<span style="font-size: 20px">${list.g_name}</span>
 									</div>
 									<div class="item-show-price">
 										<span><i class="fa fa-rmb text-danger"></i><span
 											class="seckill-price text-danger">${list.g_price}</span></span>
 									</div>
-									<!--<div class="item-show-detail">
-								<span>SKSK 苹果7/7plus手机壳 iPhone 7 Plus保护套全包硬壳男女磨砂防摔 火影红(苹</span>
-							</div>
-							<div class="item-show-num">
+
+									<!-- 		<div class="item-show-num">
 								已有<span>6160</span>人评价
-							</div>
-							<div class="item-show-seller">
+							</div> -->
+									<!-- 	<div class="item-show-seller">
 								<span>元亨利配件专营店</span>
-							</div>-->
+							</div> -->
 								</div>
 							</div>
 						</a>

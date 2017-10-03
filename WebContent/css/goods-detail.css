@@ -421,3 +421,34 @@
 	color: #939393;
 	text-align: right;
 }
+
+/*商品发布样式*/
+#release_p{
+	width:240px;
+	height:190px;
+	margin: auto;
+}
+#release_pic{
+	width:200px;
+	height:180px;
+	/* border: 1px black solid; */
+	margin: auto;
+}
+#release_table{
+	width: 240PX;
+	margin: auto;
+	
+}
+
+#release_attribute{
+	width:360px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#release_table tr td select{
+	width: 150px;
+}
+.release_input{
+	width: 150px;		
+}
