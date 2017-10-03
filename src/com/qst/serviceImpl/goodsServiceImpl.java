@@ -38,4 +38,8 @@ public class goodsServiceImpl implements goodsService {
 	public Image getImage(long goodsnumber) {
 		return goodsDao.getImage(goodsnumber);
 	}
+
+	public int deleteShopcarGoodByid(int uid, int gid) {
+		return goodsDao.deleteShopcarGoodByid(uid, gid);
+	}
 }

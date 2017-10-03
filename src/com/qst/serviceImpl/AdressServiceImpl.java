@@ -25,12 +25,25 @@ public class AdressServiceImpl implements AdressService {
 		return adressDao.getAdress(ad_id);
 	}
 
-	public int setAdress(String name, String phone, String region, String street) {
-		return adressDao.setAdress(name, phone, region, street);
+	public void setAdress(String name, String phone, String region, String street) {
+		adressDao.setAdress(name, phone, region, street);
 	}
 
 	public int updateAdress(String name, String phone, String region, String street) {
 		return adressDao.updateAdress(name, phone, region, street);
 
 	}
+
+	public int getMaxAd_id() {
+		return adressDao.getMaxadid();
+	}
+
+	public int setUs_Ad(int uid, int adid) {
+		return adressDao.setUs_Ad(adid, uid);
+	}
+
+	public int editAdress(int ad_id, String name, String phone, String region, String street) {
+		return adressDao.editAdress(ad_id, name, phone, region, street);
+	}
+
 }

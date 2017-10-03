@@ -3,6 +3,7 @@ package com.qst.service;
 import java.util.ArrayList;import com.qst.model.Goods;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public interface orderService {
 	
@@ -18,4 +19,13 @@ public interface orderService {
 	Goods_item getgoods_item(long ordernumber,int g_id);
 	
 	float getSumprince(long ordernumber);
+	
+	int setOrderType( long ordernumber);
+	
+	ArrayList<Long> getOrdernumByUid(int uid);
+	
+	ArrayList<Integer> getG_idByOrdernum(long ordernumber); 
+	
+	ArrayList<Integer> getG_idByUid(int uid);
+	
 }

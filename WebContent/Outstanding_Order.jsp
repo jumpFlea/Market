@@ -11,7 +11,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>jquery模拟购物车多选结算页面效果</title>
+<title>未完成订单</title>
 <link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
 
 <link href="css/public.css" type="text/css" rel="stylesheet" />
@@ -205,7 +205,7 @@
 
 		<form action="setGoodinOrder" method="post">
 
-			<c:forEach items="${goodlist}" var="goods">
+			<c:forEach items="${goods_list}" var="goods">
 
 
 

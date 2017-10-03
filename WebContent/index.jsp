@@ -17,7 +17,7 @@
 			<li class="nav-pull-down location"><img
 				src="images/index/icon_location.png"> 送至珠海</li>
 			<li><a href="showUserInfor">个人信息</a></li>
-			<li><a href="#">网站导航</a></li>
+			<li><a href="getshopcargoods">我的购物车</a></li>
 			<li><a href="#">客户服务</a></li>
 			<li><a href="#">企业采购</a></li>
 			<li><a href="#">商城会员</a></li>
@@ -405,7 +405,7 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<span class="my-item">待处理订单</span> <span class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span class="my-item">返修退换货</span>
 		</p>
 		<p>
 			<span class="my-item">返修退换货</span> <span class="my-item">降价商品</span>

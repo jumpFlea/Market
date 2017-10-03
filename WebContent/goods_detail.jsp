@@ -20,7 +20,7 @@
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
 					<li class="nav-item end-item"><a href="">手机版</a></li>
-					<li class="nav-item"><a href="">购物车</a></li>
+					<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
 					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
 						href="" class="regester">立即注册</a>］
@@ -90,8 +90,8 @@
 						</p> -->				
 					</div>
 					<div class="btn-row">
-						<a href="" class="to-buy">添加到购物车<span></span>
-						</a> <a href="" class="continue-find">立即购买 <span></span>
+						<a href="addInshopcar?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
+						</a> <a href="setgoodsinordre?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}" class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
 				</div>

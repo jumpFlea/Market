@@ -16,4 +16,6 @@ public interface goodsService {
 	ArrayList<String> getImageUrl(int image_id);
 	
 	Image getImage(long goodsnumber );
+	
+	int deleteShopcarGoodByid(int uid ,int gid);
 }
