@@ -99,6 +99,11 @@
 		</action>
 		<!--编辑本地用户的某一个用户地址  -->
 		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
+		
+		<!-- 删除未完成订单 -->
+		<action name="delOrder" class="com.qst.action.AdressAction" method="delOrder">
+				<result name="delOrder"></result>
+		</action>
 	</package>
 
 

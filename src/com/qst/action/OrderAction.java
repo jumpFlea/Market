@@ -17,7 +17,7 @@ import com.qst.service.goodsService;
 import com.qst.service.orderService;
 
 @Component
-public class GetAllOrderAction {
+public class OrderAction {
 	@Resource
 	private orderService orderService;
 	@Resource
@@ -38,7 +38,7 @@ public class GetAllOrderAction {
 		this.orderService = orderService;
 	}
 	
-	public String getAllorder() {				 // 本用户的所有未完成订单信息
+	public String getAllorder() {						 // 本用户的所有未完成订单信息
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -47,8 +47,6 @@ public class GetAllOrderAction {
 		ordernumber_list= orderService.getOrderNumber(u_id);
 		request.setAttribute("ordernumber_list", ordernumber_list);
 		ArrayList<GoodsOrder> goodsOrders2_list=new ArrayList<GoodsOrder>();
-//		orderService orderservice=new orderServiceImpl();
-//		ArrayList<Long> ordernumber_list =(ArrayList<Long>)request.getAttribute("ordernumber_list");
 		for(Long ordernumber :ordernumber_list)
 		{
 			ArrayList<GoodsOrder> goodsOrders_list=orderService.getOrderItemByOrdernumber(ordernumber);
@@ -59,9 +57,15 @@ public class GetAllOrderAction {
 			
 		}
 		request.setAttribute("goodsOrders2_list", goodsOrders2_list);
-		
-	//	System.out.println("------------------>"+goodsOrders2_list);
 		return "getorder";
 
 	}
+	
+	public String  delOrder()
+	{
+						//先删除order_goods表中的数据！
+		return "delOrder";
+	}
+	
+	
 }

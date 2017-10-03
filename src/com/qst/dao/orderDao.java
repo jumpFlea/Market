@@ -9,6 +9,7 @@ import jdk.nashorn.internal.objects.annotations.Where;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -54,4 +55,14 @@ public interface orderDao {
 	@Select("SELECT a.g_name,a.g_price,b.ordernumber FROM goods AS a,order_goods AS b WHERE ordernumber=#{ordernumber} AND a.g_id=b.g_id")
 	public ArrayList<GoodsOrder> getOrderItemByOrdernumber(@Param("ordernumber")long ordernumber);
 	
+	/*
+	 *  定位 order_goods表   删除订单
+	 */
+	@Delete("DELETE FROM order_goods  WHERE ordernumber=#{ordernumber} ")
+	public int delOrderInorder_goods(@Param("ordernumber") long ordernumber);
+	/*
+	 * 定位 order表 删除订单
+	 */
+	@Delete("DELETE FROM `order`  WHERE ordernumber=3112017121158173")
+	public int delOrderInorder(@Param("ordernumber")long ordernumber);
 }
