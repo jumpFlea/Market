@@ -40,9 +40,17 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+
+		<!-- 商品发布-->
+		<action name="releaseGoods" class="releaseGoodsAction" method="releaseGoods">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+
+
 		<!-- 查询购物车里的所有商品 -->
-		<action name="getshopcargoods" class="com.qst.action.ShopcarAction"
-			method="getshopcargoods">
+		<action name="getshopcargoods" class="com.qst.action.ShopcarAction">
 			<result name="diao">shopcar.jsp</result>
 		</action>
 
@@ -64,6 +72,7 @@
 		</action>
 
 		<!-- 设置我的地址 -->
+
 		<action name="setAdress" class="com.qst.action.AdressAction"
 			method="setAdress">
 

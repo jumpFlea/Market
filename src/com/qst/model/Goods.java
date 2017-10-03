@@ -50,7 +50,11 @@ public class Goods {
 		this.g_content=g_content;
 	}
 
-
+	public String toString() {
+		return "Goods [g_id=" + g_id + ", g_price=" + g_price + ", g_name=" + g_name + ", g_attribute=" + g_attribute + 
+				",u_id=" + u_id + ", restnum=" + restnum + ",introduce=" + introduce + ", image_zhanshi=" + image_zhanshi +
+				"market_price=" + market_price + ", g_content=" + g_content +"]";
+	}
 
 
 	public Integer getG_id() {
@@ -190,5 +194,7 @@ public class Goods {
 	public void setG_content(String g_content) {
 		this.g_content = g_content;
 	}
+	
+	
 
 }
