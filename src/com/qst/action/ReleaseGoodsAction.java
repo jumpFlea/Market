@@ -39,7 +39,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 		System.out.println(date);
 		int uid = (int)request.getSession().getAttribute("uid");
 		goods.setU_id(uid);
-		String savePath = ServletActionContext.getServletContext().getRealPath("/images/upload");
+		String savePath = "C:\\Users\\Administrator\\Desktop\\ourImage\\";
 		//随机产生一个文件名
 		String fileName= UUID.randomUUID().toString() + "_" + uploadFileName;
 		File file = new File(savePath+fileName);
@@ -49,7 +49,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		goods.setImage_zhanshi("images"+File.separator+"upload"+fileName);
+		goods.setImage_zhanshi(File.separator+"image"+File.separator+"upload"+File.separator+fileName);
 		rgs.releaseGoods(goods);
 		userGoods = new UserGoods();
 		userGoods.setUserId(uid);

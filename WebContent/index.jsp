@@ -73,9 +73,12 @@
 					<span>分类：</span>
 				</div>
 				<div class="item-class-select">
-					<%-- <c:forEach  items="${attriSet}" var="a">
-						<a href="indexShow?type=${a}"><span><c:out value="${a}"></c:out></span></a>
-					</c:forEach> --%>
+					<c:if test="${attriSet!=null}">
+						<c:forEach items="${attriSet}" var="a">
+							<a href="indexShow?type=${a}"><span><c:out
+										value="${a}"></c:out></span></a>
+						</c:forEach>
+					</c:if>
 				</div>
 			</div>
 			<div class="item-class-group">
@@ -402,10 +405,12 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span
+				class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href=""><span class="my-item">已付款订单</span></a> <span class="my-item">已付款订单</span></a>
+			<a href=""><span class="my-item">已付款订单</span></a> <span
+				class="my-item">已付款订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">我的新消息</span> <span class="my-item">我的问答</span>
