@@ -55,7 +55,7 @@ public class ShopcarAction {
 	/*
 	 * 此类的功能为将商品设置进入订单,
 	 */
-
+	
 	public String setGoodinOrder() { // 此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
