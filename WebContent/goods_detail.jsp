@@ -59,8 +59,8 @@
 						<ul class="list-ul">
 							<!-- src 为最小缩略图 data-mid 中等大小图 data-big 大图-->
 							<li><img src="${good.image_zhanshi}" class="onlickImg"
-													alt="" data-mid="${image.url2}"
-													data-big="${image.url2}" /></li>
+													alt="" data-mid="${good.image_zhanshi}"
+													data-big="${good.image_zhanshi}" /></li>
 							<li><img src="${image.url2}" alt=""
 									 data-mid="${image.url2}"
 									 data-big="${image.url2}" /></li>

@@ -21,15 +21,16 @@ $(document).ready(function(){
     //点击到中图
     var midChangeHandler = null;
 
-    $("#imageMenu li img").bind("click", function(){
-		if ($(this).attr("id") != "onlickImg") {
-			var mid = $(this).attr('data-mid');
-			var big = $(this).attr('data-big');
-			midChange(mid,big);
-			$("#imageMenu li").removeAttr("id");
-			$(this).parent().attr("id", "onlickImg");
-		}
-	})
+    $("#imageMenu").find("li img").bind("click", function(){
+        $('.onlickImg').removeClass('onlickImg');
+        $(this).addClass('onlickImg');
+
+        var mid = $(this).attr('data-mid');
+        var big = $(this).attr('data-big');
+        midChange(mid,big);
+        $("#imageMenu").find("li").removeAttr("id");
+        $(this).parent().attr("id", "onlickImg");
+	});
 
     function midChange(src,big) {
         $("#midimg").attr("src", src).load(function() {
@@ -101,9 +102,3 @@ $(document).ready(function(){
     }
 
 });
-
-
-$('#imageMenu').find('img').click(function () {
-    $('.onlickImg').removeClass('onlickImg');
-    $(this).addClass('onlickImg');
-})
