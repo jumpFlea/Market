@@ -50,7 +50,7 @@
 
 
 		<!-- 查询购物车里的所有商品 -->
-		<action name="getshopcargoods" class="com.qst.action.ShopcarAction">
+		<action name="getshopcargoods" class="com.qst.action.ShopcarAction" method="getshopcargoods">
 			<result name="diao">shopcar.jsp</result>
 		</action>
 
