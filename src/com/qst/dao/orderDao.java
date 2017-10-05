@@ -82,9 +82,17 @@ public interface orderDao {
 	 */
 	@Select("SELECT SUM(a.g_price) FROM goods AS a,order_goods AS b WHERE ordernumber=#{ordernumber} AND a.g_id=b.g_id")
 	 public float getOrderSumPrince(@Param("ordernumber")long ordernumber);
-	
+	/*
+	 * 更改订单的数量  点击一次 数量减一
+	 */
 	@Update("UPDATE goods SET restnum=restnum-1 WHERE g_id=#{g_id}")
 	public int UpdateGoodsRestnum(int g_id);
+	
+	/*
+	 * 将用户订单的 用户所选择的地址 和 留言 写入数据库 通过订单号 和地址id
+	 */
+	@Update("UPDATE `order` SET ad_id=#{ad_id},message=#{message} WHERE ordernumber=#{ordernumber}")
+	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
 	
 	
 }

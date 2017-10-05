@@ -98,4 +98,8 @@ public class orderServiceImpl implements orderService {
 		return orderDao.UpdateGoodsRestnum(g_id);
 	}
 
+	public int setOrderByOrdernumber(int ad_id, String message, long ordernumber) {
+		return orderDao.setOrderByOrdernumber(ad_id, message, ordernumber);
+	}
+
 }

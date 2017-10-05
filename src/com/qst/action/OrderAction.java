@@ -3,10 +3,13 @@ package com.qst.action;
 
 import java.util.ArrayList;
 
-
+import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
+
+import oracle.net.aso.s;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
@@ -74,8 +77,15 @@ public class OrderAction {
 		}
 		return "pay";
 	}
-	
+	/*
+	 * 将留言和地址加入表order中
+	 */
 	public String payForOrder() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int ad_id=Integer.parseInt(request.getParameter("Checkout"));
+		long ordernumber=Long.parseLong(request.getParameter("ordernumber"));
+		String  message=request.getParameter("message");
+		orderService.setOrderByOrdernumber(ad_id, message, ordernumber);
 		
 		return "payForOrder";
 	}

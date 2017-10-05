@@ -43,4 +43,6 @@ public interface orderService {
 	float getOrderSumPrince(long ordernumber);
 	
 	int UpdateGoodsRestnum(int g_id);
+	
+	int setOrderByOrdernumber(int ad_id,String message,long ordernumber);
 }

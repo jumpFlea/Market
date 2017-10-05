@@ -221,11 +221,10 @@
 		</script>
 		<div class="container">
 			<div class="checkout-box">
-				<form id="checkoutForm" action="aaa" method="post">
+				<form id="checkoutForm" action="payForOrder" method="post">
 					<div class="checkout-box-bd">
 						<!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
-						<input type="hidden" name="Checkout[addressState]" id="addrState"
-							value="0">
+						
 						<!-- 收货地址 -->
 						<div class="xm-box">
 							<div class="box-hd ">
@@ -235,13 +234,11 @@
 								<div class="box-bd">
 									<div class="clearfix xm-address-list" id="checkoutAddrList">
 									<c:forEach items="${adress_list}" var="adress">
-									 
 										<dl class="item">
 										<input input type="hidden" value="${adress.ad_id }"></input>
 											<dt>
 												<strong class="itemConsignee">${adress.name }</strong>
 												 <span class="itemTag tag">家</span>
-												
 											</dt>
 											<dd>
 												<p class="tel itemTel">${adress.phone }</p>
@@ -250,7 +247,7 @@
 												<a href="editAdress.jsp?adid=${adress.ad_id }&name=${adress.name}&phone=${adress.phone }&region=${adress.region}&street=${adress.street}"> <span class="" >编辑</span></a>
 											</dd>
 											<dd style="display: none">
-												<input type="radio" name="Checkout[address]"
+												<input type="radio" name="Checkout"
 													class="addressId" value="${adress.ad_id }">
 											</dd>
 											
@@ -417,8 +414,9 @@
 											<span class="col col-1">商品名称</span> <span class="col col-2">购买价格</span>
 											<span class="col col-3">购买数量</span> <span class="col col-4">小计（元）</span>
 										</dt>
-									
+										<input name="ordernumber" value="${ordernumber }"></input>
 											<c:forEach items="${goods_items_list}" var="goods">
+											
 												<dd class="item clearfix">
 													<div class="item-row">
 														<div class="col col-1">
@@ -446,7 +444,7 @@
 											<h3 class="title">
 												会员留言
 												</h2>
-												</br> <input type="text" />
+												</br> <input type="text" name="message" />
 										</div>
 										<!-- checkout-count-extend -->
 										<div class="checkout-price">
@@ -512,7 +510,7 @@
 
 							<a href="shopcar.jsp" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
 							<input type="submit" class="btn btn-primary"
-								id="checkoutToPay" value="立即下单"></a>
+								id="checkoutToPay" value="立即下单">
 						</div>
 					</div>
 			</div>

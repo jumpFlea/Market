@@ -111,9 +111,9 @@
 					<result name="continuePayment">/order_sub.jsp</result>
 			</action>
 			<!--支付状态改变  -->
-			<!-- <action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
+			 <action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
 				
-			</action> -->
+			</action> 
 	</package>
 
 

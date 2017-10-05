@@ -132,6 +132,7 @@ public class ShopcarAction {
 		}
 
 		request.setAttribute("sumprince", sumprince);
+		request.setAttribute("ordernumber", ordernumber);
 		request.setAttribute("goods_items_list", goods_itemslist);
 		request.setAttribute("adress_list", adress_list);
 		return "dyj";
