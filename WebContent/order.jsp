@@ -265,11 +265,7 @@
 					
 
 
-									<div class="item use-new-addr" id="J_useNewAddr"
-										data-state="off">
-										<span class="iconfont icon-add"><img
-											src="images/add_cart.png" /></span> 使用新地址
-									</div>
+									
 								</div>
 								<input type="hidden" name="newAddress[type]" id="newType"
 									value="common"> <input type="hidden"

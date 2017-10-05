@@ -1,11 +1,12 @@
 package com.qst.service;
 
-import java.util.ArrayList;import com.qst.model.Goods;
+import java.util.ArrayList;
+
+import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
-import com.sun.org.apache.bcel.internal.generic.INVOKEINTERFACE;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 
 public interface orderService {
 	
@@ -13,7 +14,6 @@ public interface orderService {
 	
 	int creatorder_good(long ordernumber,int g_id,float prince, int og_num);//创建order_good表
 
-	//void creatorder_good(Long ordernumber, int g_id, float prince, int og_num);
 	ArrayList<Integer> getgid(long ordernumber);
 	
 	ArrayList<OrderGoods> getorder_goods(long ordernumber);
@@ -38,4 +38,7 @@ public interface orderService {
 	
 	int delOrderInorder_goods(long ordernumber);
 	
+	Adress getAdressByOrdernumber(long ordernumber);
+	
+	float getOrderSumPrince(long ordernumber);
 }

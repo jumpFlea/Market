@@ -63,17 +63,16 @@ public class OrderAction {
 		return "getorder";
 
 	}
-	/*
-	 * 删除完成订单 中的某一个订单
-	 */
-	public String  delOrder()
-	{
+	
+	public String pay() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
-		orderService.delOrderInorder_goods(ordernumber);	//先删除order_goods表中的数据！
-		orderService.delOrderInorder(ordernumber);			//删除order表中的数据
-		return "delOrder";
+		orderService.setOrderType(ordernumber);//设置支付状态为1：已支付状态
+		return "pay";
 	}
+
+	
+	
 	
 	
 }
