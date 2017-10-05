@@ -1,24 +1,20 @@
 package com.qst.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+import com.qst.model.Goods;
+import com.qst.model.UserGoods;
+import com.qst.service.ReleaseGoodsService;
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
-import com.opensymphony.xwork2.ActionSupport;
-import com.qst.model.Goods;
-import com.qst.model.UserGoods;
-import com.qst.service.ReleaseGoodsService;
-
-import jdk.management.cmm.SystemResourcePressureMXBean;
 
 @Component
 public class ReleaseGoodsAction extends ActionSupport {
@@ -56,7 +52,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 		userGoods.setGoodsId(goods.getG_id());
 		userGoods.setDate(date);
 		rgs.saveUserGoods(userGoods);
-		
+
 	/*	System.out.println("sadasdsad"+goods.getG_id());*/
 		//System.out.println("asdfasdfads:"+i);
 		/*if (i != 0) {
@@ -73,7 +69,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 	public void setRgs(ReleaseGoodsService rgs) {
 		this.rgs = rgs;
 	}
-	
+
 	public UserGoods getUserGoods() {
 		return userGoods;
 	}

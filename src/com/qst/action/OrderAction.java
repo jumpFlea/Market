@@ -1,21 +1,16 @@
 package com.qst.action;
 
-import java.util.ArrayList;
+import com.qst.model.GoodsOrder;
+import com.qst.service.goodsService;
+import com.qst.service.orderService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.ibatis.executor.ReuseExecutor;
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
-import com.qst.model.Goods;
-import com.qst.model.GoodsOrder;
-import com.qst.service.goodsService;
-import com.qst.service.orderService;
-import com.sun.org.apache.regexp.internal.recompile;
+import java.util.ArrayList;
 
 @Component
 public class OrderAction {
@@ -57,7 +52,7 @@ public class OrderAction {
 			{
 				goodsOrders2_list.add(goodsOrder);
 			}
-			
+
 		}
 		request.setAttribute("goodsOrders2_list", goodsOrders2_list);
 		return "getorder";
@@ -71,8 +66,8 @@ public class OrderAction {
 		return "pay";
 	}
 
-	
-	
-	
-	
+
+
+
+
 }

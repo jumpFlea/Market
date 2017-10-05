@@ -1,19 +1,3 @@
-//当鼠标放在导航条上时
-//在地址上
-$('.location,.city').hover(
-	function() {
-		var locatOffset = $('.location').offset();
-		$('.city').show();
-		$('.city').css('left', locatOffset.left + "px");
-		$('.city').css('top', (locatOffset.top+35) + "px");
-		$('.location').addClass("nav-pull-down-action");
-	},
-	function(){
-		$('.city').hide();
-		$('.location').removeClass("nav-pull-down-action");
-	}
-);
-
 //在我的商城上
 $('.my-shop,.my-shop-panel').hover(
 	function(){
@@ -85,7 +69,7 @@ $('.icon i').hover(function(){
 		//如果选中的和上一个不一样时
 		if (tempKey != nowKey)
 			$(".carousel_img[name="+nowKey+"]").fadeOut(800);
-		nowKey =tempKey; 
+		nowKey =tempKey;
 		//再出现
 		$(this).css("color", "#f00");
 		$(".carousel_img[name="+nowKey+"]").fadeIn(800);
@@ -124,7 +108,7 @@ $('.nav-side li,.detail-item-panel').hover(
 		}else{
 			$('.panel-2').show();
 		}
-		
+
 		$('.detail-item-panel').css("top",slideOffset.top + "px");
 		$('.detail-item-panel').css("left",(slideOffset.left + 200) + "px");
 	},function(){

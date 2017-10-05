@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false. 
+	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -78,9 +78,10 @@
 
 		</action>
 		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
-		<action name="addInshopcar" class="com.qst.action.AddInShopCarAction"
-			method="addInshopcar">
+		<action name="addInshopcar" class="com.qst.action.AddInShopCarAction" method="addInshopcar">
 			<result name="success" type="chain">getshopcargoods</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
 		</action>
 		<!--将某单个商品设置进入我的订单并且跳转到我的订单界面 -->
 		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction"
@@ -91,7 +92,7 @@
 		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction"
 			method="delGoodsShopCar">
 		</action>
-		
+
 		<!-- 得到所有的未完成订单 -->
 		<action name="getAllorder" class="com.qst.action.OrderAction"
 			method="getAllorder">
@@ -99,12 +100,12 @@
 		</action>
 		<!--编辑本地用户的某一个用户地址  -->
 		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
-		
+
 		<!-- 删除未完成订单 -->
 		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
 				<result name="delOrder"></result>
 		</action>
-		
+
 		<!--继续支付某一个订单  -->
 			<action name="continuePayment" class="com.qst.action.OutstandingOrderAction" method="continuePayment">
 					<result name="continuePayment">/order_sub.jsp</result>
