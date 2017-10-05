@@ -67,8 +67,8 @@
 			<result name="dyj">order.jsp</result>
 		</action>
 		<!--支付action -->
-		<action name="pay" class="com.qst.action.ShopcarAction" method="pay">
-			<result name="pay">order_submit.html</result>
+		<action name="pay" class="com.qst.action.OrderAction" method="pay">
+			<result name="pay"></result>
 		</action>
 
 		<!-- 设置我的地址 -->

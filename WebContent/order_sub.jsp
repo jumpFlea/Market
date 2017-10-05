@@ -219,7 +219,7 @@ this['link']['cur'] = this;
                  </div>
                 <div class="info">
                     <p>
-                     	   金额：<span class="pay-total">49.00元</span>
+                     	   金额：<span class="pay-total"><c:out value="${sumprince }"></c:out></span>
                     </p>
                     <p> 订单:<c:out value="${ordernumber }"></c:out></p>
                     <p>配送：<c:out value="${Adress.name }"></c:out><span class="line">/</span> <c:out value="${Adress.phone }"></c:out> <span class="line">/</span> 
@@ -326,7 +326,7 @@ this['link']['cur'] = this;
                     </div>
                             </div>
             <div class="box-ft clearfix">
-                    <input type="submit" class="btn btn-primary" value="下一步" id="payBtn">
+                    <a class="btn btn-primary" id="payBtn" href="pay?ordernumber=${ordernumber}">下一步</a>
                     <a href="#" class="btn btn-lineDakeLight">修改订单</a>
                     <span class="tip"></span>
                 </div>

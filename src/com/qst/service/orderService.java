@@ -40,4 +40,5 @@ public interface orderService {
 	
 	Adress getAdressByOrdernumber(long ordernumber);
 	
+	float getOrderSumPrince(long ordernumber);
 }

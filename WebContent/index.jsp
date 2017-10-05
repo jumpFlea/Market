@@ -408,7 +408,7 @@
 			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<span class="my-item">返修退换货</span> <span class="my-item">降价商品</span>
+			<a href=""><span class="my-item">已付款订单</span></a> <span class="my-item">已付款订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">我的新消息</span> <span class="my-item">我的问答</span>
