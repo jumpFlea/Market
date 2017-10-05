@@ -19,7 +19,7 @@
 			<li><a href="showUserInfor">个人信息</a></li>
 			<li><a href="getshopcargoods">我的购物车</a></li>
 			<li><a href="#">客户服务</a></li>
-			<li><a href="#">企业采购</a></li>
+			<li><a href="release_goods.jsp">发布商品</a></li>
 			<li><a href="#">商城会员</a></li>
 			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
 				class="glyphicon glyphicon-menu-down"></span></li>
@@ -67,18 +67,15 @@
 	</div>
 	<!-- 内容主题开始 -->
 	<div class="container-full">
-		<div class="host-location">
-			全部结果 > <span class="host-location-text">"手机壳"</span>
-		</div>
 		<div class="item-class-show">
 			<div class="item-class-group item-class-group-top">
 				<div class="item-class-name">
-					<span>品牌：</span>
+					<span>分类：</span>
 				</div>
 				<div class="item-class-select">
-					<span>华为（HUAWEI）</span> <span>三星（SAMSUNG）</span> <span>MATE</span>
-					<span>摩斯维（msvii）</span> <span>OPPO</span> <span>莫凡（Mofi）</span> <span>耐尔金（NILLKIN）</span>
-					<span>洛克（ROCK）</span> <span>亿色（ESR）</span> <span>Apple</span> <span>优加</span>
+					<%-- <c:forEach  items="${attriSet}" var="a">
+						<a href="indexShow?type=${a}"><span><c:out value="${a}"></c:out></span></a>
+					</c:forEach> --%>
 				</div>
 			</div>
 			<div class="item-class-group">
