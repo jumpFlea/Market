@@ -1,6 +1,7 @@
 package com.qst.action;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -68,7 +69,16 @@ public class OrderAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
 		orderService.setOrderType(ordernumber);//设置支付状态为1：已支付状态
+		ArrayList<Integer> gid_list=orderService.getgid(ordernumber);
+		for (Integer gid : gid_list) {					//设置完成支付后  商品数量减1
+			orderService.UpdateGoodsRestnum(gid);
+		}
 		return "pay";
+	}
+	
+	public String payForOrder() {
+		
+		return "payForOrder";
 	}
 
 	

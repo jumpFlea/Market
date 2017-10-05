@@ -94,4 +94,8 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getOrderSumPrince(ordernumber);
 	}
 
+	public int UpdateGoodsRestnum(int g_id) {
+		return orderDao.UpdateGoodsRestnum(g_id);
+	}
+
 }

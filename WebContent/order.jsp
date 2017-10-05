@@ -221,7 +221,7 @@
 		</script>
 		<div class="container">
 			<div class="checkout-box">
-				<form id="checkoutForm" action="pay" method="post">
+				<form id="checkoutForm" action="aaa" method="post">
 					<div class="checkout-box-bd">
 						<!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
 						<input type="hidden" name="Checkout[addressState]" id="addrState"
@@ -232,15 +232,16 @@
 								<h2 class="title">收货地址</h2>
 								<!---->
 							</div>
-							
 								<div class="box-bd">
 									<div class="clearfix xm-address-list" id="checkoutAddrList">
 									<c:forEach items="${adress_list}" var="adress">
+									 
 										<dl class="item">
-										
+										<input input type="hidden" value="${adress.ad_id }"></input>
 											<dt>
-												<strong class="itemConsignee">${adress.name }</strong> <span
-													class="itemTag tag">家</span>
+												<strong class="itemConsignee">${adress.name }</strong>
+												 <span class="itemTag tag">家</span>
+												
 											</dt>
 											<dd>
 												<p class="tel itemTel">${adress.phone }</p>
@@ -250,7 +251,7 @@
 											</dd>
 											<dd style="display: none">
 												<input type="radio" name="Checkout[address]"
-													class="addressId" value="10140916720030323">
+													class="addressId" value="${adress.ad_id }">
 											</dd>
 											
 										</dl>
@@ -261,27 +262,8 @@
 												src="images/add_cart.png" /></span> 使用新地址
 										</div></a>
 										
-									</div>
-					
-
-
-									
-								</div>
-								<input type="hidden" name="newAddress[type]" id="newType"
-									value="common"> <input type="hidden"
-									name="newAddress[consignee]" id="newConsignee"> <input
-									type="hidden" name="newAddress[province]" id="newProvince">
-								<input type="hidden" name="newAddress[city]" id="newCity">
-								<input type="hidden" name="newAddress[district]" id="newCounty">
-								<input type="hidden" name="newAddress[address]" id="newStreet">
-								<input type="hidden" name="newAddress[zipcode]" id="newZipcode">
-								<input type="hidden" name="newAddress[tel]" id="newTel">
-								<input type="hidden" name="newAddress[tag_name]" id="newTag">
-								<!--点击弹出新增/收货地址界面start-->
-								
-								<!--点击弹出新增/收货地址界面end-->
-								<div class="xm-edit-addr-backdrop" id="J_editAddrBackdrop"></div>
-							</div>
+									</div>			
+							
 						</div>
 						<!-- 收货地址 END-->
 						<div id="checkoutPayment">
@@ -529,8 +511,8 @@
 						<div class="checkout-confirm">
 
 							<a href="shopcar.jsp" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>
-							<input type="submit" class="btn btn-primary" value="立即下单"
-								id="checkoutToPay" />
+							<input type="submit" class="btn btn-primary"
+								id="checkoutToPay" value="立即下单"></a>
 						</div>
 					</div>
 			</div>

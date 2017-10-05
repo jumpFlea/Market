@@ -41,4 +41,6 @@ public interface orderService {
 	Adress getAdressByOrdernumber(long ordernumber);
 	
 	float getOrderSumPrince(long ordernumber);
+	
+	int UpdateGoodsRestnum(int g_id);
 }

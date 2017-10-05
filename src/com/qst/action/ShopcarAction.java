@@ -79,7 +79,6 @@ public class ShopcarAction {
 			Fgid[i] = Integer.parseInt(gid[i]);
 			orderService.creatorder(u_id, ordernumber); // 创建订单表
 			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建商品连接表
-			//orderService.setOrderType(ordernumber); // 将订单转台转化为1 待支付状态
 		}
 		return "order";
 	}
