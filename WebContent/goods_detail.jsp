@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>商品详情</title>
+<meta charset=UTF-8>
+	<title>商品详情-小马交易</title>
 	<link rel="stylesheet" href="css/neat.css">
 	<link rel="stylesheet" href="css/goodsdetails.css">
 	<link rel="stylesheet" href="css/layout.css">
@@ -15,16 +15,29 @@
 	<div class="header">
 		<div class="header-content toCenter">
 			<h1 class="logo" title="牛男网商城">
-				<a href=""><img src="image/logo.png" alt="" class="logo-img"></a>
+				<a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
 			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
-					<li class="nav-item end-item"><a href="">手机版</a></li>
-					<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
-					<li class="nav-item"><a href="">我的订单</a></li>
-					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
-						href="" class="regester">立即注册</a>］
-					</li>
+
+					<li class="nav-item end-item"><a href="">客户服务</a></li>
+					<li class="nav-item"><a href="getshopcargoods">企业采购</a></li>
+					<li class="nav-item"><a href="">商城会员</a></li>
+					<li class="nav-item"><a href="#">我的订单</a></li>
+					<c:if test="${user == null}">
+						<li class="nav-item first-item">
+							[<a href="login.html" class="login">登录 </a>
+							<a href="login.html#signup" class="register">注册</a> ]
+						</li>
+					</c:if>
+					<c:if test="${user != null}">
+						<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
+						<li class="nav-item">
+							<a href="showUserInfor.action">${user.username}
+								<span class="glyphicon glyphicon-menu-down"></span>
+							</a>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -87,7 +100,7 @@
 						<!-- <p class="tips-value">商品已成功添加到购物车！</p>
 						<p class="cart-info">
 							购物车现有<span>2</span>件商品
-						</p> -->				
+						</p> -->
 					</div>
 					<div class="btn-row">
 						<a href="addInshopcar?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
@@ -233,7 +246,7 @@
 							</div>
 						</div>
 						<!-- 评论列表项结束 -->
-						
+
 					</div>
 				</div>
 			</div>

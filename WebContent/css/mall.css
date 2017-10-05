@@ -6,12 +6,10 @@
 	.nav{
 		width: 100%;
 		height: 35px;
-		background-color: #E3E4E5;
+		background-color: #000;
 	}
 	.nav ul{
 		list-style: none;
-		padding-right: 60px;
-		padding-left: 60px;
 		color: #999999;
 	}
 	.nav li{
@@ -30,7 +28,7 @@
 	.nav a:hover{
 		color: #D9534F;
 	}
-	.nav li:first-child{		
+	.nav li:first-child{
 		float: left;
 	}
 	.login-signup a{
@@ -68,7 +66,7 @@
 /*****************************搜索框开始*****************************/
 	.search{
 		width: 100%;
-		margin: 15px auto; 
+		margin: 15px auto;
 	}
 	.search-body{
 		width: 450px;
@@ -97,13 +95,13 @@
 		margin: 0px auto;
 	}
 	.nav-item ul{
-		list-style:none; 
+		list-style:none;
 	}
 	.nav-item li{
 		float: left;
 		font-size: 16px;
 		font-weight: bold;
-		
+
 		margin-left: 30px;
 	}
 	.nav-item a{
@@ -197,8 +195,8 @@
 		cursor: pointer;
 		display: none;
 	}
-	.prev{		
-		left: 0px;			
+	.prev{
+		left: 0px;
 	}
 	.next{
 		right: 0px;
@@ -214,7 +212,7 @@
 	.nav-show-img:nth-child(2){
 		margin-left: 12px;
 	}
-	
+
 	/*显示商品*/
 	.content{
 		width: 100%;
@@ -225,7 +223,7 @@
 		width:100%;
 		height: 330px;
 		margin: 15px auto;
-		background-color: #fff; 
+		background-color: #fff;
 	}
 	.seckill-head{
 		width: 100%;
@@ -247,13 +245,13 @@
 		animation-iteration-count: infinite; /*设置无线循环*/
 	}
 	/*定义闹钟震动动画关键帧*/
-	@keyframes shake-clock { 
-		0% { 
-			transform: rotate(-8deg); 
-		} 
-		50% { 
+	@keyframes shake-clock {
+		0% {
+			transform: rotate(-8deg);
+		}
+		50% {
 			transform: rotate(8deg);
-		} 
+		}
 		100%{
 			transform: rotate(-8deg);
 		}
@@ -600,7 +598,7 @@
 		padding:15px;
 	}
 	.my-item:hover{
-		color:#D9534F; 
+		color:#D9534F;
 	}
 
 	/*显示商品详细信息*/
@@ -700,7 +698,7 @@
 		margin: 0px;
 		color: #fff;
 	}
-	
+
 /*****************************搜索页导航栏结束*****************************/
 
 /*****************************品牌分类开始*****************************/
