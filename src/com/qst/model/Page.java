@@ -14,9 +14,21 @@ public class Page<T> {
 	private int limitPage;
 	//从那条数据开始
 	private int  begin;
+	//设置类型
+	private String attribute;
 	
+	
+
 	private List<T> list;
 	
+	
+	public String getAttribute() {
+		return attribute;
+	}
+
+	public void setAttribute(String attribute) {
+		this.attribute = attribute;
+	}
 	
 	
 	public int getBegin() {

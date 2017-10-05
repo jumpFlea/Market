@@ -89,4 +89,9 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getAdressByOrdernumber(ordernumber);
 	}
 
+
+	public float getOrderSumPrince(long ordernumber) {
+		return orderDao.getOrderSumPrince(ordernumber);
+	}
+
 }

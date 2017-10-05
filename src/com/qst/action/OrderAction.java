@@ -58,6 +58,13 @@ public class OrderAction {
 		return "getorder";
 
 	}
+	
+	public String pay() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
+		orderService.setOrderType(ordernumber);//设置支付状态为1：已支付状态
+		return "pay";
+	}
 
 
 

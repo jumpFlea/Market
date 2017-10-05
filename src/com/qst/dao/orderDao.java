@@ -4,6 +4,8 @@ import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
+import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
+
 import java.util.ArrayList;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
@@ -24,19 +26,22 @@ public interface orderDao {
 	public Goods_item getgoods_item(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id);
 
 	public float getSumprince(long ordernumber);
-
+	
+	/*
+	 * 设置订单状态为1 ：提交未支付状态
+	 */
 	@Update("update `order` set pay_type=1 where ordernumber=#{ordernumber}")
-	public int setOrderType(@Param("ordernumber") long ordernumber);// 设置订单状态为1 ：提交未支付状态
+	public int setOrderType(@Param("ordernumber") long ordernumber);// 设置订单状态为1 ：已经支付状态
 
 	@Select("SELECT ordernumber FROM `order` where u_id=#{uid} GROUP BY ordernumber")
 	public ArrayList<Long> getOrdernumByUid(@Param("uid") int uid); // 通过uid找到属于uid的所有订单号
 
 	@Select("SELECT g_id FROM order_goods WHERE ordernumber=#{ordernumber}")
 	public ArrayList<Integer> getG_idByOrdernum(@Param("ordernumber") long ordernumber);// 通过ordernumber找到对应的所有gid
+	
 	/*
 	 * 通过uid找到用户所有的订单的商品id;
 	 */
-
 	@Select("SELECT  b.g_id FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{uid} AND a.ordernumber=b.ordernumber AND pay_type=0")
 	public ArrayList<Integer> getG_idByUid(@Param("uid") int uid);
 
@@ -69,4 +74,10 @@ public interface orderDao {
 	 */
 	@Select(" SELECT * FROM adress AS a WHERE a.ad_id=(SELECT DISTINCT  a.ad_id  FROM `order` AS a,order_goods AS b  WHERE a.ordernumber=b.ordernumber AND a.ordernumber=#{ordernumber})")
 	public Adress getAdressByOrdernumber(@Param("ordernumber") long ordernumber);
+	
+	/*
+	 * 通过订单号  找到订单里面商品的总价值
+	 */
+	@Select("SELECT SUM(a.g_price) FROM goods AS a,order_goods AS b WHERE ordernumber=5192017131951789 AND a.g_id=b.g_id")
+	 public float getOrderSumPrince(@Param("ordernumber")long ordernumber);
 }

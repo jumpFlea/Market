@@ -19,7 +19,7 @@ public class IndexShowImpl implements IndexShowService {
 	private IndexShowDao indexDao;
 
 	@Override
-	public Page<Goods> indexShow(int currentPage) {
+	public Page<Goods> indexShow(int currentPage,String type) {
 
 		// TODO Auto-generated method stub
 		Page<Goods> p = new Page<Goods>();
@@ -44,7 +44,8 @@ public class IndexShowImpl implements IndexShowService {
 		// 设置开始显示记录的第一条的值
 		int begin = (page - 1) * limit;
 		p.setBegin(begin);
-
+		
+		p.setAttribute(type);
 		// 获取图片的信息，存于page中
 		List<Goods> imageList = new ArrayList<Goods>();
 		imageList = indexDao.indexShow(p);
