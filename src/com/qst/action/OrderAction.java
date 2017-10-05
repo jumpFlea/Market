@@ -64,17 +64,9 @@ public class OrderAction {
 		return "getorder";
 
 	}
-	/*
-	 * 删除完成订单 中的某一个订单
-	 */
-	public String  delOrder()
-	{
-		HttpServletRequest request = ServletActionContext.getRequest();
-		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
-		orderService.delOrderInorder_goods(ordernumber);	//先删除order_goods表中的数据！
-		orderService.delOrderInorder(ordernumber);			//删除order表中的数据
-		return "delOrder";
-	}
+
+	
+	
 	
 	
 }

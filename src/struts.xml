@@ -101,9 +101,14 @@
 		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
 		
 		<!-- 删除未完成订单 -->
-		<action name="delOrder" class="com.qst.action.OrderAction" method="delOrder">
+		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
 				<result name="delOrder"></result>
 		</action>
+		
+		<!--继续支付某一个订单  -->
+			<action name="continuePayment" class="com.qst.action.OutstandingOrderAction" method="continuePayment">
+					<result name="continuePayment">/order_sub.jsp</result>
+			</action>
 	</package>
 
 

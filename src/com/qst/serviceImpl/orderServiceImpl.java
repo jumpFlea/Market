@@ -2,10 +2,12 @@ package com.qst.serviceImpl;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.qst.dao.orderDao;
+import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
@@ -13,7 +15,7 @@ import com.qst.service.orderService;
 
 @Service
 public class orderServiceImpl implements orderService {
-	@Autowired
+	@Resource
 	private orderDao orderDao;
 
 	public orderDao getOrderDao() {
@@ -81,6 +83,10 @@ public class orderServiceImpl implements orderService {
 
 	public int delOrderInorder_goods(long ordernumber) {
 		return orderDao.delOrderInorder_goods(ordernumber);
+	}
+
+	public Adress getAdressByOrdernumber(long ordernumber) {
+		return orderDao.getAdressByOrdernumber(ordernumber);
 	}
 
 }
