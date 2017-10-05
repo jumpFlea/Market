@@ -25,7 +25,7 @@
 #imageMenu {width:92px;margin-left:0;position: absolute;top: 17px;right: 0;bottom:17px;z-index: 10000;overflow: hidden;}
 #imageMenu li {height:110px; width:92px;overflow:hidden;text-align:center;margin-bottom: 12px;}
 #imageMenu li img{width:92px; height:110px;cursor:pointer;}
-#imageMenu li#onlickImg img, #imageMenu li:hover img{ width:86px; height:104px; border:3px solid #959595;}
+#imageMenu .onlickImg, #imageMenu li:hover img{ width:86px; height:104px; border:3px solid #959595;}
 .bigImg{position:relative; float:left; width:325px; height:388px; overflow:hidden;}
 .bigImg #midimg{width:325px; height:388px;}
 .bigImg #winSelector{width:200px; height:180px;}
@@ -437,7 +437,7 @@
 #release_table{
 	width: 240PX;
 	margin: auto;
-	
+
 }
 
 #release_attribute{
@@ -450,5 +450,5 @@
 	width: 150px;
 }
 .release_input{
-	width: 150px;		
+	width: 150px;
 }

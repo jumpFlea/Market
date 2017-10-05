@@ -1,15 +1,14 @@
 package com.qst.action;
 
+import com.qst.service.goodsService;
+import com.qst.serviceImpl.AddIntoCarImpl;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
-import com.qst.service.goodsService;
-import com.qst.serviceImpl.AddIntoCarImpl;
 
 @Component
 public class AddInShopCarAction {
@@ -38,7 +37,12 @@ public class AddInShopCarAction {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		int uid = (int) session.getAttribute("uid");
+		int uid;
+		try {
+			uid = (int) session.getAttribute("uid");
+		} catch (NullPointerException e) {
+			return "login";
+		}
 		int gid = Integer.parseInt(request.getParameter("goodId"));
 		int a= addIntoCarImpl.addInshopcar(uid, gid);
 		if(a!=0) {

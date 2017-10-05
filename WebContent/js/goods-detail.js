@@ -20,16 +20,17 @@ $(document).ready(function(){
 	})
     //点击到中图
     var midChangeHandler = null;
-	
-    $("#imageMenu li img").bind("click", function(){
-		if ($(this).attr("id") != "onlickImg") {
-			var mid = $(this).attr('data-mid');
-			var big = $(this).attr('data-big');
-			midChange(mid,big);
-			$("#imageMenu li").removeAttr("id");
-			$(this).parent().attr("id", "onlickImg");
-		}
-	})
+
+    $("#imageMenu").find("li img").bind("click", function(){
+        $('.onlickImg').removeClass('onlickImg');
+        $(this).addClass('onlickImg');
+
+        var mid = $(this).attr('data-mid');
+        var big = $(this).attr('data-big');
+        midChange(mid,big);
+        $("#imageMenu").find("li").removeAttr("id");
+        $(this).parent().attr("id", "onlickImg");
+	});
 
     function midChange(src,big) {
         $("#midimg").attr("src", src).load(function() {
@@ -63,7 +64,7 @@ $(document).ready(function(){
     var $viewImgWidth = $viewImgHeight = $height = null; //IE加载后才能得到 大图宽度 大图高度 大图视窗高度
 
     function changeViewImg(big) {
-    	$("#bigView img").attr("src",big);   
+    	$("#bigView img").attr("src",big);
     }
     $("#bigView").scrollLeft(0).scrollTop(0);
     function fixedPosition(e) {
@@ -79,7 +80,7 @@ $(document).ready(function(){
         Y = Y < 0 ? 0 : Y;
         X = X + $divWidth > $imgWidth ? $imgWidth - $divWidth : X;
         Y = Y + $divHeight > $imgHeight ? $imgHeight - $divHeight : Y;
-        
+
         if ($viewImgWidth == null) {
             $viewImgWidth = $("#bigView img").outerWidth();
             $viewImgHeight = $("#bigView img").height();
@@ -97,7 +98,6 @@ $(document).ready(function(){
         $("#bigView img").css({ "left": scrollX * -1, "top": scrollY * -1 });
         $("#bigView").css({ "top": 0, "left": $(".preview").position().left + $(".preview").width() });
         var obj = { left: X, top: Y };
-        console.log(JSON.stringify(obj))
         return { left: X, top: Y };
     }
 

@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8>
 <title>小马交易</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -13,22 +12,24 @@
 <body class="search-page">
 	<!-- 顶部导航条 -->
 	<div class="nav">
-		<ul>
-			<li class="nav-pull-down location"><img
-				src="images/index/icon_location.png"> 送至珠海</li>
-			<li><a href="showUserInfor">个人信息</a></li>
-			<li><a href="getshopcargoods">我的购物车</a></li>
+		<ul class="container" style="background: transparent;">
+			<li class="nav-pull-down location">
+				<img src="images/logo.png">
+			</li>
 			<li><a href="#">客户服务</a></li>
 			<li><a href="release_goods.jsp">发布商品</a></li>
 			<li><a href="#">商城会员</a></li>
 			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
 				class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
-				<li class="login-signup">你好， 请<a href="login.html">登录 </a><span
-					class="text-color-red"><a href="login.html#signup">免费注册</a></span></li>
+				<li class="login-signup">
+					[<a href="login.html">登录 </a>
+					<a href="login.html#signup">注册</a> ]
+				</li>
 			</c:if>
 			<c:if test="${user != null}">
-				<li class="login-signup">你好，${user.username}</li>
+				<li><a href="getshopcargoods">购物车</a></li>
+				<li class="login-signup"><a href="showUserInfor.action">${user.username}</a></li>
 			</c:if>
 		</ul>
 	</div>
@@ -73,9 +74,12 @@
 					<span>分类：</span>
 				</div>
 				<div class="item-class-select">
-					<%-- <c:forEach  items="${attriSet}" var="a">
-						<a href="indexShow?type=${a}"><span><c:out value="${a}"></c:out></span></a>
-					</c:forEach> --%>
+					<c:if test="${attriSet!=null}">
+						<c:forEach items="${attriSet}" var="a">
+							<a href="indexShow?type=${a}"><span><c:out
+										value="${a}"></c:out></span></a>
+						</c:forEach>
+					</c:if>
 				</div>
 			</div>
 			<div class="item-class-group">
@@ -402,10 +406,12 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span
+				class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href=""><span class="my-item">已付款订单</span></a> <span class="my-item">已付款订单</span></a>
+			<a href=""><span class="my-item">已付款订单</span></a> <span
+				class="my-item">已付款订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">我的新消息</span> <span class="my-item">我的问答</span>
