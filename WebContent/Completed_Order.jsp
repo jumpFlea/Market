@@ -83,34 +83,10 @@
 	</div>
 	<!-- 顶部导航条 -->
 	
-	<form action="setGoodinOrder" method="post">
-
-		
-
-
-
-				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
-                    <tr>
-                        <td class="tb2_td1">
-                            <input type="checkbox" value="价格" name="newslist"/></td>
-                        <td class="tb2_td2">
-                            <a href="#">
-                                <img src="images/img1.jpg"/>
-                            </a>
-                        </td>
-                        <td class="tb2_td3">
-                            <a href="#"><c:out value="名字"></c:out></a>
-                        </td>
-                        <td class="tb1_td4">一件</td>
-                      
-                        <td class="tb1_td6">
-                            <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value=""></c:out></label>
-                        </td>
-                      
-                        <td class="tb1_td7">商品号：
-                            <input style="width: 20px; height: 18px; border: 1px solid #ccc;" disabled="disabled" value="" name="gid"/>
-                        </td>
-                    </tr>
+	<div class="gwc" style="margin: auto;">
+		<iframe class="gwc"  name="Goodsorder_Ifram" src="Goodsorder_Ifram.jsp" scrolling="no">
+		</iframe>
+	</div>
 
 				
 </body>

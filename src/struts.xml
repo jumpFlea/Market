@@ -114,6 +114,10 @@
 			 <action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
 
 			</action>
+			<!-- 已完成订单的查找 -->
+			<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction" method="comletedOrderIndex">
+				<result name="comletedOrderIndex">/Completed_Order.jsp</result>
+			</action>
 	</package>
 
 
