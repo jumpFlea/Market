@@ -1,11 +1,11 @@
 <%@page import="com.qst.serviceImpl.OrderServiceImpl"%>
-<%@page import="com.qst.service.orderService"%>
+
 <%@page import="com.qst.model.GoodsOrder"%>
 <%@page import="com.qst.model.Goods"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="com.qst.serviceImpl.goodsServiceImpl"%>
+
 <%@page import="java.rmi.server.UID"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
