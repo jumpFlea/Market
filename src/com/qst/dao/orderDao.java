@@ -7,6 +7,8 @@ import com.qst.model.OrderGoods;
 import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
 
 import java.util.ArrayList;
+
+import org.apache.coyote.http11.filters.VoidInputFilter;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -78,6 +80,19 @@ public interface orderDao {
 	/*
 	 * 通过订单号  找到订单里面商品的总价值
 	 */
-	@Select("SELECT SUM(a.g_price) FROM goods AS a,order_goods AS b WHERE ordernumber=5192017131951789 AND a.g_id=b.g_id")
+	@Select("SELECT SUM(a.g_price) FROM goods AS a,order_goods AS b WHERE ordernumber=#{ordernumber} AND a.g_id=b.g_id")
 	 public float getOrderSumPrince(@Param("ordernumber")long ordernumber);
+	/*
+	 * 更改订单的数量  点击一次 数量减一
+	 */
+	@Update("UPDATE goods SET restnum=restnum-1 WHERE g_id=#{g_id}")
+	public int UpdateGoodsRestnum(int g_id);
+	
+	/*
+	 * 将用户订单的 用户所选择的地址 和 留言 写入数据库 通过订单号 和地址id
+	 */
+	@Update("UPDATE `order` SET ad_id=#{ad_id},message=#{message} WHERE ordernumber=#{ordernumber}")
+	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
+	
+	
 }

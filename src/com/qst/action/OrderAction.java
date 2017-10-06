@@ -1,16 +1,24 @@
 package com.qst.action;
 
+
+import java.util.ArrayList;
+
+import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.service.goodsService;
 import com.qst.service.orderService;
+
+import oracle.net.aso.s;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
+
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+
 
 @Component
 public class OrderAction {
@@ -63,7 +71,23 @@ public class OrderAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		long ordernumber =Long.parseLong(request.getParameter("ordernumber")) ;
 		orderService.setOrderType(ordernumber);//设置支付状态为1：已支付状态
+		ArrayList<Integer> gid_list=orderService.getgid(ordernumber);
+		for (Integer gid : gid_list) {					//设置完成支付后  商品数量减1
+			orderService.UpdateGoodsRestnum(gid);
+		}
 		return "pay";
+	}
+	/*
+	 * 将留言和地址加入表order中
+	 */
+	public String payForOrder() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int ad_id=Integer.parseInt(request.getParameter("Checkout"));
+		long ordernumber=Long.parseLong(request.getParameter("ordernumber"));
+		String  message=request.getParameter("message");
+		orderService.setOrderByOrdernumber(ad_id, message, ordernumber);
+		
+		return "payForOrder";
 	}
 
 
