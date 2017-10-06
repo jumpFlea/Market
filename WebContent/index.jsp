@@ -74,8 +74,8 @@
 					<span>分类：</span>
 				</div>
 				<div class="item-class-select">
-					<c:if test="${attriSet!=null}">
-						<c:forEach items="${attriSet}" var="a">
+					<c:if test="${attri!=null}">
+						<c:forEach items="${attri}" var="a">
 							<a href="indexShow?type=${a}"><span><c:out
 										value="${a}"></c:out></span></a>
 						</c:forEach>

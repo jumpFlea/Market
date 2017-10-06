@@ -23,23 +23,26 @@ public class IndexShowAction extends ActionSupport{
 	/*int sum =0;*/
 
 //	HttpServletRequest request = ServletActionContext.getRequest();
-
+	
 
 	
 	public String indexShow(){
 		HttpServletRequest request = ServletActionContext.getRequest();
-		attribute =(String)request.getAttribute("type");
+		attribute =(String)request.getParameter("type");
+		/*System.out.println("aaaaaaa/n/n/n"+attribute);*/
 		Page<Goods> pageImage =indexShowService.indexShow(page,attribute);
+		
+		//从数据库中查询所有的 类型出来
+		String attri[] = indexShowService.showAllAttri();
 		if(pageImage!=null){
-			
 			request.setAttribute("pImageList",pageImage);	
-		    //实例化一个set集合
+		/*    //实例化一个set集合
 	        Set<String> attriSet = new HashSet<String>();
 	        //遍历数组并存入集合,如果元素已存在则不会重复存入,把分类的属性找出来
 	        for (int i=0;i<pageImage.getList().size();i++) {
 	        	attriSet.add(pageImage.getList().get(i).getG_attribute());
-	        }
-	        request.setAttribute("attriSet",attriSet);	      
+	        }*/
+	        request.setAttribute("attri",attri);	      
 			return SUCCESS;
 		}else
 			return ERROR; 

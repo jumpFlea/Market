@@ -59,4 +59,10 @@ public class IndexShowImpl implements IndexShowService {
 		return indexDao.findImageNum();
 	}
 
+	@Override
+	public String[] showAllAttri() {
+		// TODO Auto-generated method stub
+		return indexDao.showAllAttri();
+	}
+
 }
