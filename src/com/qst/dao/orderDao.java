@@ -92,7 +92,7 @@ public interface orderDao {
 	@Update("UPDATE `order` SET ad_id=#{ad_id},message=#{message} WHERE ordernumber=#{ordernumber}")
 	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
 
-
+	
 
 
 }

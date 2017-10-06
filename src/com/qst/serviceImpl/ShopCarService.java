@@ -1,6 +1,6 @@
 package com.qst.serviceImpl;
 
-import com.qst.dao.ShopCarDAO1;
+import com.qst.dao.ShopCarDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @Service
 public class ShopCarService {
 	@Autowired
-	private ShopCarDAO1 shopCarDAO;
+	private ShopCarDAO shopCarDAO;
 
 	public int setInShopcar(int g_id, int u_id) {
 		return shopCarDAO.setInShopcar(g_id, u_id);
