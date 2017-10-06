@@ -19,9 +19,21 @@
 <title></title>
 </head>
 <body>
-	<div>
-		<form action="setGoodinOrder" method="post">
-		<c:forEach items="${goodsOrders_list}" var="goodsOrder">
+	<div class="gwc" style=" margin:auto;">
+	<table cellpadding="0" cellspacing="0" class="gwc_tb1">
+				<tr>
+					<td class="tb1_td1"><input id="Checkbox1" type="checkbox" class="allselect" /></td>
+					<td class="tb1_td1">全选</td>
+					<td class="tb1_td3">商品</td>
+					<td class="tb1_td4">商品信息</td>
+					<td class="tb1_td5">数量</td>
+					<td class="tb1_td6">单价</td>
+					<td class="tb1_td7">操作</td>
+				</tr>
+			</table>
+		
+		<c:forEach items="${goodsOrders_list}" var="goodsOrder"> 
+		<form action="setEvalueInSession" method="post">
 			<table cellpadding="0" cellspacing="0" class="gwc_tb2">
 				<tr>
 					<td class="tb2_td1"><input type="checkbox" value="${ goodsOrder.g_price}"
@@ -32,19 +44,28 @@
 					<td class="tb2_td3"><a href="#"><c:out value="${ goodsOrder.g_name}"></c:out></a>
 					</td>
 					<td class="tb1_td4"><c:out value="${goodsOrder.ordernumber }"></c:out></td>
-
-					<td class="tb1_td6"><label class="tot"
-						style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out
-								value=""></c:out></label></td>
+						
 					<td class="tb1_td7">商品号： <input
 						style="width: 20px; height: 18px; border: 1px solid #ccc;"
 						disabled="disabled" value="${ goodsOrder.g_id}" name="gid" />
 					</td>
+					
+				<td class="tb1_td7">你对商品的评价：
+				 <input style="width: 200px; height: 50px; border: 1px solid #ccc;"
+						 name="evaluate" />
+				<a href="setEvalueInSession?gid=${ goodsOrder.g_id}"> 提交</a>
+					</td>
+					
+					
 				</tr>
 			</table>
-			</c:forEach>
-		</form>
-
-	</div>
+			</form>
+			 </c:forEach>
+			 <!--移除session  --> 
+			 <% session.removeAttribute("goodsOrders_list"); %>
+			 
+		
+</div>
+	
 </body>
 </html>

@@ -36,7 +36,7 @@ public class GoodsOrderAction {
 		int pay_type = Integer.parseInt(request.getParameter("pay_type"));
 		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
 		goodsOrders_list= goodsorderservice.getGoodOrderByu_id(u_id, pay_type, 0, 5);
-		request.setAttribute("goodsOrders_list", goodsOrders_list);
+		session.setAttribute("goodsOrders_list", goodsOrders_list);
 		return "comletedOrderIndex";
 	}
 	/*
@@ -53,8 +53,7 @@ public class GoodsOrderAction {
 		int b=pag*5-1;
 		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
 		goodsOrders_list= goodsorderservice.getGoodOrderByu_id(u_id, pay_type, a, b);
-		request.setAttribute("goodsOrders_list", goodsOrders_list);
-		
+		session.setAttribute("goodsOrders_list", goodsOrders_list);
 		return "comletedOrder";
 	}
 }
