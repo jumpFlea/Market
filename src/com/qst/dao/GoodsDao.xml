@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.GoodsDao">
+<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
+
+	<!--通过商品id查找 所有商品详细信息 返回一个list集合  -->
+	<select id="getAllgoods" parameterType="int" resultType="Goods">
+		select * from goods where g_id=#{g_id};
+	</select>
+
+
+	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true" keyProperty="g_id">
+		insert into
+		goods(g_price,g_name,g_attribute,u_id,restnum,introduce,image_zhanshi,market_price,
+		g_content)
+		VALUES(#{g_price},#{g_name},#{g_attribute},#{u_id},#{restnum},#{introduce},#{image_zhanshi},#{market_price},#{g_content})
+	</insert>
+
+
+	<select id="showGoods" parameterType="int" resultType="Goods">
+		select *
+		from goods where g_id=#{goodId};
+	</select>
+
+
+	<!--寻找图片地址的语句,用来显示到index界面 -->
+	<select id="indexShow" parameterType="Page" resultType="Goods">
+		select * from goods
+		<if test="attribute != null">
+			where g_attribute=#{attribute}
+		</if>
+		limit #{begin},#{limitPage};
+	</select>
+
+
+	<select id="findImageNum" resultType="int">
+		select count(g_id) from
+			goods;
+	</select>
+
+	<select id="showAllAttri" resultType="string">
+		SELECT g_attribute from
+		goods GROUP BY g_attribute
+		ORDER BY g_id ASC
+	</select>
+</mapper>

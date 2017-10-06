@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.ImageDAO">
+
+    <!--通过 image_id 查找所有的imageUrl 返回一个list集合 -->
+    <select id ="getImageUrl" parameterType="int" resultType="list">
+        select * from image where image_id=#{image_id};
+    </select>
+
+    <select id="getImage" parameterType="java.lang.Long" resultType="Image">
+        select * from image where goodsnumber=#{goodsnumber};
+    </select>
+
+
+    <select id="showSmallPic" parameterType="int" resultType="Image">
+        SELECT
+        * from image where image.image_id IN
+        (select image_id from goods where g_id= #{goodId})
+    </select>
+
+</mapper>

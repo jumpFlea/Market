@@ -39,7 +39,7 @@
 .per-img-wrap{
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 10px;
 	right: 0;
 	height: 17px;
 	background-color: #f8f8f8;
@@ -47,7 +47,7 @@
 .next-img-wrap{
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: 10px;
 	right: 0;
 	height: 17px;
 	background-color: #f8f8f8;
@@ -451,4 +451,9 @@
 }
 .release_input{
 	width: 150px;
+}
+.adjust{
+	background-color: #1b6d85;
+	border-radius: 10px;
+	height: 30px;
 }

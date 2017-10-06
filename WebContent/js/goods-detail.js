@@ -1,5 +1,10 @@
 $(document).ready(function(){
-	$('.next-img').on('click',function(){
+    $('.next-img-wrap,.per-img-wrap').hover(function () {
+        $(this).addClass('adjust');
+    },function () {
+        $('.next-img-wrap').removeClass('adjust');
+    });
+	$('.next-img,.next-img-wrap').on('click',function(){
 		var all = $('li','.list-ul').length;
 		var top = parseInt($('.list-ul').css('top'));
 		if(Math.abs(top)==(all-3)*122){
@@ -8,7 +13,7 @@ $(document).ready(function(){
 		$('.list-ul').animate({
 			top:"+=-122px"
 		})
-	})
+	});
 	$('.per-img').on('click',function(){
 		var top = $('.list-ul').css('top');
 		if(top=="0px"){
@@ -17,7 +22,7 @@ $(document).ready(function(){
 		$('.list-ul').animate({
 			top:"+=122px"
 		})
-	})
+	});
     //点击到中图
     var midChangeHandler = null;
 

@@ -1,61 +1,49 @@
 package com.qst.action;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.Goods;
 import com.qst.model.Page;
-import com.qst.service.IndexShowService;
+import com.qst.serviceImpl.GoodsService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-@Component
-public class IndexShowAction extends ActionSupport{
+import javax.servlet.http.HttpServletRequest;
 
-	@Resource
-	private IndexShowService indexShowService;
-	int page=1;
+@Controller
+public class IndexShowAction extends ActionSupport {
+
+	@Autowired
+	private GoodsService goodsService;
 	private String attribute;
+	int page = 1;
 	/*int sum =0;*/
 
 //	HttpServletRequest request = ServletActionContext.getRequest();
-	
 
-	
-	public String indexShow(){
+
+	public String indexShow() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		attribute =(String)request.getParameter("type");
+		attribute = (String) request.getParameter("type");
 		/*System.out.println("aaaaaaa/n/n/n"+attribute);*/
-		Page<Goods> pageImage =indexShowService.indexShow(page,attribute);
-		
+		Page<Goods> pageImage = goodsService.indexShow(page, attribute);
+
 		//从数据库中查询所有的 类型出来
-		String attri[] = indexShowService.showAllAttri();
-		if(pageImage!=null){
-			request.setAttribute("pImageList",pageImage);	
+		String attri[] = goodsService.showAllAttri();
+		if (pageImage != null) {
+			request.setAttribute("pImageList", pageImage);
 		/*    //实例化一个set集合
-	        Set<String> attriSet = new HashSet<String>();
+		    Set<String> attriSet = new HashSet<String>();
 	        //遍历数组并存入集合,如果元素已存在则不会重复存入,把分类的属性找出来
 	        for (int i=0;i<pageImage.getList().size();i++) {
 	        	attriSet.add(pageImage.getList().get(i).getG_attribute());
 	        }*/
-	        request.setAttribute("attri",attri);	      
+			request.setAttribute("attri", attri);
 			return SUCCESS;
-		}else
-			return ERROR; 
+		} else
+			return ERROR;
 	}
 
-	public IndexShowService getIndexShowService() {
-		return indexShowService;
-	}
-
-	public void setIndexShowService(IndexShowService indexShowService) {
-		this.indexShowService = indexShowService;
-	}
-	
 	public String getAttribute() {
 		return attribute;
 	}

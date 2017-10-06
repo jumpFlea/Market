@@ -1,30 +1,20 @@
 package com.qst.action;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.qst.serviceImpl.OrderServiceImpl;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
-import com.qst.service.orderService;
-
-@Component
+@Controller
 public class SetGoodsInOrderAction {
-	@Resource
-	private orderService orderService;
-
-	public orderService getOrderService() {
-		return orderService;
-	}
-
-	public void setOrderService(orderService orderService) {
-		this.orderService = orderService;
-	}
+	@Autowired
+	private OrderServiceImpl orderService;
 
 	public String setgoodsinordre() { // 将某一项商品直接设置进入订单并跳转到订单表
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");

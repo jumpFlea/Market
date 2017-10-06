@@ -2,12 +2,11 @@ package com.qst.serviceImpl;
 
 import com.qst.dao.UserDao;
 import com.qst.model.User;
-import com.qst.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl{
 
 	@Resource
 	private UserDao dao;
@@ -15,7 +14,7 @@ public class UserServiceImpl implements UserService {
 	//用户登录
 
 	public User login(User user) {
-	
+
 		return dao.login(user);
 	}
 
@@ -35,28 +34,19 @@ public class UserServiceImpl implements UserService {
 
 
 	public User findUserbyID(int uid) {
-		
+
 		return dao.findByID(uid);
 	}
 
-
-	@Override
 	public User ShowUserInfor(User user) {
-		// TODO Auto-generated method stub
 		return dao.showUserInfor(user);
 	}
 
-
-	@Override
 	public int updateUserInfor(User user1) {
-		// TODO Auto-generated method stub
 		return dao.updateUserInfor(user1);
 	}
 
-
-	@Override
 	public int findIdByName(String name) {
-		// TODO Auto-generated method stub
 		return dao.findIdByName(name);
 	}
 

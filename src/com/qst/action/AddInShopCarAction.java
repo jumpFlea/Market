@@ -1,36 +1,21 @@
 package com.qst.action;
 
-import com.qst.service.goodsService;
-import com.qst.serviceImpl.AddIntoCarImpl;
+import com.qst.serviceImpl.ShopCarService;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@Component
+@Controller
 public class AddInShopCarAction {
-	@Resource
-	private AddIntoCarImpl addIntoCarImpl;
-	@Resource
-	private goodsService goodsService;
+	private final ShopCarService shopCarService;
 
-	public goodsService getGoodsService() {
-		return goodsService;
-	}
-
-	public void setGoodsService(goodsService goodsService) {
-		this.goodsService = goodsService;
-	}
-
-	public AddIntoCarImpl getAddIntoCarImpl() {
-		return addIntoCarImpl;
-	}
-
-	public void setAddIntoCarImpl(AddIntoCarImpl addIntoCarImpl) {
-		this.addIntoCarImpl = addIntoCarImpl;
+	@Autowired
+	public AddInShopCarAction(ShopCarService shopCarService) {
+		this.shopCarService = shopCarService;
 	}
 
 	public String addInshopcar() {
@@ -44,8 +29,8 @@ public class AddInShopCarAction {
 			return "login";
 		}
 		int gid = Integer.parseInt(request.getParameter("goodId"));
-		int a= addIntoCarImpl.addInshopcar(uid, gid);
-		if(a!=0) {
+		int a = shopCarService.addInshopcar(uid, gid);
+		if (a != 0) {
 			return "success";
 		}
 		return "error";

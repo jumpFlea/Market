@@ -21,7 +21,7 @@
 		WHERE username = #{username}
 	</select>
 
-	<select id="findByID" parameterType="Integer" resultType="User">
+	<select id="findByID" parameterType="integer" resultType="User">
 		select * from usertable where uid=#{uid};
 	</select>
 
@@ -30,7 +30,7 @@
 		select * from usertable where username = #{username};
 	</select>
 	<!--根据名字查找id -->
-	<select id="findIdByName" parameterType="String" resultType="int">
+	<select id="findIdByName" parameterType="string" resultType="int">
 		select uid from usertable where username=#{name};
 	</select>
 

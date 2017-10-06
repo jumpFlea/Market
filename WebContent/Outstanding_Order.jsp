@@ -1,4 +1,4 @@
-<%@page import="com.qst.serviceImpl.orderServiceImpl"%>
+<%@page import="com.qst.serviceImpl.OrderServiceImpl"%>
 <%@page import="com.qst.service.orderService"%>
 <%@page import="com.qst.model.GoodsOrder"%>
 <%@page import="com.qst.model.Goods"%>
@@ -165,7 +165,7 @@
 		</div>
 	</div>
 	<!--顶部Logo及搜索-->
-	
+
 		<div class="yHeader">
 		<div class="shop_Nav">
 			<div class="pullDown">
@@ -187,7 +187,7 @@
 		</div>
 	</div>
 		<!--  导航条    end-->
-	
+
 	<div class="banner_red_top"></div>
 
 	<div class="gwc" style="margin: auto;">
@@ -207,7 +207,7 @@
 
 
 		<form action="" method="post">
-	
+
 
 			<c:forEach items="${goodsOrders2_list}" var="goods">
 
@@ -238,10 +238,10 @@
                             <label class="tot" style="color: #ff5500; font-size: 14px; font-weight: bold;"><c:out value="${ goods.g_price}"></c:out></label>
                         </td>
                         <td class="tb1_td7"><a href="cancellationOrder?ordernumber=${goods.ordernumber }">放弃订单</a>|<a href="continuePayment?ordernumber=${goods.ordernumber }">马上去支付</a></td>
-                        
+
                     </tr>
 
-					</c:forEach> 
+					</c:forEach>
 
 
 

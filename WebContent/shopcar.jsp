@@ -2,7 +2,7 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="com.qst.serviceImpl.goodsServiceImpl"%>
+<%@page import="com.qst.serviceImpl.GoodsService"%>
 <%@page import="java.rmi.server.UID"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -162,7 +162,7 @@
 		</div>
 	</div>
 	<!--顶部Logo及搜索-->
-	
+
 		<div class="yHeader">
 		<div class="shop_Nav">
 			<div class="pullDown">
@@ -184,7 +184,7 @@
 		</div>
 	</div>
 		<!--  导航条    end-->
-	
+
 	<div class="banner_red_top"></div>
 
 	<div class="gwc" style="margin: auto;">

@@ -1,17 +1,16 @@
-
 package com.qst.action;
 
 import com.qst.model.Adress;
 import com.qst.model.Goods;
 import com.qst.model.Goods_item;
-import com.qst.service.AdressService;
-import com.qst.service.goodsService;
-import com.qst.service.orderService;
-
+import com.qst.serviceImpl.AddressServiceImpl;
+import com.qst.serviceImpl.GoodsService;
+import com.qst.serviceImpl.OrderServiceImpl;
+import com.qst.serviceImpl.ShopCarService;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,43 +18,26 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-@Component
+@Controller
 public class ShopcarAction {
-	@Resource
-	private goodsService goodsService;
-	@Resource
-	private orderService orderService;
-	@Resource
-	private AdressService adressService;
+	private final GoodsService goodsService;
+	private final OrderServiceImpl orderService;
+	private final AddressServiceImpl addressService;
+	private final ShopCarService shopCarService;
 
-	public AdressService getAdressService() {
-		return adressService;
-	}
-
-	public void setAdressService(AdressService adressService) {
-		this.adressService = adressService;
-	}
-
-	public orderService getOrderService() {
-		return orderService;
-	}
-
-	public void setOrderService(orderService orderService) {
-		this.orderService = orderService;
-	}
-
-	public goodsService getGoodsService() {
-		return goodsService;
-	}
-
-	public void setGoodsService(goodsService goodsService) {
+	@Autowired
+	public ShopcarAction(GoodsService goodsService, OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
 		this.goodsService = goodsService;
+		this.orderService = orderService;
+		this.addressService = addressService;
+		this.shopCarService = shopCarService;
 	}
+
 
 	/*
 	 * 此类的功能为将商品设置进入订单,
 	 */
-	
+
 	public String setGoodinOrder() { // 此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
@@ -91,7 +73,7 @@ public class ShopcarAction {
 		HttpSession session = request.getSession();
 		int uid = (int) session.getAttribute("uid");
 		ArrayList<Integer> arrayList;
-		arrayList = goodsService.get_gid(uid);
+		arrayList = shopCarService.get_gid(uid);
 		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
 		Goods goods;
 		for (Integer integer : arrayList) {
@@ -119,10 +101,10 @@ public class ShopcarAction {
 		Goods_item goods_item;
 		Adress adress;
 		ArrayList<Adress> adress_list = new ArrayList<Adress>();
-		adid_list = adressService.getAlladid(uid);
+		adid_list = addressService.getAlladid(uid);
 
 		for (Integer ad_id : adid_list) {
-			adress = adressService.getAdress(ad_id);
+			adress = addressService.getAdress(ad_id);
 			adress_list.add(adress);
 		}
 
@@ -138,18 +120,19 @@ public class ShopcarAction {
 		return "dyj";
 	}
 
-	
-		/*
-		 * 删除购物车里的某一个商品
-		 */
-	public String delGoodsShopCar()		
-	{
+
+	/*
+	 * 删除购物车里的某一个商品
+	 */
+	public String delGoodsShopCar() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		int uid =(int)session.getAttribute("uid");
-		int gid =Integer.parseInt(request.getParameter("goodsid"));
-		goodsService.deleteShopcarGoodByid(uid, gid);
+		int uid = (int) session.getAttribute("uid");
+		int gid = Integer.parseInt(request.getParameter("goodsid"));
+		shopCarService.deleteShopcarGoodByid(uid, gid);
 		return "del";
-		
+
 	}
+
+
 }

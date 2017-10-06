@@ -4,15 +4,12 @@ import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
-import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
-
-import java.util.ArrayList;
-
-import org.apache.coyote.http11.filters.VoidInputFilter;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.ArrayList;
 
 public interface orderDao {
 
@@ -28,7 +25,7 @@ public interface orderDao {
 	public Goods_item getgoods_item(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id);
 
 	public float getSumprince(long ordernumber);
-	
+
 	/*
 	 * 设置订单状态为1 ：提交未支付状态
 	 */
@@ -40,7 +37,7 @@ public interface orderDao {
 
 	@Select("SELECT g_id FROM order_goods WHERE ordernumber=#{ordernumber}")
 	public ArrayList<Integer> getG_idByOrdernum(@Param("ordernumber") long ordernumber);// 通过ordernumber找到对应的所有gid
-	
+
 	/*
 	 * 通过uid找到用户所有的订单的商品id;
 	 */
@@ -76,7 +73,7 @@ public interface orderDao {
 	 */
 	@Select(" SELECT * FROM adress AS a WHERE a.ad_id=(SELECT DISTINCT  a.ad_id  FROM `order` AS a,order_goods AS b  WHERE a.ordernumber=b.ordernumber AND a.ordernumber=#{ordernumber})")
 	public Adress getAdressByOrdernumber(@Param("ordernumber") long ordernumber);
-	
+
 	/*
 	 * 通过订单号  找到订单里面商品的总价值
 	 */
@@ -85,14 +82,17 @@ public interface orderDao {
 	/*
 	 * 更改订单的数量  点击一次 数量减一
 	 */
+
 	@Update("UPDATE goods SET restnum=restnum-1 WHERE g_id=#{g_id}")
 	public int UpdateGoodsRestnum(int g_id);
-	
+
 	/*
 	 * 将用户订单的 用户所选择的地址 和 留言 写入数据库 通过订单号 和地址id
 	 */
 	@Update("UPDATE `order` SET ad_id=#{ad_id},message=#{message} WHERE ordernumber=#{ordernumber}")
 	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
-	
-	
+
+
+
+
 }

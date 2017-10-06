@@ -73,8 +73,7 @@
 
 		<!-- 设置我的地址 -->
 
-		<action name="setAdress" class="com.qst.action.AdressAction"
-			method="setAdress">
+		<action name="setAdress" class="com.qst.action.AddressAction" method="setAdress">
 
 		</action>
 		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
@@ -91,6 +90,7 @@
 		<!--删除购物车的某一个商品 -->
 		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction"
 			method="delGoodsShopCar">
+			<result name="del" type="chain">getshopcargoods</result>
 		</action>
 
 		<!-- 得到所有的未完成订单 -->
@@ -99,7 +99,7 @@
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
 		<!--编辑本地用户的某一个用户地址  -->
-		<action name="editAdress" class="com.qst.action.AdressAction" method="editAdress"></action>
+		<action name="editAdress" class="com.qst.action.AddressAction" method="editAdress"></action>
 
 		<!-- 删除未完成订单 -->
 		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
@@ -112,8 +112,8 @@
 			</action>
 			<!--支付状态改变  -->
 			 <action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
-				
-			</action> 
+
+			</action>
 	</package>
 
 

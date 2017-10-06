@@ -3,12 +3,12 @@ package com.qst.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.Goods;
 import com.qst.model.UserGoods;
-import com.qst.service.ReleaseGoodsService;
+import com.qst.serviceImpl.GoodsService;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -16,16 +16,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-@Component
+@Controller
 public class ReleaseGoodsAction extends ActionSupport {
 
-	@Resource
-	private ReleaseGoodsService rgs;
+	@Autowired
+	private GoodsService rgs;
 	private Goods goods;
 	private File upload;
 	private String uploadFileName;
 	private UserGoods userGoods;
-
 
 
 	public String releaseGoods() {
@@ -33,19 +32,19 @@ public class ReleaseGoodsAction extends ActionSupport {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(new Date());
 		System.out.println(date);
-		int uid = (int)request.getSession().getAttribute("uid");
+		int uid = (int) request.getSession().getAttribute("uid");
 		goods.setU_id(uid);
 		String savePath = "C:\\Users\\Administrator\\Desktop\\ourImage\\";
 		//随机产生一个文件名
-		String fileName= UUID.randomUUID().toString() + "_" + uploadFileName;
-		File file = new File(savePath+fileName);
+		String fileName = UUID.randomUUID().toString() + "_" + uploadFileName;
+		File file = new File(savePath + fileName);
 		try {
-			FileUtils.copyFile(upload,file);
+			FileUtils.copyFile(upload, file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		goods.setImage_zhanshi(File.separator+"image"+File.separator+"upload"+File.separator+fileName);
+		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		rgs.releaseGoods(goods);
 		userGoods = new UserGoods();
 		userGoods.setUserId(uid);
@@ -60,14 +59,6 @@ public class ReleaseGoodsAction extends ActionSupport {
 		} else
 			return ERROR;*/
 		return "success";
-	}
-
-	public ReleaseGoodsService getRgs() {
-		return rgs;
-	}
-
-	public void setRgs(ReleaseGoodsService rgs) {
-		this.rgs = rgs;
 	}
 
 	public UserGoods getUserGoods() {

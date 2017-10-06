@@ -2,36 +2,37 @@ package com.qst.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.User;
-import com.qst.service.UserService;
-
-
+import com.qst.serviceImpl.UserServiceImpl;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.UUID;
 
-@Component
+@Controller
 public class UserAction extends ActionSupport {
-	@Resource
-	private UserService userService;
+	private final UserServiceImpl userService;
 
 	private User user;
 	private User user1;
 	private String loginResult;
-	
+
 	//变量名字固定写法
 	private File upload;
 	private String uploadFileName;
-	
+
+	@Autowired
+	public UserAction(UserServiceImpl userService) {
+		this.userService = userService;
+	}
+
 /*	public String getUsername() {
 		return username;
 	}
@@ -56,21 +57,12 @@ public class UserAction extends ActionSupport {
 		this.uploadFileName = uploadFileName;
 	}
 
-	public User getUser1() { 
+	public User getUser1() {
 		return user1;
 	}
 
 	public void setUser1(User user1) {
 		this.user1 = user1;
-	}
-
-	
-	public UserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
 	}
 
 	public User getUser() {
@@ -83,8 +75,8 @@ public class UserAction extends ActionSupport {
 
 	public void login() {
 		HttpServletResponse response = ServletActionContext.getResponse();
-		HttpServletRequest request =ServletActionContext.getRequest();
-		HttpSession session =request.getSession();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
 		PrintWriter out = null;
 		String jsonString;
 		try {
@@ -92,8 +84,8 @@ public class UserAction extends ActionSupport {
 			User u = userService.login(user);
 			if (u != null) {
 				jsonString = "yes";
-				session.setAttribute("user",u);
-				int uid=userService.findIdByName(u.getUsername());
+				session.setAttribute("user", u);
+				int uid = userService.findIdByName(u.getUsername());
 				session.setAttribute("uid", uid);
 			} else {
 				jsonString = "no";
@@ -137,7 +129,7 @@ public class UserAction extends ActionSupport {
 	}
 
 	// 根据用户登录时的名字显示个人信息，（此处功能需要待添加判读用户是否登录）
-	public String showUserInfor(){
+	public String showUserInfor() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		User u = userService.ShowUserInfor(user);
@@ -152,23 +144,23 @@ public class UserAction extends ActionSupport {
 	public String updateUserInfor() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String username=((User)session.getAttribute("u2")).getUsername();
-		if(upload!=null){
+		String username = ((User) session.getAttribute("u2")).getUsername();
+		if (upload != null) {
 			String savePath = ServletActionContext.getServletContext().getRealPath("/images/upload");
 			//随机产生一个文件名
-			String fileName= UUID.randomUUID().toString() + "_" + uploadFileName;
-			File file = new File(savePath+fileName);
-			FileUtils.copyFile(upload,file);
-			user1.setU_image("images"+File.separator+"upload"+fileName);
+			String fileName = UUID.randomUUID().toString() + "_" + uploadFileName;
+			File file = new File(savePath + fileName);
+			FileUtils.copyFile(upload, file);
+			user1.setU_image("images" + File.separator + "upload" + fileName);
 		}
 		int re = userService.updateUserInfor(user1);
-		if(re!=0){
+		if (re != 0) {
 			User u = userService.ShowUserInfor(user1);
 			session.setAttribute("u2", u);
 			return SUCCESS;
 		}
 		return ERROR;
-		
+
 	}
 
 }
