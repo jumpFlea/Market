@@ -264,18 +264,18 @@
 			<nav>
 			<ul class="pagination">
 				<c:if test="${pImageList.currentPage!=1}">
-					<li><a><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>
 				</c:if>
 				<c:forEach var="i" begin="1" end="${pImageList.countPage}">
 					<c:if test="${i==pImageList.currentPage}">
 						<li class="active"><a>${i}</a></li>
 					</c:if>
 					<c:if test="${i!=pImageList.currentPage}">
-						<li><a href="indexShow?page=${i}">${i}</a></li>
+						<li><a href="indexShow?page=${i}&type=${type}">${i}</a></li>
 					</c:if>
 				</c:forEach>
 				<c:if test="${pImageList.currentPage!=pImageList.countPage}">
-					<li><a href="indexShow?page=${pImageList.currentPage+1}"><span>&raquo;</span></a></li>
+					<li><a href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
 				</c:if>
 			</ul>
 			</nav>

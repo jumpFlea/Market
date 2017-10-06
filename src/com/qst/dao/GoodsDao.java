@@ -5,6 +5,8 @@ import com.qst.model.Page;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface GoodsDao {
 
 	Goods getAllgoods(int g_id);
@@ -14,6 +16,8 @@ public interface GoodsDao {
 	Goods showGoods(int goodId);
 
 	public List<Goods> indexShow(Page<Goods> page);
-	public int findImageNum();
+	
+	public int findImageNum(@Param("type") String type);
+	
 	public String[] showAllAttri();
 }

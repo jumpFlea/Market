@@ -24,21 +24,19 @@ public class IndexShowAction extends ActionSupport {
 
 	public String indexShow() {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		//获取前台界面传过来的类型
 		attribute = (String) request.getParameter("type");
-		/*System.out.println("aaaaaaa/n/n/n"+attribute);*/
+		
 		Page<Goods> pageImage = goodsService.indexShow(page, attribute);
-
-		//从数据库中查询所有的 类型出来
+		//从数据库中查询所有的类型出来
 		String attri[] = goodsService.showAllAttri();
 		if (pageImage != null) {
 			request.setAttribute("pImageList", pageImage);
-		/*    //实例化一个set集合
-		    Set<String> attriSet = new HashSet<String>();
-	        //遍历数组并存入集合,如果元素已存在则不会重复存入,把分类的属性找出来
-	        for (int i=0;i<pageImage.getList().size();i++) {
-	        	attriSet.add(pageImage.getList().get(i).getG_attribute());
-	        }*/
 			request.setAttribute("attri", attri);
+			//类型不为空值，设置到前台页面,便于类型下面分页的寻找
+			if(attribute!=null){
+				request.setAttribute("type", attribute);
+			}
 			return SUCCESS;
 		} else
 			return ERROR;

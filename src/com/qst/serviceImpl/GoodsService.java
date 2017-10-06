@@ -54,22 +54,18 @@ public class GoodsService {
 		// 设置每页显示的条数
 		int limit = 20;
 		p.setLimitPage(limit);
-		// 获取当前的总记录数，并设置到page里面对应的属性,总页数
-		int count = goodsDao.findImageNum();
-		/*System.out.println(count);*/
+		// 获取当前的总记录数，并设置到page里面对应的属性,设置总页数
+		int count = goodsDao.findImageNum(type);
 		if (count%limit == 0) {
 			count = count / limit;
 			p.setCountPage(count);
 		} else {
 			count = (count / limit) + 1;
-			/*System.out.println(count);*/
 			p.setCountPage(count);
 		}
-
 		// 设置开始显示记录的第一条的值
 		int begin = (currentPage - 1) * limit;
 		p.setBegin(begin);
-
 		p.setAttribute(type);
 		// 获取图片的信息，存于page中
 		List<Goods> imageList = new ArrayList<Goods>();
@@ -78,8 +74,8 @@ public class GoodsService {
 		return p;
 	}
 
-	public int findImageNum() {
-		return goodsDao.findImageNum();
+	public int findImageNum(String type) {
+		return goodsDao.findImageNum(type);
 	}
 
 	public String[] showAllAttri() {

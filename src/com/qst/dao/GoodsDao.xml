@@ -26,16 +26,19 @@
 	<!--寻找图片地址的语句,用来显示到index界面 -->
 	<select id="indexShow" parameterType="Page" resultType="Goods">
 		select * from goods
-		<if test="attribute != null">
+		<if test="attribute != null and ''!= attribute">
 			where g_attribute=#{attribute}
 		</if>
 		limit #{begin},#{limitPage};
 	</select>
 
-
-	<select id="findImageNum" resultType="int">
-		select count(g_id) from
-			goods;
+	<!--查找指定类型的商品数量，类型无则查询所有-->
+	<select id="findImageNum" parameterType="java.lang.String"  resultType="int">
+		select count(g_id) from goods
+		<if test="type!=null and ''!= type">
+			where g_attribute=#{type}
+		</if>
+			
 	</select>
 
 	<select id="showAllAttri" resultType="string">
