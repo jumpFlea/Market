@@ -1,5 +1,6 @@
 package com.qst.action;
 
+import com.qst.model.ShopCartGoods;
 import com.qst.serviceImpl.ShopCarService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,16 @@ public class AddInShopCarAction {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		int uid;
+		ShopCartGoods shopCartGood = new ShopCartGoods();
 		try {
-			uid = (int) session.getAttribute("uid");
+			shopCartGood.setuId( (int) session.getAttribute("uid"));
 		} catch (NullPointerException e) {
 			return "login";
 		}
-		int gid = Integer.parseInt(request.getParameter("goodId"));
-		int a = shopCarService.addInshopcar(uid, gid);
-		if (a != 0) {
-			return "success";
-		}
-		return "error";
+		shopCartGood.setgId( Integer.parseInt(request.getParameter("goodId")) );
+		int a = shopCarService.addToCart(shopCartGood);
+
+		return "success";
 	}
 
 }

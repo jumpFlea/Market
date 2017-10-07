@@ -37,19 +37,19 @@ CREATE TABLE `adress_table` (
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods` (
-  `g_id` int(20) NOT NULL AUTO_INCREMENT,
+  `gId` int(20) NOT NULL AUTO_INCREMENT,
   `g_price` float(10,2) NOT NULL,
   `g_attribute` varchar(255) NOT NULL,
   `restnum` int(20) DEFAULT NULL,
   `g_name` varchar(225) NOT NULL,
-  `u_id` int(11) NOT NULL,
+  `uId` int(11) NOT NULL,
   `image_id` int(50) DEFAULT NULL,
   `introduce` varchar(225) DEFAULT NULL,
-  PRIMARY KEY (`g_id`),
-  KEY `u_id2` (`u_id`),
+  PRIMARY KEY (`gId`),
+  KEY `u_id2` (`uId`),
   KEY `image_id` (`image_id`),
   CONSTRAINT `image_id` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`),
-  CONSTRAINT `u_id2` FOREIGN KEY (`u_id`) REFERENCES `usertable` (`uid`)
+  CONSTRAINT `u_id2` FOREIGN KEY (`uId`) REFERENCES `usertable` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -79,14 +79,14 @@ CREATE TABLE `image` (
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `o_id` int(11) NOT NULL AUTO_INCREMENT,
-  `u_id` int(11) NOT NULL,
+  `uId` int(11) NOT NULL,
   `pay_type` int(11) NOT NULL,
   `s_id` int(11) NOT NULL,
   PRIMARY KEY (`o_id`),
   KEY `s_id` (`s_id`),
-  KEY `u_id3` (`u_id`),
+  KEY `u_id3` (`uId`),
   CONSTRAINT `s_id` FOREIGN KEY (`s_id`) REFERENCES `session` (`s_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `u_id3` FOREIGN KEY (`u_id`) REFERENCES `usertable` (`uid`)
+  CONSTRAINT `u_id3` FOREIGN KEY (`uId`) REFERENCES `usertable` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -100,13 +100,13 @@ DROP TABLE IF EXISTS `order_goods`;
 CREATE TABLE `order_goods` (
   `og_id` int(11) NOT NULL AUTO_INCREMENT,
   `o_id` int(11) NOT NULL,
-  `g_id` int(11) NOT NULL,
+  `gId` int(11) NOT NULL,
   `prince` float NOT NULL,
   `og_num` int(11) NOT NULL,
   PRIMARY KEY (`og_id`),
   KEY `o_id` (`o_id`),
-  KEY `g_id2` (`g_id`),
-  CONSTRAINT `g_id2` FOREIGN KEY (`g_id`) REFERENCES `goods` (`g_id`),
+  KEY `g_id2` (`gId`),
+  CONSTRAINT `g_id2` FOREIGN KEY (`gId`) REFERENCES `goods` (`gId`),
   CONSTRAINT `o_id` FOREIGN KEY (`o_id`) REFERENCES `order` (`o_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -135,14 +135,14 @@ CREATE TABLE `session` (
 -- ----------------------------
 DROP TABLE IF EXISTS `shopcar_goods`;
 CREATE TABLE `shopcar_goods` (
-  `sg_id` int(11) NOT NULL AUTO_INCREMENT,
-  `u_id` int(11) NOT NULL,
-  `g_id` int(11) NOT NULL,
-  PRIMARY KEY (`sg_id`),
-  KEY `u_id` (`u_id`),
-  KEY `g_id1` (`g_id`),
-  CONSTRAINT `g_id1` FOREIGN KEY (`g_id`) REFERENCES `goods` (`g_id`),
-  CONSTRAINT `u_id` FOREIGN KEY (`u_id`) REFERENCES `usertable` (`uid`)
+  `sgId` int(11) NOT NULL AUTO_INCREMENT,
+  `uId` int(11) NOT NULL,
+  `gId` int(11) NOT NULL,
+  PRIMARY KEY (`sgId`),
+  KEY `uId` (`uId`),
+  KEY `g_id1` (`gId`),
+  CONSTRAINT `g_id1` FOREIGN KEY (`gId`) REFERENCES `goods` (`gId`),
+  CONSTRAINT `uId` FOREIGN KEY (`uId`) REFERENCES `usertable` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -175,14 +175,14 @@ CREATE TABLE `usertable` (
 DROP TABLE IF EXISTS `user_goods`;
 CREATE TABLE `user_goods` (
   `ug_id` int(11) NOT NULL AUTO_INCREMENT,
-  `g_id` int(11) NOT NULL,
-  `u_id` int(11) NOT NULL,
+  `gId` int(11) NOT NULL,
+  `uId` int(11) NOT NULL,
   `ug_date` varchar(20) NOT NULL,
   PRIMARY KEY (`ug_id`),
-  KEY `u1_id` (`u_id`),
-  KEY `g_id` (`g_id`),
-  CONSTRAINT `g_id` FOREIGN KEY (`g_id`) REFERENCES `goods` (`g_id`),
-  CONSTRAINT `u1_id` FOREIGN KEY (`u_id`) REFERENCES `usertable` (`uid`)
+  KEY `u1_id` (`uId`),
+  KEY `gId` (`gId`),
+  CONSTRAINT `gId` FOREIGN KEY (`gId`) REFERENCES `goods` (`gId`),
+  CONSTRAINT `u1_id` FOREIGN KEY (`uId`) REFERENCES `usertable` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

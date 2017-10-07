@@ -4,7 +4,7 @@
 <!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 
 	<!--通过商品id查找 所有商品详细信息 返回一个list集合  -->
-	<select id="getAllgoods" parameterType="int" resultType="Goods">
+	<select id="getGoods" parameterType="int" resultType="Goods">
 		select * from goods where g_id=#{g_id};
 	</select>
 
@@ -38,7 +38,7 @@
 		<if test="type!=null and ''!= type">
 			where g_attribute=#{type}
 		</if>
-			
+
 	</select>
 
 	<select id="showAllAttri" resultType="string">

@@ -1,10 +1,13 @@
 package com.qst.serviceImpl;
 
-import com.qst.dao.ShopCarDAO;
+import com.qst.dao.GoodsDao;
+import com.qst.dao.ShopCarDAO1;
+import com.qst.model.ShopCartGoods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by tomatofrommars on 10/6/17.
@@ -12,22 +15,36 @@ import java.util.ArrayList;
  */
 @Service
 public class ShopCarService {
-	@Autowired
-	private ShopCarDAO shopCarDAO;
+	private final ShopCarDAO1 shopCarDAO1;
+	private final GoodsDao goodsDao;
 
-	public int setInShopcar(int g_id, int u_id) {
-		return shopCarDAO.setInShopcar(g_id, u_id);
+	@Autowired
+	public ShopCarService(ShopCarDAO1 shopCarDAO1, GoodsDao goodsDao) {
+		this.shopCarDAO1 = shopCarDAO1;
+		this.goodsDao = goodsDao;
 	}
 
-	public ArrayList<Integer> get_gid(int u_id) {
-		return shopCarDAO.get_gid(u_id);
+	public int addToCart(ShopCartGoods shopCartGoods) {
+		Integer result = shopCarDAO1.ifExist(shopCartGoods);
+		if (result == null) {
+			shopCartGoods.setGoods_number(1);
+			shopCartGoods.setPrice(34.0);
+			return shopCarDAO1.addToCart(shopCartGoods);
+		}
+		else {
+			shopCartGoods.setSgId(result);
+//			shopCarDAO1.update(shopCartGoods);
+			return 0;
+		}
+	}
+
+	public ArrayList<HashMap> getGoodsByUserId(int id) {
+		ArrayList<HashMap> goodsIds = shopCarDAO1.getGoodsByUserId(id);
+
+		return goodsIds;
 	}
 
 	public int deleteShopcarGoodByid(int uid, int gid) {
-		return shopCarDAO.deleteShopcarGoodByid(uid, gid);
-	}
-
-	public int  addInshopcar(int u_id, int g_id) {
-		return shopCarDAO.addintocar(u_id, g_id);
+		return shopCarDAO1.deleteShopcarGoodByid(uid, gid);
 	}
 }

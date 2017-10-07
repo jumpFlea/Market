@@ -1,10 +1,8 @@
 package com.qst.action;
 
 import com.qst.model.Adress;
-import com.qst.model.Goods;
 import com.qst.model.Goods_item;
 import com.qst.serviceImpl.AddressServiceImpl;
-import com.qst.serviceImpl.GoodsService;
 import com.qst.serviceImpl.OrderServiceImpl;
 import com.qst.serviceImpl.ShopCarService;
 import org.apache.struts2.ServletActionContext;
@@ -17,17 +15,16 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 @Controller
-public class ShopcarAction {
-	private final GoodsService goodsService;
+public class ShopCartAction {
 	private final OrderServiceImpl orderService;
 	private final AddressServiceImpl addressService;
 	private final ShopCarService shopCarService;
 
 	@Autowired
-	public ShopcarAction(GoodsService goodsService, OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
-		this.goodsService = goodsService;
+	public ShopCartAction(OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
 		this.orderService = orderService;
 		this.addressService = addressService;
 		this.shopCarService = shopCarService;
@@ -68,19 +65,12 @@ public class ShopcarAction {
 	/*
 	 * 得到购物车里面的商品
 	 */
-	public String getshopcargoods() {
+	public String getShopCartGoods() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		int uid = (int) session.getAttribute("uid");
-		ArrayList<Integer> arrayList;
-		arrayList = shopCarService.get_gid(uid);
-		ArrayList<Goods> arrayList2 = new ArrayList<Goods>();
-		Goods goods;
-		for (Integer integer : arrayList) {
-			goods = goodsService.getAllgoods(integer);
-			arrayList2.add(goods);
-		}
-		session.setAttribute("goodlist", arrayList2);
+		int id = (int) session.getAttribute("uid");
+		ArrayList<HashMap> goodsList = shopCarService.getGoodsByUserId(id);
+		session.setAttribute("goodsList", goodsList);
 		return "diao";
 	}
 
@@ -133,6 +123,5 @@ public class ShopcarAction {
 		return "del";
 
 	}
-
 
 }
