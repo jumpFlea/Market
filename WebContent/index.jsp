@@ -410,7 +410,7 @@
 				class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href=""><span class="my-item">已付款订单</span></a> <span
+			<a href="comletedOrderIndex?pay_type=1"><span class="my-item">已付款订单</span></a> <span
 				class="my-item">已付款订单</span></a>
 		</p>
 		<p>
