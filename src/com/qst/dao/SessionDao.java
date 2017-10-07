@@ -3,7 +3,9 @@ package com.qst.dao;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface SessionDao {
 	/*
 	 * 插入一条session的评价
@@ -16,7 +18,7 @@ public interface SessionDao {
 	@Select("SELECT MAX(session_id) FROM `session`")
 	public int getMaxFromSession();
 	/*
-	 * 
+	 *
 	 * 插入一条数据到goods_sessio中
 	 */
 	@Insert("INSERT INTO goods_session (session_id,g_id) VALUES (#{session_id},#{g_id});  ")

@@ -42,7 +42,7 @@ public class GoodsService {
 
 
 	public Goods getAllgoods(int g_id) {
-		return goodsDao.getAllgoods(g_id);
+		return goodsDao.getGoods(g_id);
 
 	}
 

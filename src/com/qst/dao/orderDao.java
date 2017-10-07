@@ -8,9 +8,11 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
+@Component
 public interface orderDao {
 
 	public int creatorder(@Param("u_id") int u_id, @Param("ordernumber") long ordernumber);
@@ -91,16 +93,16 @@ public interface orderDao {
 	 */
 	@Update("UPDATE `order` SET ad_id=#{ad_id},message=#{message} WHERE ordernumber=#{ordernumber}")
 	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
 
 }

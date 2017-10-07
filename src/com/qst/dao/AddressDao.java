@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.qst.model.Adress;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface AddressDao {
 
 	ArrayList<Integer> getAlladid(int u_id);

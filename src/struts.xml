@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.3.dtd">
-
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
@@ -50,18 +47,18 @@
 
 
 		<!-- 查询购物车里的所有商品 -->
-		<action name="getshopcargoods" class="com.qst.action.ShopcarAction" method="getshopcargoods">
-			<result name="diao">shopcar.jsp</result>
+		<action name="getshopcargoods" class="com.qst.action.ShopCartAction" method="getShopCartGoods">
+			<result name="diao">shopcart.jsp</result>
 		</action>
 
 		<!--设置从购物车选中的商品进入订单表 -->
-		<action name="setGoodinOrder" class="com.qst.action.ShopcarAction"
+		<action name="setGoodinOrder" class="com.qst.action.ShopCartAction"
 			method="setGoodinOrder">
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
 		<!-- 查询订单的每个商品的详情 -->
-		<action name="getOrderItem" class="com.qst.action.ShopcarAction"
+		<action name="getOrderItem" class="com.qst.action.ShopCartAction"
 			method="getOrderItem">
 
 			<result name="dyj">order.jsp</result>
@@ -88,8 +85,7 @@
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 		<!--删除购物车的某一个商品 -->
-		<action name="delGoodsShopCar" class="com.qst.action.ShopcarAction"
-			method="delGoodsShopCar">
+		<action name="delGoodsShopCar" class="com.qst.action.ShopCartAction" method="delGoodsShopCar">
 			<result name="del" type="chain">getshopcargoods</result>
 		</action>
 
@@ -118,12 +114,9 @@
 			<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction" method="comletedOrderIndex">
 				<result name="comletedOrderIndex">/Completed_Order.jsp</result>
 			</action>
-			
+
 			<action name="setEvalueInSession" class="com.qst.action.SessionAction" method="setEvalueInSession">
-				
+
 			</action>
 	</package>
-
-
-
 </struts>
