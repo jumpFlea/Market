@@ -118,7 +118,7 @@ public class ShopCartAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		int uid = (int) session.getAttribute("uid");
-		int gid = Integer.parseInt(request.getParameter("goodsid"));
+		int gid = Integer.parseInt(request.getParameter("goodsId"));
 		shopCarService.deleteShopcarGoodByid(uid, gid);
 		return "del";
 

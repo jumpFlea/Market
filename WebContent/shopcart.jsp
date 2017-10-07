@@ -14,14 +14,29 @@
 <div class="header">
     <div class="header-content toCenter">
         <h1 class="logo" title="牛男网商城">
-            <a href=""><img src="./images/logo.png" alt="" class="logo-img"></a>
+            <a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
         </h1>
         <div class="small-nav">
             <ul class="nav-wrap clear">
-                <li class="nav-item end-item"><a href="">手机版</a></li>
-                <li class="nav-item"><a href="">购物车</a></li>
-                <li class="nav-item"><a href="">我的订单</a></li>
-                <li class="nav-item first-item">［<a href="" class="login">登录</a><a href="" class="regester">立即注册</a>］</li>
+
+                <li class="nav-item end-item"><a href="">客户服务</a></li>
+                <li class="nav-item"><a href="getshopcargoods">企业采购</a></li>
+                <li class="nav-item"><a href="">商城会员</a></li>
+                <li class="nav-item"><a href="#">我的订单</a></li>
+                <c:if test="${user == null}">
+                    <li class="nav-item first-item">
+                        [<a href="login.html" class="login">登录 </a>
+                        <a href="login.html#signup" class="register">注册</a> ]
+                    </li>
+                </c:if>
+                <c:if test="${user != null}">
+                    <li class="nav-item"><a href="getshopcargoods">购物车</a></li>
+                    <li class="nav-item">
+                        <a href="showUserInfor.action">${user.username}
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                    </li>
+                </c:if>
             </ul>
         </div>
     </div>
@@ -109,9 +124,8 @@
                         <span class="price-style">${goods.price * goods.number}</span>
                     </span>
                     <span class="button-col-item pull-left text-center">
-                        <a href="javascript:;" class="button">结算条件</a>
-                        <a href="javascript:;" class="button">移入收藏</a>
-                        <a href="javascript:;" class="button">删除商品</a>
+                        <a href="addfavorite?goodsId=${goods.gid}" class="button">移入收藏</a>
+                        <a href="delGoodsShopCar?goodsId=${goods.gid}" class="button">删除商品</a>
                     </span>
                 </div>
 
@@ -120,7 +134,7 @@
         </div>
         <div class="order-total-box shopping-cart-total-box">
             <p class="shopping-goods-choose-box pull-left">
-                <input type="checkbox" sgId="select-all">
+                <input type="checkbox" id="select-all">
                 <label for="select-all">全选</label>
                 <a href="javascript:;" class="remove-all">批量删除</a>
                 <a href="javascript:;">移入收藏列表</a>
