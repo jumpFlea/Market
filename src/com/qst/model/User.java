@@ -1,6 +1,7 @@
 package com.qst.model;
 
 public class User {
+	
 	private Integer uid;
 	private String username;
 	private String psw;

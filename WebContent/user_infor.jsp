@@ -110,12 +110,12 @@
 
 					<div class="info-input-row">
 						<p class="input-wrap">
-						用户名:<input type="text"  value="${u2.username}"/>
+						用户名:<input type="text"  value="${u2.username}" readonly="readonly"/>
 						</p>
 					</div>
 					<div class="info-input-row">
 						<p class="input-wrap">
-						邮箱:<input type="text" value="${u2.email}" />
+						邮箱:<input type="text" value="${u2.email}"  readonly="readonly"/>
 						</p>
 					</div>
 				</div>
