@@ -1,19 +1,17 @@
 package com.qst.model;
 
-import java.util.List;
-
 public class GoodsSession { 
 	private int gdse_id;
 	private int g_id;
 	private int session_id;
-	private List<Session> session;
+	private Session session;
 	
 	
 	public GoodsSession(){
 		
 	}
 	
-	public GoodsSession(int gdse_id,int g_id,int session_id,List<Session> session){
+	public GoodsSession(int gdse_id,int g_id,int session_id,Session session){
 		this.gdse_id=gdse_id;
 		this.g_id=g_id;
 		this.session_id=session_id;
@@ -38,10 +36,10 @@ public class GoodsSession {
 	public void setSession_id(int session_id) {
 		this.session_id = session_id;
 	}
-	public List<Session> getSession() {
+	public Session getSession() {
 		return session;
 	}
-	public void setSession(List<Session> session) {
+	public void setSession(Session session) {
 		this.session = session;
 	}
 }

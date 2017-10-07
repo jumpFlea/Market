@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.dao.GoodsDao">
-<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
+	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 
-	<!--通过商品id查找 所有商品详细信息 返回一个list集合  -->
+	<!--通过商品id查找 所有商品详细信息 返回一个list集合 -->
 	<select id="getGoods" parameterType="int" resultType="Goods">
-		select * from goods where g_id=#{g_id};
+		select *
+		from goods where g_id=#{g_id};
 	</select>
 
-	<!--发布商平的,插入商品的信息,返回插入刚刚生成的id号-->
-	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true" keyProperty="g_id">
+	<!--发布商平的,插入商品的信息,返回插入刚刚生成的id号 -->
+	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true"
+		keyProperty="g_id">
 		insert into
 		goods(g_price,g_name,g_attribute,u_id,restnum,introduce,image_zhanshi,market_price,
 		g_content)
@@ -32,32 +34,40 @@
 		limit #{begin},#{limitPage};
 	</select>
 
-	<!--查找指定类型的商品数量，类型无则查询所有-->
-	<select id="findImageNum" parameterType="java.lang.String"  resultType="int">
+	<!--查找指定类型的商品数量，类型无则查询所有 -->
+	<select id="findImageNum" parameterType="java.lang.String"
+		resultType="int">
 		select count(g_id) from goods
 		<if test="type!=null and ''!= type">
 			where g_attribute=#{type}
 		</if>
 
 	</select>
-	
-	<!--展示所有的类型-->
+
+	<!--展示所有的类型 -->
 	<select id="showAllAttri" resultType="string">
 		SELECT g_attribute from
 		goods GROUP BY g_attribute
 		ORDER BY g_id ASC
 	</select>
-	
-	<!--显示所有的关于此商品的评价-->
-	<!-- 	<select id="getSessionId" parameterType="int" resultMap="getSessionId">
-			select * from goods_session where g_id=#{g_id}
-		</select>
-		<resultMap id="getSessionId" type="">
-		
-		
-		</resultMap> -->
-	
-	
-	
-	
+
+	<!--显示所有的关于此商品的评价 -->
+	<select id="showEvaluate" parameterType="int" resultMap="getSessionId">
+		select *
+		from goods_session where g_id=#{goodId}
+	</select>
+	<resultMap id="getSessionId" type="GoodsSession">
+		<id column="g_id" property="g_id" />
+		<association column="session_id" property="session"
+			javaType="Session" select="getEvaluate">
+		</association>
+	</resultMap>
+	<select id="getEvaluate" parameterType="int" resultType="Session">
+		select *
+		from session where session_id=#{session_id}
+	</select>
+
+
+
+
 </mapper>

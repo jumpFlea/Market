@@ -3,6 +3,7 @@ package com.qst.serviceImpl;
 import com.qst.dao.GoodsDao;
 import com.qst.dao.UserGoodsDAO;
 import com.qst.model.Goods;
+import com.qst.model.GoodsSession;
 import com.qst.model.Page;
 import com.qst.model.UserGoods;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.List;
 public class GoodsService {
 	private final GoodsDao goodsDao;
 	private final UserGoodsDAO userGoodsDAO;
-
+	
 	@Autowired
 	public GoodsService(GoodsDao goodsDao, UserGoodsDAO userGoodsDAO) {
 		this.goodsDao = goodsDao;
@@ -74,11 +75,17 @@ public class GoodsService {
 		return p;
 	}
 
+	//根据类型找到数量
 	public int findImageNum(String type) {
 		return goodsDao.findImageNum(type);
 	}
 
 	public String[] showAllAttri() {
 		return goodsDao.showAllAttri();
+	}
+	
+	//找到此商品的评价
+	public List<GoodsSession> showEvaluate(int goodId){
+		return goodsDao.showEvaluate(goodId);
 	}
 }

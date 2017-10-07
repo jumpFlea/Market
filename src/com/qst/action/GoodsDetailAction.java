@@ -2,12 +2,16 @@ package com.qst.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.Goods;
+import com.qst.model.GoodsSession;
 import com.qst.model.Image;
 import com.qst.serviceImpl.GoodsService;
 import com.qst.serviceImpl.ImageService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,19 +29,21 @@ public class GoodsDetailAction extends ActionSupport {
 		this.imageService = imageDAO;
 	}
 
-
 	public String showGoods() {
 		Goods good = new Goods();
 		Image image = new Image();
-		/*System.out.println(goodId);*/
-		//此方法显示商品详情界面的大图
+		List<GoodsSession> evaluate =new ArrayList<GoodsSession>();
+		/* System.out.println(goodId); */
+		// 此方法显示商品详情界面的大图
 		good = goodsService.showGoods(goodId);
-		//此方法用用来查询相关联的imgae表的小图片
+		// 此方法用用来查询相关联的imgae表的小图片
 		image = imageService.showSmallPic(goodId);
-		if (good != null && image != null) {
+		evaluate = goodsService.showEvaluate(goodId);
+		if (good != null && image != null && evaluate != null) {
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.setAttribute("good", good);
 			request.setAttribute("image", image);
+			request.setAttribute("evaluate", evaluate);
 			return SUCCESS;
 		} else
 			return ERROR;
