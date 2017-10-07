@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qst.dao.ShopCarDAO1">
+<mapper namespace="com.qst.dao.ShopCarDAO">
 
     <!--将获取到的g_id,u_id 插入到 购物车中 -->
     <insert id="setInShopcar" parameterType="int" >

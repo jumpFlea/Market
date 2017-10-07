@@ -54,7 +54,7 @@
 		<div class="search-nav-container">
 			<ul>
 				<li>全部商品分类</li>
-				<li>首页</li>
+				<li><a href="showAction">首页</a></li>
 				<li>服装城</li>
 				<li>美妆馆</li>
 				<li>京东超市</li>
@@ -76,7 +76,7 @@
 				<div class="item-class-select">
 					<c:if test="${attri!=null}">
 						<c:forEach items="${attri}" var="a">
-							<a href="indexShow?type=${a}"><span><c:out
+							<a href="indexShow?type=${a}&page=${1}"><span><c:out
 										value="${a}"></c:out></span></a>
 						</c:forEach>
 					</c:if>

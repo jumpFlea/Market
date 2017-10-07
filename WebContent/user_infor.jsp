@@ -48,7 +48,7 @@
 					</li>
 					<li class="list-item">
 						<div class="avatar-box text-center">
-							<img src="${user.u_image}" alt="" />
+							<img src="${u2.u_image}" alt="" />
 						</div>
 					</li>
 					<li class="list-item">

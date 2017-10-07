@@ -91,7 +91,7 @@
 
 			<!-- 右边内容分区栏 -->
 			<div class="nn-right-content">
-				<form action="updateUserInfor" enctype="multipart/form-data" method="post">
+				<form action="updateUserInfor" enctype="multipart/form-data"  onsubmit="return updateJudge()" method="post">
 					<div class="nn-info-settings">
 						<p class="info-settings">
 							<span class="info-settings-txt">已筛选条件</span>
@@ -109,13 +109,13 @@
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								请填写昵称:<input type="text" placeholder="请填写昵称" name="user1.username" value="${u2.username}"/>
+								请填写昵称:<input type="text" id='username123'  name="user1.username" value="${u2.username}"/>
 							</p>
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
 							<input type="text" value="${u2.uid}" style="display:none" name="user1.uid"/>
-							请填写密码:<input type="password" placeholder="请填写密码" name="user1.psw" value="${u2.psw}"/>
+							请填写密码:<input type="password"  id='psw123' name="user1.psw" value="${u2.psw}"/>
 							</p>
 						</div>
 						<!-- 	<div class="info-input-row">
@@ -125,11 +125,11 @@
 						</div> -->
 						<div class="info-input-row">
 							<p class="input-wrap">
-							请填写常用邮箱:<input type="text" placeholder="请填写常用邮箱" name="user1.email" value="${u2.email}"/>
+							请填写常用邮箱:<input type="text" id='email123' name="user1.email" value="${u2.email}"/>
 							</p>
 						</div>
 						<div class="button-group">
-							<Button type="submit" class="save-btn">保存</Button>
+							<button type="submit" class="save-btn" >保存</button>
 						</div>
 					</div>
 				</form>
@@ -309,6 +309,23 @@
 			param.left = Math.round((maxWidth - param.width) / 2);
 			param.top = Math.round((maxHeight - param.height) / 2);
 			return param;
+		}
+
+		//$('.save-btn').click(updateJudge());
+		function updateJudge(){
+		 	var u =$('#username123').val();
+		 	/* alert(u); */
+		 	var p =$('#psw123').val();
+		 	var e =$('#email123').val();
+		 	
+		 	if(u!='' && p!='' && e!=''){
+		 		return true;
+		 	}
+		 	alert("注意,不能为空！请你重新填写")
+			 return false;  
+		/* 	 console.log(num);
+ */			 
+			 
 		}
 	</script>
 
