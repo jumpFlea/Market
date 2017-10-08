@@ -81,9 +81,9 @@
 
 		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
 		<action name="addInshopcar" class="com.qst.action.ShopCartAction" method="addToShopCart">
-			<result name="success" type="chain">getshopcargoods</result>
-			<result name="login">login.html</result>
-			<result name="index" type="chain">indexShow</result>
+			<result name="success" type="plainText">temp/success</result>
+			<result name="login" type="plainText">temp/login</result>
+			<result name="index" type="plainText">temp/index</result>
 		</action>
 
 
@@ -93,6 +93,8 @@
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
 		</action>
+
+		<action name="cartCount" class="com.qst.action.ShopCartAction" method="cartCount"></action>
 
 		<!-- 得到所有的未完成订单 -->
 		<action name="getAllorder" class="com.qst.action.OrderAction"

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/goodsdetails.css">
 	<link rel="stylesheet" href="css/niunan/layout.css">
 	<link rel="stylesheet" href="css/niunan/goods-detail.css">
+	<link rel="stylesheet" href="css/niunan/order-detail.css">
 	<style type="text/css"></style>
 </head>
 <body>
@@ -85,23 +86,35 @@
 					<div class="b-title">${good.g_name}</div>
 					<div class="b-qu">牛男原创专区</div>
 					<div class="b-price clear">
-						<span class="fl"> 跳蚤价 ：<span class="price-value-now">${good.g_price}</span>
-						</span> <span class="fr on-market"> 市场价：<del>${good.market_price}</del>
+						<span class="fl"> 跳蚤价 ：
+							<span class="price-value-now">${good.g_price}</span>
+						</span>
+						<span class="fr on-market"> 市场价：
+							<del>${good.market_price}</del>
 						</span>
 					</div>
 				</div>
+				<br>
+				<span class="b-price pull-left detail-number">数量： </span>
+				<span class="fourth-col-item detail-number">
+					<div class="num-wrap-component pull-left" style="padding-top: 5px">
+						<button class="subtraction-calc" disabled="disabled">-</button>
+						<input type="text" class="item-number" value="1" maxlength="4">
+						<button class="plus-calc">+</button>
+					</div>
+				</span>
 				<!-- 已经添加到购物车状态 -->
 				<div class="add-cart">
-					<div class="add-car-tips">
-						<!-- <p class="tips-value">商品已成功添加到购物车！</p>
-                    <p class="cart-info">
-                        购物车现有<span>2</span>件商品
-                    </p> -->
+					<div class="add-car-tips" hidden>
+						<p class="tips-value">商品已成功添加到 <a href="getshopcargoods.action">购物车</a>！</p>
+						<p class="cart-info">
+							购物车现有<span class="cart-count">...</span>件商品
+						</p>
 					</div>
 					<div class="btn-row">
-						<a href="addInshopcar.action?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
-						</a> <a
-							href="setgoodsinordre.action?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}"
+						<a ref="addInshopcar.action?goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}" class="to-buy" onclick="addToCart(this)">添加到购物车<span></span>
+						</a>
+						<a href="setgoodsinordre.action?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}&uid=${user.uid}"
 							class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
@@ -361,7 +374,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/goods-detail.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/goods-detail.js"></script>
 </body>
 </html>

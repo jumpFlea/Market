@@ -27,13 +27,11 @@ public class ShopCarService {
 	public int addToCart(ShopCartGoods shopCartGoods) {
 		Integer result = shopCarDAO1.ifExist(shopCartGoods);
 		if (result == null) {
-			shopCartGoods.setGoods_number(1);
-			shopCartGoods.setPrice(34.0);
 			return shopCarDAO1.addToCart(shopCartGoods);
 		}
 		else {
 			shopCartGoods.setSgId(result);
-//			shopCarDAO1.update(shopCartGoods);
+			shopCarDAO1.update(shopCartGoods);
 			return 0;
 		}
 	}
@@ -46,5 +44,9 @@ public class ShopCarService {
 
 	public int deleteShopcarGoodByid(int uid, int gid) {
 		return shopCarDAO1.deleteShopcarGoodByid(uid, gid);
+	}
+
+	public int getCountByUser(int uid) {
+		return shopCarDAO1.getCountByUser(uid);
 	}
 }

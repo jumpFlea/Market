@@ -24,4 +24,6 @@ public interface ShopCarDAO1 {
 	Integer ifExist(ShopCartGoods shopCartGoods);
 
 	void update(ShopCartGoods shopCartGoods);
+
+    int getCountByUser(int uid);
 }

@@ -3,6 +3,7 @@ package com.qst.action;
 import com.qst.model.Adress;
 import com.qst.model.Goods_item;
 import com.qst.model.ShopCartGoods;
+import com.qst.model.User;
 import com.qst.serviceImpl.AddressServiceImpl;
 import com.qst.serviceImpl.OrderServiceImpl;
 import com.qst.serviceImpl.ShopCarService;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,6 +29,8 @@ public class ShopCartAction {
 
 	private Integer goodsId;
 	private Integer uid;
+	private Integer goodsNum;
+	private Double goodsPrice;
 
 	@Autowired
 	public ShopCartAction(OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
@@ -119,6 +124,7 @@ public class ShopCartAction {
 	 * 添加商品到与用户关联的购物车
 	 */
 	public String addToShopCart() {
+		String login="login.html";
 		if (uid == null){
 			return "login";
 		}
@@ -129,6 +135,8 @@ public class ShopCartAction {
 			ShopCartGoods shopCartGood = new ShopCartGoods();
 			shopCartGood.setuId(uid);
 			shopCartGood.setgId( goodsId );
+			shopCartGood.setGoods_number(goodsNum);
+			shopCartGood.setPrice(goodsPrice);
 			shopCarService.addToCart(shopCartGood);
 			return "success";
 		}
@@ -150,6 +158,29 @@ public class ShopCartAction {
 		}
 	}
 
+	public String cartCount(){
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		PrintWriter out = null;
+		int uid = ((User) session.getAttribute("user")).getUid();
+		int jsonString;
+		try {
+			out = response.getWriter();
+			jsonString = shopCarService.getCountByUser(uid);
+		} catch (IOException e) {
+			jsonString = -1;
+			e.printStackTrace();
+		}
+
+		if (out != null) {
+			out.println(jsonString);
+			out.flush();
+			out.close();
+		}
+		return "success";
+	}
+
 	public Integer getGoodsId() {
 		return goodsId;
 	}
@@ -164,5 +195,21 @@ public class ShopCartAction {
 
 	public void setUid(Integer uid) {
 		this.uid = uid;
+	}
+
+	public Integer getGoodsNum() {
+		return goodsNum;
+	}
+
+	public void setGoodsNum(Integer goodsNum) {
+		this.goodsNum = goodsNum;
+	}
+
+	public Double getGoodsPrice() {
+		return goodsPrice;
+	}
+
+	public void setGoodsPrice(Double goodsPrice) {
+		this.goodsPrice = goodsPrice;
 	}
 }

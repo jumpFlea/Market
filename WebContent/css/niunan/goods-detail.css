@@ -18,6 +18,8 @@
 	background-color: #f8f8f8;
 	padding-left: 38px;
 	padding-right: 50px;
+	height: 388px;
+	position: relative;
 }
 /*图片放大镜效果css*/
 .preview{width:427px; height:388px; position: relative;}
@@ -104,8 +106,8 @@
 	color: #888
 }
 .add-cart{
-	padding-top: 75px;
-	padding-left:22px;
+	position: absolute;
+	bottom: 0;
 }
 .add-car-tips{
 	padding-left: 52px;
@@ -124,7 +126,7 @@
 .btn-row{
 	padding-top: 72px;
 }
-.btn-row a{
+.btn-row a,.btn-row div{
 	display: inline-block;
 	height: 48px;
 	border-radius: 2px;
