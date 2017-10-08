@@ -158,7 +158,7 @@ public class ShopCartAction {
 		}
 	}
 
-	public String cartCount(){
+	public void cartCount(){
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -178,7 +178,6 @@ public class ShopCartAction {
 			out.flush();
 			out.close();
 		}
-		return "success";
 	}
 
 	public Integer getGoodsId() {
