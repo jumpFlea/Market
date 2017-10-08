@@ -18,6 +18,8 @@
 	background-color: #f8f8f8;
 	padding-left: 38px;
 	padding-right: 50px;
+	height: 388px;
+	position: relative;
 }
 /*图片放大镜效果css*/
 .preview{width:427px; height:388px; position: relative;}
@@ -59,7 +61,7 @@
 	top: 0px;
 	left: 50%;
 	margin-left:-5px;
-	background: url(../image/icon/pre-img.png) center 0 no-repeat;
+	background: url(../../image/icon/pre-img.png) center 0 no-repeat;
 	cursor: pointer;
 }
 .next-img{
@@ -69,7 +71,7 @@
 	bottom: 0px;
 	left: 50%;
 	margin-left:-5px;
-	background: url(../image/icon/next-img.png) center 0 no-repeat;
+	background: url(../../image/icon/next-img.png) center 0 no-repeat;
 	cursor: pointer;
 }
 .list-ul{
@@ -104,12 +106,12 @@
 	color: #888
 }
 .add-cart{
-	padding-top: 75px;
-	padding-left:22px;
+	position: absolute;
+	bottom: 0;
 }
 .add-car-tips{
 	padding-left: 52px;
-	background:url(../image/icon/add-cart-su.png) 0 center no-repeat;
+	background:url(../../image/icon/add-cart-su.png) 0 center no-repeat;
 	font-size: 16px;
 }
 .tips-value{
@@ -124,7 +126,7 @@
 .btn-row{
 	padding-top: 72px;
 }
-.btn-row a{
+.btn-row a,.btn-row div{
 	display: inline-block;
 	height: 48px;
 	border-radius: 2px;
@@ -145,7 +147,7 @@
 	position: absolute;
 	width: 9px;
 	height: 16px;
-	background:url(../image/icon/right-arrow.png) 0 center no-repeat;
+	background:url(../../image/icon/right-arrow.png) 0 center no-repeat;
 	top: 50%;
 	margin-top: -8px;
 	right:22px;
@@ -252,10 +254,10 @@
 .buy{
 	margin-right: 10px;
 	padding: 0 62px 0 45px;
-	background: url(../image/icon/buy-next-icon.png) 150px center no-repeat #f30110;
+	background: url(../../image/icon/buy-next-icon.png) 150px center no-repeat #f30110;
 }
 .collect{
-	background: url(../image/icon/collect-icon.png) 20px center no-repeat #b5b5b5;
+	background: url(../../image/icon/collect-icon.png) 20px center no-repeat #b5b5b5;
 	padding: 0 28px 0 48px;
 }
 .more-detail{
@@ -389,7 +391,7 @@
 	padding-left: 20px;
 	font-size: 16px;
 	color: #939393;
-	background:url(../image/icon/user-ison.png) 0 center no-repeat;
+	background:url(../../image/icon/user-ison.png) 0 center no-repeat;
 }
 .c-con{
 	font-size: 18px;
@@ -410,10 +412,10 @@
 	margin-top: 42px;
 }
 .y-star{
-	background: url(../image/icon/y-star.png) center center no-repeat;
+	background: url(../../image/icon/y-star.png) center center no-repeat;
 }
 .b-star{
-	background: url(../image/icon/b-star.png) center center no-repeat;
+	background: url(../../image/icon/b-star.png) center center no-repeat;
 }
 .commet-time{
 	padding-right: 8px;
@@ -453,7 +455,7 @@
 	width: 150px;
 }
 .adjust{
-	background-color: #1b6d85;
+	background-color: rgba(212, 212, 212, 0.99);
 	border-radius: 10px;
 	height: 30px;
 }

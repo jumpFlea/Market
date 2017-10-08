@@ -1,16 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8>
-<title>商品详情-小马交易</title>
-<link rel="stylesheet" href="css/neat.css">
-<link rel="stylesheet" href="css/goodsdetails.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/goods-detail.css">
-<style type="text/css"></style>
+	<meta charset=UTF-8>
+	<title>商品详情-小马交易</title>
+	<link rel="stylesheet" href="css/niunan/neat.css">
+	<link rel="stylesheet" href="css/goodsdetails.css">
+	<link rel="stylesheet" href="css/niunan/layout.css">
+	<link rel="stylesheet" href="css/niunan/goods-detail.css">
+	<link rel="stylesheet" href="css/niunan/order-detail.css">
+	<style type="text/css"></style>
 </head>
 <body>
 	<div class="header">
@@ -22,7 +22,7 @@
 				<ul class="nav-wrap clear">
 
 					<li class="nav-item end-item"><a href="">客户服务</a></li>
-					<li class="nav-item"><a href="getshopcargoods">企业采购</a></li>
+					<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
 					<li class="nav-item"><a href="">商城会员</a></li>
 					<li class="nav-item"><a href="#">我的订单</a></li>
 					<c:if test="${user == null}">
@@ -32,7 +32,7 @@
 						</li>
 					</c:if>
 					<c:if test="${user != null}">
-						<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
+						<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
 						<li class="nav-item"><a href="showUserInfor.action">${user.username}
 								<span class="glyphicon glyphicon-menu-down"></span>
 						</a></li>
@@ -68,16 +68,16 @@
 									data-mid="${image.url4}" data-big="${image.url4}" /></li>
 							</ul>
 
-						</div>
-						<div class="next-img-wrap">
-							<span class="next-img"></span>
-						</div>
 					</div>
+					<div class="next-img-wrap">
+						<span class="next-img"></span>
+					</div>
+				</div>
 
-					<div id="bigView">
-						<!-- 第一张大图 -->
-						<img alt="" src="${good.image_zhanshi}" />
-					</div>
+				<div id="bigView">
+					<!-- 第一张大图 -->
+					<img alt="" src="${good.image_zhanshi}" />
+				</div>
 
 				</div>
 			</div>
@@ -86,23 +86,35 @@
 					<div class="b-title">${good.g_name}</div>
 					<div class="b-qu">牛男原创专区</div>
 					<div class="b-price clear">
-						<span class="fl"> 跳蚤价 ：<span class="price-value-now">${good.g_price}</span>
-						</span> <span class="fr on-market"> 市场价：<del>${good.market_price}</del>
+						<span class="fl"> 跳蚤价 ：
+							<span class="price-value-now">${good.g_price}</span>
+						</span>
+						<span class="fr on-market"> 市场价：
+							<del>${good.market_price}</del>
 						</span>
 					</div>
 				</div>
+				<br>
+				<span class="b-price pull-left detail-number">数量： </span>
+				<span class="fourth-col-item detail-number">
+					<div class="num-wrap-component pull-left" style="padding-top: 5px">
+						<button class="subtraction-calc" disabled="disabled">-</button>
+						<input type="text" class="item-number" value="1" maxlength="4">
+						<button class="plus-calc">+</button>
+					</div>
+				</span>
 				<!-- 已经添加到购物车状态 -->
 				<div class="add-cart">
-					<div class="add-car-tips">
-						<!-- <p class="tips-value">商品已成功添加到购物车！</p>
-                    <p class="cart-info">
-                        购物车现有<span>2</span>件商品
-                    </p> -->
+					<div class="add-car-tips" hidden>
+						<p class="tips-value">商品已成功添加到 <a href="getshopcargoods.action">购物车</a>！</p>
+						<p class="cart-info">
+							购物车现有<span class="cart-count">...</span>件商品
+						</p>
 					</div>
 					<div class="btn-row">
-						<a href="addInshopcar?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
-						</a> <a
-							href="setgoodsinordre?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}"
+						<a ref="addInshopcar.action?goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}" class="to-buy" onclick="addToCart(this)">添加到购物车<span></span>
+						</a>
+						<a href="setgoodsinordre.action?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}&uid=${user.uid}"
 							class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
@@ -194,18 +206,18 @@
                 <img src="image/img/size-info.png">
             </div>
         </div> -->
-			<div class="size-info colorfff goods-pic">
-				<div class="tab-wrap">
-					<div class="tab-text">商品详情 DETAILS</div>
-				</div>
-				<div class="side-detail">
-					<img src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}">
-				</div>
-				<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
-				<!-- <p class="goods-copy-right">owners and were used in
+		<div class="size-info colorfff goods-pic">
+			<div class="tab-wrap">
+				<div class="tab-text">商品详情 DETAILS</div>
+			</div>
+			<div class="side-detail">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+			</div>
+			<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
+			<!-- <p class="goods-copy-right">owners and were used in
                 demonstration purposes in order to set</p>
             <p class="goods-copy-right">the certain quality level of the
                 future image content</p> -->
@@ -362,7 +374,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/goods-detail.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/goods-detail.js"></script>
 </body>
 </html>

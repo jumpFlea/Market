@@ -30,7 +30,14 @@
 
     <update id="update" parameterType="ShopCartGoods">
         UPDATE shopcar_goods
-        SET goods_number=#{goods_number} where sg_id=#{sgId};
+        SET
+            goods_number=#{goods_number},
+            price=#{price}
+        where sg_id=#{sgId};
     </update>
+
+    <select id="getCountByUser" parameterType="integer" resultType="integer">
+        SELECT count(*) FROM shopcar_goods WHERE u_id=#{uid};
+    </select>
 
 </mapper>

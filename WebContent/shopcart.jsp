@@ -124,8 +124,8 @@
                         <span class="price-style">${goods.price * goods.number}</span>
                     </span>
                     <span class="button-col-item pull-left text-center">
-                        <a href="addfavorite?goodsId=${goods.gid}" class="button">移入收藏</a>
-                        <a href="delGoodsShopCar?goodsId=${goods.gid}" class="button">删除商品</a>
+                        <a href="addfavorite?uid=${user.uid}&goodsId=${goods.gid}" class="button">移入收藏</a>
+                        <a href="delGoodsShopCart?uid=${user.uid}&goodsId=${goods.gid}" class="button">删除商品</a>
                     </span>
                 </div>
 

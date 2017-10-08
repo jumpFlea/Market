@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>商城整体布局</title>
-<link rel="stylesheet" href="css/neat.css">
-<link rel="stylesheet" href="css/public2.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/user-public.css" />
-<link rel="stylesheet" href="css/user-info-settings.css" />
+<link rel="stylesheet" href="css/niunan/neat.css">
+<link rel="stylesheet" href="css/niunan/public2.css">
+<link rel="stylesheet" href="css/niunan/layout.css">
+<link rel="stylesheet" href="css/niunan/user-public.css" />
+<link rel="stylesheet" href="css/niunan/user-info-settings.css" />
 </head>
 <body>
 	<div class="header">

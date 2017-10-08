@@ -50,11 +50,7 @@
 						disabled="disabled" value="${ goodsOrder.g_id}" name="gid" />
 					</td>
 					
-				<td class="tb1_td7">你对商品的评价：
-				 <input style="width: 200px; height: 50px; border: 1px solid #ccc;"
-						 name="evaluate" />
-				<input type="hidden" value="${goodsOrder.g_id}" name="g_id"/>
-				<input type="submit" value="提交"/>
+				
 					</td>
 					
 					
