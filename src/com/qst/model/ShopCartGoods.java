@@ -5,46 +5,54 @@ package com.qst.model;
  * Email: tomatofrommars@gmail.com
  */
 public class ShopCartGoods {
-	private Integer sgId;
-	private Integer uId;
-	private Integer gId;
+	private Integer id;
+	private Integer uid;
+	private Integer gid;
 	private Integer goods_number;
 	private Double price;
 
 	public ShopCartGoods() {
 	}
 
-	public ShopCartGoods(Integer sgId, Integer uId, Integer gId, Integer goods_number, Double price) {
-		this.sgId = sgId;
-		this.uId = uId;
-		this.gId = gId;
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getGid() {
+		return gid;
+	}
+
+	public void setGid(Integer gid) {
+		this.gid = gid;
+	}
+
+	public ShopCartGoods(Integer id, Integer uid, Integer gid, Integer goods_number, Double price) {
+		this.id = id;
+		this.uid = uid;
+		this.gid = gid;
 		this.goods_number = goods_number;
 		this.price = price;
 	}
 
-	public Integer getSgId() {
-		return sgId;
+	public ShopCartGoods(Integer uid, Integer goodsId, Integer goodsNum, Double goodsPrice) {
+		this.uid = uid;
+		this.gid = goodsId;
+		this.goods_number = goodsNum;
+		this.price = goodsPrice;
 	}
 
-	public void setSgId(Integer sgId) {
-		this.sgId = sgId;
-	}
-
-	public Integer getuId() {
-		return uId;
-	}
-
-	public void setuId(Integer uId) {
-		this.uId = uId;
-	}
-
-	public Integer getgId() {
-		return gId;
-	}
-
-	public void setgId(Integer gId) {
-		this.gId = gId;
-	}
 
 	public Integer getGoods_number() {
 		return goods_number;
@@ -69,18 +77,18 @@ public class ShopCartGoods {
 
 		ShopCartGoods that = (ShopCartGoods) o;
 
-		if (!sgId.equals(that.sgId)) return false;
-		if (uId != null ? !uId.equals(that.uId) : that.uId != null) return false;
-		if (gId != null ? !gId.equals(that.gId) : that.gId != null) return false;
+		if (!id.equals(that.id)) return false;
+		if (uid != null ? !uid.equals(that.uid) : that.uid != null) return false;
+		if (gid != null ? !gid.equals(that.gid) : that.gid != null) return false;
 		if (goods_number != null ? !goods_number.equals(that.goods_number) : that.goods_number != null) return false;
 		return price != null ? price.equals(that.price) : that.price == null;
 	}
 
 	@Override
 	public int hashCode() {
-		int result = sgId.hashCode();
-		result = 31 * result + (uId != null ? uId.hashCode() : 0);
-		result = 31 * result + (gId != null ? gId.hashCode() : 0);
+		int result = id.hashCode();
+		result = 31 * result + (uid != null ? uid.hashCode() : 0);
+		result = 31 * result + (gid != null ? gid.hashCode() : 0);
 		result = 31 * result + (goods_number != null ? goods_number.hashCode() : 0);
 		result = 31 * result + (price != null ? price.hashCode() : 0);
 		return result;

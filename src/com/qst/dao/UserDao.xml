@@ -9,7 +9,12 @@
 		VALUES
 		(#{username},#{psw},#{email},#{state_type},#{integral},#{u_image})
 	</insert>
-	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
+
+    <insert id="addFavorite" parameterType="ShopCartGoods">
+		INSERT INTO favorite (uid,gid) VALUES (#{uid},#{gid})
+	</insert>
+
+    <!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
 	<select id="login" parameterType="User" resultType="User">
 		select * from
 		usertable where username = #{username} and psw = #{psw}

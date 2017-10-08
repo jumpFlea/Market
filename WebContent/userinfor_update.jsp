@@ -5,18 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>商城整体布局</title>
-<link rel="stylesheet" href="css/neat.css">
-<link rel="stylesheet" href="css/public2.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/user-public.css" />
-<link rel="stylesheet" href="css/user-info-settings.css" />
+<link rel="stylesheet" href="css/niunan/neat.css">
+<link rel="stylesheet" href="css/niunan/public2.css">
+<link rel="stylesheet" href="css/niunan/layout.css">
+<link rel="stylesheet" href="css/niunan/user-public.css" />
+<link rel="stylesheet" href="css/niunan/user-info-settings.css" />
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
 	<div class="header">
 		<div class="header-content toCenter">
 			<h1 class="logo" title="牛男网商城">
-				<a href=""><img src="image/logo.png" alt="" class="logo-img"></a>
+				<a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
 			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">

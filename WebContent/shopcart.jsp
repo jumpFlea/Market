@@ -14,7 +14,7 @@
 <div class="header">
     <div class="header-content toCenter">
         <h1 class="logo" title="牛男网商城">
-            <a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
+            <a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
         </h1>
         <div class="small-nav">
             <ul class="nav-wrap clear">
@@ -44,113 +44,122 @@
 <div class="content">
     <div class="nn-inner-con">
 
-        <div class="nn-address-list">
-            <div class="nn-address-list-wrap">
-                <div class="address-list-item">
-                    <div class="address-num-box">
-                        <p class="address-string">
-                            <span class="address-item-txt">收货地址</span>
-                        </p>
-                    </div>
-                    <div class="address-item-detail">
-                        <div class="right-button-group pull-right">
-                            <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
+        <c:if test="${goodsList != null}">
+
+            <div class="nn-address-list">
+                <div class="nn-address-list-wrap">
+                    <div class="address-list-item">
+                        <div class="address-num-box">
+                            <p class="address-string">
+                                <span class="address-item-txt">收货地址</span>
+                            </p>
                         </div>
-                        <div class="main-detail-box">
-                            <p class="address-info-row">
-                                <span class="address-info-title">收货人姓名：</span>
-                                <span class="info-row">Teo Wang</span>
-                            </p>
-                            <p class="address-info-row">
-                                <span class="address-info-title">地区：</span>
-                                <span class="info-row">辽宁省 沈阳市</span>
-                            </p>
-                            <p class="address-info-row">
-                                <span class="address-info-title">详细地址：</span>
-                                <span class="info-row">大东区 宁夏路388号 6楼</span>
-                            </p>
-                            <p class="address-info-row">
-                                <span class="address-info-title">邮编：</span>
-                                <span class="info-row">113008</span>
-                            </p>
-                            <p class="address-info-row">
-                                <span class="address-info-title">电话：</span>
-                                <span class="info-row">155-4317-7777</span>
-                            </p>
+                        <div class="address-item-detail">
+                            <div class="right-button-group pull-right">
+                                <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
+                            </div>
+                            <div class="main-detail-box">
+                                <p class="address-info-row">
+                                    <span class="address-info-title">收货人姓名：</span>
+                                    <span class="info-row">Teo Wang</span>
+                                </p>
+                                <p class="address-info-row">
+                                    <span class="address-info-title">地区：</span>
+                                    <span class="info-row">辽宁省 沈阳市</span>
+                                </p>
+                                <p class="address-info-row">
+                                    <span class="address-info-title">详细地址：</span>
+                                    <span class="info-row">大东区 宁夏路388号 6楼</span>
+                                </p>
+                                <p class="address-info-row">
+                                    <span class="address-info-title">邮编：</span>
+                                    <span class="info-row">113008</span>
+                                </p>
+                                <p class="address-info-row">
+                                    <span class="address-info-title">电话：</span>
+                                    <span class="info-row">155-4317-7777</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="order-detail-wrap">
-            <div class="order-list-bar shopping-cart">
-                <div class="title-bar clearfix">
-                    <span class="checkbox-col-item pull-left sub-title-style">&nbsp;</span>
-                    <span class="first-col-item pull-left sub-title-style">&nbsp;</span>
-                    <span class="second-col-item pull-left sub-title-style">商品详情</span>
-                    <span class="third-col-item pull-left sub-title-style">单价</span>
-                    <span class="fourth-col-item pull-left sub-title-style">数量</span>
-                    <span class="fifth-col-item pull-left sub-title-style">小计</span>
-                    <span class="button-col-item pull-left sub-title-style">&nbsp;</span>
-                </div>
+            <div class="order-detail-wrap">
+                <div class="order-list-bar shopping-cart">
+                    <div class="title-bar clearfix">
+                        <span class="checkbox-col-item pull-left sub-title-style">&nbsp;</span>
+                        <span class="first-col-item pull-left sub-title-style">&nbsp;</span>
+                        <span class="second-col-item pull-left sub-title-style">商品详情</span>
+                        <span class="third-col-item pull-left sub-title-style">单价</span>
+                        <span class="fourth-col-item pull-left sub-title-style">数量</span>
+                        <span class="fifth-col-item pull-left sub-title-style">小计</span>
+                        <span class="button-col-item pull-left sub-title-style">&nbsp;</span>
+                    </div>
 
-                <c:forEach items="${goodsList}" var="goods">
-                    <div class="detail-bar clearfix">
+                    <c:forEach items="${goodsList}" var="goods">
+                        <div class="detail-bar clearfix">
                     <span class="checkbox-col-item pull-left text-center">
                         <input type="checkbox" value="">
                     </span>
-                    <span class="first-col-item pull-left text-center">
+                            <span class="first-col-item pull-left text-center">
                         <img src="${goods.imageSrc}" alt="">
                     </span>
-                    <span class="second-col-item pull-left">
+                            <span class="second-col-item pull-left">
                         <p class="item-title"><a href="">${goods.goodsName}</a></p>
                         <p class="sub-title-style">
                             类型: <span class="item-color">${goods.attribute}</span>
                         </p>
                     </span>
-                    <span class="third-col-item pull-left text-center">
+                            <span class="third-col-item pull-left text-center">
                         <span class="sub-title-style">¥</span>
                         <span class="price-style">${goods.price}</span>
                     </span>
-                    <span class="fourth-col-item pull-left">
+                            <span class="fourth-col-item pull-left">
                         <div class="num-wrap-component">
                             <button class="subtraction-calc">-</button>
-                            <input type="text" class="item-number" value="${goods.number}" maxlength="4">
+                            <input type="text" class="item-number" value="${goods.number}" maxlength="4" onchange="countAll(this)">
                             <button class="plus-calc">+</button>
                         </div>
                     </span>
-                    <span class="fifth-col-item pull-left text-center">
+                            <span class="fifth-col-item pull-left text-center">
                         <span class="sub-title-style">¥</span>
                         <span class="price-style">${goods.price * goods.number}</span>
                     </span>
-                    <span class="button-col-item pull-left text-center">
-                        <a href="addfavorite?uid=${user.uid}&goodsId=${goods.gid}" class="button">移入收藏</a>
-                        <a href="delGoodsShopCart?uid=${user.uid}&goodsId=${goods.gid}" class="button">删除商品</a>
+                            <span class="button-col-item pull-left text-center">
+                        <a href="addFavorite?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">移入收藏</a>
+                        <a href="delGoodsShopCart?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">删除商品</a>
                     </span>
+                        </div>
+
+                    </c:forEach>
                 </div>
-
-                </c:forEach>
             </div>
-        </div>
-        <div class="order-total-box shopping-cart-total-box">
-            <p class="shopping-goods-choose-box pull-left">
-                <input type="checkbox" id="select-all">
-                <label for="select-all">全选</label>
-                <a href="javascript:;" class="remove-all">批量删除</a>
-                <a href="javascript:;">移入收藏列表</a>
-            </p>
-            <p class="text-right">
-                商品总价(<span>￥396.00</span>) - 活动(<span>￥0.00</span>) + 运费(<span>￥10.00</span>) = 商品金额总计(<span>￥406.00</span>)
-            </p>
-            <p class="text-right">
-                商品总价（含运费）：￥<span class="price-style">406.00</span>
-            </p>
-            <div class="button-group clearfix">
-                <button class="fast-payment pull-right">快速支付</button>
-                <button class="continu-shop">继续购物</button>
+            <div class="order-total-box shopping-cart-total-box">
+                <p class="shopping-goods-choose-box pull-left">
+                    <input type="checkbox" id="select-all">
+                    <label for="select-all">全选</label>
+                    <a href="javascript:;" class="remove-all">批量删除</a>
+                    <a href="javascript:;">移入收藏列表</a>
+                </p>
+                <%--<p class="text-right">--%>
+                    <%--商品总价(<span>￥396.00</span>) - 活动(<span>￥0.00</span>) + 运费(<span>￥10.00</span>) = 商品金额总计(<span>￥406.00</span>)--%>
+                <%--</p>--%>
+                <p class="text-right">
+                    商品总价（含运费）：￥<span class="price-style countPrice">406.00</span>
+                </p>
+                <div class="button-group clearfix">
+                    <button class="fast-payment pull-right">快速支付</button>
+                    <a href="indexShow.action"><button class="continu-shop">继续购物</button></a>
+                </div>
             </div>
-        </div>
-
+        </c:if>
+        <c:if test="${goodsList == null}">
+            <div>
+                <br><br><br><br>
+                <h3>购物车是空的, 快去 <a href="indexShow.action">添加商品</a> 吧!</h3>
+                <br><br><br><br><br><br>
+            </div>
+        </c:if>
     </div>
 </div>
 <div class="footer">
@@ -233,7 +242,18 @@
     </div>
 </div>
 <script src="./js/lib/sea.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script>
+    function countAll(a) {
+        var count = 0.0;
+        $('input.item-number').each(function () {
+            var price = parseFloat( $(this).closest('span').prev().find('.price-style').text() );
+            count = count + parseFloat($(this).val()) * price;
+        });
+        $('.countPrice').text(count);
+    }
+    countAll();
+
     seajs.config({
         base: "./js",
         alias: {

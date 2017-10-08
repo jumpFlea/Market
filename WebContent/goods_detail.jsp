@@ -112,10 +112,15 @@
 						</p>
 					</div>
 					<div class="btn-row">
-						<a ref="addInshopcar.action?goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}" class="to-buy" onclick="addToCart(this)">添加到购物车<span></span>
+						<a class="to-buy" onclick="addToCart(this)"
+						   ref="addInshopcar.action?item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
+							添加到购物车
+							<span></span>
 						</a>
-						<a href="setgoodsinordre.action?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}&uid=${user.uid}"
-							class="continue-find">立即购买 <span></span>
+						<a class="continue-find"
+						   href="quickBuy.action?&goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}">
+							立即购买
+							<span></span>
 						</a>
 					</div>
 				</div>
