@@ -22,5 +22,5 @@ public interface SessionDao {
 	 * 插入一条数据到goods_sessio中
 	 */
 	@Insert("INSERT INTO goods_session (session_id,g_id) VALUES (#{session_id},#{g_id});  ")
-	public int setGoods_Session(int session_id,int g_id);
+	public int setGoods_Session(@Param("session_id")int session_id,@Param("g_id")int g_id);
 }

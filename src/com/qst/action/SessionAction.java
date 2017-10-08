@@ -21,6 +21,8 @@ public class SessionAction {
 		sessionService.setSession(evaluate);
 		int session_id =sessionService.getMaxFromSession();
 		sessionService.setGoods_Session(session_id, g_id);
+		request.setAttribute("flag", 1);
+		request.setAttribute("pay_type", 1);
 		return "evaluate";
 	}
 }

@@ -25,6 +25,11 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/error.jsp</result>
 		</action>
+		
+		<!--地址显示-->
+			<action name="showAllAddress" class="addressAction" method="showAllAddress">
+				<result name="success">/update_address.jsp</result>
+			</action>
 
 		<!-- 界面显示的图片,及分页的效果 -->
 		<action name="indexShow" class="indexShowAction" method="indexShow">
@@ -103,7 +108,10 @@
 		</action>
 
 		<!--编辑本地用户的某一个用户地址  -->
-		<action name="editAdress" class="com.qst.action.AddressAction" method="editAdress"></action>
+		<action name="editAdress" class="com.qst.action.AddressAction" method="editAdress">
+			<result name="success" type="chain">showAllAddress</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
 		<!-- 删除未完成订单 -->
 		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
@@ -124,7 +132,7 @@
 			</action>
 			<!-- 設置回话进入session表中 -->
 			<action name="setEvalueInSession" class="com.qst.action.SessionAction" method="setEvalueInSession">
-				
+				<result name="evaluate">/Completed_Order.jsp</result>
 			</action>
 			
 			<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">

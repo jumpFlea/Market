@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>商城整体布局</title>
-<link rel="stylesheet" href="css/niunan/neat.css">
-<link rel="stylesheet" href="css/niunan/public2.css">
-<link rel="stylesheet" href="css/niunan/layout.css">
-<link rel="stylesheet" href="css/niunan/user-public.css" />
-<link rel="stylesheet" href="css/niunan/user-info-settings.css" />
+<link rel="stylesheet" href="css/neat.css">
+<link rel="stylesheet" href="css/public2.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/user-public.css" />
+<link rel="stylesheet" href="css/user-info-settings.css" />
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 
 
@@ -26,9 +25,9 @@
 					<li class="nav-item end-item"><a href="">手机版</a></li>
 					<li class="nav-item"><a href="">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
-					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
+				<!-- 	<li class="nav-item first-item">［<a href="" class="login">登录</a><a
 						href="" class="regester">立即注册</a>］
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -46,56 +45,41 @@
 					</li>
 					<li class="list-item">
 						<div class="avatar-box text-center">
-							<c:if test="${u2.u_image != null}">
-								<img src="${u2.u_image}"/>
-							</c:if>
-							<c:if test="${u2.u_image == null}">
-								<img src="images/user-head-pic.png" alt=""/>
-							</c:if>
-						</div>
-					</li>
-					<li class="list-item">
-						<div class="inner-bar">
-							<a href="showUserInfor.action">
-							<span class="img-icon">
-								<img src="image/icon/coat-icon.png" alt=""/>
-								</span> <span class="txt-title" style="color: #333">个人信息</span>
-								<span class="pull-right img-icon"></span>
-							</a>
+							<img src="images/head-img.png" alt="" />
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
 							<span class="img-icon"> <img
-									src="image/icon/coat-icon.png" alt="" />
+								src="image/icon/coat-icon.png" alt="" />
 							</span> <span class="txt-title">服务管理</span> <span
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
 							<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
+									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">我的订单</span>
 							</a></li>
 							<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
+									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">我的收藏</span>
 							</a></li>
 						</ul>
 					</li>
-					<li class="list-item active">
+					<li class="list-item">
 						<div class="inner-bar">
 							<span class="img-icon"> <img
-									src="image/icon/coat-icon.png" alt="" />
-							</span> <span class="txt-title">个人设置</span> <span
+								src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title">个人信息管理</span> <span
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
-							<li class="sub-list-item  active"><a href="userinfor_update.jsp" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">信息修改</span>
+							<li class="sub-list-item"><a href="showUserInfor"
+								class="item-link"> <span class="triangle-right pull-left"></span>
+									<span class="sub-list-txt">个人资料</span>
 							</a></li>
-							<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
+							<li class="sub-list-item"><a href="showAllAddress" class="item-link">
+									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">地址管理</span>
 							</a></li>
 						</ul>
@@ -114,16 +98,10 @@
 						</p>
 
 						<p class="info-avatar" id="preview">
-							<span class="info-avatar-settings">
-								<c:if test="${u2.u_image != null}">
-									<img src="${u2.u_image}" height="170px" width="170px"/>
-								</c:if>
-								<c:if test="${u2.u_image == null}">
-									<img src="images/user-head-pic.png" height="170px" width="170px"/>
-								</c:if>
-								<span class="cover-show">
-									<a onclick="$('input[name=upload]').click()">点击修改头像</a>
-								</span>
+							<span class="info-avatar-settings"> <img src="${u2.u_image}" alt=""
+								width="170" height="170" /> <span class="cover-show"> <a
+									onclick="$('input[name=upload]').click()">点击修改头像</a>
+							</span>
 							</span>
 						</p>
 						<div>
@@ -136,9 +114,8 @@
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								<input type="text" value="${u2.uid}" style="display:none" name="user1.uid"/>
-								请填写密码:
-								<input type="password"  id='psw123' name="user1.psw" value="${u2.psw}"/>
+							<input type="text" value="${u2.uid}" style="display:none" name="user1.uid"/>
+							请填写密码:<input type="password"  id='psw123' name="user1.psw" value="${u2.psw}"/>
 							</p>
 						</div>
 						<!-- 	<div class="info-input-row">
@@ -340,15 +317,15 @@
 		 	/* alert(u); */
 		 	var p =$('#psw123').val();
 		 	var e =$('#email123').val();
-
+		 	
 		 	if(u!='' && p!='' && e!=''){
 		 		return true;
 		 	}
 		 	alert("注意,不能为空！请你重新填写")
-			 return false;
+			 return false;  
 		/* 	 console.log(num);
- */
-
+ */			 
+			 
 		}
 	</script>
 
