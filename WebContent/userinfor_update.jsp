@@ -11,8 +11,6 @@
 <link rel="stylesheet" href="css/user-public.css" />
 <link rel="stylesheet" href="css/user-info-settings.css" />
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-
-
 </head>
 <body>
 	<div class="header">
@@ -317,15 +315,15 @@
 		 	/* alert(u); */
 		 	var p =$('#psw123').val();
 		 	var e =$('#email123').val();
-		 	
+
 		 	if(u!='' && p!='' && e!=''){
 		 		return true;
 		 	}
 		 	alert("注意,不能为空！请你重新填写")
-			 return false;  
+			 return false;
 		/* 	 console.log(num);
- */			 
-			 
+ */
+
 		}
 	</script>
 
