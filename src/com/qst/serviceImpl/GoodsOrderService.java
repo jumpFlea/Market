@@ -17,4 +17,8 @@ public class GoodsOrderService {
 	public ArrayList<GoodsOrder> getGoodOrderByu_id(int u_id,int pay_type,int a,int b) {
 		return goodsOrderDao.getGoodOrderByu_id(u_id, pay_type, a, b);
 	}
+	
+	public ArrayList<GoodsOrder> getEvaluteGoods(int u_id,int pay_type,int a,int b){
+		return goodsOrderDao.getCompleted_EvaluationOrder(u_id, pay_type, a, b);
+	}
 }
