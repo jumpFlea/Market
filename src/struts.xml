@@ -124,7 +124,7 @@
 			</action>
 			<!-- 設置回话进入session表中 -->
 			<action name="setEvalueInSession" class="com.qst.action.SessionAction" method="setEvalueInSession">
-				
+				<result name="evaluate">/Completed_Order.jsp</result>
 			</action>
 			
 			<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">
