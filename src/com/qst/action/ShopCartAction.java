@@ -2,6 +2,7 @@ package com.qst.action;
 
 import com.qst.model.Adress;
 import com.qst.model.Goods_item;
+import com.qst.model.ShopCartGoods;
 import com.qst.serviceImpl.AddressServiceImpl;
 import com.qst.serviceImpl.OrderServiceImpl;
 import com.qst.serviceImpl.ShopCarService;
@@ -22,6 +23,9 @@ public class ShopCartAction {
 	private final OrderServiceImpl orderService;
 	private final AddressServiceImpl addressService;
 	private final ShopCarService shopCarService;
+
+	private Integer goodsId;
+	private Integer uid;
 
 	@Autowired
 	public ShopCartAction(OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
@@ -112,16 +116,53 @@ public class ShopCartAction {
 
 
 	/*
-	 * 删除购物车里的某一个商品
+	 * 添加商品到与用户关联的购物车
 	 */
-	public String delGoodsShopCar() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		int uid = (int) session.getAttribute("uid");
-		int gid = Integer.parseInt(request.getParameter("goodsId"));
-		shopCarService.deleteShopcarGoodByid(uid, gid);
-		return "del";
-
+	public String addToShopCart() {
+		if (uid == null){
+			return "login";
+		}
+		else if(goodsId == null){
+			return "index";
+		}
+		else {
+			ShopCartGoods shopCartGood = new ShopCartGoods();
+			shopCartGood.setuId(uid);
+			shopCartGood.setgId( goodsId );
+			shopCarService.addToCart(shopCartGood);
+			return "success";
+		}
 	}
 
+	/*
+	 * 删除购物车里的某一个商品
+	 */
+	public String delGoodsShopCart() {
+		if (uid == null){
+			return "login";
+		}
+		else if(goodsId == null) {
+			return "index";
+		}
+		else {
+			shopCarService.deleteShopcarGoodByid(uid, goodsId);
+			return "del";
+		}
+	}
+
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 }

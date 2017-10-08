@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>商品详情</title>
-<link rel="stylesheet" href="css/neat.css">
+<link rel="stylesheet" href="css/niunan/neat.css">
 <link rel="stylesheet" href="css/goodsdetails.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/goods-detail.css">
+<link rel="stylesheet" href="css/niunan/layout.css">
+<link rel="stylesheet" href="css/niunan/goods-detail.css">
 <style type="text/css">
 </style>
 </head>
@@ -85,7 +85,7 @@
 								name="goods.introduce"></textarea>
 						</td>
 					</tr>
-					
+
 					<tr>
 						<td><input type="submit" value="提交"></td>
 					</tr>

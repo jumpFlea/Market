@@ -2,26 +2,30 @@ $(document).ready(function(){
     $('.next-img-wrap,.per-img-wrap').hover(function () {
         $(this).addClass('adjust');
     },function () {
-        $('.next-img-wrap').removeClass('adjust');
+        $(this).removeClass('adjust');
     });
-	$('.next-img,.next-img-wrap').on('click',function(){
+
+	$('.next-img-wrap').on('click',function(){
 		var all = $('li','.list-ul').length;
 		var top = parseInt($('.list-ul').css('top'));
-		if(Math.abs(top)==(all-3)*122){
-			return;
-		}
-		$('.list-ul').animate({
-			top:"+=-122px"
-		})
+        if (top <= -122){
+
+        }
+        else {
+            $('.list-ul').animate({
+                top:"-=122px"
+            },200);
+        }
 	});
-	$('.per-img').on('click',function(){
-		var top = $('.list-ul').css('top');
-		if(top=="0px"){
-			return;
-		}
-		$('.list-ul').animate({
-			top:"+=122px"
-		})
+	$('.per-img-wrap').on('click',function(){
+		var top =  parseInt($('.list-ul').css('top'));
+        if(top >= 0){
+        }
+        else {
+            $('.list-ul').animate({
+                top:"+=122px"
+            },200)
+        }
 	});
     //点击到中图
     var midChangeHandler = null;

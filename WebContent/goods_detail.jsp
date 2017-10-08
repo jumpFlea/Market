@@ -1,16 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8>
-<title>商品详情-小马交易</title>
-<link rel="stylesheet" href="css/neat.css">
-<link rel="stylesheet" href="css/goodsdetails.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/goods-detail.css">
-<style type="text/css"></style>
+	<meta charset=UTF-8>
+	<title>商品详情-小马交易</title>
+	<link rel="stylesheet" href="css/niunan/neat.css">
+	<link rel="stylesheet" href="css/goodsdetails.css">
+	<link rel="stylesheet" href="css/niunan/layout.css">
+	<link rel="stylesheet" href="css/niunan/goods-detail.css">
+	<style type="text/css"></style>
 </head>
 <body>
 	<div class="header">
@@ -22,7 +21,7 @@
 				<ul class="nav-wrap clear">
 
 					<li class="nav-item end-item"><a href="">客户服务</a></li>
-					<li class="nav-item"><a href="getshopcargoods">企业采购</a></li>
+					<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
 					<li class="nav-item"><a href="">商城会员</a></li>
 					<li class="nav-item"><a href="#">我的订单</a></li>
 					<c:if test="${user == null}">
@@ -32,7 +31,7 @@
 						</li>
 					</c:if>
 					<c:if test="${user != null}">
-						<li class="nav-item"><a href="getshopcargoods">购物车</a></li>
+						<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
 						<li class="nav-item"><a href="showUserInfor.action">${user.username}
 								<span class="glyphicon glyphicon-menu-down"></span>
 						</a></li>
@@ -68,16 +67,16 @@
 									data-mid="${image.url4}" data-big="${image.url4}" /></li>
 							</ul>
 
-						</div>
-						<div class="next-img-wrap">
-							<span class="next-img"></span>
-						</div>
 					</div>
+					<div class="next-img-wrap">
+						<span class="next-img"></span>
+					</div>
+				</div>
 
-					<div id="bigView">
-						<!-- 第一张大图 -->
-						<img alt="" src="${good.image_zhanshi}" />
-					</div>
+				<div id="bigView">
+					<!-- 第一张大图 -->
+					<img alt="" src="${good.image_zhanshi}" />
+				</div>
 
 				</div>
 			</div>
@@ -100,9 +99,9 @@
                     </p> -->
 					</div>
 					<div class="btn-row">
-						<a href="addInshopcar?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
+						<a href="addInshopcar.action?goodId=${good.g_id }" class="to-buy">添加到购物车<span></span>
 						</a> <a
-							href="setgoodsinordre?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}"
+							href="setgoodsinordre.action?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}"
 							class="continue-find">立即购买 <span></span>
 						</a>
 					</div>
@@ -187,6 +186,93 @@
 				</div>
 			</div>
 			<!-- <div class="size-info colorfff">
+				</div>
+				<div class="btn-row">
+					<a href="addInshopcar?goodsId=${good.g_id }&uid=${user.uid}" class="to-buy">添加到购物车<span></span>
+					</a> <a href="setgoodsinordre?Goodname=${good.g_name }&Goodprice=${good.g_price}&Goodsum=1&Goodid=${good.g_id}" class="continue-find">立即购买 <span></span>
+				</a>
+				</div>
+			</div>
+			<!-- end -->
+			<!-- 选择商品状态 -->
+			<div class="choose-goods" style="display: none">
+				<div class="item c-color">
+					<span class="c-color-text">颜色 ：</span> <span
+						style="background-color: fff" class="active c-color-item"></span>
+					<span class="c-color-item"></span> <span class="c-color-item"></span>
+				</div>
+				<div class="item c-size">
+					<span class="c-size-text">尺码 ：</span> <span class="c-size-item">S</span>
+					<span class="c-size-item">M</span> <span class="c-size-item">L</span>
+					<span class="c-size-item active">XL</span> <span
+						class="c-size-item">XXL</span>
+				</div>
+				<div class="item c-num">
+					<span class="c-num-text">数量 ：</span> <span class="c-num-item plus">-</span>
+					<span class="c-num-item end-all">1</span> <span
+						class="c-num-item add">+</span>
+				</div>
+				<div class="buy-btn">
+					<a href="" class="buy">立即购买</a> <a href="" class="collect">收藏</a>
+				</div>
+			</div>
+			<!-- end -->
+		</div>
+	</div>
+	<div class="more-detail toCenter clear">
+		<div class="main-tab-wrap colorfff">
+			<div class="add-margin">
+				<div class="tabs">
+					<ul class="tab-ul clear">
+						<li class="tab-item tab1"><a href="" class="active">商品信息
+							DESCRIPTION</a></li>
+						<li class="tab-item tab2"><a href="" class="">材质洗涤
+							MATERIALS</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="good-basic-info clear colorfff">
+			<div class="gbi-item">
+				<p class="add-padding">
+					<span class="gbi-item-bold">编号</span> <span>N51207493</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">衣长</span> <span>适中</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">经典款型</span> <span>印花T恤</span>
+				</p>
+			</div>
+			<div class="gbi-item">
+				<p class="add-padding">
+					<span class="gbi-item-bold">颜色</span> <span>黑色</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">袖长</span> <span>短袖</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">袖型</span> <span>收紧</span>
+				</p>
+			</div>
+			<div class="gbi-item">
+				<p class="add-padding">
+					<span class="gbi-item-bold">性别</span> <span>男款</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">版型</span> <span>正常</span>
+				</p>
+			</div>
+			<div class="gbi-item without-border">
+				<p class="add-padding">
+					<span class="gbi-item-bold">领型</span> <span>圆领</span>
+				</p>
+				<p class="add-padding">
+					<span class="gbi-item-bold">厚度</span> <span>中</span>
+				</p>
+			</div>
+		</div>
+		<!-- <div class="size-info colorfff">
             <div class="tab-wrap">
                 <div class="tab-text">尺码信息 SIZE INFO</div>
             </div>
@@ -194,18 +280,18 @@
                 <img src="image/img/size-info.png">
             </div>
         </div> -->
-			<div class="size-info colorfff goods-pic">
-				<div class="tab-wrap">
-					<div class="tab-text">商品详情 DETAILS</div>
-				</div>
-				<div class="side-detail">
-					<img src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}"> <img
-						src="${good.image_zhanshi}">
-				</div>
-				<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
-				<!-- <p class="goods-copy-right">owners and were used in
+		<div class="size-info colorfff goods-pic">
+			<div class="tab-wrap">
+				<div class="tab-text">商品详情 DETAILS</div>
+			</div>
+			<div class="side-detail">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}">
+			</div>
+			<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
+			<!-- <p class="goods-copy-right">owners and were used in
                 demonstration purposes in order to set</p>
             <p class="goods-copy-right">the certain quality level of the
                 future image content</p> -->

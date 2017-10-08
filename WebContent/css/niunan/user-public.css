@@ -34,6 +34,9 @@
 .nn-all-sort .list-item:first-child {
     border-bottom: 2px solid #eee;
 }
+.active{
+    background-color: #ebeef0;
+}
 .nn-all-sort .list-item .plus-icon,
 .nn-all-sort .list-item .subtraction-icon {
     font-weight: bold;
