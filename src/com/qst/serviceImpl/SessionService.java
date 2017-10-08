@@ -10,8 +10,8 @@ import com.qst.dao.SessionDao;
 public class SessionService {
 	@Resource
 	SessionDao sessionDao;
-	public int setSession(String evaluate) {
-		return sessionDao.setSession(evaluate);
+	public int setSession(String evaluate,int uid,long ordernumber) {
+		return sessionDao.setSession(evaluate, uid, ordernumber);
 	}
 	
 	public int getMaxFromSession(){

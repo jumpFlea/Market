@@ -21,4 +21,11 @@ public class GoodsOrderService {
 	public ArrayList<GoodsOrder> getEvaluteGoods(int u_id,int pay_type,int a,int b){
 		return goodsOrderDao.getCompleted_EvaluationOrder(u_id, pay_type, a, b);
 	}
+	
+	public int getCountFromGoodOrderByu_id(int u_id,int pay_type ) {
+		return goodsOrderDao.getCountFromGoodOrderByu_id(u_id, pay_type);
+	}
+	public int getCountCompleted_EvaluationOrder(int u_id,int pay_type) {
+		return goodsOrderDao.getCountCompleted_EvaluationOrder(u_id, pay_type);
+	}
 }

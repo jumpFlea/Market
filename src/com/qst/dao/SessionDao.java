@@ -10,8 +10,8 @@ public interface SessionDao {
 	/*
 	 * 插入一条session的评价
 	 */
-	@Insert("INSERT INTO `session`  SET evaluate=#{evaluate} ")
-	public int setSession(@Param("evaluate")String evaluate  );
+	@Insert("INSERT INTO `session`  SET evaluate=#{evaluate},u_id =#{u_id},ordernumber=#{ordernumber} ")
+	public int setSession(@Param("evaluate")String evaluate ,@Param("u_id") int u_id ,@Param("ordernumber") long ordernumber);
 	/*
 	 * 得到session的最大值id
 	 */
