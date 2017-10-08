@@ -186,10 +186,28 @@
 			</div>
 
 		</div>
-		<div style=" margin: 0px auto; width: 100%; height: 800px; border:  solid 1px red;">
-			<iframe style="width: 100%; height: 690px;" src="Goodsorder_Ifram.jsp" scrolling="no" frameborder="0"></iframe>
+		<% String flag=(String)request.getAttribute("flag"); 
+			if(flag.equals("1"))
+			{
+				%>
+			<div style=" margin: 0px auto; width: 100%; height: 800px; border:  solid 1px red;">
+				<iframe style="width: 100%; height: 690px;" src="Goodsorder_Ifram.jsp" scrolling="no" frameborder="0"></iframe>
 
-		</div>
+			</div>
+				<%
+			}else if(flag.equals("2"))
+			{
+				%>
+					<div style=" margin: 0px auto; width: 100%; height: 800px; border:  solid 1px red;">
+				<iframe style="width: 100%; height: 690px;" src="evaluateGoods_iF.jsp" scrolling="no" frameborder="0"></iframe>
+
+			</div>
+				<% 
+				
+			}
+		%>
+		
+		
 		</div>
 
 		<!--  导航条    end-->

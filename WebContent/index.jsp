@@ -19,7 +19,7 @@
 			<li><a href="#">客户服务</a></li>
 			<li><a href="release_goods.jsp">发布商品</a></li>
 			<li><a href="#">商城会员</a></li>
-			<li class="nav-pull-down my-shop"><a href="#">我的商城</a> <span
+			<li class="nav-pull-down my-shop"><a href="#">订单管理</a> <span
 				class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
 				<li class="login-signup">
@@ -406,15 +406,15 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">待处理订单</span></a> <span
+			<a href="getAllorder"><span class="my-item">未付款订单</span></a> <span
 				class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href="comletedOrderIndex?pay_type=1"><span class="my-item">已付款订单</span></a> <span
-				class="my-item">已付款订单</span></a>
+			<a href="comletedOrderIndex?pay_type=1&flag=1"><span class="my-item">未评价订单</span></a>
+			<a href="evaluaedOrderIndex?pay_type=1&flag=2"> <span class="my-item">已评价订单</span></a>
 		</p>
 		<p>
-			<span class="my-item">我的新消息</span> <span class="my-item">我的问答</span>
+			<span class="my-item">全部订单</span> <span class="my-item">我的问答</span>
 		</p>
 	</div>
 </body>

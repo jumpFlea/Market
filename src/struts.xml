@@ -127,8 +127,8 @@
 				
 			</action>
 			
-			<action name="" class="" method="">
-				
+			<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">
+				<result  name="evaluaedOrderIndex">/Completed_Order.jsp</result>
 			</action>
 			
 	</package>

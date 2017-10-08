@@ -25,35 +25,57 @@ public class GoodsOrderAction {
 	public void setGoodsorderservice(GoodsOrderService goodsorderservice) {
 		this.goodsorderservice = goodsorderservice;
 	}
-/*
- * 已完成订单的分页查找  首页查找  
- */
+
+	/*
+	 * 已完成未评价订单的分页查找 首页查找
+	 */
 	public String comletedOrderIndex() {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		String flag =request.getParameter("flag");
 		int u_id = (int) session.getAttribute("uid");
-		int pay_type = Integer.parseInt(request.getParameter("pay_type"));
+		int pay_type = Integer.parseInt( request.getParameter("pay_type"));
 		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		goodsOrders_list= goodsorderservice.getGoodOrderByu_id(u_id, pay_type, 0, 5);
+		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, pay_type, 0, 5);
 		session.setAttribute("goodsOrders_list", goodsOrders_list);
+		request.setAttribute("flag", flag);
 		return "comletedOrderIndex";
 	}
 	/*
-	 * 已完成的订单分页查找  分页
+	 * 已完成的订单分页查找 分页
 	 */
 
 	public String comletedOrder() {
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		int u_id = (int) session.getAttribute("uid");
-		int pay_type=Integer.parseInt(request.getParameter("pay_type"));
-		int pag=Integer.parseInt(request.getParameter("pag"));
-		int a=(pag-1)*5;
-		int b=pag*5-1;
+		
+		int pag = Integer.parseInt(request.getParameter("pag"));
+		int a = (pag - 1) * 5;
+		int b = pag * 5 - 1;
 		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		goodsOrders_list= goodsorderservice.getGoodOrderByu_id(u_id, pay_type, a, b);
+		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, 1, a, b);
 		session.setAttribute("goodsOrders_list", goodsOrders_list);
 		return "comletedOrder";
+	}
+
+	/*
+	 * 以平价订单的首页查找
+	 */
+
+	public String evaluaedOrderIndex() {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		String flag =request.getParameter("flag");
+		int u_id = (int) session.getAttribute("uid");
+		int pay_type=Integer.parseInt( request.getParameter("pay_type"));;
+		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
+		goodsOrders_list=goodsorderservice.getEvaluteGoods(u_id, pay_type, 0, 5);
+		session.setAttribute("goodsOrders_list", goodsOrders_list);
+		request.setAttribute("flag", flag);
+		return "evaluaedOrderIndex";
 	}
 }
