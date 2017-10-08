@@ -25,9 +25,9 @@
 					<li class="nav-item end-item"><a href="">手机版</a></li>
 					<li class="nav-item"><a href="">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
-					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
+				<!-- 	<li class="nav-item first-item">［<a href="" class="login">登录</a><a
 						href="" class="regester">立即注册</a>］
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 								class="item-link"> <span class="triangle-right pull-left"></span>
 									<span class="sub-list-txt">个人资料</span>
 							</a></li>
-							<li class="sub-list-item"><a href="" class="item-link">
+							<li class="sub-list-item"><a href="showAllAddress" class="item-link">
 									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">地址管理</span>
 							</a></li>

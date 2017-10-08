@@ -17,8 +17,7 @@
 	String name=request.getParameter("name");
 	String phone=request.getParameter("phone");
 	String region=request.getParameter("region");
-	String street=request.getParameter("street");
-	
+	String street=request.getParameter("street");	
 	request.setAttribute("adid", adid);
 %>
 								<table>

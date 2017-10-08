@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,9 +24,9 @@
 					<li class="nav-item"><a href="">购物车</a></li>
 					<li class="nav-item"><a href="">我的订单</a></li>
 					<c:if test="${user == null}">
-					<li class="nav-item first-item">［<a href="" class="login">登录</a><a
-						href="" class="regester">立即注册</a>］
-					</li>
+						<li class="nav-item first-item">［<a href="" class="login">登录</a><a
+							href="" class="regester">立即注册</a>］
+						</li>
 					</c:if>
 					<c:if test="${user != null}">
 						<li class="login-signup">你好，${user.username}</li>
@@ -77,11 +77,11 @@
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
-							<li class="sub-list-item"><a href="userinfor_update.jsp" class="item-link">
-									<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">个人信息修改</span>
+							<li class="sub-list-item"><a href="userinfor_update.jsp"
+								class="item-link"> <span class="triangle-right pull-left"></span>
+									<span class="sub-list-txt">个人信息修改</span>
 							</a></li>
-							<li class="sub-list-item"><a href="showAllAddress" class="item-link">
+							<li class="sub-list-item"><a href="" class="item-link">
 									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">地址管理</span>
 							</a></li>
@@ -97,27 +97,39 @@
 
 				<div class="nn-info-settings">
 					<p class="info-settings">
-						<span class="info-settings-txt">个人信息页显示</span>
+						<span class="info-settings-txt">地址管理</span>
 					</p>
-
-					<p class="info-avatar">
-						<span class="info-avatar-settings"> <img
-							src="${u2.u_image}" alt="" /> <span class="cover-show">
-
-						</span>
-						</span>
+					<p class="info-settings">
+						<span class="info-settings-txt" style="color: red">温馨提示:可直接在文本框修改你的信息</span>
 					</p>
-
-					<div class="info-input-row">
-						<p class="input-wrap">
-						用户名:<input type="text"  value="${u2.username}" readonly="readonly"/>
-						</p>
-					</div>
-					<div class="info-input-row">
-						<p class="input-wrap">
-						邮箱:<input type="text" value="${u2.email}"  readonly="readonly"/>
-						</p>
-					</div>
+					<c:forEach items="${adress_list}" var="ad">
+						<form action="editAdress" method="post">
+							<div class="info-input-row">
+								<input type="text" name="ad_id" value="${ad.ad_id}" style="display: none">
+								<p class="input-wrap">
+									收货人姓名:<input type="text" name="name" value="${ad.name}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									联系电话:<input type="text" name="tel" value="${ad.phone}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									详细地址:<input type="text" name="region" value="${ad.region}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									街道:<input type="text" name="street" value="${ad.street}" />
+								</p>
+							</div>
+							<div class="button-group">
+								<button type="submit" class="save-btn">保存</button>
+							</div>
+						</form>
+					</c:forEach>
 				</div>
 
 
@@ -247,6 +259,11 @@
 		seajs.use("js/page-user-settings", function(init) {
 			init.initPage();
 		});
+		
+		function updateAddress(){
+			
+		}
+		
 	</script>
 </body>
 </html>

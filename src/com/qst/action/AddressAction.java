@@ -1,15 +1,16 @@
 package com.qst.action;
 
-
+import com.qst.model.Adress;
 import com.qst.serviceImpl.AddressServiceImpl;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
+
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 
 @Controller
 public class AddressAction {
@@ -39,7 +40,6 @@ public class AddressAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
-
 		String name = request.getParameter("name");
 		String phone = request.getParameter("tel");
 		String region = request.getParameter("region");
@@ -54,5 +54,25 @@ public class AddressAction {
 		}
 	}
 
+	// 得到用户所有的地址
+	public String showAllAddress() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		int uid = (int) session.getAttribute("uid");
+		ArrayList<Integer> adid_list = new ArrayList<Integer>();
+		Adress adress = new Adress();
+		ArrayList<Adress> adress_list = new ArrayList<Adress>();
+		adid_list = addressService.getAlladid(uid);
+		if (adid_list != null) {
+			for (Integer ad_id : adid_list) {
+				adress = addressService.getAdress(ad_id);
+				adress_list.add(adress);
+			}
+			request.setAttribute("adress_list", adress_list);
+			return "success";
+		}else
+			return "error";
+
+	}
 
 }
