@@ -120,9 +120,14 @@
 			<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction" method="comletedOrderIndex">
 				<result name="comletedOrderIndex">/Completed_Order.jsp</result>
 			</action>
-
+			<!-- 設置回话进入session表中 -->
 			<action name="setEvalueInSession" class="com.qst.action.SessionAction" method="setEvalueInSession">
-
+				
 			</action>
+			
+			<action name="" class="" method="">
+				
+			</action>
+			
 	</package>
 </struts>

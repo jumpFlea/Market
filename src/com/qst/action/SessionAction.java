@@ -16,11 +16,11 @@ public class SessionAction {
 	public String setEvalueInSession()
 	{
 		HttpServletRequest request = ServletActionContext.getRequest();
-		int g_id = Integer.parseInt(request.getParameter("gid"));
+		int g_id = Integer.parseInt(request.getParameter("g_id"));
 		String evaluate =(String) request.getParameter("evaluate");
-//		sessionService.setSession(evaluate);
-//		int session_id =sessionService.getMaxFromSession();
-//		sessionService.setGoods_Session(session_id, g_id);
+		sessionService.setSession(evaluate);
+		int session_id =sessionService.getMaxFromSession();
+		sessionService.setGoods_Session(session_id, g_id);
 		return "evaluate";
 	}
 }
