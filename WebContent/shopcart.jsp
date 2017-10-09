@@ -117,7 +117,7 @@
                             <span class="fourth-col-item pull-left">
                         <div class="num-wrap-component">
                             <button class="subtraction-calc">-</button>
-                            <input type="text" class="item-number" value="${goods.number}" maxlength="4" onchange="countAll(this)">
+                            <input type="text" class="item-number" value="${goods.number}" maxlength="4" onchange="countAll()">
                             <button class="plus-calc">+</button>
                         </div>
                     </span>
@@ -241,8 +241,8 @@
         </div>
     </div>
 </div>
-<script src="./js/lib/sea.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
+<script src="./js/lib/sea.js"></script>
 <script>
     function countAll(a) {
         var count = 0.0;
