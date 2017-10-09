@@ -124,8 +124,6 @@
 		</action>
 
 
-		<action name="cartCount" class="com.qst.action.ShopCartAction" method="cartCount"/>
-
 		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction" method="deleteCartGoods">
 			<result name="success" type="plainText">temp/success</result>
 			<result name="login" type="plainText">temp/login</result>
