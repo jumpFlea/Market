@@ -83,8 +83,8 @@
 		<!-- 设置我的地址 -->
 		<action name="setAdress" class="com.qst.action.AddressAction"
 			method="setAdress">
-
-
+			<result name="success" type="chain">showAllAddress</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -117,29 +117,32 @@
 		<action name="cartCount" class="com.qst.action.ShopCartAction"
 			method="cartCount"></action>
 
-		<action name="addFavorite" class="com.qst.action.ShopCartAction" method="addFavorite">
+		<action name="addFavorite" class="com.qst.action.ShopCartAction"
+			method="addFavorite">
 			<result name="favorite" type="chain">getshopcargoods</result>
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
 		</action>
 
 
-		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction" method="deleteCartGoods">
+		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction"
+			method="deleteCartGoods">
 			<result name="success" type="plainText">temp/success</result>
 			<result name="login" type="plainText">temp/login</result>
 			<result name="index" type="plainText">temp/success</result>
 		</action>
 
 
-		<action name="quickBuy" class="com.qst.action.ShopCartAction" method="quickBuy">
+		<action name="quickBuy" class="com.qst.action.ShopCartAction"
+			method="quickBuy">
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
 			<result name="success">order-detail.jsp</result>
 		</action>
 
-
 		<!-- 得到所有的未完成订单 -->
-		<action name="getAllorder" class="com.qst.action.OrderAction" method="getAllorder">
+		<action name="getAllorder" class="com.qst.action.OrderAction"
+			method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
 
