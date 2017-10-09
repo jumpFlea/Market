@@ -19,13 +19,17 @@
 		resultType="OrderGoods">
 		select * from order_goods where ordernumber=#{ordernumber};
 	</select>
-	
+
 	<select id ="getgoods_item" resultType="Goods_item" >
 		SELECT b.g_name as g_name,a.prince as prince ,a.og_num as og_num ,image_zhanshi FROM order_goods a, goods b WHERE a.ordernumber=#{ordernumber} AND b.g_id=#{g_id} AND b.g_id=a.g_id;
 	</select>
-	
+
 	<select id="getSumprince" parameterType="java.lang.Long" resultType="float">
 		SELECT SUM(prince*og_num) FROM order_goods where ordernumber=#{ordernumber};
 	</select>
 
+	<insert id="createOrder" >
+		INSERT INTO `order` (u_id,ordernumber,price,ad_id)
+		VALUES (#{0},#{1},#{2},#{3})
+	</insert>
 </mapper>

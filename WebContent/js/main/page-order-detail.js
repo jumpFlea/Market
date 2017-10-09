@@ -14,7 +14,7 @@ define(function(require, exports, module){
         },
         domInit : function(){
             // TODO
-            var $numInput = $("#item-number");
+            var $numInput = $(".item-number");
             var $numInputComponent = $(".num-wrap-component");
             var $sub = $numInputComponent.find(".subtraction-calc");
             var $plus = $numInputComponent.find(".plus-calc");
@@ -46,7 +46,7 @@ define(function(require, exports, module){
                 } else {
                     $plus.attr("disabled", false);
                 }
-                console.log(val)
+                countAlone($numInput);
             }
             $sub.on("click", function(){
                 var val = parseInt($numInput.val());
@@ -58,6 +58,11 @@ define(function(require, exports, module){
                 $numInput.val(++val);
                 checkoutValidate();
             })
+            function countAlone(input) {
+                if($('.alone .item-number') !== undefined){
+                    $('#price').text( parseInt($('.alone .item-number').val()) * parseInt($('.alone .third-col-item').find('.price-style').text()) )
+                }
+           }
         }
     };
 

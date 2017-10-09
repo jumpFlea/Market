@@ -1,25 +1,34 @@
 package com.qst.serviceImpl;
 
+import com.qst.dao.ShopCarDAO1;
 import com.qst.dao.orderDao;
 import com.qst.model.Adress;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Goods_item;
 import com.qst.model.OrderGoods;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Service
 public class OrderServiceImpl{
-	@Resource
-	private orderDao orderDao;
+	private final orderDao orderDao;
+	private final ShopCarDAO1 shopCarDAO1;
+
+	@Autowired
+	public OrderServiceImpl(orderDao orderDao, ShopCarDAO1 shopCarDAO1) {
+		this.orderDao = orderDao;
+		this.shopCarDAO1 = shopCarDAO1;
+	}
 
 	public int creatorder(int u_id, long ordernumber) {
 		return orderDao.creatorder(u_id, ordernumber);
 	}
 
-	public int creatorder_good(long ordernumber, int g_id, float prince, int og_num) {
+	public int creatorder_good(long ordernumber, Integer g_id, Float prince, Integer og_num) {
 		return orderDao.creatorder_good(ordernumber, g_id, prince, og_num);
 	}
 
@@ -91,4 +100,15 @@ public class OrderServiceImpl{
 		return orderDao.setOrderByOrdernumber(ad_id, message, ordernumber);
 	}
 
+	public long createOrder(Integer[] gid, Integer[] number, Float[] price, Integer uid,double count,int addressId) throws Exception{
+		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
+		long id = Long.parseLong(dateFormater.format(new Date()));
+
+		orderDao.createOrder(uid, id, count, addressId);
+		for (int i = 0;i < gid.length;i++) {
+			creatorder_good(id,gid[i],price[i],number[i]);
+			shopCarDAO1.deleteShopcarGoodByid(uid,gid[i]);
+		}
+		return id;
+	}
 }

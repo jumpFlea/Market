@@ -1,9 +1,6 @@
 package com.qst.action;
 
-import com.qst.model.Adress;
-import com.qst.model.Goods_item;
-import com.qst.model.ShopCartGoods;
-import com.qst.model.User;
+import com.qst.model.*;
 import com.qst.serviceImpl.AddressServiceImpl;
 import com.qst.serviceImpl.OrderServiceImpl;
 import com.qst.serviceImpl.ShopCarService;
@@ -203,9 +200,17 @@ public class ShopCartAction {
 	}
 
 	public String quickBuy(){
-		ServletActionContext.getRequest().getSession().setAttribute("goods",item);
-		return "success";
-
+		try {
+			HashMap goods = shopCarService.getGoods(item);
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("goods",goods);
+			int id = (int) session.getAttribute("uid");
+			Adress address = addressService.getAddressByUser(id);
+			session.setAttribute("address",address);
+			return "success";
+		} catch (Exception e){
+			return "login";
+		}
 	}
 
     public String deleteCartGoods(){

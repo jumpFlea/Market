@@ -63,6 +63,7 @@
                             <div class="main-detail-box">
                                 <c:if test="${address != null}">
                                     <p class="address-info-row">
+                                        <input type="text" value="${address.ad_id}" id="address-id" hidden>
                                         <span class="address-info-title">收货人姓名：</span>
                                         <span class="info-row">${address.name}</span>
                                     </p>
@@ -104,7 +105,7 @@
                     <c:forEach items="${goodsList}" var="goods">
                         <div class="detail-bar clearfix">
                             <span class="checkbox-col-item pull-left text-center">
-                                <input type="checkbox" value="" data-id="${goods.id}" onchange="countAll()">
+                                <input type="checkbox" value="" data-id="${goods.gid}" onchange="countAll()">
                             </span>
                                     <span class="first-col-item pull-left text-center">
                                 <img src="${goods.imageSrc}" alt="">
@@ -141,7 +142,7 @@
             </div>
             <div class="order-total-box shopping-cart-total-box">
                 <p class="shopping-goods-choose-box pull-left">
-                    <input type="checkbox" id="select-all">
+                    <input type="checkbox" id="select-all" onchange="countAll()">
                     <label for="select-all">全选</label>
                     <a onclick="deleteMany()" class="remove-all">批量删除</a>
                     <%--<a href="javascript:;">移入收藏列表</a>--%>
@@ -153,7 +154,7 @@
                     商品总价（含运费）：￥<span class="price-style countPrice">0.00</span>
                 </p>
                 <div class="button-group clearfix">
-                    <button class="fast-payment pull-right">快速支付</button>
+                    <button class="fast-payment pull-right" onclick="submitOrder()">提交订单</button>
                     <a href="indexShow.action"><button class="continu-shop">继续购物</button></a>
                 </div>
             </div>
@@ -249,6 +250,29 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="./js/lib/sea.js"></script>
 <script>
+    function submitOrder() {
+        var url = "submitOrder.action?";
+        $('.detail-bar').each(function () {
+            if($(this).find('input[type=checkbox]').prop('checked') === true){
+                url = url + "gid=" + $(this).find('input[type=checkbox]').attr('data-id');
+                url = url + "&price=" + $(this).find('.third-col-item .price-style').text();
+                url = url + "&number=" + $(this).find('.fourth-col-item input').val();
+                url = url + "&";
+            }
+        });
+        url = url + "addressId=" + $('#address-id').val();
+        $.get(url,function (data) {
+            if(data === "login") {
+                window.location.href="login.html";
+            }
+            else if(data === "success"){
+                window.location.href="shopping-success.jsp";
+            }
+            else {
+                window.location.href="indexShow";
+            }
+        })
+    }
     function deleteMany() {
         var url = "deleteCartGoods?";
         $('.checkbox-col-item input').each(function () {
@@ -280,6 +304,7 @@
         });
         $('.countPrice').text(count);
     }
+    $('#select-all').trigger('change');
 
     seajs.config({
         base: "./js",

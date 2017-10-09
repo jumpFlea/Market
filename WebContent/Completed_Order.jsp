@@ -25,7 +25,7 @@
 				<ul class="fl 1h">
 					<li class="fl">
 						<div class="menu">
-							
+
 							<div class="menu_bd">
 								<ul>
 									<li>
@@ -186,7 +186,7 @@
 			</div>
 
 		</div>
-		<% String flag=(String)request.getAttribute("flag"); 
+		<% String flag=(String)request.getAttribute("flag");
 			if(flag.equals("1"))
 			{
 				%>
@@ -202,12 +202,12 @@
 				<iframe style="width: 100%; height: 690px;" src="evaluateGoods_iF.jsp" scrolling="no" frameborder="0"></iframe>
 
 			</div>
-				<% 
-				
+				<%
+
 			}
 		%>
-		
-		
+
+
 		</div>
 
 		<!--  导航条    end-->
@@ -288,7 +288,7 @@
 						</li>
 					</ul>
 				</li>
-				
+
 				<li class="col">
 					<div class="bottom-links-title">锡好网公众号</div>
 					<ul class="clearfix bottom-links-items">

@@ -185,3 +185,7 @@ function addToCart(button) {
         $('.cart-count').text(" "+data);
     })
 }
+
+function quickBuy(button) {
+    window.location.href=$(button).attr('ref') + "&item.goods_number="+$goodsNumber;
+}

@@ -43,5 +43,13 @@
     <select id="getCountByUser" parameterType="integer" resultType="integer">
         SELECT count(*) FROM shopcar_goods WHERE u_id=#{uid};
     </select>
+    <select id="getGoods" resultType="java.util.HashMap">
+        SELECT
+            g.g_id AS gid,
+            g.g_attribute AS attribute ,
+            g.image_zhanshi AS image,
+            g.g_name AS name
+        FROM goods g WHERE g_id=#{gid}
+    </select>
 
 </mapper>

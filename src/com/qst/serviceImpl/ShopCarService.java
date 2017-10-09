@@ -57,4 +57,11 @@ public class ShopCarService {
 			shopCarDAO1.deleteByid(integer);
 		}
 	}
+
+	public HashMap getGoods(ShopCartGoods item) {
+		HashMap hashMap =  shopCarDAO1.getGoods(item);
+		hashMap.put("number",item.getGoods_number());
+		hashMap.put("price",item.getPrice());
+		return hashMap;
+	}
 }

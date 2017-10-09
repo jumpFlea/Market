@@ -28,4 +28,6 @@ public interface ShopCarDAO1 {
     int getCountByUser(int uid);
 
     void deleteByid(Integer integer);
+
+	HashMap getGoods(ShopCartGoods item);
 }
