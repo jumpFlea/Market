@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商城整体布局</title>
+    <title>购物车－小马交易</title>
     <link rel="stylesheet" href="./css/niunan/neat.css">
     <link rel="stylesheet" href="./css/niunan/public.css">
     <link rel="stylesheet" href="./css/niunan/layout.css">
@@ -20,7 +20,7 @@
             <ul class="nav-wrap clear">
 
                 <li class="nav-item end-item"><a href="">客户服务</a></li>
-                <li class="nav-item"><a href="getshopcargoods">企业采购</a></li>
+                <li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
                 <li class="nav-item"><a href="">商城会员</a></li>
                 <li class="nav-item"><a href="#">我的订单</a></li>
                 <c:if test="${user == null}">
@@ -30,7 +30,7 @@
                     </li>
                 </c:if>
                 <c:if test="${user != null}">
-                    <li class="nav-item"><a href="getshopcargoods">购物车</a></li>
+                    <li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
                     <li class="nav-item">
                         <a href="showUserInfor.action">${user.username}
                             <span class="glyphicon glyphicon-menu-down"></span>
@@ -45,7 +45,6 @@
     <div class="nn-inner-con">
 
         <c:if test="${goodsList != null}">
-
             <div class="nn-address-list">
                 <div class="nn-address-list-wrap">
                     <div class="address-list-item">
@@ -55,30 +54,36 @@
                             </p>
                         </div>
                         <div class="address-item-detail">
-                            <div class="right-button-group pull-right">
-                                <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
-                            </div>
+
+                            <c:if test="${address != null}">
+                                <div class="right-button-group pull-right">
+                                    <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
+                                </div>
+                            </c:if>
                             <div class="main-detail-box">
-                                <p class="address-info-row">
-                                    <span class="address-info-title">收货人姓名：</span>
-                                    <span class="info-row">Teo Wang</span>
-                                </p>
-                                <p class="address-info-row">
-                                    <span class="address-info-title">地区：</span>
-                                    <span class="info-row">辽宁省 沈阳市</span>
-                                </p>
-                                <p class="address-info-row">
-                                    <span class="address-info-title">详细地址：</span>
-                                    <span class="info-row">大东区 宁夏路388号 6楼</span>
-                                </p>
-                                <p class="address-info-row">
-                                    <span class="address-info-title">邮编：</span>
-                                    <span class="info-row">113008</span>
-                                </p>
-                                <p class="address-info-row">
-                                    <span class="address-info-title">电话：</span>
-                                    <span class="info-row">155-4317-7777</span>
-                                </p>
+                                <c:if test="${address != null}">
+                                    <p class="address-info-row">
+                                        <span class="address-info-title">收货人姓名：</span>
+                                        <span class="info-row">${address.name}</span>
+                                    </p>
+                                    <p class="address-info-row">
+                                        <span class="address-info-title">地区：</span>
+                                        <span class="info-row">${address.region}</span>
+                                    </p>
+                                    <p class="address-info-row">
+                                        <span class="address-info-title">详细地址：</span>
+                                        <span class="info-row">${address.street}</span>
+                                    </p>
+                                    <p class="address-info-row">
+                                        <span class="address-info-title">电话：</span>
+                                        <span class="info-row">${address.phone}</span>
+                                    </p>
+                                </c:if>
+                                <c:if test="${address == null}">
+                                    <div class="right-button-group" style="top:0;">
+                                        <span class="button-item"><a href="showAllAddress.action" class="button">添加收货地址</a></span>
+                                    </div>
+                                </c:if>
                             </div>
                         </div>
                     </div>
@@ -99,7 +104,7 @@
                     <c:forEach items="${goodsList}" var="goods">
                         <div class="detail-bar clearfix">
                             <span class="checkbox-col-item pull-left text-center">
-                                <input type="checkbox" value="" data-id="${goods.id}">
+                                <input type="checkbox" value="" data-id="${goods.id}" onchange="countAll()">
                             </span>
                                     <span class="first-col-item pull-left text-center">
                                 <img src="${goods.imageSrc}" alt="">
@@ -145,7 +150,7 @@
                     <%--商品总价(<span>￥396.00</span>) - 活动(<span>￥0.00</span>) + 运费(<span>￥10.00</span>) = 商品金额总计(<span>￥406.00</span>)--%>
                 <%--</p>--%>
                 <p class="text-right">
-                    商品总价（含运费）：￥<span class="price-style countPrice">406.00</span>
+                    商品总价（含运费）：￥<span class="price-style countPrice">0.00</span>
                 </p>
                 <div class="button-group clearfix">
                     <button class="fast-payment pull-right">快速支付</button>
@@ -264,15 +269,17 @@
             }
         })
     }
+
     function countAll() {
         var count = 0.0;
         $('input.item-number').each(function () {
-            var price = parseFloat( $(this).closest('span').prev().find('.price-style').text() );
-            count = count + parseFloat($(this).val()) * price;
+            if($(this).closest('.detail-bar').find('.checkbox-col-item input').prop('checked') === true){
+                var price = parseFloat( $(this).closest('span').prev().find('.price-style').text() );
+                count = count + parseFloat($(this).val()) * price;
+            }
         });
         $('.countPrice').text(count);
     }
-    countAll();
 
     seajs.config({
         base: "./js",

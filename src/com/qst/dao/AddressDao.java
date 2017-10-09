@@ -33,8 +33,11 @@ public interface AddressDao {
 	@Update("update adress set name=#{name},phone=#{phone},region=#{region},street=#{street} where ad_id=#{ad_id};")
 	int editAdress(@Param("ad_id") int ad_id, @Param("name") String name, @Param("phone") String phone,
 			@Param("region") String region, @Param("street") String street);
-	
-	
+
+
 	@Delete("DELETE FROM adress where ad_id=#{ad_id};")
 	int deleteAddress(@Param("ad_id") int ad_id);
+
+
+	Adress findDefaultAddress(int id);
 }
