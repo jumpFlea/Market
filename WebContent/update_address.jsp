@@ -151,6 +151,7 @@
 							</div>
 							<div class="button-group">
 								<button type="submit" class="save-btn">保存</button>
+								<a href="deleteAddress?addressId=${ad.ad_id}" ><span id="a_save-btn">删除</span></a>
 							</div>
 						</form>
 					</c:forEach>

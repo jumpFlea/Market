@@ -42,5 +42,11 @@ public class AddressServiceImpl {
 	public int editAdress(int ad_id, String name, String phone, String region, String street) {
 		return addressDao.editAdress(ad_id, name, phone, region, street);
 	}
+	
+	public int deleteAddress(int ad_id){	
+		return addressDao.deleteAddress(ad_id);
+	}
+		
+	
 
 }
