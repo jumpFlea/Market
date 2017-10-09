@@ -16,7 +16,7 @@
 	<div class="header">
 		<div class="header-content toCenter">
 			<h1 class="logo" title="牛男网商城">
-				<a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
+				<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
 			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
@@ -117,8 +117,8 @@
 							添加到购物车
 							<span></span>
 						</a>
-						<a class="continue-find"
-						   href="quickBuy.action?&goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}">
+						<a class="continue-find" onclick="quickBuy(this)"
+						   ref="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
 							立即购买
 							<span></span>
 						</a>
@@ -379,7 +379,7 @@
 			</div>
 		</div>
 	</div>
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/goods-detail.js"></script>
 </body>
 </html>
