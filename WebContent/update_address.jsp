@@ -20,7 +20,6 @@
 		</h1>
 		<div class="small-nav">
 			<ul class="nav-wrap clear">
-
 				<li class="nav-item end-item"><a href="">客户服务</a></li>
 				<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
 				<li class="nav-item"><a href="">商城会员</a></li>
