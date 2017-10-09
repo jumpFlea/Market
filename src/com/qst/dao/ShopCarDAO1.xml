@@ -7,10 +7,14 @@
         insert into shopcar_goods (g_id,u_id,goods_number,price)
         values ( #{gid},#{uid},#{goods_number},#{price});
     </insert>
+    <delete id="deleteByid">
+        DELETE FROM shopcar_goods WHERE sg_id=#{0}
+    </delete>
 
     <!--通过用户id 查找商品id 从购物车中  -->
     <select id="getGoodsByUserId" parameterType="int" resultType="hashmap">
         select
+            s.sg_id AS id,
             s.g_id AS gid,
             s.price AS price,
             s.goods_number AS `number`,

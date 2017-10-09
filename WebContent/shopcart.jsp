@@ -98,37 +98,37 @@
 
                     <c:forEach items="${goodsList}" var="goods">
                         <div class="detail-bar clearfix">
-                    <span class="checkbox-col-item pull-left text-center">
-                        <input type="checkbox" value="">
-                    </span>
-                            <span class="first-col-item pull-left text-center">
-                        <img src="${goods.imageSrc}" alt="">
-                    </span>
-                            <span class="second-col-item pull-left">
-                        <p class="item-title"><a href="">${goods.goodsName}</a></p>
-                        <p class="sub-title-style">
-                            类型: <span class="item-color">${goods.attribute}</span>
-                        </p>
-                    </span>
-                            <span class="third-col-item pull-left text-center">
-                        <span class="sub-title-style">¥</span>
-                        <span class="price-style">${goods.price}</span>
-                    </span>
-                            <span class="fourth-col-item pull-left">
-                        <div class="num-wrap-component">
-                            <button class="subtraction-calc">-</button>
-                            <input type="text" class="item-number" value="${goods.number}" maxlength="4" onchange="countAll()">
-                            <button class="plus-calc">+</button>
-                        </div>
-                    </span>
-                            <span class="fifth-col-item pull-left text-center">
-                        <span class="sub-title-style">¥</span>
-                        <span class="price-style">${goods.price * goods.number}</span>
-                    </span>
-                            <span class="button-col-item pull-left text-center">
-                        <a href="addFavorite?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">移入收藏</a>
-                        <a href="delGoodsShopCart?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">删除商品</a>
-                    </span>
+                            <span class="checkbox-col-item pull-left text-center">
+                                <input type="checkbox" value="" data-id="${goods.id}">
+                            </span>
+                                    <span class="first-col-item pull-left text-center">
+                                <img src="${goods.imageSrc}" alt="">
+                            </span>
+                                    <span class="second-col-item pull-left">
+                                <p class="item-title"><a href="">${goods.goodsName}</a></p>
+                                <p class="sub-title-style">
+                                    类型: <span class="item-color">${goods.attribute}</span>
+                                </p>
+                            </span>
+                                    <span class="third-col-item pull-left text-center">
+                                <span class="sub-title-style">¥</span>
+                                <span class="price-style">${goods.price}</span>
+                            </span>
+                                    <span class="fourth-col-item pull-left">
+                                <div class="num-wrap-component">
+                                    <button class="subtraction-calc">-</button>
+                                    <input type="text" class="item-number" value="${goods.number}" maxlength="4" onchange="countAll()">
+                                    <button class="plus-calc">+</button>
+                                </div>
+                            </span>
+                                    <span class="fifth-col-item pull-left text-center">
+                                <span class="sub-title-style">¥</span>
+                                <span class="price-style">${goods.price * goods.number}</span>
+                            </span>
+                                    <span class="button-col-item pull-left text-center">
+                                <a href="addFavorite?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">移入收藏</a>
+                                <a href="delGoodsShopCart?item.uid=${user.uid}&item.gid=${goods.gid}" class="button">删除商品</a>
+                            </span>
                         </div>
 
                     </c:forEach>
@@ -138,8 +138,8 @@
                 <p class="shopping-goods-choose-box pull-left">
                     <input type="checkbox" id="select-all">
                     <label for="select-all">全选</label>
-                    <a href="javascript:;" class="remove-all">批量删除</a>
-                    <a href="javascript:;">移入收藏列表</a>
+                    <a onclick="deleteMany()" class="remove-all">批量删除</a>
+                    <%--<a href="javascript:;">移入收藏列表</a>--%>
                 </p>
                 <%--<p class="text-right">--%>
                     <%--商品总价(<span>￥396.00</span>) - 活动(<span>￥0.00</span>) + 运费(<span>￥10.00</span>) = 商品金额总计(<span>￥406.00</span>)--%>
@@ -244,7 +244,27 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="./js/lib/sea.js"></script>
 <script>
-    function countAll(a) {
+    function deleteMany() {
+        var url = "deleteCartGoods?";
+        $('.checkbox-col-item input').each(function () {
+            if ($(this).prop('checked') === true){
+                url = url + "idList=" + $(this).attr('data-id') + "&";
+            }
+        });
+
+        $.get(url,function (data) {
+            if(data === "login") {
+                window.location.href="login.html";
+            }
+            else if(data === "success"){
+                window.location.href="getshopcargoods.action";
+            }
+            else {
+                window.location.href="indexShow";
+            }
+        })
+    }
+    function countAll() {
         var count = 0.0;
         $('input.item-number').each(function () {
             var price = parseFloat( $(this).closest('span').prev().find('.price-style').text() );

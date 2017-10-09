@@ -53,4 +53,10 @@ public class ShopCarService {
 	public void addFavorite(ShopCartGoods item) {
 		userDao.addFavorite(item);
 	}
+
+	public void deleteCartGoods(Integer[] idList) {
+		for (Integer integer : idList) {
+			shopCarDAO1.deleteByid(integer);
+		}
+	}
 }
