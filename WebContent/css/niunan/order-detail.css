@@ -251,6 +251,7 @@ p.shopping-goods-choose-box {
 }
 p.shopping-goods-choose-box .remove-all {
     margin: 0 10px;
+    cursor: pointer;
 }
 p.shopping-goods-choose-box a {
     text-decoration: underline;

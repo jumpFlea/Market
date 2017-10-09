@@ -28,6 +28,7 @@ public class ShopCartAction {
 	private final ShopCarService shopCarService;
 
 	private ShopCartGoods item;
+	private Integer idList[];
 
 	@Autowired
 	public ShopCartAction(OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
@@ -205,6 +206,15 @@ public class ShopCartAction {
 
 	}
 
+    public String deleteCartGoods(){
+	    try {
+            shopCarService.deleteCartGoods(idList);
+            return "success";
+        }catch (Exception e){
+	        return "index";
+        }
+    }
+
 	public ShopCartGoods getItem() {
 		return item;
 	}
@@ -212,4 +222,13 @@ public class ShopCartAction {
 	public void setItem(ShopCartGoods item) {
 		this.item = item;
 	}
+
+    public Integer[] getIdList() {
+        return idList;
+    }
+
+    public void setIdList(Integer[] idList) {
+        this.idList = idList;
+    }
+
 }

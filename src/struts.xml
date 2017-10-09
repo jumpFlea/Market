@@ -105,6 +105,12 @@
 
 		<action name="cartCount" class="com.qst.action.ShopCartAction" method="cartCount"/>
 
+		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction" method="deleteCartGoods">
+			<result name="success" type="plainText">temp/success</result>
+			<result name="login" type="plainText">temp/login</result>
+			<result name="index" type="plainText">temp/success</result>
+		</action>
+
 		<action name="quickBuy" class="com.qst.action.ShopCartAction" method="quickBuy">
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
