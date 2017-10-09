@@ -10,6 +10,19 @@
 		select * from adress where ad_id=#{ad_id}
 	</select>
 
+	<select id="findDefaultAddress" resultType="com.qst.model.Adress">
+		SELECT
+		a.ad_id AS ad_id,
+		a.name AS name,
+		a.phone AS phone,
+		a.region AS region,
+		a.street AS street
+		FROM adress a
+		LEFT JOIN us_ad ua ON a.ad_id = ua.ad_id
+		LEFT JOIN usertable u ON ua.u_id = u.uid
+		WHERE u.uid=#{0}
+	</select>
+
 	<!-- <insert id="setAdress" parameterType="Adress">
 		insert into adress (name,phone,region,street) values(#{name},#{phone},#{region},#{street});
 	</insert>  -->

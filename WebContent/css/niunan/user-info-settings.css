@@ -1,4 +1,4 @@
-/* ÓÒ±ßÄÚÈÝ²¿·Ö */
+/* ï¿½Ò±ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ */
 .nn-info-settings .info-settings {
 	padding: 10px 0;
 	border-bottom: 1px solid #eee;
@@ -84,7 +84,7 @@ p.info-avatar .info-avatar-settings img {
 	background: #E85122;
 }
 
-#a_save-btn {
+.a_save-btn {
 	width: 190px;
 	height: 50px;
 	color: #fff;
@@ -92,4 +92,6 @@ p.info-avatar .info-avatar-settings img {
 	background: #f30110;
 	border: none;
 	border-radius: 5px;
+	display: inline-block;
+	text-align: center;
 }

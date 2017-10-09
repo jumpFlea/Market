@@ -81,6 +81,8 @@ public class ShopCartAction {
 			session.removeAttribute("goodsList");
 		}
 		else {
+			Adress address = addressService.getAddressByUser(id);
+			session.setAttribute("address",address);
 			session.setAttribute("goodsList", goodsList);
 		}
 		return "diao";
