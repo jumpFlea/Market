@@ -1,82 +1,95 @@
 /* ÓÒ±ßÄÚÈÝ²¿·Ö */
 .nn-info-settings .info-settings {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
-    text-indent: 5px;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+	font-size: 16px;
+	text-indent: 5px;
 }
+
 .nn-info-settings p.info-avatar {
-    margin: 30px 15px;
+	margin: 30px 15px;
 }
+
 p.info-avatar .info-avatar-settings {
-    display: block;
-    width: 170px;
-    height: 170px;
-    position: relative;
-    overflow: hidden;
+	display: block;
+	width: 170px;
+	height: 170px;
+	position: relative;
+	overflow: hidden;
 }
+
 p.info-avatar .info-avatar-settings .cover-show {
-    position: absolute;
-    top: -170px;
-    width: 100%;height: 100%;
-    left: 0;
-    background-color: rgba(0,0,0,.5);
-    text-align: center;
-    transition: all .3s ease;
+	position: absolute;
+	top: -170px;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	text-align: center;
+	transition: all .3s ease;
 }
+
 p.info-avatar .info-avatar-settings .cover-show a {
-    line-height: 170px;
-    font-size: 16px;
-    color: #fff;
+	line-height: 170px;
+	font-size: 16px;
+	color: #fff;
 }
+
 p.info-avatar .info-avatar-settings .cover-show a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
+
 p.info-avatar .info-avatar-settings:hover .cover-show {
-    top: 0;
+	top: 0;
 }
+
 p.info-avatar .info-avatar-settings img {
-    width: 170px;
-    height: 170px;
+	width: 170px;
+	height: 170px;
 }
+
 .nn-info-settings .info-input-row {
-    margin: 20px 0;
+	margin: 20px 0;
 }
+
 .nn-info-settings .info-input-row p.input-wrap {
-    width: 390px;
+	width: 390px;
 }
+
 .nn-info-settings .info-input-row p.input-wrap input {
-    display: block;
-    width: 356px;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-radius: 4px;
-    border: none;
-    box-shadow: 0 0 1px #000;
+	display: block;
+	width: 356px;
+	font-size: 16px;
+	padding: 10px 15px;
+	border-radius: 4px;
+	border: none;
+	box-shadow: 0 0 1px #000;
 }
+
 .nn-info-settings .button-group {
-    margin: 40px 0;
+	margin: 40px 0;
 }
+
 .nn-info-settings .button-group button {
-    width: 190px;
-    height: 50px;
-    color: #fff;
-    font-size: 16px;
-    background: #f30110;
-    border: none;
-    border-radius: 5px;
+	width: 190px;
+	height: 50px;
+	color: #fff;
+	font-size: 16px;
+	background: #f30110;
+	border: none;
+	border-radius: 5px;
 }
+
 .nn-info-settings .button-group button:active {
-    background: #E85122;
+	background: #E85122;
 }
 
-
-
-
-
-
-
-
-
-
-
+#a_save-btn {
+	width: 190px;
+	height: 50px;
+	color: #fff;
+	font-size: 16px;
+	background: #f30110;
+	border: none;
+	border-radius: 5px;
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
+	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false. 
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -25,17 +25,25 @@
 			<result name="error">/error.jsp</result>
 			<result name="input">/error.jsp</result>
 		</action>
-		
-		<!--地址显示-->
-			<action name="showAllAddress" class="addressAction" method="showAllAddress">
-				<result name="success">/update_address.jsp</result>
-			</action>
+
+
+		<!--地址显示 -->
+		<action name="showAllAddress" class="addressAction" method="showAllAddress">
+			<result name="success">/update_address.jsp</result>
+		</action>
+
+		<!--删除某一个地址 -->
+		<action name="deleteAddress" class="addressAction" method="deleteAddress">
+			<result name="success" type="chain">showAllAddress</result>
+			<result name="error">/error.jsp</result>
+		</action>
 
 		<!-- 界面显示的图片,及分页的效果 -->
 		<action name="indexShow" class="indexShowAction" method="indexShow">
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+
 		<!-- 商品详情页面展示 -->
 		<action name="goodsDetail" class="goodsDetailAction" method="showGoods">
 			<result name="success">/goods_detail.jsp</result>
@@ -43,16 +51,15 @@
 		</action>
 
 
-		<!-- 商品发布-->
+		<!-- 商品发布 -->
 		<action name="releaseGoods" class="releaseGoodsAction" method="releaseGoods">
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
-
-
 		<!-- 查询购物车里的所有商品 -->
-		<action name="getshopcargoods" class="com.qst.action.ShopCartAction" method="getShopCartGoods">
+		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"
+			method="getShopCartGoods">
 			<result name="diao">shopcart.jsp</result>
 		</action>
 
@@ -74,18 +81,24 @@
 		</action>
 
 		<!-- 设置我的地址 -->
+		<action name="setAdress" class="com.qst.action.AddressAction"
+			method="setAdress">
 
-		<action name="setAdress" class="com.qst.action.AddressAction" method="setAdress">
 
 		</action>
 
+
+
+
 		<!--将某单个商品设置进入我的订单并且跳转到我的订单界面 -->
-		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction" method="setgoodsinordre">
+		<action name="setgoodsinordre" class="com.qst.action.SetGoodsInOrderAction"
+			method="setgoodsinordre">
 			<result name="order" type="chain">getOrderItem</result>
 		</action>
 
 		<!--将商品设置进入购物车表并且进入我的购物车界面 -->
-		<action name="addInshopcar" class="com.qst.action.ShopCartAction" method="addToShopCart">
+		<action name="addInshopcar" class="com.qst.action.ShopCartAction"
+			method="addToShopCart">
 			<result name="success" type="plainText">temp/success</result>
 			<result name="login" type="plainText">temp/login</result>
 			<result name="index" type="plainText">temp/index</result>
@@ -93,51 +106,83 @@
 
 
 		<!--删除购物车的某一个商品 -->
-		<action name="delGoodsShopCart" class="com.qst.action.ShopCartAction" method="delGoodsShopCart">
+		<action name="delGoodsShopCart" class="com.qst.action.ShopCartAction"
+			method="delGoodsShopCart">
 			<result name="del" type="chain">getshopcargoods</result>
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
 		</action>
 
-		<action name="cartCount" class="com.qst.action.ShopCartAction" method="cartCount"></action>
+
+		<action name="cartCount" class="com.qst.action.ShopCartAction"
+			method="cartCount"></action>
+
+		<action name="addFavorite" class="com.qst.action.ShopCartAction" method="addFavorite">
+			<result name="favorite" type="chain">getshopcargoods</result>
+			<result name="login">login.html</result>
+			<result name="index" type="chain">indexShow</result>
+		</action>
+
+
+		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction" method="deleteCartGoods">
+			<result name="success" type="plainText">temp/success</result>
+			<result name="login" type="plainText">temp/login</result>
+			<result name="index" type="plainText">temp/success</result>
+		</action>
+
+
+		<action name="quickBuy" class="com.qst.action.ShopCartAction" method="quickBuy">
+			<result name="login">login.html</result>
+			<result name="index" type="chain">indexShow</result>
+			<result name="success">order-detail.jsp</result>
+		</action>
+
 
 		<!-- 得到所有的未完成订单 -->
-		<action name="getAllorder" class="com.qst.action.OrderAction"
-			method="getAllorder">
+		<action name="getAllorder" class="com.qst.action.OrderAction" method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
 
-		<!--编辑本地用户的某一个用户地址  -->
-		<action name="editAdress" class="com.qst.action.AddressAction" method="editAdress">
+		<!--编辑本地用户的某一个用户地址 -->
+		<action name="editAdress" class="com.qst.action.AddressAction"
+			method="editAdress">
 			<result name="success" type="chain">showAllAddress</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
 		<!-- 删除未完成订单 -->
-		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
-				<result name="delOrder"></result>
+		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction"
+			method="cancellationOrder">
+			<result name="delOrder"></result>
 		</action>
 
-		<!--继续支付某一个订单  -->
-			<action name="continuePayment" class="com.qst.action.OutstandingOrderAction" method="continuePayment">
-					<result name="continuePayment">/order_sub.jsp</result>
-			</action>
-			<!--支付状态改变  -->
-			 <action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
 
-			</action>
-			<!-- 已完成订单的查找 -->
-			<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction" method="comletedOrderIndex">
-				<result name="comletedOrderIndex">/Completed_Order.jsp</result>
-			</action>
-			<!-- 設置回话进入session表中 -->
-			<action name="setEvalueInSession" class="com.qst.action.SessionAction" method="setEvalueInSession">
-				<result name="evaluate">/Completed_Order.jsp</result>
-			</action>
-			
-			<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">
-				<result  name="evaluaedOrderIndex">/Completed_Order.jsp</result>
-			</action>
-			
+		<!--继续支付某一个订单 -->
+		<action name="continuePayment" class="com.qst.action.OutstandingOrderAction"
+			method="continuePayment">
+			<result name="continuePayment">/order_sub.jsp</result>
+		</action>
+		<!--支付状态改变 -->
+		<action name="payForOrder" class="com.qst.action.OrderAction"
+			method="payForOrder">
+		</action>
+		<!-- 已完成订单的查找 -->
+
+		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
+			method="comletedOrderIndex">
+			<result name="comletedOrderIndex">/Completed_Order.jsp</result>
+		</action>
+		<!-- 設置回话进入session表中 -->
+		<action name="setEvalueInSession" class="com.qst.action.SessionAction"
+			method="setEvalueInSession">
+			<result name="evaluate">/Completed_Order.jsp</result>
+		</action>
+
+		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction"
+			method="evaluaedOrderIndex">
+			<result name="evaluaedOrderIndex">/Completed_Order.jsp</result>
+
+		</action>
+
 	</package>
 </struts>

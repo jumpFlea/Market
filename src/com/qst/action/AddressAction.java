@@ -16,6 +16,15 @@ import javax.servlet.http.HttpSession;
 public class AddressAction {
 	@Resource
 	private AddressServiceImpl addressService;
+	Integer addressId;
+
+	public Integer getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
 
 	public String setAdress() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -70,9 +79,18 @@ public class AddressAction {
 			}
 			request.setAttribute("adress_list", adress_list);
 			return "success";
+		} else
+			return "error";
+	}
+
+	// 删除本用户的地址
+	public String deleteAddress() {
+		System.out.println("aaaaaaaa"+addressId);
+		Integer add = addressService.deleteAddress(addressId);
+		if (add != 0) {
+			return "success";
 		}else
 			return "error";
-
 	}
 
 }

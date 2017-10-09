@@ -39,6 +39,7 @@ define(function(require, exports, module){
             });
             checkoutValidate($numInput);
             function checkoutValidate($input, max){
+                $input.trigger('change');
                 max = max ? max : 9999;
                 var val = parseInt($input.val());
                 var $sub = $input.siblings(".subtraction-calc");

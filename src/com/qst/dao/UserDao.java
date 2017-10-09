@@ -1,5 +1,6 @@
 package com.qst.dao;
 
+import com.qst.model.ShopCartGoods;
 import com.qst.model.User;
 import org.springframework.stereotype.Component;
 
@@ -18,4 +19,6 @@ public interface UserDao {
 	int findIdByName(String username);
 
 	int updateUserInfor(User user1);
+
+    void addFavorite(ShopCartGoods item);
 }

@@ -2,15 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qst.dao.ShopCarDAO1">
 
-    <!--将获取到的g_id,uId 插入到 购物车中 -->
+    <!--将获取到的g_id,uid 插入到 购物车中 -->
     <insert id="addToCart" parameterType="ShopCartGoods" >
         insert into shopcar_goods (g_id,u_id,goods_number,price)
-        values ( #{gId},#{uId},#{goods_number},#{price});
+        values ( #{gid},#{uid},#{goods_number},#{price});
     </insert>
+    <delete id="deleteByid">
+        DELETE FROM shopcar_goods WHERE sg_id=#{0}
+    </delete>
 
     <!--通过用户id 查找商品id 从购物车中  -->
     <select id="getGoodsByUserId" parameterType="int" resultType="hashmap">
         select
+            s.sg_id AS id,
             s.g_id AS gid,
             s.price AS price,
             s.goods_number AS `number`,
@@ -25,7 +29,7 @@
     <!--通过用户id 查找商品id 从购物车中  -->
     <select id="ifExist" parameterType="ShopCartGoods" resultType="integer">
         select sg_id from shopcar_goods
-        where u_id=#{uId} and g_id=#{gId};
+        where u_id=#{uid} and g_id=#{gid};
     </select>
 
     <update id="update" parameterType="ShopCartGoods">
@@ -33,7 +37,7 @@
         SET
             goods_number=#{goods_number},
             price=#{price}
-        where sg_id=#{sgId};
+        where sg_id=#{id};
     </update>
 
     <select id="getCountByUser" parameterType="integer" resultType="integer">

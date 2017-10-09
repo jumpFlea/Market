@@ -1,7 +1,7 @@
 package com.qst.serviceImpl;
 
-import com.qst.dao.GoodsDao;
 import com.qst.dao.ShopCarDAO1;
+import com.qst.dao.UserDao;
 import com.qst.model.ShopCartGoods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ import java.util.HashMap;
 @Service
 public class ShopCarService {
 	private final ShopCarDAO1 shopCarDAO1;
-	private final GoodsDao goodsDao;
+	private final UserDao userDao;
 
 	@Autowired
-	public ShopCarService(ShopCarDAO1 shopCarDAO1, GoodsDao goodsDao) {
+	public ShopCarService(ShopCarDAO1 shopCarDAO1, UserDao userDao) {
 		this.shopCarDAO1 = shopCarDAO1;
-		this.goodsDao = goodsDao;
+		this.userDao = userDao;
 	}
 
 	public int addToCart(ShopCartGoods shopCartGoods) {
@@ -30,7 +30,7 @@ public class ShopCarService {
 			return shopCarDAO1.addToCart(shopCartGoods);
 		}
 		else {
-			shopCartGoods.setSgId(result);
+			shopCartGoods.setId(result);
 			shopCarDAO1.update(shopCartGoods);
 			return 0;
 		}
@@ -42,11 +42,21 @@ public class ShopCarService {
 		return goodsIds;
 	}
 
-	public int deleteShopcarGoodByid(int uid, int gid) {
-		return shopCarDAO1.deleteShopcarGoodByid(uid, gid);
+	public int removeCartGoods(ShopCartGoods item) {
+		return shopCarDAO1.deleteShopcarGoodByid(item.getUid(), item.getGid());
 	}
 
 	public int getCountByUser(int uid) {
 		return shopCarDAO1.getCountByUser(uid);
+	}
+
+	public void addFavorite(ShopCartGoods item) {
+		userDao.addFavorite(item);
+	}
+
+	public void deleteCartGoods(Integer[] idList) {
+		for (Integer integer : idList) {
+			shopCarDAO1.deleteByid(integer);
+		}
 	}
 }

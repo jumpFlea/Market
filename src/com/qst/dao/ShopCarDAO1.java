@@ -26,4 +26,6 @@ public interface ShopCarDAO1 {
 	void update(ShopCartGoods shopCartGoods);
 
     int getCountByUser(int uid);
+
+    void deleteByid(Integer integer);
 }
