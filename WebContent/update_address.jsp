@@ -119,9 +119,11 @@
 					<p class="info-settings">
 						<span class="info-settings-txt">地址管理</span>
 					</p>
-					<p class="info-settings">
-						<span class="info-settings-txt" style="color: red">温馨提示:可直接在文本框修改你的信息</span>
-					</p>
+					<c:if test="${adress_list!=null}">
+						<p class="info-settings">
+							<span class="info-settings-txt" style="color: red">温馨提示:可直接在文本框修改你的信息</span>
+						</p>
+					</c:if>
 					<c:forEach items="${adress_list}" var="ad">
 						<form action="editAdress" method="post">
 							<div class="info-input-row">
@@ -161,8 +163,7 @@
 					</p>
 					<form action="setAdress" method="post">
 						<div class="info-input-row">
-							<input type="text" name="ad_id" value=""
-								style="display: none">
+							<input type="text" name="ad_id" value="" style="display: none">
 							<p class="input-wrap">
 								收货人姓名:<input type="text" name="name" value="" />
 							</p>

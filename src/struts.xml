@@ -53,7 +53,7 @@
 
 		<!-- 商品发布 -->
 		<action name="releaseGoods" class="releaseGoodsAction" method="releaseGoods">
-			<result name="success">/index.jsp</result>
+			<result name="success" type="chain">indexShow</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
