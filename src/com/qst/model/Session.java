@@ -8,6 +8,32 @@ public class Session {
 	private Integer session_id;
 	private String evaluate;
 	private String reply;
+	private int u_id;
+	private long ordernumber;
+
+	public int getU_id() {
+		return u_id;
+	}
+
+
+
+	public void setU_id(int u_id) {
+		this.u_id = u_id;
+	}
+
+
+
+	public long getOrdernumber() {
+		return ordernumber;
+	}
+
+
+
+	public void setOrdernumber(long ordernumber) {
+		this.ordernumber = ordernumber;
+	}
+
+
 
 	public Session() {
 
@@ -25,11 +51,10 @@ public class Session {
 		this.session_id = session_id;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Session [session_id=" + session_id + ", evaluate=" + evaluate + ", reply=" + reply + "]";
+		return "Session [session_id=" + session_id + ", evaluate=" + evaluate + ", reply=" + reply + ", u_id=" + u_id
+				+ ", ordernumber=" + ordernumber + "]";
 	}
 
 
