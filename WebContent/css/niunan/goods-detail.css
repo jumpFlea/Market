@@ -135,6 +135,7 @@
 	font-size: 18px;
 	padding: 0 48px 0 30px;
 	position: relative;
+	cursor: pointer;
 }
 .to-buy{
 	margin-right: 20px;

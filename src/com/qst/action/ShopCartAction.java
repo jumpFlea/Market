@@ -27,10 +27,7 @@ public class ShopCartAction {
 	private final AddressServiceImpl addressService;
 	private final ShopCarService shopCarService;
 
-	private Integer goodsId;
-	private Integer uid;
-	private Integer goodsNum;
-	private Double goodsPrice;
+	private ShopCartGoods item;
 
 	@Autowired
 	public ShopCartAction(OrderServiceImpl orderService, AddressServiceImpl addressService, ShopCarService shopCarService) {
@@ -79,7 +76,12 @@ public class ShopCartAction {
 		HttpSession session = request.getSession();
 		int id = (int) session.getAttribute("uid");
 		ArrayList<HashMap> goodsList = shopCarService.getGoodsByUserId(id);
-		session.setAttribute("goodsList", goodsList);
+		if(goodsList.size() == 0){
+			session.removeAttribute("goodsList");
+		}
+		else {
+			session.setAttribute("goodsList", goodsList);
+		}
 		return "diao";
 	}
 
@@ -124,21 +126,16 @@ public class ShopCartAction {
 	 * 添加商品到与用户关联的购物车
 	 */
 	public String addToShopCart() {
-		String login="login.html";
-		if (uid == null){
+		if (item == null || item.getUid() == null){
 			return "login";
 		}
-		else if(goodsId == null){
-			return "index";
-		}
 		else {
-			ShopCartGoods shopCartGood = new ShopCartGoods();
-			shopCartGood.setuId(uid);
-			shopCartGood.setgId( goodsId );
-			shopCartGood.setGoods_number(goodsNum);
-			shopCartGood.setPrice(goodsPrice);
-			shopCarService.addToCart(shopCartGood);
-			return "success";
+			try {
+				shopCarService.addToCart(item);
+				return "success";
+			} catch (Exception e) {
+				return "index";
+			}
 		}
 	}
 
@@ -146,69 +143,73 @@ public class ShopCartAction {
 	 * 删除购物车里的某一个商品
 	 */
 	public String delGoodsShopCart() {
-		if (uid == null){
+		if (item == null || item.getUid() == null){
 			return "login";
 		}
-		else if(goodsId == null) {
-			return "index";
+		else {
+			try {
+				shopCarService.removeCartGoods(item);
+				return "del";
+			} catch (Exception e) {
+				return "index";
+			}
+		}
+	}
+
+	public String addFavorite() {
+		if (item == null || item.getUid() == null){
+			return "login";
 		}
 		else {
-			shopCarService.deleteShopcarGoodByid(uid, goodsId);
-			return "del";
+			try {
+				shopCarService.addFavorite(item);
+				delGoodsShopCart();
+				return "favorite";
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				if(e.getMessage().contains("Duplicate")) {
+					delGoodsShopCart();
+					return "favorite";
+				}
+				else {
+					return "index";
+				}
+			}
 		}
 	}
 
 	public void cartCount(){
 		HttpServletResponse response = ServletActionContext.getResponse();
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
 		PrintWriter out = null;
-		int uid = ((User) session.getAttribute("user")).getUid();
-		int jsonString;
+		int uid = ((User) ServletActionContext.getRequest().getSession().getAttribute("user")).getUid();
+		int result;
 		try {
 			out = response.getWriter();
-			jsonString = shopCarService.getCountByUser(uid);
+			result = shopCarService.getCountByUser(uid) + 1;
 		} catch (IOException e) {
-			jsonString = -1;
+			result = -1;
 			e.printStackTrace();
 		}
 
 		if (out != null) {
-			out.println(jsonString);
+			out.println(result);
 			out.flush();
 			out.close();
+
 		}
 	}
 
-	public Integer getGoodsId() {
-		return goodsId;
+	public String quickBuy(){
+		ServletActionContext.getRequest().getSession().setAttribute("goods",item);
+		return "success";
+
 	}
 
-	public void setGoodsId(Integer goodsId) {
-		this.goodsId = goodsId;
+	public ShopCartGoods getItem() {
+		return item;
 	}
 
-	public Integer getUid() {
-		return uid;
-	}
-
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
-
-	public Integer getGoodsNum() {
-		return goodsNum;
-	}
-
-	public void setGoodsNum(Integer goodsNum) {
-		this.goodsNum = goodsNum;
-	}
-
-	public Double getGoodsPrice() {
-		return goodsPrice;
-	}
-
-	public void setGoodsPrice(Double goodsPrice) {
-		this.goodsPrice = goodsPrice;
+	public void setItem(ShopCartGoods item) {
+		this.item = item;
 	}
 }

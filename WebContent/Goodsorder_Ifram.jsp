@@ -53,6 +53,7 @@
 				<td class="tb1_td7">你对商品的评价：
 				 <input style="width: 200px; height: 50px; border: 1px solid #ccc;"
 						 name="evaluate" />
+				 <input type="hidden" value="${goodsOrder.ordernumber }" name="ordernumber"/>
 				<input type="hidden" value="${goodsOrder.g_id}" name="g_id"/>
 				<input type="submit" value="提交"/>
 					</td>
@@ -67,6 +68,29 @@
 			 
 		
 </div>
+
+<div class="page-num">
+			<nav>
+			
+			
+			<ul class="pagination">
+				<c:if test="${pImageList.currentPage!=1}">
+					<li><a href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>
+				</c:if>
+				<c:forEach var="i" begin="1" end="${pImageList.countPage}">
+					<c:if test="${i==pImageList.currentPage}">
+						<li class="active"><a>${i}</a></li>
+					</c:if>
+					<c:if test="${i!=pImageList.currentPage}">
+						<li><a href="indexShow?page=${i}&type=${type}">${i}</a></li>
+					</c:if>
+				</c:forEach>
+				<c:if test="${pImageList.currentPage!=pImageList.countPage}">
+					<li><a href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
+				</c:if>
+			</ul>
+			</nav>
+		</div>
 	
 </body>
 </html>

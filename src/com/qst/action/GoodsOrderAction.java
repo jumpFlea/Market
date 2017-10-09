@@ -35,7 +35,7 @@ public class GoodsOrderAction {
 		HttpSession session = request.getSession();
 		String flag =request.getParameter("flag");
 		int u_id = (int) session.getAttribute("uid");
-		int pay_type = 1;
+		int pay_type = Integer.parseInt(request.getParameter("pay_type"));
 		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
 		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, pay_type, 0, 5);
 		session.setAttribute("goodsOrders_list", goodsOrders_list);

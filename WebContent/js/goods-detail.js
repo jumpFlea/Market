@@ -167,7 +167,9 @@ $plus.on("click", function(){
 
 
 function addToCart(button) {
-    $.get($(button).attr('ref')+"&goodsNum="+$goodsNumber,function (data) {
+    $.get(
+        $(button).attr('ref') + "&item.goods_number="+$goodsNumber,
+        function (data) {
         if(data === "login"){
             window.location.href="login.html";
         }

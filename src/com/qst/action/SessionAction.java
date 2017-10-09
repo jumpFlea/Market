@@ -2,6 +2,7 @@ package com.qst.action;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
@@ -16,9 +17,12 @@ public class SessionAction {
 	public String setEvalueInSession()
 	{
 		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session =request.getSession();
+		int uid =(int) session.getAttribute("uid");
+		long ordernumber =Long.parseLong(request.getParameter("ordernumber"));
 		int g_id = Integer.parseInt(request.getParameter("g_id"));
 		String evaluate =(String) request.getParameter("evaluate");
-		sessionService.setSession(evaluate);
+		sessionService.setSession(evaluate,uid,ordernumber);
 		int session_id =sessionService.getMaxFromSession();
 		sessionService.setGoods_Session(session_id, g_id);
 		request.setAttribute("flag", 1);

@@ -26,6 +26,7 @@
 			<result name="input">/error.jsp</result>
 		</action>
 
+
 		<!--地址显示 -->
 		<action name="showAllAddress" class="addressAction" method="showAllAddress">
 			<result name="success">/update_address.jsp</result>
@@ -42,6 +43,7 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+
 		<!-- 商品详情页面展示 -->
 		<action name="goodsDetail" class="goodsDetailAction" method="showGoods">
 			<result name="success">/goods_detail.jsp</result>
@@ -54,8 +56,6 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-
-
 
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"
@@ -81,9 +81,9 @@
 		</action>
 
 		<!-- 设置我的地址 -->
-
 		<action name="setAdress" class="com.qst.action.AddressAction"
 			method="setAdress">
+
 
 		</action>
 
@@ -113,12 +113,25 @@
 			<result name="index" type="chain">indexShow</result>
 		</action>
 
+
 		<action name="cartCount" class="com.qst.action.ShopCartAction"
 			method="cartCount"></action>
 
+		<action name="addFavorite" class="com.qst.action.ShopCartAction" method="addFavorite">
+			<result name="favorite" type="chain">getshopcargoods</result>
+			<result name="login">login.html</result>
+			<result name="index" type="chain">indexShow</result>
+		</action>
+
+		<action name="quickBuy" class="com.qst.action.ShopCartAction" method="quickBuy">
+			<result name="login">login.html</result>
+			<result name="index" type="chain">indexShow</result>
+			<result name="success">order-detail.jsp</result>
+		</action>
+
+
 		<!-- 得到所有的未完成订单 -->
-		<action name="getAllorder" class="com.qst.action.OrderAction"
-			method="getAllorder">
+		<action name="getAllorder" class="com.qst.action.OrderAction" method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
 
@@ -135,6 +148,7 @@
 			<result name="delOrder"></result>
 		</action>
 
+
 		<!--继续支付某一个订单 -->
 		<action name="continuePayment" class="com.qst.action.OutstandingOrderAction"
 			method="continuePayment">
@@ -143,9 +157,9 @@
 		<!--支付状态改变 -->
 		<action name="payForOrder" class="com.qst.action.OrderAction"
 			method="payForOrder">
-
 		</action>
 		<!-- 已完成订单的查找 -->
+
 		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="comletedOrderIndex">
 			<result name="comletedOrderIndex">/Completed_Order.jsp</result>
@@ -159,6 +173,7 @@
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="evaluaedOrderIndex">
 			<result name="evaluaedOrderIndex">/Completed_Order.jsp</result>
+
 		</action>
 
 	</package>
