@@ -44,6 +44,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		rgs.releaseGoods(goods);
 		userGoods = new UserGoods();

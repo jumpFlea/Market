@@ -167,7 +167,7 @@
 		</action>
 
 		<!-- 删除未完成订单 -->
-		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
+			<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
 			<result name="delOrder" type="chain">myOrders</result>
 		</action>
 
