@@ -29,7 +29,7 @@ public class SetGoodsInOrderAction {
 		int g_id = Integer.parseInt(request.getParameter("Goodid"));
 		float prince = Float.parseFloat(request.getParameter("Goodprice"));
 		int og_num = Integer.parseInt(request.getParameter("Goodsum"));
-		orderService.creatorder_good(ordernumber, g_id, prince, og_num);
+		orderService.addGoodsToOrder(ordernumber, g_id, prince, og_num);
 		//orderService.setOrderType(ordernumber); // 将订单转台转化为1 待支付状态
 		return "order";
 	}

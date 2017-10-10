@@ -1,5 +1,6 @@
 package com.qst.serviceImpl;
 
+import com.qst.dao.GoodsOrderDao;
 import com.qst.dao.ShopCarDAO1;
 import com.qst.dao.orderDao;
 import com.qst.model.Adress;
@@ -12,23 +13,27 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.function.Consumer;
 
 @Service
 public class OrderServiceImpl{
 	private final orderDao orderDao;
 	private final ShopCarDAO1 shopCarDAO1;
+	private final GoodsOrderDao goodsOrderDao;
 
 	@Autowired
-	public OrderServiceImpl(orderDao orderDao, ShopCarDAO1 shopCarDAO1) {
+	public OrderServiceImpl(orderDao orderDao, ShopCarDAO1 shopCarDAO1, GoodsOrderDao goodsOrderDao) {
 		this.orderDao = orderDao;
 		this.shopCarDAO1 = shopCarDAO1;
+		this.goodsOrderDao = goodsOrderDao;
 	}
 
 	public int creatorder(int u_id, long ordernumber) {
 		return orderDao.creatorder(u_id, ordernumber);
 	}
 
-	public int creatorder_good(long ordernumber, Integer g_id, Float prince, Integer og_num) {
+	public int addGoodsToOrder(long ordernumber, Integer g_id, Float prince, Integer og_num) {
 		return orderDao.creatorder_good(ordernumber, g_id, prince, og_num);
 	}
 
@@ -79,10 +84,6 @@ public class OrderServiceImpl{
 			return orderDao.delOrderInorder(ordernumber);
 	}
 
-	public int delOrderInorder_goods(long ordernumber) {
-		return orderDao.delOrderInorder_goods(ordernumber);
-	}
-
 	public Adress getAdressByOrdernumber(long ordernumber) {
 		return orderDao.getAdressByOrdernumber(ordernumber);
 	}
@@ -106,9 +107,21 @@ public class OrderServiceImpl{
 
 		orderDao.createOrder(uid, id, count, addressId);
 		for (int i = 0;i < gid.length;i++) {
-			creatorder_good(id,gid[i],price[i],number[i]);
+			addGoodsToOrder(id,gid[i],price[i],number[i]);
 			shopCarDAO1.deleteShopcarGoodByid(uid,gid[i]);
 		}
 		return id;
+	}
+
+	public ArrayList<HashMap> getOrderByUser(int uid) throws Exception{
+		ArrayList<HashMap> orders = orderDao.getOrderByUser(uid);
+		orders.forEach(new Consumer<HashMap>() {
+			@Override
+			public void accept(HashMap hashMap) {
+				ArrayList<HashMap> goodsList = goodsOrderDao.getGoodsByOrder((Long) hashMap.get("id"));
+				hashMap.put("goodsList",goodsList);
+			}
+		});
+		return orders;
 	}
 }

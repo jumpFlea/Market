@@ -58,7 +58,7 @@
 			</ul>
 			<ul class="fr 1h">
 				<li class="fl"><div class="menu_hd">
-						<a href="#">我的订单</a>
+						<a href="userOrder.action">我的订单</a>
 					</div></li>
 				<li class="fl"><i class="shortcut_s"></i></li>
 				<li class="fl"><div class="menu_hd">

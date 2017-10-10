@@ -152,8 +152,6 @@
 			method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
-		
-		
 
 		<!--编辑本地用户的某一个用户地址 -->
 		<action name="editAdress" class="com.qst.action.AddressAction"

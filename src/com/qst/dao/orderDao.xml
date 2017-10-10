@@ -27,9 +27,23 @@
 	<select id="getSumprince" parameterType="java.lang.Long" resultType="float">
 		SELECT SUM(prince*og_num) FROM order_goods where ordernumber=#{ordernumber};
 	</select>
+	<select id="getOrderByUser" resultType="java.util.HashMap">
+		SELECT
+			o.ordernumber AS id,
+			o.pay_type AS payType,
+			o.price AS price,
+			o.status AS `status`,
+			a.street AS street,
+			a.region AS region,
+			a.phone AS phone,
+			a.name AS `name`
+		FROM `order` o
+		LEFT JOIN adress a ON o.ad_id = a.ad_id
+		WHERE o.u_id=#{0}
+	</select>
 
 	<insert id="createOrder" >
-		INSERT INTO `order` (u_id,ordernumber,price,ad_id)
-		VALUES (#{0},#{1},#{2},#{3})
+		INSERT INTO `order` (u_id,ordernumber,price,ad_id,status)
+		VALUES (#{0},#{1},#{2},#{3},1)
 	</insert>
 </mapper>

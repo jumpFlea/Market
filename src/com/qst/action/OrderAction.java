@@ -1,6 +1,7 @@
 package com.qst.action;
 
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.GoodsOrder;
 import com.qst.serviceImpl.GoodsService;
 import com.qst.serviceImpl.OrderServiceImpl;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 
 @Controller
-public class OrderAction {
+public class OrderAction extends ActionSupport{
 	private final OrderServiceImpl orderService;
 	private final GoodsService goodsService;
 	private Float[] price;
@@ -102,6 +103,23 @@ public class OrderAction {
 			return "login";
 		}
     }
+
+    public String getMyOrders(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		Integer uid = (Integer) session.getAttribute("uid");
+		try {
+			if(uid == null){
+				return "login";
+			}
+			else {
+				request.setAttribute( "orders",orderService.getOrderByUser(uid) );
+				return SUCCESS;
+			}
+		} catch (Exception e){
+			return "index";
+		}
+	}
 
 	public void setPrice(Float[] price) {
 		this.price = price;

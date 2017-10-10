@@ -61,7 +61,7 @@ public class ShopCartAction {
 			Fgoodsum[i] = Integer.parseInt(goodsnum[i]);
 			Fgid[i] = Integer.parseInt(gid[i]);
 			orderService.creatorder(u_id, ordernumber); // 创建订单表
-			orderService.creatorder_good(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建商品连接表
+			orderService.addGoodsToOrder(ordernumber, Fgid[i], Fprice[i], Fgoodsum[i]); // 创建商品连接表
 		}
 		return "order";
 	}

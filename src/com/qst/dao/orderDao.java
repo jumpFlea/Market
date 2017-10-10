@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Component
 public interface orderDao {
@@ -96,4 +97,6 @@ public interface orderDao {
 
 
     void createOrder(Integer uid, long id, double count, int addressId);
+
+    ArrayList<HashMap> getOrderByUser(int uid);
 }
