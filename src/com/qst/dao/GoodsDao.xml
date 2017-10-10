@@ -10,8 +10,7 @@
 	</select>
 
 	<!--发布商平的,插入商品的信息,返回插入刚刚生成的id号 -->
-	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true"
-		keyProperty="g_id">
+	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true" keyProperty="g_id">
 		insert into
 		goods(g_price,g_name,g_attribute,u_id,restnum,introduce,image_zhanshi,market_price,
 		g_content)
@@ -41,8 +40,7 @@
 	</select>
 
 	<!--查找指定类型的商品数量，类型无则查询所有 -->
-	<select id="findImageNum" parameterType="java.lang.String"
-		resultType="int">
+	<select id="findImageNum" parameterType="java.lang.String" resultType="int">
 		select count(g_id) from goods
 		<where>
 			<if test="type!=null and ''!= type">
@@ -69,8 +67,7 @@
 	</select>
 	<resultMap id="getSessionId" type="GoodsSession">
 		<id column="g_id" property="g_id" />
-		<association column="session_id" property="session"
-			javaType="Session" select="getEvaluate">
+		<association column="session_id" property="session" javaType="Session" select="getEvaluate">
 		</association>
 	</resultMap>
 	<select id="getEvaluate" parameterType="int" resultType="Session">
@@ -78,7 +75,10 @@
 		from session where session_id=#{session_id}
 	</select>
 
-
-
-
+	<!--查找评价该商品的所有用户信息 -->
+	<select id="showUserInfo" parameterType="int" resultType="User">
+		SELECT uid,username,u_image from usertable,(SELECT u_id from `session`,goods_session where g_id=1 AND
+		`session`.session_id=goods_session.session_id)d
+		WHERE d.u_id =usertable.uid
+	</select>
 </mapper>

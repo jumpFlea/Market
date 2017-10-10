@@ -234,14 +234,14 @@
 				<div class="side-detail nopadding">
 					<!--评价列表-->
 					<c:if test="${evaluate!=null}">
-						<c:forEach items="${evaluate}" var="item">
+						<c:forEach items="${evaluate}" var="item" varStatus="i">
 							<div class="commet-wrap">
 								<!-- 评论列表项 -->
 								<div class="commet-item clear">
 									<!-- 头像 -->
 									<div class="uer-head-pic">
 										<div class="head-wrap">
-											<img src="images/user-head-pic.png" alt="" class="head-pic">
+											<img src="${userList[i.index].u_image}" alt="" class="head-pic">
 										</div>
 									</div>
 									<!-- 时间，星级 -->
@@ -256,7 +256,7 @@
 									</div>
 									<!-- 评论主体 -->
 									<div class="c-commet-body">
-										<div class="c-user-name">NEONAN.COM</div>
+										<div class="c-user-name">${userList[i.index].username}</div>
 										<div class="c-con"><c:out value="${item.session.evaluate}"></c:out></div>
 										<div class="c-style"></div>
 									</div>

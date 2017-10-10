@@ -1,16 +1,18 @@
 package com.qst.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.qst.dao.GoodsDao;
 import com.qst.dao.UserGoodsDAO;
 import com.qst.model.Goods;
 import com.qst.model.GoodsSession;
 import com.qst.model.Page;
+import com.qst.model.User;
 import com.qst.model.UserGoods;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by tomatofrommars on 10/6/17.
@@ -88,5 +90,9 @@ public class GoodsService {
 	//找到此商品的评价
 	public List<GoodsSession> showEvaluate(int goodId){
 		return goodsDao.showEvaluate(goodId);
+	}
+	
+	public List<User> showUserInfo(int goodId){
+		return goodsDao.showUserInfo(goodId);
 	}
 }
