@@ -103,6 +103,7 @@
 						<button class="plus-calc">+</button>
 					</div>
 				</span>
+				
 				<!-- 已经添加到购物车状态 -->
 				<div class="add-cart">
 					<div class="add-car-tips" hidden>
@@ -117,14 +118,15 @@
 							添加到购物车
 							<span></span>
 						</a>
-						<a class="continue-find" onclick="quickBuy(this)"
-						   href="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
+						<a class="continue-find" href="setgoodsinordre?Goodprice=${good.g_price}&Goodid=${good.g_id}&Goodsum=1">
 							立即购买
-							<span></span>
+						<span></span>
 						</a>
 					</div>
 				</div>
+				
 				<!-- end -->
+				
 				<!-- 选择商品状态 -->
 				<div class="choose-goods" style="display: none">
 					<div class="item c-color">
