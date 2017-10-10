@@ -21,4 +21,6 @@ public interface UserDao {
 	int updateUserInfor(User user1);
 
     void addFavorite(ShopCartGoods item);
+    
+    
 }

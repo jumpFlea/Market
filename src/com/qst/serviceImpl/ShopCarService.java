@@ -37,9 +37,7 @@ public class ShopCarService {
 	}
 
 	public ArrayList<HashMap> getGoodsByUserId(int id) {
-		ArrayList<HashMap> goodsIds = shopCarDAO1.getGoodsByUserId(id);
-
-		return goodsIds;
+		return shopCarDAO1.getGoodsByUserId(id);
 	}
 
 	public int removeCartGoods(ShopCartGoods item) {
@@ -58,5 +56,12 @@ public class ShopCarService {
 		for (Integer integer : idList) {
 			shopCarDAO1.deleteByid(integer);
 		}
+	}
+
+	public HashMap getGoods(ShopCartGoods item) {
+		HashMap hashMap =  shopCarDAO1.getGoods(item);
+		hashMap.put("number",item.getGoods_number());
+		hashMap.put("price",item.getPrice());
+		return hashMap;
 	}
 }

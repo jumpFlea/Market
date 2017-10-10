@@ -224,7 +224,7 @@
 				<form id="checkoutForm" action="payForOrder" method="post">
 					<div class="checkout-box-bd">
 						<!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
-						
+
 						<!-- 收货地址 -->
 						<div class="xm-box">
 							<div class="box-hd ">
@@ -250,7 +250,7 @@
 												<input type="radio" name="Checkout"
 													class="addressId" value="${adress.ad_id }">
 											</dd>
-											
+
 										</dl>
 										</c:forEach>
 										<a  href="addnew_adress.jsp"><div class="item use-new-addr" id=""
@@ -258,9 +258,9 @@
 											<span class="iconfont icon-add"><img
 												src="images/add_cart.png" /></span> 使用新地址
 										</div></a>
-										
-									</div>			
-							
+
+									</div>
+
 						</div>
 						<!-- 收货地址 END-->
 						<div id="checkoutPayment">
@@ -416,14 +416,14 @@
 										</dt>
 										<input name="ordernumber" value="${ordernumber }"></input>
 											<c:forEach items="${goods_items_list}" var="goods">
-											
+
 												<dd class="item clearfix">
 													<div class="item-row">
 														<div class="col col-1">
 															<div class="g-pic">
 																<img
 																	src="${goods.image_zhanshi }"
-																	
+
 																	width="40" height="40" />
 															</div>
 															<div class="g-info">
@@ -437,7 +437,7 @@
 													</div>
 												</dd>
 											</c:forEach>
-										
+
 									</dl>
 									<div class="checkout-count clearfix">
 										<div class="checkout-count-extend xm-add-buy">

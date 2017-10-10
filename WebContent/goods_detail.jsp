@@ -16,7 +16,7 @@
 	<div class="header">
 		<div class="header-content toCenter">
 			<h1 class="logo" title="牛男网商城">
-				<a href=""><img src="images/logo.png" alt="" class="logo-img"></a>
+				<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
 			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
@@ -117,8 +117,8 @@
 							添加到购物车
 							<span></span>
 						</a>
-						<a class="continue-find"
-						   href="quickBuy.action?&goodsPrice=${good.g_price}&goodsId=${good.g_id}&uid=${user.uid}">
+						<a class="continue-find" onclick="quickBuy(this)"
+						   href="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
 							立即购买
 							<span></span>
 						</a>
@@ -234,14 +234,14 @@
 				<div class="side-detail nopadding">
 					<!--评价列表-->
 					<c:if test="${evaluate!=null}">
-						<c:forEach items="${evaluate}" var="item">
+						<c:forEach items="${evaluate}" var="item" varStatus="i">
 							<div class="commet-wrap">
 								<!-- 评论列表项 -->
 								<div class="commet-item clear">
 									<!-- 头像 -->
 									<div class="uer-head-pic">
 										<div class="head-wrap">
-											<img src="images/user-head-pic.png" alt="" class="head-pic">
+											<img src="${userList[i.index].u_image}" alt="" class="head-pic">
 										</div>
 									</div>
 									<!-- 时间，星级 -->
@@ -256,7 +256,7 @@
 									</div>
 									<!-- 评论主体 -->
 									<div class="c-commet-body">
-										<div class="c-user-name">NEONAN.COM</div>
+										<div class="c-user-name">${userList[i.index].username}</div>
 										<div class="c-con"><c:out value="${item.session.evaluate}"></c:out></div>
 										<div class="c-style"></div>
 									</div>
@@ -379,7 +379,7 @@
 			</div>
 		</div>
 	</div>
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/goods-detail.js"></script>
 </body>
 </html>

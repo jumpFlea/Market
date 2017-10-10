@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,7 @@
 	<!-- 顶部导航条 -->
 	<div class="nav">
 		<ul class="container" style="background: transparent;">
-			<li class="nav-pull-down location">
-				<img src="images/logo.png">
+			<li class="nav-pull-down location"><img src="images/logo.png">
 			</li>
 			<li><a href="#">客户服务</a></li>
 			<li><a href="release_goods.jsp">发布商品</a></li>
@@ -22,9 +22,8 @@
 			<li class="nav-pull-down my-shop"><a href="#">订单管理</a> <span
 				class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
-				<li class="login-signup">
-					[<a href="login.html">登录 </a>
-					<a href="login.html#signup">注册</a> ]
+				<li class="login-signup">[<a href="login.html">登录 </a> <a
+					href="login.html#signup">注册</a> ]
 				</li>
 			</c:if>
 			<c:if test="${user != null}">
@@ -33,22 +32,26 @@
 			</c:if>
 		</ul>
 	</div>
-	<!-- 搜索框 -->
-	<div class="search">
-		<div class="search-body">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="输入你想要的商品">
-				<span class="input-group-btn">
-					<button class="btn btn-danger btn-search" type="button">
-						<i class="fa fa-search"></i>
-					</button>
-				</span>
-			</div>
-			<div class="search-keyword">
-				<p>手机壳6plus 手机壳6 手机壳7 手机壳6s plus 手机壳7 手机壳华为 手机</p>
+	<form action="indexShow" method="post">
+		<!-- 搜索框 -->
+		<div class="search">
+			<div class="search-body">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="输入你想要的商品"
+						name="gname"> <span class="input-group-btn">
+					<input name="page" value="1">
+						<button class="btn btn-danger btn-search" type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+
+				</div>
+				<div class="search-keyword">
+					<p>手机壳6plus 手机壳6 手机壳7 手机壳6s plus 手机壳7 手机壳华为 手机</p>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	<!-- 导航栏 -->
 	<div class="search-nav">
 		<div class="search-nav-container">
@@ -76,7 +79,7 @@
 				<div class="item-class-select">
 					<c:if test="${attri!=null}">
 						<c:forEach items="${attri}" var="a">
-							<a href="indexShow?type=${a}&page=${1}"><span><c:out
+							<a href="indexShow?type=${a}&page=${1}&gname="><span><c:out
 										value="${a}"></c:out></span></a>
 						</c:forEach>
 					</c:if>
@@ -262,22 +265,25 @@
 		<!--分页的样式-->
 		<div class="page-num">
 			<nav>
-			<ul class="pagination">
-				<c:if test="${pImageList.currentPage!=1}">
-					<li><a href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>
-				</c:if>
-				<c:forEach var="i" begin="1" end="${pImageList.countPage}">
-					<c:if test="${i==pImageList.currentPage}">
-						<li class="active"><a>${i}</a></li>
+				<ul class="pagination">
+					<c:if test="${pImageList.currentPage!=1}">
+						<li><a
+							href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span
+								aria-hidden="true">&laquo;</span></a></li>
 					</c:if>
-					<c:if test="${i!=pImageList.currentPage}">
-						<li><a href="indexShow?page=${i}&type=${type}">${i}</a></li>
+					<c:forEach var="i" begin="1" end="${pImageList.countPage}">
+						<c:if test="${i==pImageList.currentPage}">
+							<li class="active"><a>${i}</a></li>
+						</c:if>
+						<c:if test="${i!=pImageList.currentPage}">
+							<li><a href="indexShow?page=${i}&type=${type}">${i}</a></li>
+						</c:if>
+					</c:forEach>
+					<c:if test="${pImageList.currentPage!=pImageList.countPage}">
+						<li><a
+							href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
 					</c:if>
-				</c:forEach>
-				<c:if test="${pImageList.currentPage!=pImageList.countPage}">
-					<li><a href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
-				</c:if>
-			</ul>
+				</ul>
 			</nav>
 		</div>
 	</div>
@@ -287,91 +293,91 @@
 	<div class="clearfix"></div>
 	<!-- 底部 -->
 	<footer class="footer">
-	<div class="clearfix"></div>
-	<div class="icon-row">
-		<div class="footer-icon">
-			<h5 class="footer-icon-child"></h5>
-			<span class="footer-icon-text">品类齐全，轻松购物</span>
-		</div>
-		<div class="footer-icon">
-			<h5 class="footer-icon-child footer-icon-child-2"></h5>
-			<span class="footer-icon-text">多仓直发，极速配送</span>
-		</div>
-		<div class="footer-icon">
-			<h5 class="footer-icon-child footer-icon-child-3"></h5>
-			<span class="footer-icon-text">正品行货，精致服务</span>
-		</div>
-		<div class="footer-icon">
-			<h5 class="footer-icon-child footer-icon-child-4"></h5>
-			<span class="footer-icon-text">天天低价，畅选无忧</span>
-		</div>
-	</div>
-	<div class="service-intro">
-		<div class="servece-type">
-			<div class="servece-type-info">
-				<ul>
-					<li>购物指南</li>
-					<li>购物流程</li>
-					<li>会员介绍</li>
-					<li>生活旅行</li>
-					<li>常见问题</li>
-					<li>大家电</li>
-					<li>联系客服</li>
-				</ul>
-			</div>
-			<div class="servece-type-info">
-				<ul>
-					<li>配送方式</li>
-					<li>上门自提</li>
-					<li>211限时达</li>
-					<li>配送服务查询</li>
-					<li>配送费收取标准</li>
-					<li>海外配送</li>
-				</ul>
-			</div>
-			<div class="servece-type-info">
-				<ul>
-					<li>支付方式</li>
-					<li>货到付款</li>
-					<li>在线支付</li>
-					<li>分期付款</li>
-					<li>邮局汇款</li>
-					<li>公司转账</li>
-				</ul>
-			</div>
-			<div class="servece-type-info">
-				<ul>
-					<li>售后服务</li>
-					<li>售后政策</li>
-					<li>价格保护</li>
-					<li>退款说明</li>
-					<li>返修/退换货</li>
-					<li>取消订单</li>
-				</ul>
-			</div>
-		</div>
 		<div class="clearfix"></div>
-		<div class="friend-link">
-			<div class="friend-link-item">
-				<ul>
-					<li><span class="link-item">关于我们</span></li>
-					<li><span class="link-item">联系我们</span></li>
-					<li><span class="link-item">联系客服</span></li>
-					<li><span class="link-item">合作招商</span></li>
-					<li><span class="link-item">商家帮助</span></li>
-					<li><span class="link-item">营销中心</span></li>
-					<li><span class="link-item">销售联盟</span></li>
-					<li><span class="link-item">校园社区</span></li>
-					<li><span class="link-item">风险监测</span></li>
-					<li><span class="link-item link-last-item">隐私政策</span></li>
-				</ul>
+		<div class="icon-row">
+			<div class="footer-icon">
+				<h5 class="footer-icon-child"></h5>
+				<span class="footer-icon-text">品类齐全，轻松购物</span>
+			</div>
+			<div class="footer-icon">
+				<h5 class="footer-icon-child footer-icon-child-2"></h5>
+				<span class="footer-icon-text">多仓直发，极速配送</span>
+			</div>
+			<div class="footer-icon">
+				<h5 class="footer-icon-child footer-icon-child-3"></h5>
+				<span class="footer-icon-text">正品行货，精致服务</span>
+			</div>
+			<div class="footer-icon">
+				<h5 class="footer-icon-child footer-icon-child-4"></h5>
+				<span class="footer-icon-text">天天低价，畅选无忧</span>
 			</div>
 		</div>
-		<div class="clearfix"></div>
-		<div class="copyright">
-			<p>Copyright © 2017 BY Gavin 林智杰</p>
+		<div class="service-intro">
+			<div class="servece-type">
+				<div class="servece-type-info">
+					<ul>
+						<li>购物指南</li>
+						<li>购物流程</li>
+						<li>会员介绍</li>
+						<li>生活旅行</li>
+						<li>常见问题</li>
+						<li>大家电</li>
+						<li>联系客服</li>
+					</ul>
+				</div>
+				<div class="servece-type-info">
+					<ul>
+						<li>配送方式</li>
+						<li>上门自提</li>
+						<li>211限时达</li>
+						<li>配送服务查询</li>
+						<li>配送费收取标准</li>
+						<li>海外配送</li>
+					</ul>
+				</div>
+				<div class="servece-type-info">
+					<ul>
+						<li>支付方式</li>
+						<li>货到付款</li>
+						<li>在线支付</li>
+						<li>分期付款</li>
+						<li>邮局汇款</li>
+						<li>公司转账</li>
+					</ul>
+				</div>
+				<div class="servece-type-info">
+					<ul>
+						<li>售后服务</li>
+						<li>售后政策</li>
+						<li>价格保护</li>
+						<li>退款说明</li>
+						<li>返修/退换货</li>
+						<li>取消订单</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="friend-link">
+				<div class="friend-link-item">
+					<ul>
+						<li><span class="link-item">关于我们</span></li>
+						<li><span class="link-item">联系我们</span></li>
+						<li><span class="link-item">联系客服</span></li>
+						<li><span class="link-item">合作招商</span></li>
+						<li><span class="link-item">商家帮助</span></li>
+						<li><span class="link-item">营销中心</span></li>
+						<li><span class="link-item">销售联盟</span></li>
+						<li><span class="link-item">校园社区</span></li>
+						<li><span class="link-item">风险监测</span></li>
+						<li><span class="link-item link-last-item">隐私政策</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="copyright">
+				<p>Copyright © 2017 BY Gavin 林智杰</p>
+			</div>
 		</div>
-	</div>
 	</footer>
 
 	<!-- 页面上的各种浮窗 -->
@@ -410,8 +416,10 @@
 				class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href="comletedOrderIndex?pay_type=1&flag=1"><span class="my-item">未评价订单</span></a>
-			<a href="evaluaedOrderIndex?pay_type=1&flag=2"> <span class="my-item">已评价订单</span></a>
+			<a href="comletedOrderIndex?pay_type=1&flag=1"><span
+				class="my-item">未评价订单</span></a> <a
+				href="evaluaedOrderIndex?pay_type=1&flag=2"> <span
+				class="my-item">已评价订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">全部订单</span> <span class="my-item">我的问答</span>

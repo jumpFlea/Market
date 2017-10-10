@@ -31,8 +31,8 @@
 					<td class="tb1_td7">操作</td>
 				</tr>
 			</table>
-		
-		<c:forEach items="${goodsOrders_list}" var="goodsOrder"> 
+
+		<c:forEach items="${goodsOrders_list}" var="goodsOrder">
 		<form action="setEvalueInSession" method="post">
 			<table cellpadding="0" cellspacing="0" class="gwc_tb2">
 				<tr>
@@ -44,25 +44,25 @@
 					<td class="tb2_td3"><a href="#"><c:out value="${ goodsOrder.g_name}"></c:out></a>
 					</td>
 					<td class="tb1_td4"><c:out value="${goodsOrder.ordernumber }"></c:out></td>
-						
+
 					<td class="tb1_td7">商品号： <input
 						style="width: 20px; height: 18px; border: 1px solid #ccc;"
 						disabled="disabled" value="${ goodsOrder.g_id}" name="gid" />
 					</td>
-					
-				
+
+
 					</td>
-					
-					
+
+
 				</tr>
 			</table>
 			</form>
 			 </c:forEach>
-			 <!--移除session  --> 
+			 <!--移除session  -->
 			 <% session.removeAttribute("goodsOrders_list"); %>
-			 
-		
+
+
 </div>
-	
+
 </body>
 </html>

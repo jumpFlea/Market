@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>个人信息－小马交易</title>
+<title>个人信息－小马交易</title>
 <link rel="stylesheet" href="css/niunan/neat.css">
 <link rel="stylesheet" href="css/niunan/public2.css">
 <link rel="stylesheet" href="css/niunan/layout.css">
@@ -13,35 +13,34 @@
 <link rel="stylesheet" href="css/niunan/user-info-settings.css" />
 </head>
 <body>
-<div class="header">
-	<div class="header-content toCenter">
-		<h1 class="logo" title="牛男网商城">
-			<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
-		</h1>
-		<div class="small-nav">
-			<ul class="nav-wrap clear">
-				<li class="nav-item end-item"><a href="">客户服务</a></li>
-				<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
-				<li class="nav-item"><a href="">商城会员</a></li>
-				<li class="nav-item"><a href="#">我的订单</a></li>
-				<c:if test="${user == null}">
-					<li class="nav-item first-item">
-						[<a href="login.html" class="login">登录 </a>
-						<a href="login.html#signup" class="register">注册</a> ]
-					</li>
-				</c:if>
-				<c:if test="${user != null}">
-					<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
-					<li class="nav-item">
-						<a href="showUserInfor.action">${user.username}
-							<span class="glyphicon glyphicon-menu-down"></span>
-						</a>
-					</li>
-				</c:if>
-			</ul>
+	<div class="header">
+		<div class="header-content toCenter">
+			<h1 class="logo" title="牛男网商城">
+				<a href="indexShow.action"><img src="images/logo.png" alt=""
+					class="logo-img"></a>
+			</h1>
+			<div class="small-nav">
+				<ul class="nav-wrap clear">
+					<li class="nav-item end-item"><a href="">客户服务</a></li>
+					<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
+					<li class="nav-item"><a href="">商城会员</a></li>
+					<li class="nav-item"><a href="#">我的订单</a></li>
+					<c:if test="${user == null}">
+						<li class="nav-item first-item">[<a href="login.html"
+							class="login">登录 </a> <a href="login.html#signup"
+							class="register">注册</a> ]
+						</li>
+					</c:if>
+					<c:if test="${user != null}">
+						<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
+						<li class="nav-item"><a href="showUserInfor.action">${user.username}
+								<span class="glyphicon glyphicon-menu-down"></span>
+						</a></li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 	<div class="content">
 		<div class="nn-inner-con">
 			<!-- 左边菜单栏-->
@@ -56,57 +55,55 @@
 					<li class="list-item">
 						<div class="avatar-box text-center">
 							<c:if test="${u2.u_image != null}">
-								<img src="${u2.u_image}"/>
+								<img src="${u2.u_image}" />
 							</c:if>
 							<c:if test="${u2.u_image == null}">
-								<img src="images/user-head-pic.png" alt=""/>
+								<img src="images/user-head-pic.png" alt="" />
 							</c:if>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-							<a href="showUserInfor.action">
-							<span class="img-icon">
-								<img src="image/icon/coat-icon.png" alt=""/>
-							</span>
-							<span class="txt-title" style="color: #333">个人信息</span>
-							<span class="pull-right img-icon"></span>
+							<a href="showUserInfor.action"> <span class="img-icon">
+									<img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">个人信息</span> <span
+								class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-						<span class="img-icon"> <img
+							<span class="img-icon"> <img
 								src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">服务管理</span> <span
+							</span> <span class="txt-title">服务管理</span> <span
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
 							<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
+									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">我的订单</span>
 							</a></li>
 							<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
+									<span class="triangle-right pull-left"></span> <span
 									class="sub-list-txt">我的收藏</span>
 							</a></li>
 						</ul>
 					</li>
 					<li class="list-item active">
 						<div class="inner-bar">
-						<span class="img-icon"> <img
+							<span class="img-icon"> <img
 								src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">个人设置</span> <span
+							</span> <span class="txt-title">个人设置</span> <span
 								class="pull-right icon-toggle plus-icon"></span>
 						</div>
 						<ul class="sub-menu-list" style="display: none">
-							<li class="sub-list-item"><a href="userinfor_update.jsp" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">信息修改</span>
+							<li class="sub-list-item"><a href="userinfor_update.jsp"
+								class="item-link"> <span class="triangle-right pull-left"></span>
+									<span class="sub-list-txt">信息修改</span>
 							</a></li>
-							<li class="sub-list-item"><a href="showAllAddress" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-									class="sub-list-txt">地址管理</span>
+							<li class="sub-list-item"><a href="showAllAddress"
+								class="item-link"> <span class="triangle-right pull-left"></span>
+									<span class="sub-list-txt">地址管理</span>
 							</a></li>
 						</ul>
 					</li>
@@ -122,13 +119,16 @@
 					<p class="info-settings">
 						<span class="info-settings-txt">地址管理</span>
 					</p>
-					<p class="info-settings">
-						<span class="info-settings-txt" style="color: red">温馨提示:可直接在文本框修改你的信息</span>
-					</p>
+					<c:if test="${adress_list!=null}">
+						<p class="info-settings">
+							<span class="info-settings-txt" style="color: red">温馨提示:可直接在文本框修改你的信息</span>
+						</p>
+					</c:if>
 					<c:forEach items="${adress_list}" var="ad">
 						<form action="editAdress" method="post">
 							<div class="info-input-row">
-								<input type="text" name="ad_id" value="${ad.ad_id}" style="display: none">
+								<input type="text" name="ad_id" value="${ad.ad_id}"
+									style="display: none">
 								<p class="input-wrap">
 									收货人姓名:<input type="text" name="name" value="${ad.name}" />
 								</p>
@@ -149,13 +149,46 @@
 								</p>
 							</div>
 							<div class="button-group">
-								<button type="submit" class="save-btn">保存</button>
-								<a href="deleteAddress?addressId=${ad.ad_id}" ><span id="a_save-btn">删除</span></a>
+								<input type="submit" class="a_save-btn" value="保存"/>
+								<a href="deleteAddress?addressId=${ad.ad_id}">
+									<input type="button" class="a_save-btn" value="删除"/>
+								</a>
 							</div>
 						</form>
 					</c:forEach>
-				</div>
 
+
+					<!--地址添加表单-->
+					<p class="info-settings">
+						<span class="info-settings-txt" style="color: red">温馨提示:可以添加地址哦</span>
+					</p>
+					<form action="setAdress" method="post">
+						<div class="info-input-row">
+							<input type="text" name="ad_id" value="" style="display: none">
+							<p class="input-wrap">
+								收货人姓名:<input type="text" name="name" value="" />
+							</p>
+						</div>
+						<div class="info-input-row">
+							<p class="input-wrap">
+								联系电话:<input type="text" name="tel" value="" />
+							</p>
+						</div>
+						<div class="info-input-row">
+							<p class="input-wrap">
+								详细地址:<input type="text" name="region" value="" />
+							</p>
+						</div>
+						<div class="info-input-row">
+							<p class="input-wrap">
+								街道:<input type="text" name="street" value="" />
+							</p>
+						</div>
+						<div class="button-group">
+							<button type="submit" class="save-btn">保存</button>
+						</div>
+					</form>
+				</div>
 
 			</div>
 		</div>
@@ -270,19 +303,19 @@
 			</div>
 		</div>
 	</div>
-<script src="./js/lib/sea.js"></script>
-<script>
-	seajs.config({
-		base: "./js",
-		alias: {
-			"jquery": "lib/jquery.min",
-			'swiper': 'lib/swiper.min'
-		}
-	});
-	// 加载入口模块
-    seajs.use("main/page-user-settings", function(init){
-		init.initPage();
-	});
-</script>
+	<script src="./js/lib/sea.js"></script>
+	<script>
+		seajs.config({
+			base : "./js",
+			alias : {
+				"jquery" : "lib/jquery.min",
+				'swiper' : 'lib/swiper.min'
+			}
+		});
+		// 加载入口模块
+		seajs.use("main/page-user-settings", function(init) {
+			init.initPage();
+		});
+	</script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.qst.dao;
 import com.qst.model.Goods;
 import com.qst.model.GoodsSession;
 import com.qst.model.Page;
+import com.qst.model.User;
 
 import java.util.List;
 
@@ -20,9 +21,11 @@ public interface GoodsDao {
 
 	public List<Goods> indexShow(Page<Goods> page);
 
-	public int findImageNum(@Param("type") String type);
+	public int findImageNum(@Param("type") String type,@Param("gname")String gname);
 
 	public String[] showAllAttri();
 	
 	public List<GoodsSession> showEvaluate(int goodId);
+	
+	public List<User> showUserInfo(int goodId);
 }

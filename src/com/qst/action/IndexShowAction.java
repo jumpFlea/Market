@@ -16,6 +16,7 @@ public class IndexShowAction extends ActionSupport {
 	@Autowired
 	private GoodsService goodsService;
 	private String attribute;
+	private String gname;
 	int page = 1;
 	/*int sum =0;*/
 
@@ -26,8 +27,7 @@ public class IndexShowAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		//获取前台界面传过来的类型
 		attribute = (String) request.getParameter("type");
-		
-		Page<Goods> pageImage = goodsService.indexShow(page, attribute);
+		Page<Goods> pageImage = goodsService.indexShow(page, attribute,gname);
 		//从数据库中查询所有的类型出来
 		String attri[] = goodsService.showAllAttri();
 		if (pageImage != null) {
@@ -56,5 +56,12 @@ public class IndexShowAction extends ActionSupport {
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+	public String getGname() {
+		return gname;
+	}
+
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
 }

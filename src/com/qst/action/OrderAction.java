@@ -18,6 +18,10 @@ import java.util.ArrayList;
 public class OrderAction {
 	private final OrderServiceImpl orderService;
 	private final GoodsService goodsService;
+	private Float[] price;
+	private Integer[] gid;
+	private Integer[] number;
+	private Integer addressId;
 
 	@Autowired
 	public OrderAction(OrderServiceImpl orderService, GoodsService goodsService) {
@@ -74,4 +78,44 @@ public class OrderAction {
 	}
 
 
+    public String submitOrder() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		Integer uid = (Integer) session.getAttribute("uid");
+		if(uid != null){
+			try {
+				double count = 0;
+				for (int i = 0; i < gid.length; i++){
+					count = count + price[i] * number[i];
+				}
+				long id = orderService.createOrder(gid,number,price,uid,count,addressId);
+				session.setAttribute("orderId", id);
+				session.setAttribute("price", count);
+
+				return "success";
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "index";
+			}
+		}
+		else {
+			return "login";
+		}
+    }
+
+	public void setPrice(Float[] price) {
+		this.price = price;
+	}
+
+	public void setGid(Integer[] gid) {
+		this.gid = gid;
+	}
+
+	public void setNumber(Integer[] number) {
+		this.number = number;
+	}
+
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
 }

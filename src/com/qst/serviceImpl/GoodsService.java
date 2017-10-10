@@ -1,16 +1,18 @@
 package com.qst.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.qst.dao.GoodsDao;
 import com.qst.dao.UserGoodsDAO;
 import com.qst.model.Goods;
 import com.qst.model.GoodsSession;
 import com.qst.model.Page;
+import com.qst.model.User;
 import com.qst.model.UserGoods;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by tomatofrommars on 10/6/17.
@@ -48,7 +50,7 @@ public class GoodsService {
 	}
 
 
-	public Page<Goods> indexShow(int currentPage, String type) {
+	public Page<Goods> indexShow(int currentPage, String type,String gname) {
 		Page<Goods> p = new Page<Goods>();
 		// 将当前的页面设置到page中
 		p.setCurrentPage(currentPage);
@@ -56,7 +58,7 @@ public class GoodsService {
 		int limit = 20;
 		p.setLimitPage(limit);
 		// 获取当前的总记录数，并设置到page里面对应的属性,设置总页数
-		int count = goodsDao.findImageNum(type);
+		int count = goodsDao.findImageNum(type,gname);
 		if (count%limit == 0) {
 			count = count / limit;
 			p.setCountPage(count);
@@ -68,6 +70,7 @@ public class GoodsService {
 		int begin = (currentPage - 1) * limit;
 		p.setBegin(begin);
 		p.setAttribute(type);
+		p.setGname(gname);
 		// 获取图片的信息，存于page中
 		List<Goods> imageList = new ArrayList<Goods>();
 		imageList = goodsDao.indexShow(p);
@@ -76,8 +79,8 @@ public class GoodsService {
 	}
 
 	//根据类型找到数量
-	public int findImageNum(String type) {
-		return goodsDao.findImageNum(type);
+	public int findImageNum(String type,String gname) {
+		return goodsDao.findImageNum(type,gname);
 	}
 
 	public String[] showAllAttri() {
@@ -87,5 +90,9 @@ public class GoodsService {
 	//找到此商品的评价
 	public List<GoodsSession> showEvaluate(int goodId){
 		return goodsDao.showEvaluate(goodId);
+	}
+	
+	public List<User> showUserInfo(int goodId){
+		return goodsDao.showUserInfo(goodId);
 	}
 }

@@ -15,18 +15,18 @@ import java.util.ArrayList;
 @Component
 public interface orderDao {
 
-	public int creatorder(@Param("u_id") int u_id, @Param("ordernumber") long ordernumber);
+	int creatorder(@Param("u_id") int u_id, @Param("ordernumber") long ordernumber);
 
-	public int creatorder_good(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id,
+	int creatorder_good(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id,
 			@Param("prince") float prince, @Param("og_num") int og_num);
 
-	public ArrayList<Integer> getgid(long getOrderItem);
+	ArrayList<Integer> getgid(long getOrderItem);
 
-	public ArrayList<OrderGoods> getorder_goods(long ordernumber);
+	ArrayList<OrderGoods> getorder_goods(long ordernumber);
 
-	public Goods_item getgoods_item(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id);
+	Goods_item getgoods_item(@Param("ordernumber") long ordernumber, @Param("g_id") int g_id);
 
-	public float getSumprince(long ordernumber);
+	float getSumprince(long ordernumber);
 
 	/*
 	 * 设置订单状态为1 ：提交未支付状态
@@ -95,14 +95,5 @@ public interface orderDao {
 	public int setOrderByOrdernumber(@Param("ad_id")int ad_id,@Param("message")String message,@Param("ordernumber") long ordernumber);
 
 
-
-
-
-
-
-
-
-
-
-
+    void createOrder(Integer uid, long id, double count, int addressId);
 }
