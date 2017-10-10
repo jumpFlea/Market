@@ -23,7 +23,7 @@
 				<li class="nav-item end-item"><a href="">客户服务</a></li>
 				<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
 				<li class="nav-item"><a href="">商城会员</a></li>
-				<li class="nav-item"><a href="#">我的订单</a></li>
+				<li class="nav-item"><a href="userOrder.action">我的订单</a></li>
 				<c:if test="${user == null}">
 					<li class="nav-item first-item">
 						[<a href="login.html" class="login">登录 </a>
@@ -81,7 +81,7 @@
 							class="pull-right icon-toggle plus-icon"></span>
 					</div>
 					<ul class="sub-menu-list" style="display: none">
-						<li class="sub-list-item"><a href="" class="item-link">
+						<li class="sub-list-item"><a href="myOrders.action" class="item-link">
 								<span class="triangle-right pull-left"></span> <span
 								class="sub-list-txt">我的订单</span>
 						</a></li>

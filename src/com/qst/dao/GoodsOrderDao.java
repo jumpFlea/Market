@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Component
 public interface GoodsOrderDao {
@@ -16,7 +17,7 @@ public interface GoodsOrderDao {
 	 */
 
 	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber FROM `order` AS a ,order_goods AS b,goods AS c WHERE a.u_id=#{u_id} AND a.pay_type=#{pay_type} AND c.g_id=b.g_id AND( c.g_id NOT IN(SELECT DISTINCT b.g_id FROM `session` AS a,goods_session AS b WHERE a.u_id=#{u_id} AND b.session_id=a.session_id ORDER BY b.g_id) AND b.ordernumber NOT IN(SELECT DISTINCT a.ordernumber FROM  `session` AS a,goods_session AS b,`order` AS c WHERE a.ordernumber=c.ordernumber AND a.u_id=#{u_id})  )ORDER BY  c.g_id")
-	
+
 	public ArrayList<GoodsOrder> getGoodOrderByu_id(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
 			@Param("a") int a, @Param("b") int b);
 
@@ -28,18 +29,30 @@ public interface GoodsOrderDao {
 	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id LIMIT #{a},#{b}")
 	public  ArrayList<GoodsOrder> getCompleted_EvaluationOrder(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
 			@Param("a") int a, @Param("b") int b);
-	
+
 	/*
 	 * 查找未评价订单商品的  数量
 	 */
-	
+
 	@Select("SELECT COUNT(*) FROM(	SELECT DISTINCT  c.g_id,c.g_name,c.g_price,b.ordernumber FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type} AND c.g_id NOT IN(SELECT DISTINCT c.g_id FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type} AND c.g_id=e.g_id   )   ORDER BY a.ad_id ) AS h")
 	public int getCountFromGoodOrderByu_id(@Param("u_id") int u_id, @Param("pay_type") int pay_type);
-	
+
 	/*
 	 * 查找已评价订单的商品 数量
 	 */
-	
+
 	@Select("SELECT COUNT(*) FROM( SELECT DISTINCT c.g_id,c.g_name,c.g_price FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id) AS H ")
 	public int getCountCompleted_EvaluationOrder(@Param("u_id") int u_id, @Param("pay_type") int pay_type);
+
+	@Select("        SELECT\n" +
+			"            o.og_num AS `number`,\n" +
+			"            o.prince AS price,\n" +
+			"            g.g_name AS `name`,\n" +
+			"            g.image_zhanshi AS image,\n" +
+			"            g.g_attribute AS attribute,\n" +
+			"            g.g_id AS id\n" +
+			"        FROM order_goods o\n" +
+			"        LEFT JOIN goods g ON o.g_id = g.g_id\n" +
+			"        WHERE o.ordernumber = #{0}")
+    ArrayList<HashMap> getGoodsByOrder(long orderId);
 }
