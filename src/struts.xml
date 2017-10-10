@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false. 
+	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -53,7 +53,7 @@
 
 		<!-- 商品发布 -->
 		<action name="releaseGoods" class="releaseGoodsAction" method="releaseGoods">
-			<result name="success">/index.jsp</result>
+			<result name="success" type="chain">indexShow</result>
 			<result name="error">/error.jsp</result>
 		</action>
 
@@ -83,8 +83,8 @@
 		<!-- 设置我的地址 -->
 		<action name="setAdress" class="com.qst.action.AddressAction"
 			method="setAdress">
-
-
+			<result name="success" type="chain">showAllAddress</result>
+			<result name="error">/error.jsp</result>
 		</action>
 
 
@@ -117,31 +117,42 @@
 		<action name="cartCount" class="com.qst.action.ShopCartAction"
 			method="cartCount"></action>
 
-		<action name="addFavorite" class="com.qst.action.ShopCartAction" method="addFavorite">
+		<action name="addFavorite" class="com.qst.action.ShopCartAction"
+			method="addFavorite">
 			<result name="favorite" type="chain">getshopcargoods</result>
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
 		</action>
 
 
-		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction" method="deleteCartGoods">
+		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction"
+			method="deleteCartGoods">
 			<result name="success" type="plainText">temp/success</result>
 			<result name="login" type="plainText">temp/login</result>
 			<result name="index" type="plainText">temp/success</result>
 		</action>
 
 
-		<action name="quickBuy" class="com.qst.action.ShopCartAction" method="quickBuy">
+		<action name="quickBuy" class="com.qst.action.ShopCartAction"
+			method="quickBuy">
 			<result name="login">login.html</result>
 			<result name="index" type="chain">indexShow</result>
-			<result name="success">order-detail.jsp</result>
+			<result name="success">quick_buy.jsp</result>
 		</action>
 
+		<action name="submitOrder" class="orderAction" method="submitOrder">
+			<result name="success" type="plainText">temp/success</result>
+			<result name="login" type="plainText">temp/login</result>
+			<result name="index" type="plainText">temp/index</result>
+		</action>
 
 		<!-- 得到所有的未完成订单 -->
-		<action name="getAllorder" class="com.qst.action.OrderAction" method="getAllorder">
+		<action name="getAllorder" class="com.qst.action.OrderAction"
+			method="getAllorder">
 			<result name="getorder">Outstanding_Order.jsp</result>
 		</action>
+		
+		
 
 		<!--编辑本地用户的某一个用户地址 -->
 		<action name="editAdress" class="com.qst.action.AddressAction"
@@ -155,7 +166,6 @@
 			method="cancellationOrder">
 			<result name="delOrder"></result>
 		</action>
-
 
 		<!--继续支付某一个订单 -->
 		<action name="continuePayment" class="com.qst.action.OutstandingOrderAction"
@@ -181,7 +191,6 @@
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="evaluaedOrderIndex">
 			<result name="evaluaedOrderIndex">/Completed_Order.jsp</result>
-
 		</action>
 
 	</package>
