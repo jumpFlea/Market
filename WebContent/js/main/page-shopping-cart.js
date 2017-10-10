@@ -73,12 +73,12 @@ define(function(require, exports, module){
             var $selected = $("#select-all");
             var $allCheckbox = $(".checkbox-col-item input[type=checkbox]");
             $selected.on("change", function(){
-                console.log($selected.is(":checked"))
                 if($selected.is(":checked")){
                     $allCheckbox.prop("checked", true);
                 } else {
                     $allCheckbox.prop("checked", false);
                 }
+                countAll();
             })
 
         }

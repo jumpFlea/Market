@@ -142,7 +142,7 @@
             </div>
             <div class="order-total-box shopping-cart-total-box">
                 <p class="shopping-goods-choose-box pull-left">
-                    <input type="checkbox" id="select-all" onchange="countAll()">
+                    <input type="checkbox" id="select-all">
                     <label for="select-all">全选</label>
                     <a onclick="deleteMany()" class="remove-all">批量删除</a>
                     <%--<a href="javascript:;">移入收藏列表</a>--%>
@@ -304,7 +304,6 @@
         });
         $('.countPrice').text(count);
     }
-    $('#select-all').trigger('change');
 
     seajs.config({
         base: "./js",
