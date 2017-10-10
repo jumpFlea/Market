@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -14,16 +13,17 @@
 	<!-- 顶部导航条 -->
 	<div class="nav">
 		<ul class="container" style="background: transparent;">
-			<li class="nav-pull-down location"><img src="images/logo.png">
-			</li>
+			<li class="nav-pull-down location"><img src="images/logo.png"></li>
 			<li><a href="#">客户服务</a></li>
 			<li><a href="release_goods.jsp">发布商品</a></li>
 			<li><a href="#">商城会员</a></li>
-			<li class="nav-pull-down my-shop"><a href="#">订单管理</a> <span
-				class="glyphicon glyphicon-menu-down"></span></li>
+			<li class="nav-pull-down my-shop"><a href="#">订单管理</a> <span class="glyphicon glyphicon-menu-down"></span></li>
 			<c:if test="${user == null}">
-				<li class="login-signup">[<a href="login.html">登录 </a> <a
-					href="login.html#signup">注册</a> ]
+				<li class="login-signup">[<a href="login.html">登录 </a> <a href="login.html#signup">注册</a> ]
+				</li>
+			</c:if>
+			<c:if test="${user.state_type==1}">
+				<li class="login-signup"><a href="" class="login">进入后台 </a>
 				</li>
 			</c:if>
 			<c:if test="${user != null}">
@@ -37,9 +37,7 @@
 		<div class="search">
 			<div class="search-body">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="输入你想要的商品"
-						name="gname"> <span class="input-group-btn">
-					<input name="page" value="1">
+					<input type="text" class="form-control" placeholder="输入你想要的商品" name="gname"> <span class="input-group-btn"> <input name="page" value="1">
 						<button class="btn btn-danger btn-search" type="submit">
 							<i class="fa fa-search"></i>
 						</button>
@@ -79,8 +77,7 @@
 				<div class="item-class-select">
 					<c:if test="${attri!=null}">
 						<c:forEach items="${attri}" var="a">
-							<a href="indexShow?type=${a}&page=${1}&gname="><span><c:out
-										value="${a}"></c:out></span></a>
+							<a href="indexShow?type=${a}&page=${1}&gname="><span><c:out value="${a}"></c:out></span></a>
 						</c:forEach>
 					</c:if>
 				</div>
@@ -90,8 +87,7 @@
 					<span>手机配件：</span>
 				</div>
 				<div class="item-class-select">
-					<span>手机保护套</span> <span>苹果周边</span> <span>手机贴膜</span> <span>移动电源</span>
-					<span>创意配件</span> <span>手机耳机</span> <span>手机支架</span>
+					<span>手机保护套</span> <span>苹果周边</span> <span>手机贴膜</span> <span>移动电源</span> <span>创意配件</span> <span>手机耳机</span> <span>手机支架</span>
 				</div>
 			</div>
 			<div class="item-class-group">
@@ -99,8 +95,7 @@
 					<span>款式：</span>
 				</div>
 				<div class="item-class-select">
-					<span>软壳</span> <span>硬壳</span> <span>翻盖式</span> <span>边框</span> <span>运动臂包</span>
-					<span>钱包式</span> <span>定制</span> <span>防水袋</span> <span>布袋</span> <span>其他</span>
+					<span>软壳</span> <span>硬壳</span> <span>翻盖式</span> <span>边框</span> <span>运动臂包</span> <span>钱包式</span> <span>定制</span> <span>防水袋</span> <span>布袋</span> <span>其他</span>
 				</div>
 			</div>
 			<div class="item-class-group">
@@ -108,9 +103,7 @@
 					<span>材质：</span>
 				</div>
 				<div class="item-class-select">
-					<span>塑料/PC</span> <span>硅胶</span> <span>金属</span> <span>电镀</span>
-					<span>真皮</span> <span>树脂</span> <span>木质</span> <span>镶钻</span> <span>液态硅胶</span>
-					<span>TPU</span>
+					<span>塑料/PC</span> <span>硅胶</span> <span>金属</span> <span>电镀</span> <span>真皮</span> <span>树脂</span> <span>木质</span> <span>镶钻</span> <span>液态硅胶</span> <span>TPU</span>
 				</div>
 			</div>
 		</div>
@@ -124,8 +117,7 @@
 						<img src="img/item-as-img-1.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
-							class="seckill-price text-danger">39.9</span></span>
+						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">39.9</span></span>
 					</div>
 					<div class="item-as-intro">
 						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
@@ -140,8 +132,7 @@
 						<img src="img/item-as-img-2.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
-							class="seckill-price text-danger">36.6</span></span>
+						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
 					</div>
 					<div class="item-as-intro">
 						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
@@ -156,8 +147,7 @@
 						<img src="img/item-as-img-1.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i></span><span
-							class="seckill-price text-danger">39.9</span>
+						<span><i class="fa fa-rmb text-danger"></i></span><span class="seckill-price text-danger">39.9</span>
 					</div>
 					<div class="item-as-intro">
 						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
@@ -172,8 +162,7 @@
 						<img src="img/item-as-img-2.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
-							class="seckill-price text-danger">36.6</span></span>
+						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
 					</div>
 					<div class="item-as-intro">
 						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
@@ -188,8 +177,7 @@
 						<img src="img/item-as-img-1.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i></span><span
-							class="seckill-price text-danger">39.9</span>
+						<span><i class="fa fa-rmb text-danger"></i></span><span class="seckill-price text-danger">39.9</span>
 					</div>
 					<div class="item-as-intro">
 						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
@@ -204,8 +192,7 @@
 						<img src="img/item-as-img-2.jpg" alt="">
 					</div>
 					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span
-							class="seckill-price text-danger">36.6</span></span>
+						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
 					</div>
 					<div class="item-as-intro">
 						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
@@ -221,16 +208,11 @@
 			<div class="item-list-right">
 				<div class="item-list-tool">
 					<ul>
-						<li><span>综合 <strong><i
-									class="fa fa-long-arrow-down"></i></strong></span></li>
-						<li><span>销量 <strong><i
-									class="fa fa-long-arrow-down"></i></strong></span></li>
-						<li><span>评论数 <strong><i
-									class="fa fa-long-arrow-down"></i></strong></span></li>
-						<li><span>新品 <strong><i
-									class="fa fa-long-arrow-down"></i></strong></span></li>
-						<li><span>价格 <strong><i
-									class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>综合 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>销量 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>评论数 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>新品 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
+						<li><span>价格 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
 					</ul>
 				</div>
 				<c:forEach items="${pImageList.list}" var="list">
@@ -245,8 +227,7 @@
 										<span style="font-size: 20px">${list.g_name}</span>
 									</div>
 									<div class="item-show-price">
-										<span><i class="fa fa-rmb text-danger"></i><span
-											class="seckill-price text-danger">${list.g_price}</span></span>
+										<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">${list.g_price}</span></span>
 									</div>
 
 									<!-- 		<div class="item-show-num">
@@ -267,9 +248,7 @@
 			<nav>
 				<ul class="pagination">
 					<c:if test="${pImageList.currentPage!=1}">
-						<li><a
-							href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span
-								aria-hidden="true">&laquo;</span></a></li>
+						<li><a href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${pImageList.countPage}">
 						<c:if test="${i==pImageList.currentPage}">
@@ -280,8 +259,7 @@
 						</c:if>
 					</c:forEach>
 					<c:if test="${pImageList.currentPage!=pImageList.countPage}">
-						<li><a
-							href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
+						<li><a href="indexShow?page=${pImageList.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
 					</c:if>
 				</ul>
 			</nav>
@@ -384,42 +362,28 @@
 	<!-- 地理位置 -->
 	<div class="city">
 		<p>
-			<span class="city-item">北京 </span> <span class="city-item">上海
-			</span> <span class="city-item">天津 </span> <span class="city-item">重庆
-			</span> <span class="city-item">河北 </span>
+			<span class="city-item">北京 </span> <span class="city-item">上海 </span> <span class="city-item">天津 </span> <span class="city-item">重庆 </span> <span class="city-item">河北 </span>
 		</p>
 		<p>
-			<span class="city-item">山西 </span> <span class="city-item">河南
-			</span> <span class="city-item">辽宁 </span> <span class="city-item">吉林
-			</span> <span class="city-item">江苏 </span>
+			<span class="city-item">山西 </span> <span class="city-item">河南 </span> <span class="city-item">辽宁 </span> <span class="city-item">吉林 </span> <span class="city-item">江苏 </span>
 		</p>
 		<p>
-			<span class="city-item">福建 </span> <span class="city-item">湖北
-			</span> <span class="city-item">湖南 </span> <span class="city-item">广东
-			</span> <span class="city-item">广西 </span>
+			<span class="city-item">福建 </span> <span class="city-item">湖北 </span> <span class="city-item">湖南 </span> <span class="city-item">广东 </span> <span class="city-item">广西 </span>
 		</p>
 		<p>
-			<span class="city-item">江西 </span> <span class="city-item">四川
-			</span> <span class="city-item">海南 </span> <span class="city-item">贵州</span>
-			<span class="city-item">云南</span>
+			<span class="city-item">江西 </span> <span class="city-item">四川 </span> <span class="city-item">海南 </span> <span class="city-item">贵州</span> <span class="city-item">云南</span>
 		</p>
 		<p>
-			<span class="city-item">西藏</span> <span class="city-item">陕西</span> <span
-				class="city-item">甘肃</span> <span class="city-item">青海</span> <span
-				class="city-item">宁夏</span>
+			<span class="city-item">西藏</span> <span class="city-item">陕西</span> <span class="city-item">甘肃</span> <span class="city-item">青海</span> <span class="city-item">宁夏</span>
 		</p>
 	</div>
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">未付款订单</span></a> <span
-				class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">未付款订单</span></a> <span class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href="comletedOrderIndex?pay_type=1&flag=1"><span
-				class="my-item">未评价订单</span></a> <a
-				href="evaluaedOrderIndex?pay_type=1&flag=2"> <span
-				class="my-item">已评价订单</span></a>
+			<a href="comletedOrderIndex?pay_type=1&flag=1"><span class="my-item">未评价订单</span></a> <a href="evaluaedOrderIndex?pay_type=1&flag=2"> <span class="my-item">已评价订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">全部订单</span> <span class="my-item">我的问答</span>
