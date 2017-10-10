@@ -280,7 +280,7 @@
         <div class="foter-content toCenter">
             <div class="footer-logo fl">
                 <a href="">
-                    <img src="../image/footer-logo.png" alt="" class="footer-lgo-img">
+                    <img src="./images/footer-logo.png" alt="" class="footer-lgo-img">
                 </a>
             </div>
             <div class="rights">
@@ -322,7 +322,7 @@
 <script>
     (function(){
         $(function(){
-            var stars = ['../image/icon/star-active-icon.png', '../image/icon/star-icon.png'];
+            var stars = ['./image/icon/star-active-icon.png', './image/icon/star-icon.png'];
             var index = 1;      // 默认为1分
             $(".nn-comment-content .star-wrap").on("click", "img", function(){
                 index = $(this).index() + 1;

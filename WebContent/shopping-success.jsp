@@ -73,7 +73,7 @@
                 </span>
             </div>
         </div>
-        <div class="button-group text-right">
+        <div class="button-group text-center">
             <button class="fast-payment" onclick="pay()">立即支付</button>
         </div>
     </div>

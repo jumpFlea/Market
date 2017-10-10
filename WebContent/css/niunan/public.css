@@ -30,7 +30,7 @@
 .border-all {
     border: 1px solid #eee;}
 
-/* margin �� padding */
+/* margin 与 padding */
 .margin-tb-20 {margin: 20px 0;}
 .margin-t-5 {margin-top: 5px;}
 .margin-t-10 {margin-top: 10px;}
@@ -76,7 +76,7 @@
 
 
 
-/* դ�񲼾� */
+/* 栅格布局 */
 .pb-row, .pb-center-row {
     display: block;
     width: 100%;}
@@ -162,7 +162,7 @@
 
 
 
-/* ��ť  Ĭ�ϰ�ť��ʽ*/
+/* 按钮  默认按钮样式*/
 .pb-btn {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
