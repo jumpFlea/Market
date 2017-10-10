@@ -4,7 +4,7 @@
 	<!-- 该属性设置Struts 2应用是否使用开发模式.如果设置该属性为true,则可以在应用出错时显示更多、 更友好的出错提示.该属性只接受true和flase两个值,该属性的默认值是false.
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
-	
+
 
 	<!--Struts 2的Action都必须配置在package里,此处使用默认package -->
 	<package name="a" namespace="/" extends="struts-default">
@@ -168,7 +168,7 @@
 
 		<!-- 删除未完成订单 -->
 		<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
-			<result name="delOrder">myOrders.action</result>
+			<result name="delOrder" type="chain">myOrders</result>
 		</action>
 
 		<!--继续支付某一个订单 -->
