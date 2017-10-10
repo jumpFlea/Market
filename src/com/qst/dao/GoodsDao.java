@@ -20,7 +20,7 @@ public interface GoodsDao {
 
 	public List<Goods> indexShow(Page<Goods> page);
 
-	public int findImageNum(@Param("type") String type);
+	public int findImageNum(@Param("type") String type,@Param("gname")String gname);
 
 	public String[] showAllAttri();
 	

@@ -118,7 +118,7 @@
 							<span></span>
 						</a>
 						<a class="continue-find" onclick="quickBuy(this)"
-						   ref="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
+						   href="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
 							立即购买
 							<span></span>
 						</a>

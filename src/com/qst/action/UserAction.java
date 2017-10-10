@@ -24,6 +24,8 @@ public class UserAction extends ActionSupport {
 	private User user1;
 	private String loginResult;
 
+
+
 	//变量名字固定写法
 	private File upload;
 	private String uploadFileName;
@@ -72,6 +74,8 @@ public class UserAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
 
 	public void login() {
 		HttpServletResponse response = ServletActionContext.getResponse();

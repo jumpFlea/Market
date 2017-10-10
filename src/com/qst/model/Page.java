@@ -16,8 +16,10 @@ public class Page<T> {
 	private int  begin;
 	//设置类型
 	private String attribute;
-	
-	
+	//设置名字
+	private String gname; 
+
+
 
 	private List<T> list;
 	
@@ -30,6 +32,13 @@ public class Page<T> {
 		this.attribute = attribute;
 	}
 	
+	public String getGname() {
+		return gname;
+	}
+
+	public void setGname(String gname) {
+		this.gname = gname;
+	}
 	
 	public int getBegin() {
 		return begin;
@@ -39,7 +48,6 @@ public class Page<T> {
 		this.begin = begin;
 	}
 
-	
 
 	public int getCountPage() {
 		return countPage;
