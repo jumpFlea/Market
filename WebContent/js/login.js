@@ -53,7 +53,7 @@ function login() {
             if(data.search("yes") !== -1){
                 $('#login').find('h1').text("登录成功, 跳转中......");
                 location.href="indexShow" 
-                setTimeout(refresh,2000);
+//                setTimeout(refresh,2000);
             }
             else {
                 $('#login').find('h1').text("用户名或密码错误");
