@@ -17,4 +17,6 @@ public interface ImageDAO {
 	Image getImage(long goodsnumber);
 
 	Image showSmallPic(int goodId);
+	
+	void insertImage(Image image);
 }

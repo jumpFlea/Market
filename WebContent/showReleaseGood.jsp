@@ -118,19 +118,22 @@
 					<table border="1">
 						<thead>
 							<tr>
-								<th>商品价格</th>
-								<th>商品类型</th>
-								<th>商品介绍</th>
-								<th>商品数量</th>
-								<th>图片展示</th>
+								<th>名字</th>
+								<th>价格</th>
+								<th>类型</th>
+								<th>介绍</th>
+								<th>数量</th>
+								<th>图片</th>
 								<th>市场价</th>
-								<th>商品类容</th>
+								<th>内容</th>
+								<th>操作</th>
 							</tr>
 						</thead>
 
 						<tbody>
 							<c:forEach items="${showRelease.list}" var="show">
 								<tr>
+									<td>${show.g_name}</td>
 									<td>${show.g_price}</td>
 									<td>${show.g_attribute}</td>
 									<td>${show.introduce}</td>
@@ -138,6 +141,11 @@
 									<td><img src="${show.image_zhanshi}" style="width: 100px; height: 100px"></td>
 									<td>${show.market_price}</td>
 									<td>${show.g_content}</td>
+									<td><a href="deleteReleaseGoods?goodId=${show.g_id}">删除</a>
+										<br>
+										<br>
+										<a herf="">修改</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
