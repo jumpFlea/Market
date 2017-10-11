@@ -197,17 +197,21 @@
 
 		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="comletedOrderIndex">
-			<result name="comletedOrderIndex">/Goodsorder_Ifram.jsp</result>
+			<result name="comletedOrderIndex">NoEvaluateOrder.jsp</result>
 		</action>
 		<!-- 設置回话进入session表中 -->
 		<action name="setEvalueInSession" class="com.qst.action.SessionAction"
 			method="setEvalueInSession">
-			<result name="evaluate">/Completed_Order.jsp</result>
+			<result name="evaluate">NoEvaluateOrder.jsp</result>
 		</action>
 
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="evaluaedOrderIndex">
-			<result name="evaluaedOrderIndex">evaluateGoods_iF.jsp</result>
+			<result name="evaluaedOrderIndex">EvaluateGoods.jsp</result>
+		</action>
+		
+		<action name="getGoodsItems" class="com.qst.action.GoodsSoldAction" method="getGoodsItems">
+			<result name="goodsitems">GoodsSold.jsp</result>
 		</action>
 
 	</package>
