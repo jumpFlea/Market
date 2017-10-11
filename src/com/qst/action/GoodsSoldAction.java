@@ -1,6 +1,7 @@
 package com.qst.action;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -39,8 +40,10 @@ public class GoodsSoldAction {
 	 * 得到用户卖出的商品（还未发货的）分页查找
 	 */
 	
+
+	
 	public String getGoodsItems(){
-		Page<GoodsOrder> goodsorder =new Page<GoodsOrder>();
+		Page<GoodsOrder> GoodsOrder =new Page<GoodsOrder>();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -48,21 +51,31 @@ public class GoodsSoldAction {
 		int pay_type=1;//已付款 未发货商品
 		int a=6*(page-1);
 		int b=5;
-	    java.util.List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
+	    List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
 	    goodsOrders_list =goodsSoldsService.getSoldGoodsByU_id(u_id, pay_type, a, b);
-		int count=goodsSoldsService.getCountGoodsOrder(u_id, pay_type, a, b);
+		int count=goodsSoldsService.getCountOrdernumber(u_id, pay_type);
 		if (count%6 == 0) {
 			count = count / 6;
-			goodsorder.setCountPage(count);
+			GoodsOrder.setCountPage(count);
 		} else {
 			count = (count / 6) + 1;
-			goodsorder.setCountPage(count);
+			GoodsOrder.setCountPage(count);
 		}
-		goodsorder.setList(goodsOrders_list);
-		goodsorder.setCountPage(count);
-		request.setAttribute("goodsorder", goodsorder);
+		GoodsOrder.setList(goodsOrders_list);
+		GoodsOrder.setCountPage(count);
+		request.setAttribute("goodsorder", GoodsOrder);
 		return "goodsitems";
 		
+	}
+	
+	public String  setOrderpay_type() {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		long ordernumber=  Long.parseLong(request.getParameter("ordernumber"));
+		int pay_type=2;//已发货状态
+		goodsSoldsService.SetOrderType(pay_type, ordernumber);
+		
+		return "setOrderpay_type";
 	}
 	
 }

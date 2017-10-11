@@ -213,6 +213,9 @@
 		<action name="getGoodsItems" class="com.qst.action.GoodsSoldAction" method="getGoodsItems">
 			<result name="goodsitems">GoodsSold.jsp</result>
 		</action>
+		<action name="setOrderpay_type" class="com.qst.action.GoodsSoldAction" method="setOrderpay_type">
+			<result name="setOrderpay_type" type="chain">getGoodsItems</result>
+		</action>
 
 	</package>
 </struts>
