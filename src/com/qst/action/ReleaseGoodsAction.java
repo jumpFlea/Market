@@ -28,7 +28,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 	private GoodsService rgs;
 	@Autowired
 	private ImageService ims;
-	
+
 	private Image image;
 	private Goods goods;
 	private File upload;
@@ -63,23 +63,22 @@ public class ReleaseGoodsAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//将图片地址放进image里面
+
+		int imgId = ims.findImageByid(goodId);
+		// 将图片地址放进image里面
 		image = new Image();
+		image.setImage_id(imgId);
 		image.setUrl1(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl2(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl3(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl4(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
-		ims.insertImage(image);
-		//将发布的商品信息放进goods里面
+		ims.updateImgae(image);
+		// 将发布的商品信息放进goods里面
 		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
-		System.out.println("/n");
-		System.out.println("/n");
-		System.out.println("/n"+image.getImage_id());
-		goods.setImage_id(image.getImage_id());;
+		goods.setImage_id(image.getImage_id());
 		rgs.releaseGoods(goods);
-		
-		//把商品的信息也存到user_goods表中
+
+		// 把商品的信息也存到user_goods表中
 		userGoods = new UserGoods();
 		userGoods.setUserId(uid);
 		userGoods.setGoodsId(goods.getG_id());
@@ -99,6 +98,53 @@ public class ReleaseGoodsAction extends ActionSupport {
 			return SUCCESS;
 		}
 		return "noContent";
+
+	}
+
+	// 显示用户单件发布信息
+	public String showUserGoods() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Goods good = new Goods();
+		good = rgs.showGoods(goodId);
+		request.setAttribute("good", good);
+		return SUCCESS;
+
+	}
+
+	// 修改用户的商品信息
+	public String updateUserGoods() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date());
+		// System.out.println(date);
+		// int uid = (int) request.getSession().getAttribute("uid");
+		// goods.setU_id(uid);
+		String savePath = "C:\\Users\\Administrator\\Desktop\\ourImage\\";
+		// 随机产生一个文件名
+		String fileName = UUID.randomUUID().toString() + "_" + uploadFileName;
+		File file = new File(savePath + fileName);
+		if (file != null) {
+			try {
+				FileUtils.copyFile(upload, file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// 将图片地址放进image里面
+			image = new Image();
+			image.setUrl1(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
+			image.setUrl2(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
+			image.setUrl3(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
+			image.setUrl4(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
+			ims.updateImgae(image);
+		}
+		// 将发布的商品信息放进goods里面
+		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
+		goods.setG_id(goodId);
+		rgs.upadateReleaseGoods(goods);
+
+		return "success";
 
 	}
 
@@ -148,6 +194,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 	public void setGoodId(int goodId) {
 		this.goodId = goodId;
 	}
+
 	public Image getImage() {
 		return image;
 	}

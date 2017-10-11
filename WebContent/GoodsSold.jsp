@@ -22,80 +22,85 @@
 <link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
 <script src="js/Calculation.js"></script>
 <title>未评价订单</title>
-		
+
 </head>
 <body>
-	<div class="gwc" style=" margin:auto;">
-	<table cellpadding="0" cellspacing="0" class="gwc_tb1">
-				<tr>
-					<td class="tb1_td1"></td>
-					
-					<td class="tb1_td3">商品</td>
-					<td class="tb1_td4">商品信息</td>
-					<td class="tb1_td5">数量</td>
-					<td class="tb1_td6">单价</td>
-					<td class="tb1_td7">操作</td>
-				</tr>
-			</table>
+	<div class="gwc" style="margin: auto;">
+		<table cellpadding="0" cellspacing="0" class="gwc_tb1">
+			<tr>
+				<td class="tb1_td1"></td>
+
+				<td class="tb1_td3">商品</td>
+				<td class="tb1_td4">商品信息</td>
+				<td class="tb1_td5">数量</td>
+				<td class="tb1_td6">单价</td>
+				<td class="tb1_td7">操作</td>
+			</tr>
+		</table>
 
 		<c:forEach items="${goodsorder.list}" var="goodsOrder">
-		<form action="" method="post">
-			<table cellpadding="0" cellspacing="0" class="gwc_tb2">
-				<tr>
-					<td class="tb2_td2"><a href="#"> <img
-							src="${goodsOrder.image_zhanshi }" />
-					</a></td>
-					
-					<td class="tb2_td3"><a href="#"><c:out value="${ goodsOrder.g_name}"></c:out></a>
-					</td>
-					<td class="tb1_td4"><c:out value="${goodsOrder.ordernumber }"></c:out></td>
+		
+			 <form action="setOrderpay_type" method="post">
+				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
+					<tr>
+						<td class="tb2_td2"><a href="#"> <img
+								src="${goodsOrder.image_zhanshi }" />
+						</a></td>
 
-					<td class="tb1_td7">商品号： <input
-						style="width: 20px; height: 18px; border: 1px solid #ccc;"
-						disabled="disabled" value="${ goodsOrder.g_id}" name="gid" />
-					</td>
+						<td class="tb2_td3"><a href="#"><c:out
+									value="${ goodsOrder.g_name}"></c:out></a></td>
+						<td class="tb1_td4"><c:out value="${goodsOrder.ordernumber }"></c:out></td>
 
-				<td class="tb1_td7">客户的留言：
-				<c:out value="${goodsOrder.message}"></c:out>
-				  <%-- <input style="width: 200px; height: 50px; border: 1px solid #ccc;"
-						 name=""  value="${goodsOrder.message}" />  --%>
-				 <input type="hidden" value="${goodsOrder.ordernumber }" name="ordernumber"/>
-				<input type="hidden" value="${goodsOrder.g_id}" name="g_id"/>
-				<input type="submit" value="提交"/>
-					</td>
+						<td class="tb1_td7">商品号： <input
+							style="width: 20px; height: 18px; border: 1px solid #ccc;"
+							disabled="disabled" value="${ goodsOrder.g_id}" name="gid" />
+						</td>
+
+						<td class="tb1_td7">客户的留言：
+						<%--  <c:out value="${ goodsOrder.message}"></c:out>
+							<input style="width: 200px; height: 50px; border: 1px solid #ccc;"
+						 name=""  value="${goodsOrder.message}" />  --%> <input
+							type="hidden" value="${goodsOrder.ordernumber }"
+							name="ordernumber" /> <input type="hidden"
+							value="${goodsOrder.g_id}" name="g_id" /> <input type="submit"
+							value="发货" />
+						</td>
 
 
-				</tr>
-			</table>
-			</form>
-			 </c:forEach>
-			 <!--移除session  -->
-			 <div class="page-num">
+					</tr>
+				</table>
+			</form> 
+		</c:forEach>
+		<!--移除session  -->
+		<div class="page-num">
 			<nav>
 
 			<div>
-			<ul class="pagination">
-				<c:if test="${goodsorder.currentPage!=1}">
-					<li><a href="getGoodsItems?page=${goodsorder.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>
-				</c:if>
-				<c:forEach var="i" begin="1" end="${goodsorder.countPage}">
-					<c:if test="${i==goodsOrders_list.currentPage}">
-						<li class="active"><a>${i}</a></li>
+				<ul class="pagination">
+					<c:if test="${goodsorder.currentPage!=1}">
+						<li><a
+							href="getGoodsItems?page=${goodsorder.currentPage-1}&type=${type}"><span
+								aria-hidden="true">&laquo;</span></a></li>
 					</c:if>
-					<c:if test="${i!=goodsorder.currentPage}">
-						<li><a href="getGoodsItems?page=${i}&type=${type}">${i}</a></li>
+					<c:forEach var="i" begin="1" end="${goodsorder.countPage}">
+						<c:if test="${i==goodsOrders_list.currentPage}">
+							<li class="active"><a>${i}</a></li>
+						</c:if>
+						<c:if test="${i!=goodsorder.currentPage}">
+							<li><a href="getGoodsItems?page=${i}&type=${type}">${i}</a></li>
+						</c:if>
+					</c:forEach>
+					<c:if test="${goodsorder.currentPage!=goodsorder.countPage}">
+						<li><a
+							href="getGoodsItems?page=${goodsorder.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
 					</c:if>
-				</c:forEach>
-				<c:if test="${goodsorder.currentPage!=goodsorder.countPage}">
-					<li><a href="getGoodsItems?page=${goodsorder.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
-				</c:if>
-			</ul>
+				</ul>
 			</nav>
-			</div>
 		</div>
+	</div>
 
 
-</div>
+	</div>
 
 
 

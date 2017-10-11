@@ -13,10 +13,6 @@
 
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
-		<action name="validate" class="userAction" method="validateUsername">
-			<result name="success" type="plainText">fonts/temp/success</result>
-			<result name="index" type="plainText">fonts/temp/index</result>
-		</action>
 
 		<!--个人资料界面显示信息 -->
 		<action name="showUserInfor" class="userAction" method="showUserInfor">
@@ -61,8 +57,8 @@
 			<result name="success" type="chain">indexShow</result>
 			<result name="error">/error.jsp</result>
 		</action>
-
-		<!--查看个人的发布商品-->
+		
+		<!--查看个人的发布商品-->	
 		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
 			<result name="success">/showReleaseGood.jsp</result>
 			<result name="noContent">/error.jsp</result>
@@ -216,6 +212,9 @@
 		
 		<action name="getGoodsItems" class="com.qst.action.GoodsSoldAction" method="getGoodsItems">
 			<result name="goodsitems">GoodsSold.jsp</result>
+		</action>
+		<action name="setOrderpay_type" class="com.qst.action.GoodsSoldAction" method="setOrderpay_type">
+			<result name="setOrderpay_type" type="chain">getGoodsItems</result>
 		</action>
 
 	</package>

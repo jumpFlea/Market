@@ -32,4 +32,12 @@ public class ImageService {
 	public void insertImage(Image image){
 		 imageDAO.insertImage(image);
 	}
+	
+	public int findImageByid(int goodId){
+		return imageDAO.findImageByid(goodId);
+	} 
+	
+	public void updateImgae(Image image){
+		imageDAO.updateImage(image);
+	}
 }

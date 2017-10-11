@@ -17,7 +17,7 @@
 		VALUES(#{g_price},#{g_name},#{g_attribute},#{u_id},#{image_id},#{restnum},#{introduce},#{image_zhanshi},#{market_price},#{g_content})
 	</insert>
 
-	<!--根据商品id进行查找-->
+	<!--根据商品id进行查找 -->
 	<select id="showGoods" parameterType="int" resultType="Goods">
 		select *
 		from goods where g_id=#{goodId};
@@ -61,6 +61,13 @@
 		limit #{begin},#{limitPage};
 	</select>
 
+	<!--更新用户商品的数据 -->
+	<update id="upadateReleaseGoods" parameterType="Goods">
+		update goods set
+		g_price=#{g_price},g_name=#{g_name},g_attribute=#{g_attribute},restnum=#{restnum},introduce=#{introduce},image_zhanshi=#{image_zhanshi},market_price=#{market_price},
+		g_content=#{g_content} where g_id=#{g_id}
+	</update>
+
 
 	<!--查找指定本用户的商品数量 -->
 	<select id="findReleaseGoodsNum" parameterType="int" resultType="int">
@@ -70,7 +77,7 @@
 
 	<!--用户根据g_id删除他的发布商品 -->
 	<delete id="deleteReleaseGood" parameterType="int">
-			 DELETE from goods where g_id=#{goodId}
+		DELETE from goods where g_id=#{goodId}
 	</delete>
 
 	<!--展示所有的类型 -->
