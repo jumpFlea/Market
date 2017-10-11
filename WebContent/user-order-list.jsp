@@ -23,7 +23,7 @@
                 <li class="nav-item end-item"><a href="">客户服务</a></li>
                 <li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
                 <li class="nav-item"><a href="">商城会员</a></li>
-                <li class="nav-item"><a href="userOrder.action">我的订单</a></li>
+                <li class="nav-item"><a href="myOrders.action">我的订单</a></li>
                 <c:if test="${user == null}">
                     <li class="nav-item first-item">
                         [<a href="login.html" class="login">登录 </a>
@@ -206,6 +206,43 @@
                     </c:forEach>
                     <%-- 4 status: pend-payment, being-delivered, already-shipped, already-sign --%>
 
+                    <div class="order-list-item already-sign">
+                        <div class="order-num-box">
+                            <p class="order-status pull-right">已签收</p>
+                            <p class="order-string">
+                                <span class="order-item-txt">订单编号:</span>
+                                <span class="">5678908776545677654</span>
+                            </p>
+                        </div>
+                        <div class="order-item-detail">
+                            <div class="order-cover pull-left">
+                                <img src="../image/img/head-img.png" alt=""/>
+                            </div>
+                            <div class="right-button-group pull-right">
+                                <span class="button-item"><a href="javascript:;" class="button">查看订单</a></span>
+                                <span class="button-item"><a href="javascript:;" class="button comment">五星好评</a></span>
+                                <span class="button-item"><a href="javascript:;" class="button">删除订单</a></span>
+                            </div>
+                            <div class="main-detail-box">
+                                <h3 class="order-title"><a href="">NOPAIN NOGAIN 牛男款新款夏季 T恤限量发售</a></h3>
+                                <p class="size-color">
+                                    <span class="color margin-r-20">颜色：白色</span>
+                                    <span class="size">尺码：XL</span>
+                                </p>
+                                <p class="recieve-address">收货地址：上海市 静安区 江宁路123号 大的公寓12</p>
+                                <p class="price-wrap">
+                                    <span class="unit-price-wrap margin-r-20">
+                                        ￥<span class="unit-wrap price">189.00</span> x <span class="item-num">2</span>
+                                    </span>
+                                    <span class="unit-price-wrap">
+                                        总计：￥<span class="unit-wrap price">396.00</span><span class="item-fee-status">(含运费)</span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <div class="nn-loading-more">
@@ -318,7 +355,20 @@
 </div>
 
 <script src="./js/lib/jquery.min.js"></script>
-<script src="./js/user-public.js"></script>
+<script src="./js/lib/sea.js"></script>
+<script>
+    seajs.config({
+        base: "./js",
+        alias: {
+            "jquery": "lib/jquery.min",
+            'swiper': 'lib/swiper.min'
+        }
+    });
+    // 加载入口模块
+    seajs.use("main/page-order-detail", function(init){
+        init.initPage();
+    });
+</script>
 <script>
     (function(){
         $(function(){
@@ -343,7 +393,9 @@
                 alert(JSON.stringify(comment))
             })
         })
-    })()
+    })();
+    $('#add-usual-address').trigger('click');
 </script>
+<script src="./js/user-public.js"></script>
 </body>
 </html>
