@@ -383,7 +383,7 @@
 			<a href="getAllorder"><span class="my-item">未付款订单</span></a> <span class="my-item">返修退换货</span>
 		</p>
 		<p>
-			<a href="comletedOrderIndex?pay_type=1&flag=1"><span class="my-item">未评价订单</span></a> <a href="evaluaedOrderIndex?pay_type=1&flag=2"> <span class="my-item">已评价订单</span></a>
+			<a href="comletedOrderIndex"><span class="my-item">未评价订单</span></a> <a href="evaluaedOrderIndex"> <span class="my-item">已评价订单</span></a>
 		</p>
 		<p>
 			<span class="my-item">全部订单</span> <span class="my-item">我的问答</span>

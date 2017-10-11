@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.qst.dao.SessionDao;
+import com.qst.model.Goods_Session;
 
 @Service
 public class SessionService {
@@ -20,5 +21,9 @@ public class SessionService {
 	
 	public int setGoods_Session(int session_id,int g_id){
 		return sessionDao.setGoods_Session(session_id, g_id);
+	}
+	
+	public Goods_Session goodsSold(int u_id) {
+		return sessionDao.getGoodsSession(u_id);
 	}
 }

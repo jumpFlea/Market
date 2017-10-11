@@ -186,11 +186,12 @@
 		<action name="payForOrder" class="com.qst.action.OrderAction"
 			method="payForOrder">
 		</action>
+		
 		<!-- 已完成订单的查找 -->
 
 		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="comletedOrderIndex">
-			<result name="comletedOrderIndex">/Completed_Order.jsp</result>
+			<result name="comletedOrderIndex">/Goodsorder_Ifram.jsp</result>
 		</action>
 		<!-- 設置回话进入session表中 -->
 		<action name="setEvalueInSession" class="com.qst.action.SessionAction"
@@ -200,7 +201,7 @@
 
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction"
 			method="evaluaedOrderIndex">
-			<result name="evaluaedOrderIndex">/Completed_Order.jsp</result>
+			<result name="evaluaedOrderIndex">evaluateGoods_iF.jsp</result>
 		</action>
 
 	</package>

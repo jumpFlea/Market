@@ -1,15 +1,14 @@
 package com.qst.model;
 
-/**
- * Created by tomatofrommars on 9/20/17.
- * Email: tomatofrommars@gmail.com
- */
+
 public class Session {
 	private Integer session_id;
 	private String evaluate;
 	private String reply;
 	private int u_id;
 	private long ordernumber;
+	private String session_data;
+	private String username;
 
 	public int getU_id() {
 		return u_id;
@@ -51,14 +50,6 @@ public class Session {
 		this.session_id = session_id;
 	}
 
-	@Override
-	public String toString() {
-		return "Session [session_id=" + session_id + ", evaluate=" + evaluate + ", reply=" + reply + ", u_id=" + u_id
-				+ ", ordernumber=" + ordernumber + "]";
-	}
-
-
-
 	public String getEvaluate() {
 		return evaluate;
 	}
@@ -73,6 +64,26 @@ public class Session {
 
 	public void setReply(String reply) {
 		this.reply = reply;
+	}
+
+
+
+	public String getSession_data() {
+		return session_data;
+	}
+
+
+
+	public void setSession_data(String session_data) {
+		this.session_data = session_data;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Session [session_id=" + session_id + ", evaluate=" + evaluate + ", reply=" + reply + ", u_id=" + u_id
+				+ ", ordernumber=" + ordernumber + ", session_data=" + session_data + "]";
 	}
 
 

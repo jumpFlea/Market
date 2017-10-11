@@ -1,12 +1,16 @@
 package com.qst.dao;
 
+import com.qst.model.Goods;
 import com.qst.model.GoodsOrder;
+import com.qst.model.Page;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Component
 public interface GoodsOrderDao {
@@ -16,9 +20,9 @@ public interface GoodsOrderDao {
 	 * 进行分页操作 传入的是uid和order的属性 0：未完成订单，1：已经完成订单
 	 */
 
-	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber FROM `order` AS a ,order_goods AS b,goods AS c WHERE a.u_id=#{u_id} AND a.pay_type=#{pay_type} AND c.g_id=b.g_id AND( c.g_id NOT IN(SELECT DISTINCT b.g_id FROM `session` AS a,goods_session AS b WHERE a.u_id=#{u_id} AND b.session_id=a.session_id ORDER BY b.g_id) AND b.ordernumber NOT IN(SELECT DISTINCT a.ordernumber FROM  `session` AS a,goods_session AS b,`order` AS c WHERE a.ordernumber=c.ordernumber AND a.u_id=#{u_id})  )ORDER BY  c.g_id")
+	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber,c.image_zhanshi FROM `order` AS a ,order_goods AS b,goods AS c WHERE a.u_id=#{u_id} AND a.pay_type=#{pay_type} AND c.g_id=b.g_id AND( c.g_id NOT IN(SELECT DISTINCT b.g_id FROM `session` AS a,goods_session AS b WHERE a.u_id=#{u_id} AND b.session_id=a.session_id ORDER BY b.g_id) AND b.ordernumber NOT IN(SELECT DISTINCT a.ordernumber FROM  `session` AS a,goods_session AS b,`order` AS c WHERE a.ordernumber=c.ordernumber AND a.u_id=#{u_id})  )ORDER BY  c.g_id LIMIT #{a},#{b}")
 
-	public ArrayList<GoodsOrder> getGoodOrderByu_id(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
+	public List<GoodsOrder> getGoodOrderByu_id(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
 			@Param("a") int a, @Param("b") int b);
 
 	/*
@@ -26,8 +30,8 @@ public interface GoodsOrderDao {
 	 *
 	 * 进行分页操作 传入的是uid和order的属性 0：未完成订单，1：已经完成订单
 	 */
-	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id LIMIT #{a},#{b}")
-	public  ArrayList<GoodsOrder> getCompleted_EvaluationOrder(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
+	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber,c.image_zhanshi FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id LIMIT #{a},#{b}")
+	public  List<GoodsOrder> getCompleted_EvaluationOrder(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
 			@Param("a") int a, @Param("b") int b);
 
 	/*
