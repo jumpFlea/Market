@@ -78,11 +78,31 @@ public class ShopCartAction {
 			session.removeAttribute("goodsList");
 		}
 		else {
-			Adress address = addressService.getAddressByUser(id);
-			session.setAttribute("address",address);
-			session.setAttribute("goodsList", goodsList);
+			Adress address = addressService.getDefaultAddress(id);
+			ArrayList<HashMap> addressList = addressService.getAllAddressByUser(id);
+			request.setAttribute("addressDefault",address);
+			request.setAttribute("goodsList", goodsList);
+			request.setAttribute("addressList", addressList);
 		}
 		return "diao";
+	}
+
+	public String quickBuy(){
+		try {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			HttpSession session = request.getSession();
+			int id = (int) session.getAttribute("uid");
+
+			HashMap goods = shopCarService.getGoods(item);
+			Adress address = addressService.getDefaultAddress(id);
+			ArrayList<HashMap> addressList = addressService.getAllAddressByUser(id);
+			request.setAttribute("goods",goods);
+			session.setAttribute("addressDefault",address);
+			request.setAttribute("addressList", addressList);
+			return "success";
+		} catch (Exception e){
+			return "login";
+		}
 	}
 
 	/*
@@ -199,19 +219,6 @@ public class ShopCartAction {
 		}
 	}
 
-	public String quickBuy(){
-		try {
-			HashMap goods = shopCarService.getGoods(item);
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("goods",goods);
-			int id = (int) session.getAttribute("uid");
-			Adress address = addressService.getAddressByUser(id);
-			session.setAttribute("address",address);
-			return "success";
-		} catch (Exception e){
-			return "login";
-		}
-	}
 
     public String deleteCartGoods(){
 	    try {

@@ -12,17 +12,27 @@
 
 	<select id="findDefaultAddress" resultType="com.qst.model.Adress">
 		SELECT
-		a.ad_id AS ad_id,
-		a.name AS name,
-		a.phone AS phone,
-		a.region AS region,
-		a.street AS street
+			a.ad_id AS ad_id,
+			a.name AS `name`,
+			a.phone AS phone,
+			a.region AS region,
+			a.street AS street
 		FROM adress a
-		LEFT JOIN us_ad ua ON a.ad_id = ua.ad_id
-		LEFT JOIN usertable u ON ua.u_id = u.uid
+		LEFT JOIN usertable u ON u.ad_id = a.ad_id
 		WHERE u.uid=#{0}
 	</select>
 
+	<select id="findAllAddressByUser" resultType="hashmap">
+		SELECT
+			a.ad_id AS id,
+			a.name AS `name`,
+			a.phone AS phone,
+			a.region AS region,
+			a.street AS street
+		FROM adress a
+		LEFT JOIN us_ad ua ON a.ad_id = ua.ad_id
+		WHERE ua.u_id=#{0}
+	</select>
 	<!-- <insert id="setAdress" parameterType="Adress">
 		insert into adress (name,phone,region,street) values(#{name},#{phone},#{region},#{street});
 	</insert>  -->

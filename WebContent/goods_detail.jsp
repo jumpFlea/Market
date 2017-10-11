@@ -20,11 +20,11 @@
 			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
-					
+
 					<li class="nav-item end-item"><a href="">客户服务</a></li>
 					<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
 					<li class="nav-item"><a href="">商城会员</a></li>
-					<li class="nav-item"><a href="userOrder.action">我的订单</a></li>
+					<li class="nav-item"><a href="myOrders.action">我的订单</a></li>
 					<c:if test="${user == null}">
 						<li class="nav-item first-item">[<a href="login.html"
 							class="login">登录 </a> <a href="login.html#signup"
@@ -103,7 +103,7 @@
 						<button class="plus-calc">+</button>
 					</div>
 				</span>
-				
+
 				<!-- 已经添加到购物车状态 -->
 				<div class="add-cart">
 					<div class="add-car-tips" hidden>
@@ -118,20 +118,21 @@
 							添加到购物车
 							<span></span>
 						</a>
-						<a class="continue-find" href="setgoodsinordre?Goodprice=${good.g_price}&Goodid=${good.g_id}&Goodsum=1">
+						<a class="continue-find" onclick="quickBuy(this)"
+						   ref="quickBuy.action?&item.price=${good.g_price}&item.gid=${good.g_id}&item.uid=${user.uid}">
 							立即购买
-						<span></span>
+							<span></span>
 						</a>
 					</div>
 				</div>
-				
+
 				<!-- end -->
-				
+
 				<!-- 选择商品状态 -->
 				<div class="choose-goods" style="display: none">
 					<div class="item c-color">
 						<span class="c-color-text">颜色 ：</span> <span
-							style="background-color: fff" class="active c-color-item"></span>
+							style="background-color: #fff" class="active c-color-item"></span>
 						<span class="c-color-item"></span> <span class="c-color-item"></span>
 					</div>
 					<div class="item c-size">

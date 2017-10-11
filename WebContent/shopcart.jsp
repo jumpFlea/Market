@@ -55,32 +55,32 @@
                         </div>
                         <div class="address-item-detail">
 
-                            <c:if test="${address != null}">
+                            <c:if test="${addressDefault != null}">
                                 <div class="right-button-group pull-right">
-                                    <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
+                                    <span class="button-item"><a href="javascript:switchAddress();" class="button">更换地址</a></span>
                                 </div>
                             </c:if>
                             <div class="main-detail-box">
-                                <c:if test="${address != null}">
+                                <c:if test="${addressDefault != null}">
                                     <p class="address-info-row">
-                                        <input type="text" value="${address.ad_id}" id="address-id" hidden>
+                                        <input type="text" value="${addressDefault.ad_id}" id="address-id" hidden>
                                         <span class="address-info-title">收货人姓名：</span>
-                                        <span class="info-row">${address.name}</span>
+                                        <span class="info-row default-name">${addressDefault.name}</span>
                                     </p>
                                     <p class="address-info-row">
                                         <span class="address-info-title">地区：</span>
-                                        <span class="info-row">${address.region}</span>
+                                        <span class="info-row default-region">${addressDefault.region}</span>
                                     </p>
                                     <p class="address-info-row">
                                         <span class="address-info-title">详细地址：</span>
-                                        <span class="info-row">${address.street}</span>
+                                        <span class="info-row default-street">${addressDefault.street}</span>
                                     </p>
                                     <p class="address-info-row">
                                         <span class="address-info-title">电话：</span>
-                                        <span class="info-row">${address.phone}</span>
+                                        <span class="info-row default-phone">${addressDefault.phone}</span>
                                     </p>
                                 </c:if>
-                                <c:if test="${address == null}">
+                                <c:if test="${addressDefault == null}">
                                     <div class="right-button-group" style="top:0;">
                                         <span class="button-item"><a href="showAllAddress.action" class="button">添加收货地址</a></span>
                                     </div>
@@ -247,9 +247,51 @@
         </div>
     </div>
 </div>
+
+<%-- 地址　--%>
+<div class="nn-comment-mask"></div>
+<div class="nn-comment-content">
+    <div class="close-row clearfix">
+        <div class="close-comment pull-right"><img src="./image/icon/comment-close-icon.png" alt=""/></div>
+    </div>
+    <div class="comment-content">
+        <c:forEach items="${addressList}" var="a">
+            <div id="address${a.id}">
+                <input type="radio" name="address" value="${a.id}">
+                <span class="name"> ${a.name} </span>
+                <span class="region"> ${a.region} </span>
+                <span class="street"> ${a.street} </span>
+                <span class="phone"> ${a.phone} </span>
+            </div>
+        </c:forEach>
+    </div>
+    <div class="text-center">
+        <button class="comment-submit">确定</button>
+    </div>
+</div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="./js/lib/sea.js"></script>
 <script>
+    $('.close-comment').click(function () {
+        $('.nn-comment-mask,.nn-comment-content').hide();
+    });
+    $('.comment-submit').click(function () {
+        var id = $('input[name=address]:checked').val();
+        var $selected = $('#address'+id);
+        $('#address-id').val(id);
+
+        $('.default-region').text( $selected.find('.region').text() );
+        $('.default-street').text( $selected.find('.street').text() );
+        $('.default-name').text( $selected.find('.name').text() );
+        $('.default-phone').text( $selected.find('.phone').text() );
+
+        $('.nn-comment-mask,.nn-comment-content').hide();
+    });
+    function switchAddress() {
+        $('.comment-content').find('input').first().attr('checked','checked');
+        $('.nn-comment-mask,.nn-comment-content').show();
+    }
+
     function submitOrder() {
         var url = "submitOrder.action?";
         $('.detail-bar').each(function () {

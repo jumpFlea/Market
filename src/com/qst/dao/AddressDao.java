@@ -1,6 +1,7 @@
 package com.qst.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -40,4 +41,6 @@ public interface AddressDao {
 
 
 	Adress findDefaultAddress(int id);
+
+	ArrayList<HashMap> findAllAddressByUser(int id);
 }
