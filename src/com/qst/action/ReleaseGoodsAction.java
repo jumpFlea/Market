@@ -2,6 +2,7 @@ package com.qst.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.Goods;
+import com.qst.model.Page;
 import com.qst.model.UserGoods;
 import com.qst.serviceImpl.GoodsService;
 import org.apache.commons.io.FileUtils;
@@ -25,13 +26,23 @@ public class ReleaseGoodsAction extends ActionSupport {
 	private File upload;
 	private String uploadFileName;
 	private UserGoods userGoods;
+	int page = 1;
 
 
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	//发布商品
 	public String releaseGoods() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(new Date());
-		System.out.println(date);
+//		System.out.println(date);
 		int uid = (int) request.getSession().getAttribute("uid");
 		goods.setU_id(uid);
 		String savePath = "C:\\Users\\Administrator\\Desktop\\ourImage\\";
@@ -43,8 +54,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}	
 		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		rgs.releaseGoods(goods);
 		userGoods = new UserGoods();
@@ -52,16 +62,21 @@ public class ReleaseGoodsAction extends ActionSupport {
 		userGoods.setGoodsId(goods.getG_id());
 		userGoods.setDate(date);
 		rgs.saveUserGoods(userGoods);
-
-	/*	System.out.println("sadasdsad"+goods.getG_id());*/
-		//System.out.println("asdfasdfads:"+i);
-		/*if (i != 0) {
-			return SUCCESS;
-		} else
-			return ERROR;*/
 		return "success";
 	}
-
+	
+	public String showReleaseGoods(){
+		Page<Goods> showRelease = new Page<Goods>();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int uid = (int) request.getSession().getAttribute("uid");
+		showRelease = rgs.showReleaseGoods(page, uid);
+		if(showRelease!=null){
+			request.setAttribute("showRelease", showRelease);
+			return SUCCESS;
+		}
+		return "noContent";
+				
+	}
 	public UserGoods getUserGoods() {
 		return userGoods;
 	}

@@ -109,6 +109,20 @@
 						</a></li>
 					</ul>
 				</li>
+				<li class="list-item">
+					<div class="inner-bar">
+						<span class="img-icon"> <img
+							src="image/icon/coat-icon.png" alt="" />
+						</span> <span class="txt-title">我的发布</span> <span
+							class="pull-right icon-toggle plus-icon"></span>
+					</div>
+					<ul class="sub-menu-list" style="display: none">
+						<li class="sub-list-item"><a href="showReleaseGoods" class="item-link">
+								<span class="triangle-right pull-left"></span> <span
+								class="sub-list-txt">查看发布</span>
+						</a></li>
+					</ul>
+				</li>
 
 
 			</ul>

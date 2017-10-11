@@ -77,6 +77,34 @@ public class GoodsService {
 		p.setList(imageList);
 		return p;
 	}
+	
+	//查看本用户的发布商品的信息
+	public Page<Goods> showReleaseGoods(int currentPage,int u_id){
+		Page<Goods> show = new Page<Goods>();
+		// 将当前的页面设置到page中
+		show.setCurrentPage(currentPage);
+		// 设置每页显示的条数
+		int limit=4;
+		show.setLimitPage(limit);
+		// 获取当前的总记录数，并设置到page里面对应的属性,设置总页数
+		int count = goodsDao.findReleaseGoodsNum(u_id);
+		if (count%limit == 0) {
+			count = count / limit;
+			show.setCountPage(count);
+		} else {
+			count = (count / limit) + 1;
+			show.setCountPage(count);
+		}
+		// 设置开始显示记录的第一条的值
+		int begin = (currentPage - 1) * limit;
+		show.setBegin(begin);
+		show.setId(u_id);
+		// 获取图片的信息，存于page中
+		List<Goods> imageList = new ArrayList<Goods>();
+		imageList = goodsDao.releaseGoods(show);
+		show.setList(imageList);
+		return show;
+	}
 
 	//根据类型找到数量
 	public int findImageNum(String type,String gname) {

@@ -20,8 +20,12 @@ public interface GoodsDao {
 	Goods showGoods(int goodId);
 
 	public List<Goods> indexShow(Page<Goods> page);
+	
+	public List<Goods> releaseGoods(Page<Goods> page);
 
 	public int findImageNum(@Param("type") String type,@Param("gname")String gname);
+	
+	public int findReleaseGoodsNum(@Param("id") int id);
 
 	public String[] showAllAttri();
 	

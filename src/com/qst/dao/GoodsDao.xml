@@ -53,6 +53,21 @@
 		</where>
 	</select>
 
+
+	<!--查找指定本用户的商品-->
+	<select id="releaseGoods" parameterType="Page" resultType="Goods">
+		select * from goods
+		where  u_id=#{id}
+		limit #{begin},#{limitPage};
+	</select>
+
+
+	<!--查找指定本用户的商品数量 -->
+	<select id="findReleaseGoodsNum" parameterType="int" resultType="int">
+		select count(g_id) from goods where u_id=#{id}
+	</select>
+
+
 	<!--展示所有的类型 -->
 	<select id="showAllAttri" resultType="string">
 		SELECT g_attribute from

@@ -57,6 +57,12 @@
 			<result name="success" type="chain">indexShow</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<!--查看个人的发布商品-->	
+		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
+			<result name="success">/showReleaseGood.jsp</result>
+			<result name="noContent">/error.jsp</result>
+		</action>
 
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"

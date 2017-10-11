@@ -18,8 +18,8 @@ public class Page<T> {
 	private String attribute;
 	//设置名字
 	private String gname; 
-
-
+	//为了方便，添增一个int属性
+	private int id;
 
 	private List<T> list;
 	
@@ -80,5 +80,13 @@ public class Page<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 }

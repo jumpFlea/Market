@@ -116,5 +116,8 @@ introduce_good{
 
 	display: inline-block;
 	text-align: center;
-
+}
+#releaseTable{
+	width:80%;
+	margin: auto;
 }
