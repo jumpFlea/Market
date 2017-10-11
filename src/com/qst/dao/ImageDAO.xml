@@ -10,7 +10,17 @@
     <select id="getImage" parameterType="java.lang.Long" resultType="Image">
         select * from image where goodsnumber=#{goodsnumber};
     </select>
-
+    
+    <!--根据g_id寻找到imageid-->
+      <select id="findImageByid" parameterType="int" resultType="int">
+        select image_id from goods where g_id=#{goodId};
+    </select>
+    
+	<!--更新image的图片-->
+	<update id="updateImage" parameterType="Image">
+		update image set url1=#{url1},url2=#{url2},url3=#{url3},url4=#{url4}
+		where image_id = #{image_id}
+	</update>
 
     <select id="showSmallPic" parameterType="int" resultType="Image">
         SELECT

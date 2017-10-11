@@ -11,13 +11,21 @@
 		<default-action-ref name="indexShow" />
 
 		<action name="login" class="userAction" method="login" />
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'dev' of https://github.com/jumpFlea/Market.git
 		<action name="signup" class="userAction" method="signup" />
 		<action name="validate" class="userAction" method="validateUsername">
 			<result name="success" type="plainText">fonts/temp/success</result>
 			<result name="index" type="plainText">fonts/temp/index</result>
 		</action>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'dev' of https://github.com/jumpFlea/Market.git
 
 		<!--个人资料界面显示信息 -->
 		<action name="showUserInfor" class="userAction" method="showUserInfor">
@@ -63,9 +71,15 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+<<<<<<< HEAD
 
 		<!--查看个人的发布商品 -->
 
+=======
+
+		<!--查看个人的发布商品 -->
+
+>>>>>>> branch 'dev' of https://github.com/jumpFlea/Market.git
 		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
 			<result name="success">/showReleaseGood.jsp</result>
 			<result name="noContent">/error.jsp</result>
@@ -212,9 +226,17 @@
 		<!-- 設置回话进入session表中 -->
 		<action name="setEvalueInSession" class="com.qst.action.SessionAction"
 			method="setEvalueInSession">
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'dev' of https://github.com/jumpFlea/Market.git
 			<result name="evaluate">NoEvaluateOrder.jsp</result>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'dev' of https://github.com/jumpFlea/Market.git
 		</action>
 
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">
