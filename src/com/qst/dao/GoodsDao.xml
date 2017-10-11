@@ -12,12 +12,12 @@
 	<!--发布商平的,插入商品的信息,返回插入刚刚生成的id号 -->
 	<insert id="releaseGood" parameterType="Goods" useGeneratedKeys="true" keyProperty="g_id">
 		insert into
-		goods(g_price,g_name,g_attribute,u_id,restnum,introduce,image_zhanshi,market_price,
+		goods(g_price,g_name,g_attribute,u_id,image_id,restnum,introduce,image_zhanshi,market_price,
 		g_content)
-		VALUES(#{g_price},#{g_name},#{g_attribute},#{u_id},#{restnum},#{introduce},#{image_zhanshi},#{market_price},#{g_content})
+		VALUES(#{g_price},#{g_name},#{g_attribute},#{u_id},#{image_id},#{restnum},#{introduce},#{image_zhanshi},#{market_price},#{g_content})
 	</insert>
 
-
+	<!--根据商品id进行查找-->
 	<select id="showGoods" parameterType="int" resultType="Goods">
 		select *
 		from goods where g_id=#{goodId};
@@ -54,10 +54,10 @@
 	</select>
 
 
-	<!--查找指定本用户的商品-->
+	<!--查找指定本用户的商品 -->
 	<select id="releaseGoods" parameterType="Page" resultType="Goods">
 		select * from goods
-		where  u_id=#{id}
+		where u_id=#{id}
 		limit #{begin},#{limitPage};
 	</select>
 
@@ -67,6 +67,11 @@
 		select count(g_id) from goods where u_id=#{id}
 	</select>
 
+
+	<!--用户根据g_id删除他的发布商品 -->
+	<delete id="deleteReleaseGood" parameterType="int">
+			 DELETE from goods where g_id=#{goodId}
+	</delete>
 
 	<!--展示所有的类型 -->
 	<select id="showAllAttri" resultType="string">

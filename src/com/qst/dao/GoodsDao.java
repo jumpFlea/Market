@@ -32,4 +32,7 @@ public interface GoodsDao {
 	public List<GoodsSession> showEvaluate(int goodId);
 	
 	public List<User> showUserInfo(int goodId);
+	
+	public int deleteReleaseGood(@Param("goodId") int goodId);
+	
 }

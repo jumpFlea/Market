@@ -218,10 +218,10 @@
 				<div class="tab-text">商品详情 DETAILS</div>
 			</div>
 			<div class="side-detail">
-				<img src="${good.image_zhanshi}">
-				<img src="${good.image_zhanshi}">
-				<img src="${good.image_zhanshi}">
-				<img src="${good.image_zhanshi}">
+				<img src="${good.image_zhanshi}" style="width:200px;height:220px">
+				<img src="${good.image_zhanshi}" style="width:200px;height:220px">
+				<img src="${good.image_zhanshi}" style="width:200px;height:220px">
+				<img src="${good.image_zhanshi}" style="width:200px;height:220px">
 			</div>
 			<p class="goods-copy-right">&nbsp;&nbsp;&nbsp;&nbsp;${good.g_content}</p>
 			<!-- <p class="goods-copy-right">owners and were used in

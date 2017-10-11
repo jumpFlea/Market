@@ -10,14 +10,16 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
+
 import com.qst.model.GoodsOrder;
+import com.qst.model.Page;
 import com.qst.serviceImpl.GoodsOrderService;
 
 @Component
 public class GoodsOrderAction {
 	@Resource
 	private GoodsOrderService goodsorderservice;
-
+	int page=1;
 	public GoodsOrderService getGoodsorderservice() {
 		return goodsorderservice;
 	}
@@ -25,57 +27,70 @@ public class GoodsOrderAction {
 	public void setGoodsorderservice(GoodsOrderService goodsorderservice) {
 		this.goodsorderservice = goodsorderservice;
 	}
+	
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
 
 	/*
 	 * 已完成未评价订单的分页查找 首页查找
 	 */
 	public String comletedOrderIndex() {
+		Page<GoodsOrder> goodsorder =new Page<GoodsOrder>();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String flag =request.getParameter("flag");
+		int a=6*(page-1);
+		int b=5;
 		int u_id = (int) session.getAttribute("uid");
-		int pay_type = Integer.parseInt(request.getParameter("pay_type"));
-		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, pay_type, 0, 5);
-		session.setAttribute("goodsOrders_list", goodsOrders_list);
-		request.setAttribute("flag", flag);
+		int pay_type=1;
+		java.util.List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
+		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, pay_type, a, b);
+		int count=goodsorderservice.getCountFromGoodOrderByu_id(u_id, pay_type);
+		if (count%6 == 0) {
+			count = count / 6;
+			goodsorder.setCountPage(count);
+		} else {
+			count = (count / 6) + 1;
+			goodsorder.setCountPage(count);
+		}
+		goodsorder.setList(goodsOrders_list);
+		goodsorder.setCountPage(count);
+		request.setAttribute("goodsorder", goodsorder);
 		return "comletedOrderIndex";
 	}
-	/*
-	 * 已完成的订单分页查找 分页
-	 */
 
-	public String comletedOrder() {
-		
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		int u_id = (int) session.getAttribute("uid");
-		
-		int pag = Integer.parseInt(request.getParameter("pag"));
-		int a = (pag - 1) * 5;
-		int b = pag * 5 - 1;
-		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		goodsOrders_list = goodsorderservice.getGoodOrderByu_id(u_id, 1, a, b);
-		session.setAttribute("goodsOrders_list", goodsOrders_list);
-		return "comletedOrder";
-	}
 
 	/*
-	 * 以平价订单的首页查找
+	 * 已评价订单的首页查找
 	 */
 
 	public String evaluaedOrderIndex() {
+		Page<GoodsOrder> goodsorder =new Page<GoodsOrder>();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String flag =request.getParameter("flag");
 		int u_id = (int) session.getAttribute("uid");
-		int pay_type=Integer.parseInt( request.getParameter("pay_type"));;
-		ArrayList<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		goodsOrders_list=goodsorderservice.getEvaluteGoods(u_id, pay_type, 0, 5);
-		session.setAttribute("goodsOrders_list", goodsOrders_list);
-		request.setAttribute("flag", flag);
+		int pay_type=1;
+		java.util.List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
+		int a=6*(page-1);
+		int b=5;
+		goodsOrders_list=goodsorderservice.getEvaluteGoods(u_id, pay_type, a, b);
+		int count=goodsorderservice.getCountCompleted_EvaluationOrder(u_id, pay_type);
+		if (count%6 == 0) {
+			count = count / 6;
+			goodsorder.setCountPage(count);
+		} else {
+			count = (count / 6) + 1;
+			goodsorder.setCountPage(count);
+		}
+		goodsorder.setList(goodsOrders_list);
+		goodsorder.setCountPage(count);
+		request.setAttribute("goodsorder", goodsorder);
 		return "evaluaedOrderIndex";
 	}
 }
