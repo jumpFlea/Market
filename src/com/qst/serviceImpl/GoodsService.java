@@ -124,10 +124,15 @@ public class GoodsService {
 		return goodsDao.showUserInfo(goodId);
 	}
 	
-	//用户删除指定发布的商品信息｛
+	//用户删除指定发布的商品信息
 	public int deleteReleaseGood(int g_id){
 			return goodsDao.deleteReleaseGood(g_id);
 	}
 	
+	//用户更新指定发布的商品信息
+		public int upadateReleaseGoods(Goods goods){
+				return goodsDao.upadateReleaseGoods(goods);
+		}
+		
 	
 }

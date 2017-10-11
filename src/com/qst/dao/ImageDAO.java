@@ -1,13 +1,14 @@
 package com.qst.dao;
 
 import com.qst.model.Image;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
 /**
- * Created by tomatofrommars on 10/6/17.
- * Email: tomatofrommars@gmail.com
+ * Created by tomatofrommars on 10/6/17. Email: tomatofrommars@gmail.com
  */
 @Component
 public interface ImageDAO {
@@ -17,6 +18,11 @@ public interface ImageDAO {
 	Image getImage(long goodsnumber);
 
 	Image showSmallPic(int goodId);
-	
+
 	void insertImage(Image image);
+
+	void updateImage(Image image);
+	
+	public int findImageByid(@Param("goodId") int goodId);
+	
 }

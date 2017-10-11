@@ -35,4 +35,6 @@ public interface GoodsDao {
 	
 	public int deleteReleaseGood(@Param("goodId") int goodId);
 	
+	public int upadateReleaseGoods(Goods goods);
+	
 }

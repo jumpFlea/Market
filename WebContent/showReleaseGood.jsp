@@ -144,7 +144,7 @@
 									<td><a href="deleteReleaseGoods?goodId=${show.g_id}">删除</a>
 										<br>
 										<br>
-										<a herf="">修改</a>
+										<a href="showUserGoods?goodId=${show.g_id}">修改</a>
 									</td>
 								</tr>
 							</c:forEach>
@@ -172,6 +172,8 @@
 						</ul>
 					</nav>
 				</div>
+				
+				
 			</div>
 		</div>
 	</div>
