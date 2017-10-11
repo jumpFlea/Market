@@ -380,13 +380,13 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">未付款订单</span></a> <span class="my-item">返修退换货</span>
+			<a href="getAllorder"><span class="my-item">未付款订单</span></a><a href="getGoodsItems"><span class="my-item">已卖出未发货</span></a>
 		</p>
 		<p>
-			<a href="comletedOrderIndex?pay_type=1&flag=1"><span class="my-item">未评价订单</span></a> <a href="evaluaedOrderIndex?pay_type=1&flag=2"> <span class="my-item">已评价订单</span></a>
+			<a href="comletedOrderIndex"><span class="my-item">未评价订单</span></a> <a href=""> <span class="my-item">全部订单</span></a>
 		</p>
 		<p>
-			<span class="my-item">全部订单</span> <span class="my-item">我的问答</span>
+			  <a href="evaluaedOrderIndex"> <span class="my-item">已评价订单</span></a> <a href=""> <span class="my-item">我的问答</span></a>
 		</p>
 	</div>
 </body>

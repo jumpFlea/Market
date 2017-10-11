@@ -11,10 +11,13 @@
 		<default-action-ref name="indexShow" />
 
 		<action name="login" class="userAction" method="login" />
+
+		<action name="signup" class="userAction" method="signup" />
 		<action name="validate" class="userAction" method="validateUsername">
 			<result name="success" type="plainText">fonts/temp/success</result>
 			<result name="index" type="plainText">fonts/temp/index</result>
-		</action><action name="signup" class="userAction" method="signup" />
+		</action>
+
 
 		<!--个人资料界面显示信息 -->
 		<action name="showUserInfor" class="userAction" method="showUserInfor">
@@ -60,7 +63,9 @@
 			<result name="error">/error.jsp</result>
 		</action>
 
+
 		<!--查看个人的发布商品 -->
+
 		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
 			<result name="success">/showReleaseGood.jsp</result>
 			<result name="noContent">/error.jsp</result>
@@ -197,6 +202,7 @@
 		<!--支付状态改变 -->
 		<action name="payForOrder" class="com.qst.action.OrderAction" method="payForOrder">
 		</action>
+		
 		<!-- 已完成订单的查找 -->
 
 		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
@@ -206,7 +212,9 @@
 		<!-- 設置回话进入session表中 -->
 		<action name="setEvalueInSession" class="com.qst.action.SessionAction"
 			method="setEvalueInSession">
-			<result name="evaluate"> NoEvaluateOrder.jsp</result>
+
+			<result name="evaluate">NoEvaluateOrder.jsp</result>
+
 		</action>
 
 		<action name="evaluaedOrderIndex" class="com.qst.action.GoodsOrderAction" method="evaluaedOrderIndex">

@@ -34,7 +34,6 @@ public class UserServiceImpl{
 
 
 	public User findUserbyID(int uid) {
-
 		return dao.findByID(uid);
 	}
 
@@ -50,4 +49,12 @@ public class UserServiceImpl{
 		return dao.findIdByName(name);
 	}
 
+	public boolean validate(String username) {
+		if (dao.findByName(username) == null){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

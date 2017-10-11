@@ -52,7 +52,7 @@ function login() {
         success:function (data) {
             if(data.search("yes") !== -1){
                 $('#login').find('h1').text("登录成功, 跳转中......");
-                location.href="indexShow" 
+                location.href="indexShow"
 //                setTimeout(refresh,2000);
             }
             else {
@@ -65,21 +65,31 @@ function login() {
 function signup() {
     $('#signup').find('h1').text("注册中......");
 
-    $.ajax({
-        url: 'signup',
-        method: 'post',
-        data: $('#signup-form').serialize()
-    }).done(function (data) {
-        if(data.search("yes") !== -1){
-            $('#signup').find('h1').text("注册成功, 刷新中......");
-            setTimeout(refresh,2000);
+    var name = $('#username').val();
+
+    $.get('validate?user.username=' + name, function (data) {
+        if (data === "success") {
+            $.ajax({
+                url: 'signup',
+                method: 'post',
+                data: $('#signup-form').serialize()
+            }).done(function (data) {
+                if(data.search("yes") !== -1){
+                    $('#signup').find('h1').text("注册成功, 刷新中......");
+                    setTimeout(refresh,3000);
+                }
+                else {
+                    $('#signup').find('h1').text("用户名已被占用");
+                }
+            }).fail(function () {
+                $('#signup').find('h1').text("请刷新浏览器重试");
+            });
         }
         else {
-            $('#signup').find('h1').text("用户名已被占用");
+            $('#signup').find('h1').text("用户名已被使用！");
         }
-    }).fail(function () {
-        $('#signup').find('h1').text("请刷新浏览器重试");
     });
+
 }
 
 function refresh() {

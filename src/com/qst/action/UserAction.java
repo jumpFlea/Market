@@ -35,14 +35,6 @@ public class UserAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-/*	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}*/
-
 	public File getUpload() {
 		return upload;
 	}
@@ -74,8 +66,8 @@ public class UserAction extends ActionSupport {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
+
 
 	public void login() {
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -129,6 +121,20 @@ public class UserAction extends ActionSupport {
 			out.println(jsonString);
 			out.flush();
 			out.close();
+		}
+	}
+
+	public String validateUsername(){
+		if(user == null || user.getUsername() == null){
+			return "index";
+		}
+		else {
+			if (userService.validate(user.getUsername())) {
+				return "success";
+			}
+			else {
+				return "index";
+			}
 		}
 	}
 
