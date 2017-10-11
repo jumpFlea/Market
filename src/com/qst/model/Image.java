@@ -1,8 +1,7 @@
 package com.qst.model;
 
 /**
- * Created by tomatofrommars on 9/20/17.
- * Email: tomatofrommars@gmail.com
+ * Created by tomatofrommars on 9/20/17. Email: tomatofrommars@gmail.com
  */
 public class Image {
 	private Integer image_id;
@@ -10,12 +9,12 @@ public class Image {
 	private String url2;
 	private String url3;
 	private String url4;
+	private String gid;
+
 	private long goodsnumber;
-	
 
 	public Image() {
 	}
-
 
 	public Image(Integer image_id, String url1, String url2, String url3, String url4, long goodsnumber) {
 		super();
@@ -26,7 +25,6 @@ public class Image {
 		this.url4 = url4;
 		this.goodsnumber = goodsnumber;
 	}
-
 
 	public Integer getId() {
 		return image_id;
@@ -68,17 +66,39 @@ public class Image {
 		this.url4 = url4;
 	}
 
+	public String getGid() {
+		return gid;
+	}
+
+	public void setGid(String gid) {
+		this.gid = gid;
+	}
+
+	public Integer getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(Integer image_id) {
+		this.image_id = image_id;
+	}
+
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Image)) return false;
+		if (this == o)
+			return true;
+		if (!(o instanceof Image))
+			return false;
 
 		Image image = (Image) o;
 
-		if (!image_id.equals(image.image_id)) return false;
-		if (url1 != null ? !url1.equals(image.url1) : image.url1 != null) return false;
-		if (url2 != null ? !url2.equals(image.url2) : image.url2 != null) return false;
-		if (url3 != null ? !url3.equals(image.url3) : image.url3 != null) return false;
+		if (!image_id.equals(image.image_id))
+			return false;
+		if (url1 != null ? !url1.equals(image.url1) : image.url1 != null)
+			return false;
+		if (url2 != null ? !url2.equals(image.url2) : image.url2 != null)
+			return false;
+		if (url3 != null ? !url3.equals(image.url3) : image.url3 != null)
+			return false;
 		return url4 != null ? url4.equals(image.url4) : image.url4 == null;
 	}
 

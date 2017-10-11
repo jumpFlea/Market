@@ -64,6 +64,12 @@
 			<result name="noContent">/error.jsp</result>
 		</action>
 
+		<!--删除发布的商品-->
+		<action name="deleteReleaseGoods" class="releaseGoodsAction" method="deleteReleaseGoods">
+			<result name="success" type="chain">showReleaseGoods</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"
 			method="getShopCartGoods">

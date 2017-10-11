@@ -123,4 +123,11 @@ public class GoodsService {
 	public List<User> showUserInfo(int goodId){
 		return goodsDao.showUserInfo(goodId);
 	}
+	
+	//用户删除指定发布的商品信息｛
+	public int deleteReleaseGood(int g_id){
+			return goodsDao.deleteReleaseGood(g_id);
+	}
+	
+	
 }

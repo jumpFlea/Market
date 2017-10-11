@@ -28,4 +28,8 @@ public class ImageService {
 		// TODO Auto-generated method stub
 		return imageDAO.showSmallPic(gooId);
 	}
+	
+	public void insertImage(Image image){
+		 imageDAO.insertImage(image);
+	}
 }

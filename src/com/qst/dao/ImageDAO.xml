@@ -17,5 +17,11 @@
         * from image where image.image_id IN
         (select image_id from goods where g_id= #{goodId})
     </select>
-
+    
+    <insert id="insertImage" parameterType="Image" useGeneratedKeys="true" keyProperty="image_id">
+    	insert into
+		image(url1,url2,url3,url4)
+		VALUES(#{url1},#{url2},#{url3},#{url4})
+    </insert>
+	
 </mapper>
