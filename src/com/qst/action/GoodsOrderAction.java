@@ -10,11 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
-import com.qst.model.Goods;
+
 import com.qst.model.GoodsOrder;
 import com.qst.model.Page;
 import com.qst.serviceImpl.GoodsOrderService;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 @Component
 public class GoodsOrderAction {
