@@ -19,6 +19,9 @@ public class GoodsOrder {
 	public void setMeassage(String meassage) {
 		this.message = meassage;
 	}
+	
+	
+	
 	public String getName() {
 		return name;
 	}
