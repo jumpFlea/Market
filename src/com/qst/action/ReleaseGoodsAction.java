@@ -64,15 +64,15 @@ public class ReleaseGoodsAction extends ActionSupport {
 			e.printStackTrace();
 		}
 
-		int imgId = ims.findImageByid(goodId);
+//		int imgId = ims.findImageByid(goodId);
 		// 将图片地址放进image里面
 		image = new Image();
-		image.setImage_id(imgId);
+//		image.setImage_id(imgId);
 		image.setUrl1(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl2(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl3(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		image.setUrl4(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
-		ims.updateImgae(image);
+		ims.insertImage(image);
 		// 将发布的商品信息放进goods里面
 		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
 		goods.setImage_id(image.getImage_id());

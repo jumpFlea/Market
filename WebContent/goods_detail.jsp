@@ -93,6 +93,10 @@
 							<del>${good.market_price}</del>
 						</span>
 					</div>
+						<div class="b-price clear">商品简介:
+						<br>
+						<p>${good.introduce}<p>
+					</div>
 				</div>
 				<br>
 				<span class="b-price pull-left detail-number">数量： </span>

@@ -5,7 +5,6 @@
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
-
 	<!--Struts 2的Action都必须配置在package里,此处使用默认package -->
 	<package name="a" namespace="/" extends="struts-default">
 
@@ -13,6 +12,10 @@
 
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
+		<action name="validate" class="userAction" method="validateUsername">
+			<result name="success" type="plainText">fonts/temp/success</result>
+			<result name="index" type="plainText">fonts/temp/index</result>
+		</action>
 
 		<!--个人资料界面显示信息 -->
 		<action name="showUserInfor" class="userAction" method="showUserInfor">
@@ -57,8 +60,8 @@
 			<result name="success" type="chain">indexShow</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
-		<!--查看个人的发布商品-->	
+
+		<!--查看个人的发布商品-->
 		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
 			<result name="success">/showReleaseGood.jsp</result>
 			<result name="noContent">/error.jsp</result>
@@ -69,7 +72,7 @@
 			<result name="success" type="chain">showReleaseGoods</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		
+
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"
 			method="getShopCartGoods">
@@ -192,7 +195,7 @@
 		<action name="payForOrder" class="com.qst.action.OrderAction"
 			method="payForOrder">
 		</action>
-		
+
 		<!-- 已完成订单的查找 -->
 
 		<action name="comletedOrderIndex" class="com.qst.action.GoodsOrderAction"
@@ -209,7 +212,7 @@
 			method="evaluaedOrderIndex">
 			<result name="evaluaedOrderIndex">EvaluateGoods.jsp</result>
 		</action>
-		
+
 		<action name="getGoodsItems" class="com.qst.action.GoodsSoldAction" method="getGoodsItems">
 			<result name="goodsitems">GoodsSold.jsp</result>
 		</action>
