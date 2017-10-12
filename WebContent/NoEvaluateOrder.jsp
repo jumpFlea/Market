@@ -74,9 +74,9 @@
 
 </div>
 
-<div class="page-num">
+<div class="page-num" style=" width:  100%">
 			<nav>
-
+<div style="margin-left:50%; width:40% ">
 
 			<ul class="pagination">
 				<c:if test="${goodsorder.currentPage!=1}">
@@ -96,7 +96,7 @@
 			</ul>
 			</nav>
 		</div>
-
+</div>
 </body>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </html>

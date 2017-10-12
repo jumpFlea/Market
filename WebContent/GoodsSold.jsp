@@ -47,8 +47,6 @@
     </div>
 
 	<div class="gwc" style="margin: auto; border: solid black;">
-
-
 		<table class="table table-striped">
 			<tr>
 				<td>订单号</td>
@@ -84,7 +82,8 @@
 							</td>
 
 							<td class="tb1_td7">客户的留言： 
-					   <%-- 	 <input style="width: 200px; height: 50px; border: 1px solid #ccc;"  value="${goodsOrder.message}" /> --%>  
+							
+					 	   <input disabled="disabled" style="width: 200px; height: 50px; border: 1px solid #ccc;"  value="${goodsOrder.message}" />   
 						 <input type="hidden" value="${goodsOrder.ordernumber }" name="ordernumber" />
 						 <input type="submit" svalue="发货" />
 							</td>
@@ -95,10 +94,10 @@
 				</table>
 				<div style="line-height: 60px;width: 100%;background: #c1b8b8;height: 60px;border-radius: 0px 0px 10px 10px;"></div>
 			</form>
-			</br>
-			</br>
+			<div style="height: 5px ">  </div>
 		</c:forEach>
 	</div>
+	
 	<!--分页  -->
 	<div class="page-num" style=" width:  100%">
 		<nav>
@@ -126,7 +125,6 @@
 		</nav>
 	</div>
 	
-</div>
 </div>
 
 </body>

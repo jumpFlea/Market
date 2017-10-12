@@ -30,7 +30,7 @@ public interface GoodsOrderDao {
 	 *
 	 * 进行分页操作 传入的是uid和order的属性 0：未完成订单，1：已经完成订单
 	 */
-	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber,c.image_zhanshi FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id LIMIT #{a},#{b}")
+	@Select("SELECT DISTINCT c.g_id,c.g_name,c.g_price,b.ordernumber,c.image_zhanshi,d.evaluate,d.reply FROM `order` AS a,order_goods AS b,goods AS c,`session` AS d,goods_session AS e WHERE a.ordernumber=b.ordernumber AND b.g_id=c.g_id AND a.u_id=#{u_id} AND a.pay_type=#{pay_type}   ORDER BY a.ad_id LIMIT #{a},#{b}")
 	public  List<GoodsOrder> getCompleted_EvaluationOrder(@Param("u_id") int u_id, @Param("pay_type") int pay_type,
 			@Param("a") int a, @Param("b") int b);
 

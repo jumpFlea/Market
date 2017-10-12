@@ -45,7 +45,7 @@ public class GoodsOrderAction {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		int a=6*(page-1);
-		int b=5;
+		int b=6;
 		int u_id = (int) session.getAttribute("uid");
 		int pay_type=1;
 		java.util.List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
@@ -77,15 +77,15 @@ public class GoodsOrderAction {
 		int u_id = (int) session.getAttribute("uid");
 		int pay_type=1;
 		java.util.List<GoodsOrder> goodsOrders_list = new ArrayList<GoodsOrder>();
-		int a=6*(page-1);
+		int a=5*(page-1);
 		int b=5;
 		goodsOrders_list=goodsorderservice.getEvaluteGoods(u_id, pay_type, a, b);
 		int count=goodsorderservice.getCountCompleted_EvaluationOrder(u_id, pay_type);
-		if (count%6 == 0) {
-			count = count / 6;
+		if (count%5 == 0) {
+			count = count / 5;
 			goodsorder.setCountPage(count);
 		} else {
-			count = (count / 6) + 1;
+			count = (count / 5) + 1;
 			goodsorder.setCountPage(count);
 		}
 		goodsorder.setList(goodsOrders_list);

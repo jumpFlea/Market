@@ -71,8 +71,12 @@ public class OrderServiceImpl{
 		return orderDao.getG_idByUid(uid);
 	}
 
-	public ArrayList<Long> getOrderNumber(int u_id) {
-		return orderDao.getOrderNumber(u_id);
+	public ArrayList<Long> getOrderNumber(int u_id,int a,int b) {
+		return orderDao.getOrderNumber(u_id, a, b);
+	}
+	
+	public int getCountOrdernumber(int u_id) {
+		return orderDao.getCountOrdernumber(u_id);
 	}
 
 

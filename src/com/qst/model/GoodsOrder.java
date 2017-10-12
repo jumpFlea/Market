@@ -11,17 +11,30 @@ public class GoodsOrder {
 	private String phone;
 	private String region;
 	private String street;
+	private String evaluate;
+	private String reply;
 
 	
-	public String getMeassage() {
+	
+	public String getMessage() {
 		return message;
 	}
-	public void setMeassage(String meassage) {
-		this.message = meassage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	
-	
-	
+	public String getEvaluate() {
+		return evaluate;
+	}
+	public void setEvaluate(String evaluate) {
+		this.evaluate = evaluate;
+	}
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+
 	public String getName() {
 		return name;
 	}

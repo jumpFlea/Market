@@ -48,17 +48,25 @@ public interface orderDao {
 	public ArrayList<Integer> getG_idByUid(@Param("uid") int uid);
 
 	/*
-	 * 通过uid找到所有的订单号
+	 * 通过uid找到所有的订单号(未支付订单)
 	 */
-	@Select("SELECT  DISTINCT b.ordernumber FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{u_id} AND a.ordernumber=b.ordernumber AND pay_type=0")
-	public ArrayList<Long> getOrderNumber(@Param("u_id") int u_id);
+	@Select("SELECT  DISTINCT b.ordernumber FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{u_id} AND a.ordernumber=b.ordernumber AND pay_type=0 LIMIT #{a},#{b}")
+	public ArrayList<Long> getOrderNumber(@Param("u_id") int u_id,@Param("a")int a,@Param("b")int b);
+	
+	/*
+	 * 通过uid找到所有的订单号(未支付订单)  縂數量
+	 */
+	@Select("SELECT COUNT(*) FROM (SELECT  DISTINCT b.ordernumber FROM  `order` AS a,order_goods AS b WHERE a.u_id=#{u_id} AND a.ordernumber=b.ordernumber AND pay_type=0 ) AS c")
+	public int getCountOrdernumber(@Param("u_id") int u_id);
+	
 
 	/*
 	 * 通过订单号 找到每个订单的所有商品
 	 */
 	@Select("SELECT a.g_name,a.g_price,b.ordernumber FROM goods AS a,order_goods AS b WHERE ordernumber=#{ordernumber} AND a.g_id=b.g_id")
 	public ArrayList<GoodsOrder> getOrderItemByOrdernumber(@Param("ordernumber") long ordernumber);
-
+	
+	
 	/*
 	 * 定位 order_goods表 删除订单
 	 */

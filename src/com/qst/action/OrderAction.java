@@ -1,10 +1,12 @@
 package com.qst.action;
 
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.qst.model.GoodsOrder;
+import com.qst.serviceImpl.GoodsOrderService;
 import com.qst.serviceImpl.GoodsService;
 import com.qst.serviceImpl.OrderServiceImpl;
+import com.sun.org.apache.xalan.internal.utils.XMLSecurityManager.Limit;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,15 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
-
 @Controller
-public class OrderAction extends ActionSupport{
+public class OrderAction extends ActionSupport {
 	private final OrderServiceImpl orderService;
 	private final GoodsService goodsService;
 	private Float[] price;
 	private Integer[] gid;
 	private Integer[] number;
 	private Integer addressId;
+	int page=1;
 
 	@Autowired
 	public OrderAction(OrderServiceImpl orderService, GoodsService goodsService) {
@@ -30,16 +32,38 @@ public class OrderAction extends ActionSupport{
 		this.goodsService = goodsService;
 	}
 
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
 	/*
-	 * 通过uid寻找所有的未完成订单  paytype为0
+	 * 通过uid寻找所有的未完成订单 paytype为0
 	 */
-	public String getAllorder() {                         // 本用户的所有未完成订单信息
+	public String getAllorder() { 											// 本用户的所有未完成订单信息
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
 		int u_id = (int) session.getAttribute("uid");
+		int limt=6;
+		int pay_type = 0;
+		int a=limt*(page-1);
+		int b=limt;
 		ArrayList<Long> ordernumber_list = new ArrayList<Long>();
-		ordernumber_list = orderService.getOrderNumber(u_id);
+		ordernumber_list = orderService.getOrderNumber(u_id,a, b);
+		int count=orderService.getCountOrdernumber(u_id);
+		
+		if (count%limt == 0) {
+			count = count / limt;
+			request.setAttribute("count", count);
+		} else {
+			count = (count / limt) + 1;
+			request.setAttribute("count", count);
+		}
+		
 		request.setAttribute("ordernumber_list", ordernumber_list);
 		ArrayList<GoodsOrder> goodsOrders2_list = new ArrayList<GoodsOrder>();
 		for (Long ordernumber : ordernumber_list) {
@@ -57,9 +81,9 @@ public class OrderAction extends ActionSupport{
 	public String pay() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		long ordernumber = Long.parseLong(request.getParameter("ordernumber"));
-		orderService.setOrderType(ordernumber);//设置支付状态为1：已支付状态
+		orderService.setOrderType(ordernumber);// 设置支付状态为1：已支付状态
 		ArrayList<Integer> gid_list = orderService.getgid(ordernumber);
-		for (Integer gid : gid_list) {                    //设置完成支付后  商品数量减1
+		for (Integer gid : gid_list) { // 设置完成支付后 商品数量减1
 			orderService.UpdateGoodsRestnum(gid);
 		}
 		return "pay";
@@ -78,18 +102,17 @@ public class OrderAction extends ActionSupport{
 		return "payForOrder";
 	}
 
-
-    public String submitOrder() {
+	public String submitOrder() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		Integer uid = (Integer) session.getAttribute("uid");
-		if(uid != null){
+		if (uid != null) {
 			try {
 				double count = 0;
-				for (int i = 0; i < gid.length; i++){
+				for (int i = 0; i < gid.length; i++) {
 					count = count + price[i] * number[i];
 				}
-				long id = orderService.createOrder(gid,number,price,uid,count,addressId);
+				long id = orderService.createOrder(gid, number, price, uid, count, addressId);
 				session.setAttribute("orderId", id);
 				session.setAttribute("price", count);
 
@@ -98,25 +121,23 @@ public class OrderAction extends ActionSupport{
 				e.printStackTrace();
 				return "index";
 			}
-		}
-		else {
+		} else {
 			return "login";
 		}
-    }
+	}
 
-    public String getMyOrders(){
+	public String getMyOrders() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		Integer uid = (Integer) session.getAttribute("uid");
 		try {
-			if(uid == null){
+			if (uid == null) {
 				return "login";
-			}
-			else {
-				request.setAttribute( "orders",orderService.getOrderByUser(uid) );
+			} else {
+				request.setAttribute("orders", orderService.getOrderByUser(uid));
 				return SUCCESS;
 			}
-		} catch (Exception e){
+		} catch (Exception e) {
 			return "index";
 		}
 	}

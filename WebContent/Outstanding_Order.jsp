@@ -15,110 +15,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>未完成订单</title>
-<link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
-
-<link href="css/public.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/buyConfirm.css" />
-<script src="js/unslider.min.js" type="text/javascript"></script>
-<script src="js/index.js" type="text/javascript"></script>
+<link rel="stylesheet" href="./css/niunan/layout.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link href="css/public.css" type="text/css" rel="stylesheet" />
+<link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
+<script src="js/Calculation.js"></script>
 </head>
 
-<body>
-
-	<div class="shortcut_v2013 alink_v2013">
-		<div class="w">
-			<ul class="fl 1h">
-				<li class="fl">
-					<div class="menu">
-						<div class="menu_hd">
-							<a href="#"> <img src="images/top_phone_icon.png"
-								width="12px" height="16px" /> 手机锡货
-							</a> <b><em></em></b>
-						</div>
-						<div class="menu_bd">
-							<ul>
-								<li><a href="#">App For Android</a></li>
-								<li><a href="#">App For IOS</a></li>
-							</ul>
-						</div>
-					</div>
-				</li>
-				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl"><div class="menu_hd">您好，欢迎来到锡货网！</div></li>
-				<li class="fl"><div class="menu_hd">
-						<a href="#">请登录</a>
-					</div></li>
-				<li class="fl"><div class="menu_hd">
-						<a href="#">免费注册</a>
-					</div></li>
-			</ul>
-			<ul class="fr 1h">
-				<li class="fl"><div class="menu_hd">
-						<a href="userOrder.action">我的订单</a>
-					</div></li>
-				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl"><div class="menu_hd">
-						<a href="#">我的锡货</a>
-					</div></li>
-				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl"><div class="menu_hd">
-						<a href="#">服务中心</a>
-					</div></li>
-				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl"><div class="menu_hd">
-						<a href="#">商家入驻</a>
-					</div></li>
-				<li class="fl"><i class="shortcut_s"></i></li>
-				<li class="fl">
-					<div class="menu">
-						<div class="menu_hd">
-							<a href="#">网站导航</a><b><em></em></b>
-						</div>
-						<div class="menu_bd">
-							<ul>
-								<li><a href="#">网站导航</a></li>
-								<li><a href="#">网站导航</a></li>
-							</ul>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<span class="clr"></span>
-		</div>
-	</div>
+<body style="background-color: black;">
+		
+	<div style="background-color: black;">
 	<!--顶部快捷菜单-->
+ <div class="header-content toCenter" style="background-color: black; ">
+        <h1 class="logo" title="牛男网商城">
+            <a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
+        </h1>
+        <div class="small-nav">
+            <ul class="nav-wrap clear">
 
+                <li class="nav-item end-item"><a href="">客户服务</a></li>
+                <li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
+                <li class="nav-item"><a href="">商城会员</a></li>
+                <li class="nav-item"><a href="myOrders.action">我的订单</a></li>
+                <c:if test="${user == null}">
+                    <li class="nav-item first-item">
+                        [<a href="login.html" class="login">登录 </a>
+                        <a href="login.html#signup" class="register">注册</a> ]
+                    </li>
+                </c:if>
+                <c:if test="${user != null}">
+                    <li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
+                    <li class="nav-item">
+                        <a href="showUserInfor.action">${user.username}
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
+    </div>
 
 
 	<!--顶部Logo及搜索-->
 
-		<div class="yHeader">
-		<div class="shop_Nav">
-			<div class="pullDown">
-				<h2 class="pullDownTitle">
-					<i></i>全部商品分类
-				</h2>
-			</div>
-
-			<ul class="Menu_box">
-				<li><a href="" target="_blank" class="yMenua">首页</a></li>
-				<li><a href="" target="_blank">大划算</a></li>
-				<li><a href="" target="_blank">抢拍</a></li>
-				<li><a href="" target="_blank">锡货专场</a></li>
-				<li><a href="" target="_blank">锡货超市</a></li>
-			</ul>
-			<div class="fr r_icon">
-				<i class="i01"></i><span>30天退货</span><i class="i02"></i><span>满59包邮</span>
-			</div>
-		</div>
-	</div>
+		
 		<!--  导航条    end-->
 
-	<div class="banner_red_top"></div>
 
-	<div class="gwc" style="margin: auto;">
+	<div class="gwc" style="margin: auto; border: solid  black; ">
 
 		<table class="table table-striped" >
 			<tr>
@@ -130,19 +74,14 @@
 			</tr>
 		</table>
 		
-
+	<div>
 		<form action="" method="post">
-
-
 			<c:forEach items="${goodsOrders2_list}" var="goods">
-
-
-
 				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
                     <tr>
                         <td class="tb2_td2">
                             <a href="#">
-                                <img src="images/img1.jpg"/>
+                                <img src="${goods.image_zhanshi }"/>
                             </a>
                         </td>
                         <td class="tb2_td3">
@@ -159,102 +98,44 @@
                         <td class="tb1_td7"><a href="cancellationOrder?ordernumber=${goods.ordernumber }">放弃订单</a>|<a href="continuePayment?ordernumber=${goods.ordernumber }">马上去支付</a></td>
 
                     </tr>
-
-					</c:forEach>
-
-
-
-					
+                    </table>
+				</c:forEach>		
 		</form>
-
+		</div>
 
 	</div>
+	
+			<!--分页  -->
+	<div class="page-num" style=" width:  100%">
+		<nav>
+		
+		<div style="margin-left:50%; width:40% ">
+			<ul class="pagination">
+				<c:if test="${count!=1}">
+					<li><a href="getAllorder?page=${count-1}"><span
+							aria-hidden="true">&laquo;</span></a></li>
+				</c:if>
+				<c:forEach var="i" begin="1" end="${count}">
+					<c:if test="${i==count}">
+						<li ><a href="getAllorder?page=${i}">${i}</a></li>
+					</c:if>
+					<c:if test="${i!=count}">
+						<li ><a href="getAllorder?page=${i}">${i}</a></li>
+					</c:if>
+				</c:forEach>
+				<%-- <c:if test="${goodsorder.currentPage!=goodsorder.countPage}">
+						<li><a
+							href="getGoodsItems?page=${goodsorder.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
+					</c:if> --%>
+					</div>
+			</ul>
+		</nav>
+	</div>
+	</div>
+		<!--分页  -->	
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/Calculation.js"></script>
-<script>
-    $(document).ready(function() {
 
-        //jquery特效制作复选框全选反选取消(无插件)
-        // 全选
-        $(".allselect").click(function() {
-            $(".gwc_tb2 input[name=newslist]").each(function() {
-                $(this).attr("checked", true);
-                if ($('.allselect').prop("checked") === true) {
-                    $(this).attr("checked", true);
-                } else {
-                    $(this).attr("checked", false);
-                }
-            });
-            GetCount();
-        });
-
-        //反选
-        $("#invert").click(function() {
-            $(".gwc_tb2 input[name=newslist]").each(function() {
-                if ($(this).attr("checked")) {
-                    $(this).attr("checked", false);
-                    //$(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
-                } else {
-                    $(this).attr("checked", true);
-                    //$(this).next().css({ "background-color": "#3366cc", "color": "#000000" });
-                }
-            });
-            GetCount();
-        });
-
-		//取消
-		$("#cancel").click(function() {
-			$(".gwc_tb2 input[name=newslist]").each(function() {
-				$(this).attr("checked", false);
-				// $(this).next().css({ "background-color": "#ffffff", "color": "#000000" });
-			});
-			GetCount();
-		});
-
-        // 所有复选(:checkbox)框点击事件
-        $(".gwc_tb2 input[name=newslist]").click(function() {
-            GetCount();
-        });
-
-        // 输出
-        $(".gwc_tb2 input[name=newslist]").click(function() {
-            // $("#total2").html() = GetCount($(this));
-            GetCount();
-        });
-    });
-    //******************
-    function GetCount() {
-        var conts = 0;
-        var aa = 0;
-        $(".gwc_tb2 input[name=newslist]").each(function() {
-            if ($(this).attr("checked")) {
-				conts += parseInt($(this).val()) * parseInt(
-                    $(this).closest('td').parent().find('input:nth-child(2)').val()
-				);
-				aa += 1;
-			}
-        });
-        $("#shuliang").text(aa);
-        $("#zong1").html((conts).toFixed(2));
-        $("#jz1").css("display", "none");
-        $("#jz2").css("display", "block");
-    }
-
-
-    //修改购物车商品数量
-    $('.min1').click(function () {
-        var v = parseInt( $(this).next().val() );
-        if(v > 1){
-            $(this).next().val(v - 1);
-        }
-        GetCount();
-    });
-    $('.add1').click(function () {
-        var v = parseInt( $(this).prev().val() );
-        $(this).prev().val(1 + v);
-        GetCount();
-    })
-</script>
 
 </html>
