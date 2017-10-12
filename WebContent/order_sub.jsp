@@ -324,7 +324,7 @@
                     </div>
                 </div>
                 <div class="box-ft clearfix">
-                    <a class="btn btn-primary" id="payBtn" href="pay?ordernumber=${ordernumber}">下一步</a>
+                    <a class="btn btn-primary" id="payBtn" href="alipay/alipay.trade.page.pay.jsp?WIDout_trade_no=${ordernumber }&WIDtotal_amount=${sumprince }&WIDsubject=小马交易二手商品交易&WIDbody=test">下一步</a>
                     <a href="#" class="btn btn-lineDakeLight">修改订单</a>
                     <span class="tip"></span>
                 </div>

@@ -7,17 +7,46 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
-<link href="css/public.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/buyConfirm.css" />
+<link rel="stylesheet" href="./css/niunan/layout.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link href="css/public.css" type="text/css" rel="stylesheet" />
 <link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
+<script src="js/Calculation.js"></script>
 
 <title>已评价订单</title>
 </head>
-<body>
+<body style="background-color: black;">
+<div style="background-color: black;">
+
+ <div class="header-content toCenter" style="background-color: black; ">
+        <h1 class="logo" title="牛男网商城">
+            <a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
+        </h1>
+        <div class="small-nav">
+            <ul class="nav-wrap clear">
+
+                <li class="nav-item end-item"><a href="">客户服务</a></li>
+                <li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
+                <li class="nav-item"><a href="">商城会员</a></li>
+                <li class="nav-item"><a href="myOrders.action">我的订单</a></li>
+                <c:if test="${user == null}">
+                    <li class="nav-item first-item">
+                        [<a href="login.html" class="login">登录 </a>
+                        <a href="login.html#signup" class="register">注册</a> ]
+                    </li>
+                </c:if>
+                <c:if test="${user != null}">
+                    <li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
+                    <li class="nav-item">
+                        <a href="showUserInfor.action">${user.username}
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                    </li>
+                </c:if>
+            </ul>
+        </div>
+    </div>
+
 	<div class="gwc" style="margin: auto; border: solid black; " >
 		<table cellpadding="0" cellspacing="0" class="gwc_tb1">
 			<tr>
