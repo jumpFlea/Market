@@ -65,7 +65,6 @@
 
 
 		<!--查看个人的发布商品 -->
-
 		<action name="showReleaseGoods" class="releaseGoodsAction" method="showReleaseGoods">
 			<result name="success">/showReleaseGood.jsp</result>
 			<result name="noContent">/error.jsp</result>

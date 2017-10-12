@@ -84,8 +84,14 @@
 				</div>
 				<div class="info-input-row">
 					<p class="input-wrap">
-						商品介绍:
+						商品简介:
 						<textarea id="introduce_good" name="goods.introduce"></textarea>
+					</p>
+				</div>
+				<div class="info-input-row">
+					<p class="input-wrap">
+						详情介绍:
+						<textarea  name="goods.g_content"></textarea>
 					</p>
 				</div>
 				<div class="button-group">
