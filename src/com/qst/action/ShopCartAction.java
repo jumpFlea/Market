@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class ShopCartAction {
@@ -39,7 +40,7 @@ public class ShopCartAction {
 	 * 此类的功能为将商品设置进入订单,
 	 */
 
-	public String setGoodinOrder() { // 此功能为将购物车里面的商品设置进入订单
+	public String setGoodinOrder() {							 // 此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
 		long ordernumber = Long.parseLong(dateFormater.format(date)); // 生成唯一的订单号
@@ -78,7 +79,8 @@ public class ShopCartAction {
 			session.removeAttribute("goodsList");
 		}
 		else {
-			Adress address = addressService.getAddressByUser(id);
+			List<Adress> address =new ArrayList<Adress>(); 
+				address=	addressService.getAddressByUser(id);
 			session.setAttribute("address",address);
 			session.setAttribute("goodsList", goodsList);
 		}
@@ -205,7 +207,7 @@ public class ShopCartAction {
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			session.setAttribute("goods",goods);
 			int id = (int) session.getAttribute("uid");
-			Adress address = addressService.getAddressByUser(id);
+			List<Adress> address = addressService.getAddressByUser(id);
 			session.setAttribute("address",address);
 			return "success";
 		} catch (Exception e){

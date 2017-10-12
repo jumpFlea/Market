@@ -1,6 +1,8 @@
 package com.qst.action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,9 +13,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
+import com.qst.model.Goods;
 import com.qst.model.GoodsOrder;
 import com.qst.model.Page;
 import com.qst.serviceImpl.GoodsSoldsService;
+import com.sun.javafx.collections.MappingChange.Map;
 
 @Component
 public class GoodsSoldAction {
@@ -44,7 +48,6 @@ public class GoodsSoldAction {
 	
 	public String getGoodsItems(){
 		Page<GoodsOrder> GoodsOrder =new Page<GoodsOrder>();
-		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		int u_id=(int)session.getAttribute("uid");
@@ -76,6 +79,51 @@ public class GoodsSoldAction {
 		goodsSoldsService.SetOrderType(pay_type, ordernumber);
 		
 		return "setOrderpay_type";
+	}
+	
+	/*
+	 * 通过uid找到前五个ordernumber
+	 */
+	
+	public String getOrdernumber() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		int u_id=(int)session.getAttribute("uid");
+		int pay_type=1;//已付款 未发货商品
+		List<Long> ordernumber_list = new ArrayList<Long>();
+		int a=6*(page-1);
+		int b=5;
+		int count=goodsSoldsService.getCountOrdernumber(u_id, pay_type);
+		ordernumber_list=goodsSoldsService.getOrdernumber(u_id, pay_type, a, b);
+		request.setAttribute("ordernumber_list", ordernumber_list);
+		request.setAttribute("count", count);
+		return "getOrdernumber";
+	}
+	
+	/*
+	 * 通过ordernumber 找到 对应订单的goods详情 并且设置进入 一个Map中
+	 */
+	public String getGoodsOrderItems() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		List<Long> ordernumber_list = new ArrayList<Long>();
+		ordernumber_list= (List<Long>) request.getAttribute("ordernumber_list");
+		HashMap<Long, List<GoodsOrder>> map =new HashMap<Long, List<GoodsOrder>>();
+		List<GoodsOrder> goodsOrders_list =new ArrayList<GoodsOrder>();
+		for (Long ordernumber : ordernumber_list) {
+			goodsOrders_list = goodsSoldsService.getGoodsOrder(ordernumber);
+			map.put(ordernumber, goodsOrders_list);
+		}
+		int count=(int) request.getAttribute("count");
+		if (count%6 == 0) {
+			count = count / 6;
+			request.setAttribute("count", count);
+		} else {
+			count = (count / 6) + 1;
+			request.setAttribute("count", count);
+		}
+		request.setAttribute("map", map);
+		return "GoodSOrderItems";
 	}
 	
 }

@@ -56,12 +56,17 @@
                         <div class="address-item-detail">
 
                             <c:if test="${address != null}">
+                            
                                 <div class="right-button-group pull-right">
                                     <span class="button-item"><a href="javascript:;" class="button">更换地址</a></span>
                                 </div>
+                            
                             </c:if>
                             <div class="main-detail-box">
+                            
                                 <c:if test="${address != null}">
+                                <c:forEach items="${address }" var="address">
+                                <table>
                                     <p class="address-info-row">
                                         <input type="text" value="${address.ad_id}" id="address-id" hidden>
                                         <span class="address-info-title">收货人姓名：</span>
@@ -79,6 +84,9 @@
                                         <span class="address-info-title">电话：</span>
                                         <span class="info-row">${address.phone}</span>
                                     </p>
+                                    <br/><hr/>
+                                    </table>
+                                </c:forEach>
                                 </c:if>
                                 <c:if test="${address == null}">
                                     <div class="right-button-group" style="top:0;">

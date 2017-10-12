@@ -380,7 +380,7 @@
 	<!-- 我的商城 -->
 	<div class="my-shop-panel">
 		<p>
-			<a href="getAllorder"><span class="my-item">未付款订单</span></a><a href="getGoodsItems"><span class="my-item">已卖出未发货</span></a>
+			<a href="getAllorder"><span class="my-item">未付款订单</span></a><a href="getOrdernumber"><span class="my-item">已卖出未发货</span></a>
 		</p>
 		<p>
 			<a href="comletedOrderIndex"><span class="my-item">未评价订单</span></a> <a href=""> <span class="my-item">全部订单</span></a>

@@ -26,30 +26,35 @@
 </head>
 <body>
 	<div class="gwc" style="margin: auto;">
-		<table cellpadding="0" cellspacing="0" class="gwc_tb1">
-			<tr>
-				<td class="tb1_td1"></td>
-
-				<td class="tb1_td3">商品</td>
-				<td class="tb1_td4">商品信息</td>
-				<td class="tb1_td5">数量</td>
-				<td class="tb1_td6">单价</td>
-				<td class="tb1_td7">操作</td>
-			</tr>
-		</table>
-
-		<c:forEach items="${goodsorder.list}" var="goodsOrder">
+		
+		
+		<table class="table table-striped">
+ 			<tr>
+ 				<td>订单号</td>
+ 				<td>商品名称</td>
+ 				<td>商品号</td>
+ 				<td>客户留言</td>
+ 			</tr>
+ 			</table>
+ 		
+		
+	
+		<c:forEach items="${map}" var="map">
 		
 			 <form action="setOrderpay_type" method="post">
 				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
-					<tr>
+				
+				<tr>
+				<span>  <c:out value="${map.key }"></c:out></span>
+				<c:forEach items="${map.value }" var="goodsOrder">
+					
 						<td class="tb2_td2"><a href="#"> <img
 								src="${goodsOrder.image_zhanshi }" />
 						</a></td>
 
 						<td class="tb2_td3"><a href="#"><c:out
 									value="${ goodsOrder.g_name}"></c:out></a></td>
-						<td class="tb1_td4"><c:out value="${goodsOrder.ordernumber }"></c:out></td>
+						
 
 						<td class="tb1_td7">商品号： <input
 							style="width: 20px; height: 18px; border: 1px solid #ccc;"
@@ -65,35 +70,37 @@
 							value="${goodsOrder.g_id}" name="g_id" /> <input type="submit"
 							value="发货" />
 						</td>
-
-
 					</tr>
+					
+					</c:forEach>
+					<br/>
 				</table>
 			</form> 
 		</c:forEach>
-		<!--移除session  -->
+		</div>
+		<!--分页  -->
 		<div class="page-num">
 			<nav>
 
 			<div>
 				<ul class="pagination">
-					<c:if test="${goodsorder.currentPage!=1}">
+					<c:if test="${count!=1}">
 						<li><a
-							href="getGoodsItems?page=${goodsorder.currentPage-1}&type=${type}"><span
+							href="getOrdernumber?page=${count-1}"><span
 								aria-hidden="true">&laquo;</span></a></li>
 					</c:if>
 					<c:forEach var="i" begin="1" end="${goodsorder.countPage}">
-						<c:if test="${i==goodsOrders_list.currentPage}">
+						<c:if test="${i==count}">
 							<li class="active"><a>${i}</a></li>
 						</c:if>
-						<c:if test="${i!=goodsorder.currentPage}">
+						<c:if test="${i!=count}">
 							<li><a href="getGoodsItems?page=${i}&type=${type}">${i}</a></li>
 						</c:if>
 					</c:forEach>
-					<c:if test="${goodsorder.currentPage!=goodsorder.countPage}">
+					<%-- <c:if test="${goodsorder.currentPage!=goodsorder.countPage}">
 						<li><a
 							href="getGoodsItems?page=${goodsorder.currentPage+1}&type=${type}"><span>&raquo;</span></a></li>
-					</c:if>
+					</c:if> --%>
 				</ul>
 			</nav>
 		</div>

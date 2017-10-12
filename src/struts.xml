@@ -216,6 +216,14 @@
 		<action name="setOrderpay_type" class="com.qst.action.GoodsSoldAction" method="setOrderpay_type">
 			<result name="setOrderpay_type" type="chain">getGoodsItems</result>
 		</action>
+		
+		
+		<action name="getOrdernumber" class="com.qst.action.GoodsSoldAction" method="getOrdernumber">
+			<result name="getOrdernumber" type="chain">getGoodsOrderItems</result>
+		</action>
+		<action name="getGoodsOrderItems" class="com.qst.action.GoodsSoldAction" method="getGoodsOrderItems">
+				<result name="GoodSOrderItems">GoodsSold.jsp</result>
+		</action>
 
 	</package>
 </struts>

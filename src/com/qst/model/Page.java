@@ -2,6 +2,8 @@ package com.qst.model;
 
 import java.util.List;
 
+import com.sun.javafx.collections.MappingChange.Map;
+
 //分页
 public class Page<T> {
 	
@@ -23,16 +25,10 @@ public class Page<T> {
 
 	private List<T> list;
 	
-	private List<T> list1;
 	
 	
-	public List<T> getList1() {
-		return list1;
-	}
-
-	public void setList1(List<T> list1) {
-		this.list1 = list1;
-	}
+	
+	
 
 	public String getAttribute() {
 		return attribute;

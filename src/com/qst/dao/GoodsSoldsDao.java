@@ -25,6 +25,7 @@ public interface GoodsSoldsDao {
 	@Update("UPDATE `order` SET pay_type =#{pay_type} WHERE ordernumber=#{ordernumber}")
 	public int SetOrderType(@Param("pay_type") int pay_type, @Param("ordernumber") long ordernumber);
 
+	
 	/*
 	 * 得到 此用户卖出的所有订单
 	 */
