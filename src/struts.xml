@@ -5,7 +5,6 @@
 		通常,应用在开发阶段,将该属性设置为true,当进入产品发布阶段后,则该属性设置为false. -->
 	<constant name="struts.devMode" value="true" />
 
-
 	<!--Struts 2的Action都必须配置在package里,此处使用默认package -->
 	<package name="a" namespace="/" extends="struts-default">
 
