@@ -1,11 +1,11 @@
-ï»¿/* ä»£ç æ•´ç†ï¼šæ‡’äººä¹‹å®¶ www.lanrenzhijia.com */
-*{margin:0px;padding:0px;border:0px; font-size:12px;color:#333; font-family:å¾®è½¯é›…é»‘;}
+/* ´úÂëÕûÀí£ºÀÁÈËÖ®¼Ò www.lanrenzhijia.com */
+*{margin:0px;padding:0px;border:0px; font-size:12px;color:#333; font-family:Î¢ÈíÑÅºÚ;}
 ul li{ list-style:none}
 a{ text-decoration:none;}
 a:hover{ color:#e46432;}
 body{margin:auto;overflow-x:hidden;}
 
-/*****è´­ç‰©è½¦*********/
+/*****¹ºÎï³µ*********/
 .gwc{ width:1200px;overflow:hidden; border: 1px solid #CCCCCC;}
 .gwc_tb1{ width:100%;  background:#FFFFFF; height:38px; margin-top:20px; overflow:hidden;}
 .tb1_td1{ width:35px; text-align:center;}
@@ -16,7 +16,7 @@ body{margin:auto;overflow-x:hidden;}
 .tb1_td7{ text-align:center;}
 
 
-.gwc_tb2{ width:100%; margin-top:20px; background:#FCFCFC; border:1px solid #e5e5e5; padding-top:20px; padding-bottom:20px;}
+.gwc_tb2{ width:100%; margin-top:0px; background:#FCFCFC; border:1px solid #e5e5e5; padding-top:20px; padding-bottom:20px;}
 .tb2_td1{ width:60px; text-align:center;}
 .tb2_td2{ width:100px; text-align:center;}
 .tb2_td2 img{ width:96px; height:96px; border:2px solid #c9c6c7;}
@@ -32,4 +32,4 @@ body{margin:auto;overflow-x:hidden;}
 .tb3_td4{ width:110px;text-align:center;}
 .jz2{ width:100px; height:46px; line-height:46px; text-align:center; font-size:18px; color:#fff; background:#ee0000; display:block; float:right;}
 #jz1{font-size:18px;}
-/* ä»£ç æ•´ç†ï¼šæ‡’äººä¹‹å®¶ www.lanrenzhijia.com */
+/* ´úÂëÕûÀí£ºÀÁÈËÖ®¼Ò www.lanrenzhijia.com */

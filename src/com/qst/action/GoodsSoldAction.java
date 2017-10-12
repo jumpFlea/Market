@@ -70,7 +70,9 @@ public class GoodsSoldAction {
 		return "goodsitems";
 		
 	}
-	
+	/*
+	 * 设置已发货状态
+	 */
 	public String  setOrderpay_type() {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -91,7 +93,7 @@ public class GoodsSoldAction {
 		int u_id=(int)session.getAttribute("uid");
 		int pay_type=1;//已付款 未发货商品
 		List<Long> ordernumber_list = new ArrayList<Long>();
-		int a=6*(page-1);
+		int a=5*(page-1);
 		int b=5;
 		int count=goodsSoldsService.getCountOrdernumber(u_id, pay_type);
 		ordernumber_list=goodsSoldsService.getOrdernumber(u_id, pay_type, a, b);
@@ -115,11 +117,11 @@ public class GoodsSoldAction {
 			map.put(ordernumber, goodsOrders_list);
 		}
 		int count=(int) request.getAttribute("count");
-		if (count%6 == 0) {
-			count = count / 6;
+		if (count%5 == 0) {
+			count = count / 5;
 			request.setAttribute("count", count);
 		} else {
-			count = (count / 6) + 1;
+			count = (count / 5) + 1;
 			request.setAttribute("count", count);
 		}
 		request.setAttribute("map", map);
