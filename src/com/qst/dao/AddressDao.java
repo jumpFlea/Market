@@ -1,6 +1,7 @@
 package com.qst.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -39,5 +40,5 @@ public interface AddressDao {
 	int deleteAddress(@Param("ad_id") int ad_id);
 
 
-	Adress findDefaultAddress(int id);
+	List<Adress> findDefaultAddress(int id);
 }
