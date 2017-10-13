@@ -11,98 +11,200 @@
 <link rel="stylesheet" href="css/niunan/goods-detail.css">
 <link rel="stylesheet" href="css/niunan/user-public.css" />
 <link rel="stylesheet" href="css/niunan/user-info-settings.css" />
-<style type="text/css">
+<style>
+	.input-wrap{
+		margin: 0 auto;
+	}
 </style>
 </head>
 
 <body>
-	<div class="header">
-		<div class="header-content toCenter">
-			<h1 class="logo" title="牛男网商城">
-				<a href=""><img src="image/logo.png" alt="" class="logo-img"></a>
-			</h1>
-			<div class="small-nav">
-				<ul class="nav-wrap clear">
-					<li class="nav-item end-item"><a href="">手机版</a></li>
-					<li class="nav-item"><a href="">购物车</a></li>
-					<li class="nav-item"><a href="">我的订单</a></li>
-					<!--<li class="nav-item first-item">［
-							<a href="" class="login">登录</a>
-							<a href="" class="regester">立即注册</a>］</li>-->
-				</ul>
-			</div>
+<div class="header">
+	<div class="header-content toCenter">
+		<h1 class="logo" title="小吗交易">
+			<a href=""><img src="./images/logo.png" alt="" class="logo-img"></a>
+		</h1>
+		<div class="small-nav">
+			<ul class="nav-wrap clear">
+
+				<li class="nav-item end-item"><a href="">客户服务</a></li>
+				<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
+				<li class="nav-item"><a href="">商城会员</a></li>
+				<li class="nav-item"><a href="myOrders.action">我的订单</a></li>
+				<c:if test="${user == null}">
+					<li class="nav-item first-item">
+						[<a href="login.html" class="login">登录 </a>
+						<a href="login.html#signup" class="register">注册</a> ]
+					</li>
+				</c:if>
+				<c:if test="${user != null}">
+					<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
+					<li class="nav-item">
+						<a href="showUserInfor.action">${user.username}
+							<span class="glyphicon glyphicon-menu-down"></span>
+						</a>
+					</li>
+				</c:if>
+			</ul>
 		</div>
 	</div>
-	<div class="nn-right-content">
-		<div class="nn-info-settings">
-			<p class="info-settings">
-				<span class="info-settings-txt">商品修改</span>
-			</p>
-			<form action="updateUserGoods" enctype="multipart/form-data" method="post">
-				<input name="goods.g_id" value="${good.g_id}" style="display:none">
-				<div class="info-input-row">
-					<p class="input-wrap">
-						商品名字:<input type="text" name="goods.g_name" value="${good.g_name}" />
-					</p>
-				</div>
-				<div class="info-input-row">
-					<p class="input-wrap">
-						商品类型:<select name="goods.g_attribute" id="type_good">
-							<option value="${good.g_attribute}">${good.g_attribute}</option>
-							<c:if test="${good.g_attribute=='上衣'}">
-								<option value="上衣">上衣</option>
-							</c:if>
-							<option value="牙刷">牙刷</option>
-							<option value="电动车">电动车</option>
-							<option value="汽车">汽车</option>
-							<option value="电冰箱">电冰箱</option>
-						</select>
-					</p>
-				</div>
-				<div class="info-input-row">
-					<p class="input-wrap">
-						<a onClick="$('input[name=upload]').click()">添加图片</a>
-					<div style="width:270px;height:180px">
-						<div id="release_pic">
-							<img alt="" src="${good.image_zhanshi}" style="width:200px;height:120px">
-						</div>
-					</div>
-					<input class="release_input" type="file" name="upload" onchange="previewImage(this)"> <span class="cover-show"></span>
-					</p>
-				</div>
+</div>
 
-				<div class="info-input-row">
-					<p class="input-wrap">
-						商品价格:<input type="text" name="goods.g_price" value="${good.g_price}" />
-					</p>
+	<div class="content" style="min-height: 300px;">
+		<div class="nn-inner-con">
+			<%-- 左边内容分区栏 --%>
+			<div class="nn-left-menu pull-left">
+				<ul class="nn-all-sort" id="all-sort">
+					<li class="list-item">
+						<div class="inner-bar text-center">
+							<span class="txt-title">个人中心</span>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="avatar-box text-center">
+							<img src="${u2.u_image}" onerror="src='images/user-head-pic.png'"/>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="inner-bar">
+							<a href="showUserInfor.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的信息</span>
+								<span class="pull-right img-icon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="inner-bar">
+							<a href="myOrders.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的订单</span>
+								<span class="pull-right img-icon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="list-item active">
+						<div class="inner-bar">
+							<a href="showReleaseGoods.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的商品</span>
+								<span class="pull-right img-icon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="inner-bar">
+							<a href="myFavorites.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的收藏</span>
+								<span class="pull-right img-icon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="list-item">
+						<div class="inner-bar">
+							<a href="showAllAddress.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的地址</span>
+								<span class="pull-right img-icon"></span>
+							</a>
+						</div>
+					</li>
+					<c:if test="${authority >= 1}">
+						<li class="list-item">
+							<div class="inner-bar">
+								<a href="member.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">会员管理</span>
+									<span class="pull-right img-icon"></span>
+								</a>
+							</div>
+						</li>
+					</c:if>
+
+				</ul>
+			</div>
+
+			<!-- 右边内容分区栏 -->
+				<div class="nn-right-content">
+					<div class="nn-info-settings">
+						<p class="info-settings">
+							<span class="info-settings-txt">商品修改</span>
+						</p>
+						<form action="updateUserGoods" enctype="multipart/form-data" method="post">
+							<input name="goods.g_id" value="${good.g_id}" style="display:none">
+							<div class="info-input-row">
+								<p class="input-wrap">
+									商品名字:<input type="text" name="goods.g_name" value="${good.g_name}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									商品类型:<select name="goods.g_attribute" id="type_good">
+									<option value="${good.g_attribute}">${good.g_attribute}</option>
+									<c:if test="${good.g_attribute=='上衣'}">
+										<option value="上衣">上衣</option>
+									</c:if>
+									<option value="牙刷">牙刷</option>
+									<option value="电动车">电动车</option>
+									<option value="汽车">汽车</option>
+									<option value="电冰箱">电冰箱</option>
+								</select>
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									<a onClick="$('input[name=upload]').click()">添加图片</a>
+								<div style="width:120px;height:120px;overflow: hidden;margin: 0 auto">
+									<div id="release_pic">
+										<img alt="" src="${good.image_zhanshi}" style="width:120px;height:120px" onerror="src='images/user-head-pic.png'">
+									</div>
+								</div>
+								<input class="release_input" type="file" name="upload" onchange="previewImage(this)"> <span class="cover-show"></span>
+								</p>
+							</div>
+
+							<div class="info-input-row">
+								<p class="input-wrap">
+									商品价格:<input type="text" name="goods.g_price" value="${good.g_price}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									市场价:<input type="text" name="goods.market_price" value="${good.market_price}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									商品数量:<input type="text" name="goods.restnum" value="${good.restnum}" />
+								</p>
+							</div>
+							<div class="info-input-row">
+								<p class="input-wrap">
+									商品介绍:
+									<textarea id="introduce_good" name="goods.introduce" rows="10" style="width: 100%">${good.introduce}</textarea>
+								</p>
+							</div>
+							<div class="button-group text-center">
+								<button type="submit" class="save-btn">修改</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="info-input-row">
-					<p class="input-wrap">
-						市场价:<input type="text" name="goods.market_price" value="${good.market_price}" />
-					</p>
-				</div>
-				<div class="info-input-row">
-					<p class="input-wrap">
-						商品数量:<input type="text" name="goods.restnum" value="${good.restnum}" />
-					</p>
-				</div>
-				<div class="info-input-row">
-					<p class="input-wrap">
-						商品介绍:
-						<textarea id="introduce_good" name="goods.introduce">${good.introduce}</textarea>
-					</p>
-				</div>
-				<div class="button-group">
-					<button type="submit" class="save-btn">修改</button>
-				</div>
-			</form>
 		</div>
+
 	</div>
 	<!-- 底部导航区结束 -->
 	<div class="footer-content-wrap">
 		<div class="foter-content toCenter">
 			<div class="footer-logo fl">
-				<a href=""> <img src="image/footer-logo.png" alt="" class="footer-lgo-img" jqimg="image/footer-logo.png">
+				<a href=""> <img src="images/footer-logo.png" alt="" class="footer-lgo-img" jqimg="image/footer-logo.png">
 				</a>
 			</div>
 			<div class="rights">

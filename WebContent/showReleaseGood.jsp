@@ -5,21 +5,57 @@
 <head>
 <meta charset="UTF-8">
 <title>个人信息－小马交易</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/niunan/neat.css">
 <link rel="stylesheet" href="css/niunan/public2.css">
 <link rel="stylesheet" href="css/niunan/user-public.css" />
 <link rel="stylesheet" href="./css/niunan/layout.css">
 <link rel="stylesheet" href="css/niunan/user-info-settings.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/mall.css"> -->
+	<style>
+		.button-item {
+			display: inline-block;
+		}
+		.button {
+			text-align: center;
+			width: 50px;
+			background: #ededed;
+			color: #282828;
+			border: none;
+			border-radius: 3px;
+			overflow: hidden;
+			display: inline-block;
+			line-height: 22px;
+			font-weight: bold;
+		}
+		.button:active {
+			background: #FBF0F0;
+		}
+		.button:focus {
+			outline: none;
+		}
+		.button.current {
+			background: #f30110;
+			color: #fff;
+		}
+		.button.current:active {
+			background: #EF3F4A;
+		}
+		.button.before{
+			background: #2ebc00;
+			color: #fff;
+		}
+		.button.before:active{
+			background: #39e000;
+		}
+		th{text-align: center}
+	</style>
 </head>
 <body>
 	<div class="header">
 		<div class="header-content toCenter">
-			<!-- <h1 class="logo" title="牛男网商城">
+			<h1 class="logo" title="牛男网商城">
 				<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
-			</h1> -->
+			</h1>
 			<div class="small-nav">
 				<ul class="nav-wrap clear">
 
@@ -125,11 +161,11 @@
 
 				<div class="nn-info-settings">
 					<p class="info-settings">
-						<span class="info-settings-txt">个人信息</span>
+						<span class="info-settings-txt">我的商品</span>
 					</p>
 					<br>
 
-					<table border="1">
+					<table style="margin: 0 auto">
 						<thead>
 							<tr>
 								<th>名字</th>
@@ -140,7 +176,8 @@
 								<th>图片</th>
 								<th>市场价</th>
 								<th>内容</th>
-								<th>操作</th>
+								<th>修改</th>
+								<th>删除</th>
 							</tr>
 						</thead>
 
@@ -152,10 +189,19 @@
 									<td>${show.g_attribute}</td>
 									<td>${show.introduce}</td>
 									<td>${show.restnum}</td>
-									<td><img src="${show.image_zhanshi}" style="width: 100px; height: 100px"></td>
+									<td><img src="${show.image_zhanshi}" width="50px" height="50px" onerror="src='images/user-head-pic.png'"></td>
 									<td>${show.market_price}</td>
 									<td>${show.g_content}</td>
-									<td><a href="deleteReleaseGoods?goodId=${show.g_id}">删除</a> <br> <br> <a href="showUserGoods?goodId=${show.g_id}">修改</a></td>
+									<td>
+										<span class="button-item">
+											<a href="showUserGoods.action?goodId=${show.g_id}" class="button before">修改</a>
+										</span>
+									</td>
+									<td>
+										<span class="button-item">
+											<a href="deleteReleaseGoods.action?goodId=${show.g_id}" class="button current">删除</a>
+										</span>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -163,7 +209,7 @@
 				</div>
 				<!--分页的样式-->
 				<div class="page-num">
-					<nav>
+					<nav class="text-center">
 						<ul class="pagination">
 							<c:if test="${showRelease.currentPage!=1}">
 								<li><a href="showReleaseGoods?page=${showRelease.currentPage-1}"><span aria-hidden="true">&laquo;</span></a></li>
@@ -311,8 +357,7 @@
 			init.initPage();
 		});
 	</script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/mall.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-
 </body>
 </html>

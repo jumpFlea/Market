@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="css/niunan/layout.css">
 <link rel="stylesheet" href="css/niunan/user-public.css" />
 <link rel="stylesheet" href="css/niunan/user-info-settings.css" />
+	<style>.input-wrap{margin: 0 auto;width: auto!important;}
+		.labelleft{display: inline-block;width: 80px;text-align: left}
+		.inputright{display: inline-block !important;width: 300px!important;}
+		.button-group{margin-top: 10px!important;}
+	</style>
 </head>
 <body>
 	<div class="header">
@@ -134,27 +139,31 @@
 						</p>
 					</c:if>
 					<c:forEach items="${adress_list}" var="ad">
-						<form action="editAdress" method="post">
+						<form action="editAdress" method="post" class="text-center">
 							<div class="info-input-row">
 								<input type="text" name="ad_id" value="${ad.ad_id}"
 									style="display: none">
 								<p class="input-wrap">
-									收货人姓名:<input type="text" name="name" value="${ad.name}" />
+									<span class="labelleft">收货人姓名:</span>
+									<input class="inputright" type="text" name="name" value="${ad.name}" />
 								</p>
 							</div>
 							<div class="info-input-row">
 								<p class="input-wrap">
-									联系电话:<input type="text" name="tel" value="${ad.phone}" />
+									<span class="labelleft">联系电话:</span>
+									<input class="inputright" type="text" name="tel" value="${ad.phone}" />
 								</p>
 							</div>
 							<div class="info-input-row">
 								<p class="input-wrap">
-									详细地址:<input type="text" name="region" value="${ad.region}" />
+									<span class="labelleft">详细地址:</span>
+									<input class="inputright" type="text" name="region" value="${ad.region}" />
 								</p>
 							</div>
 							<div class="info-input-row">
 								<p class="input-wrap">
-									街道:<input type="text" name="street" value="${ad.street}" />
+									<span class="labelleft">街道:</span>
+									<input class="inputright" type="text" name="street" value="${ad.street}" />
 								</p>
 							</div>
 							<div class="button-group">
@@ -171,26 +180,31 @@
 					<p class="info-settings">
 						<span class="info-settings-txt" style="color: red">温馨提示:可以添加地址哦</span>
 					</p>
-					<form action="setAdress" method="post">
+					<form action="setAdress" method="post" class="text-center">
 						<div class="info-input-row">
-							<input type="text" name="ad_id" value="" style="display: none">
+							<input type="text" name="ad_id" value="${ad.ad_id}"
+								   style="display: none">
 							<p class="input-wrap">
-								收货人姓名:<input type="text" name="name" value="" />
+								<span class="labelleft">收货人姓名:</span>
+								<input class="inputright" type="text" name="name" />
 							</p>
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								联系电话:<input type="text" name="tel" value="" />
+								<span class="labelleft">联系电话:</span>
+								<input class="inputright" type="text" name="tel"/>
 							</p>
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								详细地址:<input type="text" name="region" value="" />
+								<span class="labelleft">详细地址:</span>
+								<input class="inputright" type="text" name="region"/>
 							</p>
 						</div>
 						<div class="info-input-row">
 							<p class="input-wrap">
-								街道:<input type="text" name="street" value="" />
+								<span class="labelleft">街道:</span>
+								<input class="inputright" type="text" name="street"/>
 							</p>
 						</div>
 						<div class="button-group">

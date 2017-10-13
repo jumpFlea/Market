@@ -108,101 +108,6 @@
 			</div>
 		</div>
 		<div class="item-list">
-			<div class="item-list-left">
-				<div class="item-as-title">
-					<span>商品精选</span> <span>广告</span>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-1.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">39.9</span></span>
-					</div>
-					<div class="item-as-intro">
-						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>3140</span>人评价
-					</div>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-2.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
-					</div>
-					<div class="item-as-intro">
-						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>6160</span>人评价
-					</div>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-1.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i></span><span class="seckill-price text-danger">39.9</span>
-					</div>
-					<div class="item-as-intro">
-						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>3140</span>人评价
-					</div>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-2.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
-					</div>
-					<div class="item-as-intro">
-						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>6160</span>人评价
-					</div>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-1.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i></span><span class="seckill-price text-danger">39.9</span>
-					</div>
-					<div class="item-as-intro">
-						<span>SKSK 苹果7/7plus手机壳<br>iPhone 7 Plus保护套全包硬
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>3140</span>人评价
-					</div>
-				</div>
-				<div class="item-as">
-					<div class="item-as-img">
-						<img src="img/item-as-img-2.jpg" alt="">
-					</div>
-					<div class="item-as-price">
-						<span><i class="fa fa-rmb text-danger"></i><span class="seckill-price text-danger">36.6</span></span>
-					</div>
-					<div class="item-as-intro">
-						<span>狮普 苹果7/7 Plus手机壳<br>电镀超薄全包防摔保护外
-						</span>
-					</div>
-					<div class="item-as-selled">
-						已有<span>6160</span>人评价
-					</div>
-				</div>
-			</div>
 			<!--右边图片展示区-->
 			<!---->
 			<div class="item-list-right">
@@ -215,10 +120,10 @@
 						<li><span>价格 <strong><i class="fa fa-long-arrow-down"></i></strong></span></li>
 					</ul>
 				</div>
-				<c:forEach items="${pImageList.list}" var="list">
 					<div class="item-container">
-						<a href="goodsDetail?goodId=${list.g_id}">
-							<div class="item-row">
+						<c:forEach items="${pImageList.list}" var="list">
+						<a href="goodsDetail?goodId=${list.g_id}" style="display: inline-block;width: 24%;text-align: center;">
+
 								<div class="item-show-info">
 									<div class="item-show-img">
 										<img src="${list.image_zhanshi}">
@@ -237,15 +142,14 @@
 								<span>元亨利配件专营店</span>
 							</div> -->
 								</div>
-							</div>
 						</a>
+						</c:forEach>
 					</div>
-				</c:forEach>
 			</div>
 		</div>
 		<!--分页的样式-->
 		<div class="page-num">
-			<nav>
+			<nav class="text-center">
 				<ul class="pagination">
 					<c:if test="${pImageList.currentPage!=1}">
 						<li><a href="indexShow?page=${pImageList.currentPage-1}&type=${type}"><span aria-hidden="true">&laquo;</span></a></li>

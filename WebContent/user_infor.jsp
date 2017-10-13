@@ -130,11 +130,11 @@
 					<span class="info-settings-txt">我的信息</span>
 				</p>
 				<br>
-				<div class="pb-col-4">
-					<img src="${u2.u_image}" height="200px" width="200px" height="200px" onerror='src="images/user-head-pic.png"'/>
+				<div class="pb-col-5">
+					<img src="${u2.u_image}" height="200px" width="200px" onerror='src="images/user-head-pic.png"'/>
 					<span class="cover-show"></span>
 				</div>
-				<div class="pb-col-8">
+				<div class="pb-col-7">
 					<br>
 					<h4>
 						用户名:<strong>${u2.username}</strong>
@@ -142,6 +142,9 @@
 					<h4>
 						邮箱:<strong>${u2.email}</strong>
 					</h4>
+				</div>
+				<div class="pb-col-7 button-group clearfix">
+					<a href="userinfor_update.jsp"><button class="modify">修改信息</button></a>
 				</div>
 			</div>
 

@@ -803,9 +803,7 @@
 
 /********************右侧商品列表开始********************/
 	.item-list-right{
-		width: 1085px;
-		margin-left: 15px;
-		float: left;
+
 	}
 	.item-list-tool{
 		width: 100%;
@@ -848,10 +846,9 @@
 	.item-show-info{
 		width: 240px;
 		padding: 10px;
-		margin: 15px;
+		margin: 0 auto;
 		border: 1px solid #fff;
 		cursor: pointer;
-		float: left;
 	}
 	.item-show-info:hover{
 		border: 1px solid #ccc;
@@ -877,14 +874,6 @@
 		font-size: 12px;
 		color:#E4393C;
 	}
-/********************右侧商品列表结束********************/
-	/*分页*/
-	.page-num{
-		width: 350px;
-		margin-right: 300px;
-		float: right;
-	}
-
 /*****************************搜索页面结束*****************************/
 .item-show-img img{
 	width:218px;
