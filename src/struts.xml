@@ -195,6 +195,7 @@
 		<!--支付状态改变 -->
 		<action name="payForOrder" class="com.qst.action.OrderAction"
 			method="payForOrder">
+			<result name="payForOrder" type="chain">indexShow</result>
 		</action>
 
 		<!-- 已完成订单的查找 -->
@@ -227,6 +228,15 @@
 		</action>
 		<action name="getGoodsOrderItems" class="com.qst.action.GoodsSoldAction" method="getGoodsOrderItems">
 				<result name="GoodSOrderItems">GoodsSold.jsp</result>
+		</action>
+		
+		<action name="getNoAnswerGoodsOrder" class="com.qst.action.GoodsSoldAction" method="getNoAnswerGoodsOrder">
+			<result name="getNoAnswerGoodsOrder"> NoAnswerGoodsOrder.jsp</result>
+		</action>
+		
+		<action name="setReply" class="com.qst.action.GoodsSoldAction" method="setReply">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="chain">getNoAnswerGoodsOrder</result>
 		</action>
 
 	</package>

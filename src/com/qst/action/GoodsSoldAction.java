@@ -107,7 +107,6 @@ public class GoodsSoldAction {
 	 */
 	public String getGoodsOrderItems() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
 		List<Long> ordernumber_list = new ArrayList<Long>();
 		ordernumber_list= (List<Long>) request.getAttribute("ordernumber_list");
 		HashMap<Long, List<GoodsOrder>> map =new HashMap<Long, List<GoodsOrder>>();
@@ -128,4 +127,32 @@ public class GoodsSoldAction {
 		return "GoodSOrderItems";
 	}
 	
+	/*
+	 * 得到 所有商家未回答的订单
+	 */
+	
+	public String getNoAnswerGoodsOrder() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		int u_id=(int)session.getAttribute("uid");
+		List<GoodsOrder> goodsOrders_list =new ArrayList<GoodsOrder>();
+		goodsOrders_list=goodsSoldsService.getNoAnswerGoodsOrder(u_id);
+		request.setAttribute("goodsorder", goodsOrders_list);
+		return "getNoAnswerGoodsOrder";
+	}
+	
+	/*
+	 * 回答客户的评价
+	 */
+	public String setReply(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		int u_id=(int)session.getAttribute("uid");
+		String reply = request.getParameter("reply");
+		int session_id = Integer.parseInt(request.getParameter("session_id"));
+		if (goodsSoldsService.setReply(session_id,reply)>0) {
+			return "success";
+		}
+		return "error";
+	}
 }

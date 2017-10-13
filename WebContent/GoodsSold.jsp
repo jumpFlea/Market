@@ -15,7 +15,7 @@
 <title>未评价订单</title>
 
 </head>
-<body>
+<body style="background-color: black;">
 <div style="background-color: black;">
  <div class="header-content toCenter" style="background-color: black; ">
         <h1 class="logo" title="牛男网商城">
@@ -85,7 +85,7 @@
 							
 					 	   <input disabled="disabled" style="width: 200px; height: 50px; border: 1px solid #ccc;"  value="${goodsOrder.message}" />   
 						 <input type="hidden" value="${goodsOrder.ordernumber }" name="ordernumber" />
-						 <input type="submit" svalue="发货" />
+						 <input type="submit" value="发货" />
 							</td>
 					</tr>
 					

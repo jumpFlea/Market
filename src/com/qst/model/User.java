@@ -1,7 +1,7 @@
 package com.qst.model;
 
 public class User {
-	
+
 	private Integer uid;
 	private String username;
 	private String psw;
@@ -10,7 +10,8 @@ public class User {
 	private String adress;
 	private Integer integral;
 	private String u_image;
-	
+	private Integer authority;
+
 
 
 
@@ -91,12 +92,20 @@ public class User {
 	public void setIntegral(Integer integral) {
 		this.integral = integral;
 	}
-	
+
 	public String getU_image() {
 		return u_image;
 	}
 
 	public void setU_image(String u_image) {
 		this.u_image = u_image;
+	}
+
+	public Integer getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(Integer authority) {
+		this.authority = authority;
 	}
 }
