@@ -106,6 +106,18 @@
 							</a>
 						</div>
 					</li>
+					<c:if test="${authority >= 1}">
+						<li class="list-item">
+							<div class="inner-bar">
+								<a href="member.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">会员管理</span>
+									<span class="pull-right img-icon"></span>
+								</a>
+							</div>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 

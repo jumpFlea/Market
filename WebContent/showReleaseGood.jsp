@@ -75,7 +75,7 @@
 						<ul class="sub-menu-list" style="display: none">
 							<li class="sub-list-item"><a href="myOrders.action" class="item-link"> <span class="triangle-right pull-left"></span> <span class="sub-list-txt">我的订单</span>
 							</a></li>
-							<li class="sub-list-item"><a href="" class="item-link"> <span class="triangle-right pull-left"></span> <span class="sub-list-txt">我的收藏</span>
+							<li class="sub-list-item"><a href="myFavorites.action" class="item-link"> <span class="triangle-right pull-left"></span> <span class="sub-list-txt">我的收藏</span>
 							</a></li>
 						</ul>
 					</li>
@@ -101,6 +101,15 @@
 							</a></li>
 						</ul>
 					</li>
+					<c:if test="${authority >= 1}">
+						<li class="list-item">
+							<div class="inner-bar">
+								<a href="member.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+								</span> <span class="txt-title" style="color: #333">会员管理</span> <span class="pull-right img-icon"></span>
+								</a>
+							</div>
+						</li>
+					</c:if>
 
 
 				</ul>
@@ -141,11 +150,7 @@
 									<td><img src="${show.image_zhanshi}" style="width: 100px; height: 100px"></td>
 									<td>${show.market_price}</td>
 									<td>${show.g_content}</td>
-									<td><a href="deleteReleaseGoods?goodId=${show.g_id}">删除</a>
-										<br>
-										<br>
-										<a href="showUserGoods?goodId=${show.g_id}">修改</a>
-									</td>
+									<td><a href="deleteReleaseGoods?goodId=${show.g_id}">删除</a> <br> <br> <a href="showUserGoods?goodId=${show.g_id}">修改</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -172,8 +177,8 @@
 						</ul>
 					</nav>
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 	</div>
@@ -285,8 +290,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<script src="./js/lib/sea.js"></script>
 	<script>
 		seajs.config({
@@ -303,6 +308,6 @@
 	</script>
 	<script src="js/mall.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	
+
 </body>
 </html>
