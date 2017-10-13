@@ -6,12 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 @Service
 public class AddressServiceImpl {
-	@Autowired
+	final
 	AddressDao addressDao;
+
+	@Autowired
+	public AddressServiceImpl(AddressDao addressDao) {
+		this.addressDao = addressDao;
+	}
 
 	public ArrayList<Integer> getAlladid(int u_id) {
 
@@ -49,7 +54,11 @@ public class AddressServiceImpl {
 	}
 
 
-	public List<Adress> getAddressByUser(int id) {
+	public Adress getDefaultAddress(int id) {
 		return addressDao.findDefaultAddress(id);
+	}
+
+	public ArrayList<HashMap> getAllAddressByUser(int id) {
+		return addressDao.findAllAddressByUser(id);
 	}
 }

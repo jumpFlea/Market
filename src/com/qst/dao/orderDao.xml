@@ -41,8 +41,14 @@
 		LEFT JOIN adress a ON o.ad_id = a.ad_id
 		WHERE o.u_id=#{0}
 	</select>
+    <select id="countByUser" resultType="hashmap">
+		SELECT
+			count(*) AS n,u_id AS id
+		FROM `order`
+		GROUP BY u_id
+	</select>
 
-	<insert id="createOrder" >
+    <insert id="createOrder" >
 		INSERT INTO `order` (u_id,ordernumber,price,ad_id,status)
 		VALUES (#{0},#{1},#{2},#{3},1)
 	</insert>

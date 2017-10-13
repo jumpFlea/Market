@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 @Controller
 public class ShopCartAction {
@@ -40,7 +39,7 @@ public class ShopCartAction {
 	 * 此类的功能为将商品设置进入订单,
 	 */
 
-	public String setGoodinOrder() {							 // 此功能为将购物车里面的商品设置进入订单
+	public String setGoodinOrder() { // 此功能为将购物车里面的商品设置进入订单
 		SimpleDateFormat dateFormater = new SimpleDateFormat("ddmmyyyyHHmmssSSS");
 		Date date = new Date();
 		long ordernumber = Long.parseLong(dateFormater.format(date)); // 生成唯一的订单号
@@ -79,12 +78,31 @@ public class ShopCartAction {
 			session.removeAttribute("goodsList");
 		}
 		else {
-			List<Adress> address =new ArrayList<Adress>(); 
-				address=	addressService.getAddressByUser(id);
-			session.setAttribute("address",address);
-			session.setAttribute("goodsList", goodsList);
+			Adress address = addressService.getDefaultAddress(id);
+			ArrayList<HashMap> addressList = addressService.getAllAddressByUser(id);
+			request.setAttribute("addressDefault",address);
+			request.setAttribute("goodsList", goodsList);
+			request.setAttribute("addressList", addressList);
 		}
 		return "diao";
+	}
+
+	public String quickBuy(){
+		try {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			HttpSession session = request.getSession();
+			int id = (int) session.getAttribute("uid");
+
+			HashMap goods = shopCarService.getGoods(item);
+			Adress address = addressService.getDefaultAddress(id);
+			ArrayList<HashMap> addressList = addressService.getAllAddressByUser(id);
+			request.setAttribute("goods",goods);
+			session.setAttribute("addressDefault",address);
+			request.setAttribute("addressList", addressList);
+			return "success";
+		} catch (Exception e){
+			return "login";
+		}
 	}
 
 	/*
@@ -180,6 +198,50 @@ public class ShopCartAction {
 		}
 	}
 
+	public String removeFavorite(){
+		if (item == null || item.getGid() == null){
+			return "login";
+		}
+		else {
+			try {
+				HttpServletRequest request = ServletActionContext.getRequest();
+				HttpSession session = request.getSession();
+				Integer id = (Integer) session.getAttribute("uid");
+				if(id == null){
+					return "login";
+				}
+				else {
+					item.setUid(id);
+					shopCarService.removeFavorite(item);
+					return "favorite";
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				return "index";
+
+			}
+		}
+	}
+
+	public String myFavorite(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		Integer id = (Integer) session.getAttribute("uid");
+		if(id == null){
+			return "login";
+		}
+		else {
+			try {
+				ArrayList<HashMap> collection = shopCarService.findMyFavorite(id);
+				request.setAttribute("collection", collection);
+				return "favorite";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "index";
+			}
+		}
+	}
+
 	public void cartCount(){
 		HttpServletResponse response = ServletActionContext.getResponse();
 		PrintWriter out = null;
@@ -201,19 +263,6 @@ public class ShopCartAction {
 		}
 	}
 
-	public String quickBuy(){
-		try {
-			HashMap goods = shopCarService.getGoods(item);
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("goods",goods);
-			int id = (int) session.getAttribute("uid");
-			List<Adress> address = addressService.getAddressByUser(id);
-			session.setAttribute("address",address);
-			return "success";
-		} catch (Exception e){
-			return "login";
-		}
-	}
 
     public String deleteCartGoods(){
 	    try {

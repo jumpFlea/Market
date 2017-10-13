@@ -64,4 +64,12 @@ public class ShopCarService {
 		hashMap.put("price",item.getPrice());
 		return hashMap;
 	}
+
+	public void removeFavorite(ShopCartGoods item) {
+		userDao.removeFavorite(item);
+	}
+
+	public ArrayList<HashMap> findMyFavorite(Integer id) {
+		return userDao.findMyFavorite(id);
+	}
 }

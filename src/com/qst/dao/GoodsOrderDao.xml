@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qst.dao.GoodsOrderDao">
+    <select id="countByUser" resultType="hashmap">
+        select
+            count(*) AS n,u_id AS id
+        FROM order_goods og
+        LEFT JOIN `order` o ON og.ordernumber = o.ordernumber
+        GROUP BY u_id
+    </select>
+</mapper>

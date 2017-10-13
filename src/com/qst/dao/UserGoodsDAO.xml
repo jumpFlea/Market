@@ -7,4 +7,11 @@
         user_goods(g_id,u_id,ug_date)
         VALUES(#{goodsId},#{userId},#{date})
     </insert>
+    <select id="countByUser" resultType="hashmap">
+        SELECT
+            count(*) AS n,u.uid AS id
+        FROM user_goods ug
+        LEFT JOIN usertable u ON ug.u_id = u.uid
+        GROUP BY u.uid
+    </select>
 </mapper>
