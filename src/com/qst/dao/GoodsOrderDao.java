@@ -1,9 +1,6 @@
 package com.qst.dao;
 
-import com.qst.model.Goods;
 import com.qst.model.GoodsOrder;
-import com.qst.model.Page;
-
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
@@ -59,4 +56,6 @@ public interface GoodsOrderDao {
 			"        LEFT JOIN goods g ON o.g_id = g.g_id\n" +
 			"        WHERE o.ordernumber = #{0}")
     ArrayList<HashMap> getGoodsByOrder(long orderId);
+
+    ArrayList<HashMap> countByUser();
 }

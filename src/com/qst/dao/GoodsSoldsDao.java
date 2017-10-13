@@ -43,8 +43,20 @@ public interface GoodsSoldsDao {
 	/*
 	 * 得到 此用户 卖出的 某个订单的所有商品
 	 */
-	@Select("SELECT DISTINCT * FROM goods AS a,order_goods AS c WHERE c.ordernumber=#{ordernumber} AND a.g_id=c.g_id  ")
+	@Select("SELECT DISTINCT * FROM goods AS a,order_goods AS c ,`order` AS b  WHERE c.ordernumber=#{ordernumber} AND a.g_id=c.g_id AND b.ordernumber=c.ordernumber ")
 	public List<GoodsOrder> getGoodsOrder(@Param("ordernumber") long ordernumber);
+	
+	/*
+	 * 得到所有  用户已经评价但是商家却没有回答的商品详情
+	 */
+	@Select("SELECT a.*,c.* FROM goods_session AS a ,goods AS b ,`session` AS c WHERE b.u_id=#{u_id}  AND b.g_id=a.g_id AND c.session_id=a.session_id AND  (c.reply IS NULL OR c.reply ='')")
+	public List<GoodsOrder> getNoAnswerGoodsOrder(@Param("u_id")int u_id);
+	
+	/*
+	 * 回答客户的评价
+	 */
+	@Update("update  `session` set  reply=#{reply}  WHERE  session_id=#{session_id} ")
+	public int setReply(@Param("session_id")int session_id,@Param("reply")String reply);
 		
 	
 }

@@ -12,6 +12,7 @@
 
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
+		<!-- 调用signup方法 -->
 		<action name="validate" class="userAction" method="validateUsername">
 			<result name="success" type="plainText">fonts/temp/success</result>
 			<result name="index" type="plainText">fonts/temp/index</result>
@@ -25,7 +26,7 @@
 
 		<!--个人帐号信息修改 -->
 		<action name="updateUserInfor" class="userAction" method="updateUserInfor">
-			<result name="success">/user_infor.jsp</result>
+			<result name="success" type="redirect">user_infor.jsp</result>
 			<result name="error">/error.jsp</result>
 			<result name="input">/error.jsp</result>
 		</action>
@@ -153,6 +154,18 @@
 			<result name="index">error.jsp</result>
 		</action>
 
+		<action name="removeFavorite" class="com.qst.action.ShopCartAction"
+				method="removeFavorite">
+			<result name="favorite" type="redirect">myFavorites.action</result>
+			<result name="login">login.html</result>
+			<result name="index">error.jsp</result>
+		</action>
+
+		<action name="myFavorites" class="com.qst.action.ShopCartAction" method="myFavorite">
+			<result name="favorite">user-my-collection.jsp</result>
+			<result name="login">login.html</result>
+			<result name="index">error.jsp</result>
+		</action>
 
 		<action name="deleteCartGoods" class="com.qst.action.ShopCartAction"
 			method="deleteCartGoods">
@@ -196,7 +209,7 @@
 
 		<!-- 删除未完成订单 -->
 			<action name="cancellationOrder" class="com.qst.action.OutstandingOrderAction" method="cancellationOrder">
-			<result name="delOrder" type="chain">myOrders</result>
+			<result name="delOrder" type="redirect">myOrders.action</result>
 		</action>
 
 		<!--继续支付某一个订单 -->
@@ -249,6 +262,42 @@
 		<action name="setReply" class="com.qst.action.GoodsSoldAction" method="setReply">
 			<result name="error">/error.jsp</result>
 			<result name="success" type="chain">getNoAnswerGoodsOrder</result>
+		</action>
+
+		<action name="member" class="userAction" method="manageUser">
+			<result name="success">authority.jsp</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="enableAuthority" class="userAction" method="enableAuthority">
+			<result name="success" type="redirect">member.action</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="disableAuthority" class="userAction" method="disableAuthority">
+			<result name="success" type="redirect">member.action</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="enableUser" class="userAction" method="enableUser">
+			<result name="success" type="redirect">member.action</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="disableUser" class="userAction" method="disableUser">
+			<result name="success" type="redirect">member.action</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="deleteUser" class="userAction" method="deleteUser">
+			<result name="success" type="redirect">member.action</result>
+			<result name="login">login.html</result>
+			<result name="error">error.jsp</result>
 		</action>
 
 	</package>

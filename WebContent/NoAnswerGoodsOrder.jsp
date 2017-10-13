@@ -13,7 +13,7 @@
 <link href="css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
 <script src="js/Calculation.js"></script>
 
-<title>已评价订单</title>
+<title>回答评价</title>
 </head>
 <body style="background-color: black;">
 <div style="background-color: black;">
@@ -55,14 +55,14 @@
 				<td class="tb2_td1">商品信息</td>
 				<td class="tb1_td4">订单号</td>
 				<td class="tb1_td7">商品号</td>
-				<td class="tb1_td7">我的评价</td>
-				<td class="tb1_td7">商家回复</td>
+				<td class="tb1_td7">客户的评价</td>
+				<td class="tb1_td7">我的回复</td>
 			</tr>
 		</table>
 		.
 
-		<c:forEach items="${ goodsorder.list}" var="goodsOrder">
-			<form action="setEvalueInSession" method="post">
+		<c:forEach items="${ goodsorder}" var="goodsOrder">
+			<form action="setReply" method="post">
 				<table cellpadding="0" cellspacing="0" class="gwc_tb2">
 					<tr>
 
@@ -82,9 +82,13 @@
 							disabled="disabled" value="${ goodsOrder.evaluate}" name="gid" />
 						</td>
 						<td class="tb1_td4"> <input
-							style="width: 200px; height: 18px; border: 1px solid #ccc;"
-							disabled="disabled" value="${ goodsOrder.reply}" name="gid" />
+							style="width: 200px; height: 30px; border: 1px solid #ccc;"
+							  name="reply" />
+							 <input type="hidden" value="${goodsOrder.ordernumber }" name="ordernumber" />
+							 <input type="hidden" value="${goodsOrder.session_id }" name="session_id"/> 
+							 <input value="回复" type="submit"/>
 						</td>
+						
 
 					</tr>
 				</table>
@@ -93,7 +97,7 @@
 
 		<!-- 分页  -->
 
-		<div class="page-num" style="width: 100%">
+		<%-- <div class="page-num" style="width: 100%">
 			<nav>
 
 			<div style="margin-left: 50%; width: 40%">
@@ -124,7 +128,7 @@
 				</ul>
 			</nav>
 		</div>
-	</div>
+	</div> --%>
 
 
 

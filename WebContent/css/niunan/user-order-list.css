@@ -109,13 +109,15 @@ p.nn-order-status .status-item a.active {
     color: #919191;
 }
 .order-count{
-    height: 100px;
+    height: 80px;
 }
 .line{
     margin: 8px 0 8px 0;border-bottom: solid 1px #eee;height: 1px;
 }
 .recieve-address{
     line-height: 1;
+    margin-top: 6px;
+    margin-right: 25px;
 }
 .order-list-item .price {
     font-size: 18px;

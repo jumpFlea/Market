@@ -386,7 +386,7 @@
 			<a href="comletedOrderIndex"><span class="my-item">未评价订单</span></a> <a href=""> <span class="my-item">全部订单</span></a>
 		</p>
 		<p>
-			  <a href="evaluaedOrderIndex"> <span class="my-item">已评价订单</span></a> <a href=""> <span class="my-item">我的问答</span></a>
+			  <a href="evaluaedOrderIndex"> <span class="my-item">已评价订单</span></a> <a href="getNoAnswerGoodsOrder"> <span class="my-item">商家回答</span></a>
 		</p>
 	</div>
 </body>

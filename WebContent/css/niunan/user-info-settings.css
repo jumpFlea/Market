@@ -12,15 +12,16 @@
 
 p.info-avatar .info-avatar-settings {
 	display: block;
-	width: 170px;
-	height: 170px;
+	max-width: 200px;
+	max-height: 200px;
 	position: relative;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
 p.info-avatar .info-avatar-settings .cover-show {
 	position: absolute;
-	top: -170px;
+	top: 0;
 	width: 100%;
 	height: 100%;
 	left: 0;
@@ -44,8 +45,8 @@ p.info-avatar .info-avatar-settings:hover .cover-show {
 }
 
 p.info-avatar .info-avatar-settings img {
-	width: 170px;
-	height: 170px;
+	width: 200px;
+	height: 200px;
 }
 
 .nn-info-settings .info-input-row {
@@ -106,18 +107,25 @@ p.info-avatar .info-avatar-settings img {
 }
 
 introduce_good{
-	display: block;
 	width: 386px;
 	font-size: 16px;
 	padding: 10px 15px;
 	border-radius: 4px;
 	border: none;
 	box-shadow: 0 0 1px #000;
-
 	display: inline-block;
 	text-align: center;
 }
 #releaseTable{
 	width:80%;
 	margin: auto;
+}
+button.modify{
+	width: 140px;
+	box-sizing: border-box;
+	color: #fff;
+	background: #f30110;
+	border: none;
+	border-radius: 3px;
+	height: 40px;
 }
