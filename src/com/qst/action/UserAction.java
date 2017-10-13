@@ -72,17 +72,18 @@ public class UserAction extends ActionSupport {
 	public void login() {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		PrintWriter out = null;
+		HttpSession session = request.getSession();//获取一个session
+		PrintWriter out = null;//声明out
 		String jsonString;
 		try {
-			out = response.getWriter();
-			User u = userService.login(user);
+			out = response.getWriter();//获取输出out对象
+			User u = userService.login(user);//跳转
 			if (u != null) {
 				jsonString = "yes";
 				session.setAttribute("user", u);
 				int uid = userService.findIdByName(u.getUsername());
 				session.setAttribute("uid", uid);
+				//username获取uid，传入session
 			} else {
 				jsonString = "no";
 			}
@@ -96,16 +97,18 @@ public class UserAction extends ActionSupport {
 			out.println(jsonString);
 			out.flush();
 			out.close();
+			//清楚缓存数据，关闭out流
 		}
 	}
 
 	public void signup() {
 		HttpServletResponse response = ServletActionContext.getResponse();
-		PrintWriter out = null;
+		//获取response,通过response获取输出对象
+		PrintWriter out = null;//声明out
 		String jsonString;
 		try {
-			out = response.getWriter();
-			User u = userService.add(user);
+			out = response.getWriter();//获取out输出流
+			User u = userService.add(user);//将user值传给u
 			if (u != null) {
 				jsonString = "yes";
 			} else {

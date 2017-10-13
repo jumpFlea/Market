@@ -15,14 +15,16 @@
 	</insert>
 
     <!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
-	<select id="login" parameterType="User" resultType="User">
-		select * from
-		usertable where username = #{username} and psw = #{psw}
+	<select id="login" parameterType="User" resultType="User">//传入数据库，输出数据库
+		select * 
+		from usertable 
+		where username = #{username} and psw = #{psw}
 	</select>
 
 	<select id="findByName" resultType="com.qst.model.User"
 		parameterType="string">
-		SELECT * FROM usertable
+		SELECT * 
+		FROM usertable
 		WHERE username = #{username}
 	</select>
 
