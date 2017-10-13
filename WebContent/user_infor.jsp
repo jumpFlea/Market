@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>个人信息－小马交易</title>
@@ -48,19 +48,13 @@
 		<div class="nn-left-menu pull-left">
 			<ul class="nn-all-sort" id="all-sort">
 				<li class="list-item">
-					<div class="inner-bar">
-						<span class="txt-title">个人中心</span> <span
-							class="triangle-up pull-right"></span>
+					<div class="inner-bar text-center">
+						<span class="txt-title">个人中心</span>
 					</div>
 				</li>
 				<li class="list-item">
 					<div class="avatar-box text-center">
-						<c:if test="${u2.u_image != null}">
-							<img src="${u2.u_image}"/>
-						</c:if>
-						<c:if test="${u2.u_image == null}">
-							<img src="images/user-head-pic.png" alt=""/>
-						</c:if>
+						<img src="${u2.u_image}" onerror="src='images/user-head-pic.png'"/>
 					</div>
 				</li>
 				<li class="list-item active">
@@ -68,63 +62,51 @@
 						<a href="showUserInfor.action">
 						<span class="img-icon">
 							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">个人信息</span>
+							</span> <span class="txt-title" style="color: #333">我的信息</span>
 							<span class="pull-right img-icon"></span>
 						</a>
 					</div>
 				</li>
 				<li class="list-item">
 					<div class="inner-bar">
-						<span class="img-icon"> <img
-							src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">服务管理</span> <span
-							class="pull-right icon-toggle plus-icon"></span>
+						<a href="myOrders.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的订单</span>
+							<span class="pull-right img-icon"></span>
+						</a>
 					</div>
-					<ul class="sub-menu-list" style="display: none">
-						<li class="sub-list-item"><a href="myOrders.action" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-								class="sub-list-txt">我的订单</span>
-						</a></li>
-						<li class="sub-list-item"><a href="" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-								class="sub-list-txt">我的收藏</span>
-						</a></li>
-					</ul>
 				</li>
 				<li class="list-item">
 					<div class="inner-bar">
-						<span class="img-icon"> <img
-							src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">个人设置</span> <span
-							class="pull-right icon-toggle plus-icon"></span>
+						<a href="showReleaseGoods.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的商品</span>
+							<span class="pull-right img-icon"></span>
+						</a>
 					</div>
-					<ul class="sub-menu-list" style="display: none">
-						<li class="sub-list-item"><a href="userinfor_update.jsp" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-								class="sub-list-txt">信息修改</span>
-						</a></li>
-						<li class="sub-list-item"><a href="showAllAddress" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-								class="sub-list-txt">地址管理</span>
-						</a></li>
-					</ul>
 				</li>
 				<li class="list-item">
 					<div class="inner-bar">
-						<span class="img-icon"> <img
-							src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">我的发布</span> <span
-							class="pull-right icon-toggle plus-icon"></span>
+						<a href="myFavorites.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的收藏</span>
+							<span class="pull-right img-icon"></span>
+						</a>
 					</div>
-					<ul class="sub-menu-list" style="display: none">
-						<li class="sub-list-item"><a href="showReleaseGoods" class="item-link">
-								<span class="triangle-right pull-left"></span> <span
-								class="sub-list-txt">查看发布</span>
-						</a></li>
-					</ul>
 				</li>
-
-
+				<li class="list-item">
+					<div class="inner-bar">
+						<a href="showAllAddress.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的地址</span>
+							<span class="pull-right img-icon"></span>
+						</a>
+					</div>
+				</li>
 			</ul>
 		</div>
 
@@ -133,16 +115,11 @@
 
 			<div class="nn-info-settings">
 				<p class="info-settings">
-					<span class="info-settings-txt">个人信息</span>
+					<span class="info-settings-txt">我的信息</span>
 				</p>
 				<br>
 				<div class="pb-col-4">
-					<c:if test="${u2.u_image == null}">
-						<img src="images/user-head-pic.png" height="200px" width="200px"/>
-					</c:if>
-					<c:if test="${u2.u_image != null}">
-						<img src="${u2.u_image}" height="200px" width="200px"/>
-					</c:if>
+					<img src="${u2.u_image}" height="200px" width="200px" height="200px" onerror='src="images/user-head-pic.png"'/>
 					<span class="cover-show"></span>
 				</div>
 				<div class="pb-col-8">

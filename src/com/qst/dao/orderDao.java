@@ -107,4 +107,6 @@ public interface orderDao {
     void createOrder(Integer uid, long id, double count, int addressId);
 
     ArrayList<HashMap> getOrderByUser(int uid);
+
+	ArrayList<HashMap> countByUser();
 }

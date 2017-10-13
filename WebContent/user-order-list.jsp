@@ -48,68 +48,65 @@
         <div class="nn-left-menu pull-left">
             <ul class="nn-all-sort" id="all-sort">
                 <li class="list-item">
-                    <div class="inner-bar">
+                    <div class="inner-bar text-center">
                         <span class="txt-title">个人中心</span>
-                        <span class="triangle-up pull-right"></span>
                     </div>
                 </li>
                 <li class="list-item">
                     <div class="avatar-box text-center">
-                        <c:if test="${u2.u_image != null}">
-                            <img src="${u2.u_image}"/>
-                        </c:if>
-                        <c:if test="${u2.u_image == null}">
-                            <img src="images/user-head-pic.png" alt=""/>
-                        </c:if>
+                        <img src="${u2.u_image}" onerror="src='images/user-head-pic.png'"/>
                     </div>
                 </li>
-                <li class="list-item active">
+                <li class="list-item">
                     <div class="inner-bar">
                         <a href="showUserInfor.action">
 						<span class="img-icon">
 							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">个人信息</span>
+							</span> <span class="txt-title" style="color: #333">我的信息</span>
+                            <span class="pull-right img-icon"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-item active">
+                    <div class="inner-bar">
+                        <a href="myOrders.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的订单</span>
                             <span class="pull-right img-icon"></span>
                         </a>
                     </div>
                 </li>
                 <li class="list-item">
                     <div class="inner-bar">
-						<span class="img-icon"> <img
-                                src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">服务管理</span> <span
-                            class="pull-right icon-toggle plus-icon"></span>
+                        <a href="showReleaseGoods.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的商品</span>
+                            <span class="pull-right img-icon"></span>
+                        </a>
                     </div>
-                    <ul class="sub-menu-list" style="display: none">
-                        <li class="sub-list-item"><a href="myOrders.action" class="item-link">
-                            <span class="triangle-right pull-left"></span> <span
-                                class="sub-list-txt">我的订单</span>
-                        </a></li>
-                        <li class="sub-list-item"><a href="" class="item-link">
-                            <span class="triangle-right pull-left"></span> <span
-                                class="sub-list-txt">我的收藏</span>
-                        </a></li>
-                    </ul>
                 </li>
                 <li class="list-item">
                     <div class="inner-bar">
-						<span class="img-icon"> <img
-                                src="image/icon/coat-icon.png" alt="" />
-						</span> <span class="txt-title">个人设置</span> <span
-                            class="pull-right icon-toggle plus-icon"></span>
+                        <a href="myFavorites.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的收藏</span>
+                            <span class="pull-right img-icon"></span>
+                        </a>
                     </div>
-                    <ul class="sub-menu-list" style="display: none">
-                        <li class="sub-list-item"><a href="userinfor_update.jsp" class="item-link">
-                            <span class="triangle-right pull-left"></span> <span
-                                class="sub-list-txt">信息修改</span>
-                        </a></li>
-                        <li class="sub-list-item"><a href="showAllAddress" class="item-link">
-                            <span class="triangle-right pull-left"></span> <span
-                                class="sub-list-txt">地址管理</span>
-                        </a></li>
-                    </ul>
                 </li>
-
+                <li class="list-item">
+                    <div class="inner-bar">
+                        <a href="showAllAddress.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">我的地址</span>
+                            <span class="pull-right img-icon"></span>
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -169,12 +166,11 @@
                                         <div class="line"></div>
                                     </c:forEach>
                                     <div class="order-count">
-                                        <p class="recieve-address pull-right">收货地址：${order.region} ${order.street} ${order.name}</p>
-                                        <br>
                                         <span class="unit-price-wrap pull-right">
                                             总计：￥
                                             <span class="unit-wrap price">${order.price}</span>
                                         </span>
+                                        <p class="recieve-address pull-right">收货地址：${order.region} ${order.street} ${order.name}</p>
                                         <br>
                                         <div class="line"></div>
                                         <div class="right-button-group pull-right">
@@ -216,11 +212,11 @@
                         </div>
                         <div class="order-item-detail">
                             <div class="order-cover pull-left">
-                                <img src="../image/img/head-img.png" alt=""/>
+                                <img src="./image/img/head-img.png" alt=""/>
                             </div>
                             <div class="right-button-group pull-right">
                                 <span class="button-item"><a href="javascript:;" class="button">查看订单</a></span>
-                                <span class="button-item"><a href="javascript:;" class="button comment">五星好评</a></span>
+                                <span class="button-item"><a href="javascript:$('.nn-comment-mask,.nn-comment-content').show();" class="button comment">五星好评</a></span>
                                 <span class="button-item"><a href="javascript:;" class="button">删除订单</a></span>
                             </div>
                             <div class="main-detail-box">

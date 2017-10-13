@@ -14,11 +14,18 @@
 		INSERT INTO favorite (uid,gid) VALUES (#{uid},#{gid})
 	</insert>
 
-    <!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
-	<select id="login" parameterType="User" resultType="User">//传入数据库，输出数据库
-		select * 
-		from usertable 
-		where username = #{username} and psw = #{psw}
+	<delete id="removeFavorite">
+		DELETE FROM favorite WHERE uid=#{uid} and gid=#{gid}
+	</delete>
+
+	<delete id="deleteUser">
+		DELETE FROM usertable WHERE uid=#{uid}
+	</delete>
+
+	<!-- select：查询操作；id：标识；parameterType：接收的参数类型，resultType：返回值类型 -->
+	<select id="login" parameterType="User" resultType="User">
+		select * from
+		usertable where username = #{username} and psw = #{psw} and state_type != 1
 	</select>
 
 	<select id="findByName" resultType="com.qst.model.User"
@@ -41,11 +48,43 @@
 		select uid from usertable where username=#{name};
 	</select>
 
+	<select id="findMyFavorite" resultType="java.util.HashMap">
+		SELECT
+			g.g_attribute as attribute ,
+			g.image_zhanshi as img ,
+			g.g_name as `name`,
+			g.g_price AS price ,
+			g.g_id AS id
+		FROM favorite f
+		LEFT JOIN usertable u ON u.uid=f.uid
+		LEFT JOIN goods g ON f.gid=g.g_id
+	</select>
+	<select id="manageUser" resultType="java.util.HashMap">
+		SELECT
+			u.uid AS id,
+			u.username AS `name`,
+			u.email AS email,
+			u.state_type AS `status`,
+			u.authority AS authority
+		FROM usertable u
+	</select>
+
 	<!--个人信息的修改 -->
 	<update id="updateUserInfor">
 		update usertable set username=#{username},psw=#{psw},email=#{email},u_image=#{u_image}
 		where uid=#{uid};
 	</update>
-
+	<update id="enableAuthority">
+		UPDATE usertable SET authority=1 WHERE uid=#{0}
+	</update>
+	<update id="disableAuthority">
+		UPDATE usertable SET authority=0 WHERE uid=#{0}
+	</update>
+	<update id="disableUser">
+		UPDATE usertable SET state_type=1 WHERE uid=#{0}
+	</update>
+	<update id="enableUser">
+		UPDATE usertable SET state_type=0 WHERE uid=#{0}
+	</update>
 
 </mapper>
