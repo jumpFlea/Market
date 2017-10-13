@@ -12,6 +12,7 @@
 
 		<action name="login" class="userAction" method="login" />
 		<action name="signup" class="userAction" method="signup" />
+		<!-- 调用signup方法 -->
 		<action name="validate" class="userAction" method="validateUsername">
 			<result name="success" type="plainText">fonts/temp/success</result>
 			<result name="index" type="plainText">fonts/temp/index</result>
