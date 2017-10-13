@@ -13,8 +13,12 @@ import java.util.ArrayList;
 @Controller
 public class OutstandingOrderAction {
 
+	private final OrderServiceImpl orderService;
+
 	@Autowired
-	private OrderServiceImpl orderService;
+	public OutstandingOrderAction(OrderServiceImpl orderService) {
+		this.orderService = orderService;
+	}
 
 	/*
 	 * 继续支付某一个订单

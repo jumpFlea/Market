@@ -198,6 +198,50 @@ public class ShopCartAction {
 		}
 	}
 
+	public String removeFavorite(){
+		if (item == null || item.getGid() == null){
+			return "login";
+		}
+		else {
+			try {
+				HttpServletRequest request = ServletActionContext.getRequest();
+				HttpSession session = request.getSession();
+				Integer id = (Integer) session.getAttribute("uid");
+				if(id == null){
+					return "login";
+				}
+				else {
+					item.setUid(id);
+					shopCarService.removeFavorite(item);
+					return "favorite";
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				return "index";
+
+			}
+		}
+	}
+
+	public String myFavorite(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		Integer id = (Integer) session.getAttribute("uid");
+		if(id == null){
+			return "login";
+		}
+		else {
+			try {
+				ArrayList<HashMap> collection = shopCarService.findMyFavorite(id);
+				request.setAttribute("collection", collection);
+				return "favorite";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "index";
+			}
+		}
+	}
+
 	public void cartCount(){
 		HttpServletResponse response = ServletActionContext.getResponse();
 		PrintWriter out = null;

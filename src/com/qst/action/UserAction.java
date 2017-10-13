@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 @Controller
@@ -83,6 +85,7 @@ public class UserAction extends ActionSupport {
 				session.setAttribute("user", u);
 				int uid = userService.findIdByName(u.getUsername());
 				session.setAttribute("uid", uid);
+				session.setAttribute("authority", u.getAuthority());
 			} else {
 				jsonString = "no";
 			}
@@ -154,7 +157,6 @@ public class UserAction extends ActionSupport {
 	public String updateUserInfor() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-		String username = ((User) session.getAttribute("u2")).getUsername();
 		if (upload != null) {
 			String savePath = ServletActionContext.getServletContext().getRealPath("/images/upload");
 			//随机产生一个文件名
@@ -173,4 +175,115 @@ public class UserAction extends ActionSupport {
 
 	}
 
+    public String manageUser() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u == null){
+			return "login";
+		}
+		else if(u.getAuthority() == 0){
+			return "error";
+		}
+		else {
+			try {
+				ArrayList<HashMap> memberList = userService.manageUser();
+				request.setAttribute("memberList", memberList);
+				return "success";
+			}catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+    }
+
+	public String enableAuthority() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u.getAuthority() != 3){
+			return "login";
+		}
+		else {
+			try {
+				userService.enableAuthority(user.getUid());
+				return "success";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+	}
+
+	public String disableAuthority() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u.getAuthority() != 3){
+			return "login";
+		}
+		else {
+			try {
+				userService.disableAuthority(user.getUid());
+				return "success";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+	}
+
+	public String enableUser() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u.getAuthority() == 0){
+			return "login";
+		}
+		else {
+			try {
+				userService.enableUser(user.getUid());
+				return "success";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+	}
+
+	public String disableUser() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u.getAuthority() == 0){
+			return "login";
+		}
+		else {
+			try {
+				userService.disableUser(user.getUid());
+				return "success";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+	}
+
+	public String deleteUser() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("user");
+		if(u.getAuthority() == 0){
+			return "login";
+		}
+		else {
+			try {
+				userService.deleteUser(user.getUid());
+				return "success";
+			} catch (Exception e){
+				e.printStackTrace();
+				return "error";
+			}
+		}
+	}
 }
