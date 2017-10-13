@@ -72,6 +72,19 @@
 			<result name="success" type="chain">showReleaseGoods</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<!--显示想要修改的商品信息 -->
+		<action name="showUserGoods" class="releaseGoodsAction" method="showUserGoods">
+			<result name="success">/update_release.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<!--修改商品-->
+		<action name="updateUserGoods" class="releaseGoodsAction" method="updateUserGoods">
+			<result name="success" type="chain">showReleaseGoods</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
 
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"
@@ -194,6 +207,7 @@
 		<!--支付状态改变 -->
 		<action name="payForOrder" class="com.qst.action.OrderAction"
 			method="payForOrder">
+			<result name="payForOrder" type="chain">indexShow</result>
 		</action>
 
 		<!-- 已完成订单的查找 -->
@@ -226,6 +240,15 @@
 		</action>
 		<action name="getGoodsOrderItems" class="com.qst.action.GoodsSoldAction" method="getGoodsOrderItems">
 				<result name="GoodSOrderItems">GoodsSold.jsp</result>
+		</action>
+		
+		<action name="getNoAnswerGoodsOrder" class="com.qst.action.GoodsSoldAction" method="getNoAnswerGoodsOrder">
+			<result name="getNoAnswerGoodsOrder"> NoAnswerGoodsOrder.jsp</result>
+		</action>
+		
+		<action name="setReply" class="com.qst.action.GoodsSoldAction" method="setReply">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="chain">getNoAnswerGoodsOrder</result>
 		</action>
 
 	</package>
