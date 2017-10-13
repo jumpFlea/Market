@@ -13,8 +13,8 @@ public class GoodsOrder {
 	private String street;
 	private String evaluate;
 	private String reply;
+	private int session_id;
 
-	
 	
 	public String getMessage() {
 		return message;
@@ -89,13 +89,11 @@ public class GoodsOrder {
 	public void setImage_zhanshi(String image_zhanshi) {
 		this.image_zhanshi = image_zhanshi;
 	}
-	@Override
-	public String toString() {
-		return "GoodsOrder [g_id=" + g_id + ", g_name=" + g_name + ", g_price=" + g_price + ", ordernumber="
-				+ ordernumber + ", image_zhanshi=" + image_zhanshi + ", message=" + message + ", name=" + name
-				+ ", phone=" + phone + ", region=" + region + ", street=" + street + "]";
+	public int getSession_id() {
+		return session_id;
+	}
+	public void setSession_id(int session_id) {
+		this.session_id = session_id;
 	}
 
-
-	
 }

@@ -37,5 +37,13 @@ public class GoodsSoldsService {
 	public  List<GoodsOrder> getGoodsOrder(long ordernumber){
 		return goodsSoldsDao.getGoodsOrder(ordernumber);
 	}
-
+	
+	public List<GoodsOrder> getNoAnswerGoodsOrder(int u_id){
+		return goodsSoldsDao.getNoAnswerGoodsOrder(u_id);
+	}
+	
+	public int setReply(int session_id,String reply) {
+		return goodsSoldsDao.setReply(session_id, reply);
+		
+	}
 }
