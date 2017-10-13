@@ -30,7 +30,8 @@
 
 	<select id="findByName" resultType="com.qst.model.User"
 		parameterType="string">
-		SELECT * FROM usertable
+		SELECT * 
+		FROM usertable
 		WHERE username = #{username}
 	</select>
 
