@@ -1,47 +1,42 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>个人信息－小马交易</title>
-	<link rel="stylesheet" href="css/niunan/neat.css">
-	<link rel="stylesheet" href="css/niunan/public2.css">
-	<link rel="stylesheet" href="css/niunan/layout.css">
-	<link rel="stylesheet" href="css/niunan/user-public.css" />
-	<link rel="stylesheet" href="css/niunan/user-info-settings.css" />
+<title>个人信息－小马交易</title>
+<link rel="stylesheet" href="css/niunan/neat.css">
+<link rel="stylesheet" href="css/niunan/public2.css">
+<link rel="stylesheet" href="css/niunan/layout.css">
+<link rel="stylesheet" href="css/niunan/user-public.css" />
+<link rel="stylesheet" href="css/niunan/user-info-settings.css" />
 </head>
 <body>
-<div class="header">
-	<div class="header-content toCenter">
-		<h1 class="logo" title="牛男网商城">
-			<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
-		</h1>
-		<div class="small-nav">
-			<ul class="nav-wrap clear">
+	<div class="header">
+		<div class="header-content toCenter">
+			<h1 class="logo" title="牛男网商城">
+				<a href="indexShow.action"><img src="images/logo.png" alt="" class="logo-img"></a>
+			</h1>
+			<div class="small-nav">
+				<ul class="nav-wrap clear">
 
-				<li class="nav-item end-item"><a href="">客户服务</a></li>
-				<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
-				<li class="nav-item"><a href="">商城会员</a></li>
-				<li class="nav-item"><a href="myOrders.action">我的订单</a></li>
-				<c:if test="${user == null}">
-					<li class="nav-item first-item">
-						[<a href="login.html" class="login">登录 </a>
-						<a href="login.html#signup" class="register">注册</a> ]
-					</li>
-				</c:if>
-				<c:if test="${user != null}">
-					<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
-					<li class="nav-item">
-						<a href="showUserInfor.action">${user.username}
-							<span class="glyphicon glyphicon-menu-down"></span>
-						</a>
-					</li>
-				</c:if>
-			</ul>
+					<li class="nav-item end-item"><a href="">客户服务</a></li>
+					<li class="nav-item"><a href="getshopcargoods.action">企业采购</a></li>
+					<li class="nav-item"><a href="">商城会员</a></li>
+					<li class="nav-item"><a href="myOrders.action">我的订单</a></li>
+					<c:if test="${user == null}">
+						<li class="nav-item first-item">[<a href="login.html" class="login">登录 </a> <a href="login.html#signup" class="register">注册</a> ]
+						</li>
+					</c:if>
+					<c:if test="${user != null}">
+						<li class="nav-item"><a href="getshopcargoods.action">购物车</a></li>
+						<li class="nav-item"><a href="showUserInfor.action">${user.username} <span class="glyphicon glyphicon-menu-down"></span>
+						</a></li>
+					</c:if>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 	<div class="content">
 		<div class="nn-inner-con">
 			<!-- 左边菜单栏-->
@@ -54,65 +49,62 @@
 					</li>
 					<li class="list-item">
 						<div class="avatar-box text-center">
-							<img src="${u2.u_image}" onerror="src='images/user-head-pic.png'"/>
+							<img src="${u2.u_image}" onerror="src='images/user-head-pic.png'" />
 						</div>
 					</li>
 					<li class="list-item active">
 						<div class="inner-bar">
-							<a href="showUserInfor.action">
-						<span class="img-icon">
-							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">我的信息</span>
-								<span class="pull-right img-icon"></span>
+							<a href="showUserInfor.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">我的信息</span> <span class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-							<a href="myOrders.action">
-						<span class="img-icon">
-							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">我的订单</span>
-								<span class="pull-right img-icon"></span>
+							<a href="myOrders.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">我的订单</span> <span class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-							<a href="showReleaseGoods.action">
-						<span class="img-icon">
-							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">我的商品</span>
-								<span class="pull-right img-icon"></span>
+							<a href="showReleaseGoods.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">我的商品</span> <span class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-							<a href="myFavorites.action">
-						<span class="img-icon">
-							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">我的收藏</span>
-								<span class="pull-right img-icon"></span>
+							<a href="myFavorites.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">我的收藏</span> <span class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
 					<li class="list-item">
 						<div class="inner-bar">
-							<a href="showAllAddress.action">
-						<span class="img-icon">
-							<img src="image/icon/coat-icon.png" alt=""/>
-							</span> <span class="txt-title" style="color: #333">我的地址</span>
-								<span class="pull-right img-icon"></span>
+							<a href="showAllAddress.action"> <span class="img-icon"> <img src="image/icon/coat-icon.png" alt="" />
+							</span> <span class="txt-title" style="color: #333">我的地址</span> <span class="pull-right img-icon"></span>
 							</a>
 						</div>
 					</li>
+					<c:if test="${authority >= 1}">
+						<li class="list-item">
+							<div class="inner-bar">
+								<a href="member.action">
+						<span class="img-icon">
+							<img src="image/icon/coat-icon.png" alt=""/>
+							</span> <span class="txt-title" style="color: #333">会员管理</span>
+									<span class="pull-right img-icon"></span>
+								</a>
+							</div>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 
 			<!-- 右边内容分区栏 -->
 			<div class="nn-right-content">
-				<form action="updateUserInfor.action" enctype="multipart/form-data"  onsubmit="return updateJudge()" method="post">
+				<form action="updateUserInfor.action" enctype="multipart/form-data" onsubmit="return updateJudge()" method="post">
 					<div class="nn-info-settings">
 						<p class="info-settings">
 							<span class="info-settings-txt">信息修改</span>
@@ -120,27 +112,24 @@
 						<br>
 						<div class="pb-col-5">
 							<p class="info-avatar" id="preview">
-								<span class="info-avatar-settings">
-									<img src="${u2.u_image}" alt="" onerror="src='images/user-head-pic.png'"/>
-									<span class="cover-show">
-										<a onclick="$('input[name=upload]').click()">点击修改头像</a>
-									</span>
+								<span class="info-avatar-settings"> <img src="${u2.u_image}" alt="" onerror="src='images/user-head-pic.png'" /> <span class="cover-show"> <a
+										onclick="$('input[name=upload]').click()">点击修改头像</a>
+								</span>
 								</span>
 							</p>
 						</div>
 						<div>
-							<input type="file" name="upload" onchange="previewImage(this)" style="display:none">
+							<input type="file" name="upload" onchange="previewImage(this)" style="display: none">
 						</div>
 						<div class="pb-col-7">
 							<div class="info-input-row">
 								<p class="input-wrap">
-									请填写昵称:<input type="text" id='username123'  name="user1.username" value="${u2.username}"/>
+									请填写昵称:<input type="text" id='username123' name="user1.username" value="${u2.username}" />
 								</p>
 							</div>
 							<div class="info-input-row">
 								<p class="input-wrap">
-									<input type="text" value="${u2.uid}" style="display:none" name="user1.uid"/>
-									请填写密码:<input type="password"  id='psw123' name="user1.psw" value="${u2.psw}"/>
+									<input type="text" value="${u2.uid}" style="display: none" name="user1.uid" /> 请填写密码:<input type="password" id='psw123' name="user1.psw" value="${u2.psw}" />
 								</p>
 							</div>
 							<!-- 	<div class="info-input-row">
@@ -150,7 +139,7 @@
                             </div> -->
 							<div class="info-input-row">
 								<p class="input-wrap">
-									请填写常用邮箱:<input type="text" id='email123' name="user1.email" value="${u2.email}"/>
+									请填写常用邮箱:<input type="text" id='email123' name="user1.email" value="${u2.email}" />
 								</p>
 							</div>
 						</div>
@@ -168,9 +157,8 @@
 		<div class="footer-nav">
 			<div class="some-intro">
 				<div class="intro-item">
-					<span class="intro-list"><span class="color-ff-bold">100%</span>原单正品</span>
-					<span class="intro-list"><span class="color-ff-bold">七天</span>无理由退换货</span>
-					<span class="intro-list"><span class="color-ff-bold">便捷</span>在线客服解答</span>
+					<span class="intro-list"><span class="color-ff-bold">100%</span>原单正品</span> <span class="intro-list"><span class="color-ff-bold">七天</span>无理由退换货</span> <span class="intro-list"><span
+						class="color-ff-bold">便捷</span>在线客服解答</span>
 				</div>
 			</div>
 			<div class="f-nav-content toCenter clear">
@@ -255,8 +243,7 @@
 		<div class="footer-content-wrap">
 			<div class="foter-content toCenter">
 				<div class="footer-logo fl">
-					<a href=""> <img src="images/footer-logo.png" alt=""
-						class="footer-lgo-img">
+					<a href=""> <img src="images/footer-logo.png" alt="" class="footer-lgo-img">
 					</a>
 				</div>
 				<div class="rights">
@@ -267,8 +254,7 @@
 						<li class="r-list"><a href="">隐私条款</a></li>
 						<li class="r-list end-list"><a href="">友情链接</a></li>
 					</ul>
-					<p class="copyright">CopyRight 2016 上海财洋网络科技有限公司 NeoNan.com
-						版权所有 经营许可证编号：沪B2-201</p>
+					<p class="copyright">CopyRight 2016 上海财洋网络科技有限公司 NeoNan.com 版权所有 经营许可证编号：沪B2-201</p>
 				</div>
 			</div>
 		</div>
@@ -276,17 +262,17 @@
 
 	<script src="./js/lib/sea.js"></script>
 	<script>
-        seajs.config({
-            base: "./js",
-            alias: {
-                "jquery": "lib/jquery.min",
-                'swiper': 'lib/swiper.min'
-            }
-        });
-        // 加载入口模块
-        seajs.use("main/page-user-settings", function(init){
-            init.initPage();
-        });
+		seajs.config({
+			base : "./js",
+			alias : {
+				"jquery" : "lib/jquery.min",
+				'swiper' : 'lib/swiper.min'
+			}
+		});
+		// 加载入口模块
+		seajs.use("main/page-user-settings", function(init) {
+			init.initPage();
+		});
 	</script>
 	<!--在div框中显示本张上传图片-->
 	<script>
@@ -298,8 +284,7 @@
 				div.innerHTML = '<img id=imghead>';
 				var img = document.getElementById('imghead');
 				img.onload = function() {
-					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT,
-							img.offsetWidth, img.offsetHeight);
+					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
 					img.width = rect.width;
 					img.height = rect.height;
 					img.style.marginLeft = rect.left + 'px';
@@ -337,19 +322,19 @@
 		}
 
 		//$('.save-btn').click(updateJudge());
-		function updateJudge(){
-		 	var u =$('#username123').val();
-		 	/* alert(u); */
-		 	var p =$('#psw123').val();
-		 	var e =$('#email123').val();
+		function updateJudge() {
+			var u = $('#username123').val();
+			/* alert(u); */
+			var p = $('#psw123').val();
+			var e = $('#email123').val();
 
-		 	if(u!='' && p!='' && e!=''){
-		 		return true;
-		 	}
-		 	alert("注意,不能为空！请你重新填写")
-			 return false;
-		/* 	 console.log(num);
- */
+			if (u != '' && p != '' && e != '') {
+				return true;
+			}
+			alert("注意,不能为空！请你重新填写")
+			return false;
+			/* 	 console.log(num);
+			 */
 
 		}
 	</script>

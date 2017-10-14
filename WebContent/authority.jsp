@@ -97,7 +97,7 @@ th{text-align: center}
 							<img src="${u2.u_image}" onerror="src='images/user-head-pic.png'"/>
 						</div>
 					</li>
-					<li class="list-item active">
+					<li class="list-item">
 						<div class="inner-bar">
 							<a href="showUserInfor.action">
 						<span class="img-icon">
@@ -148,7 +148,7 @@ th{text-align: center}
 						</div>
 					</li>
 					<c:if test="${authority >= 1}">
-						<li class="list-item">
+						<li class="list-item active">
 							<div class="inner-bar">
 								<a href="member.action">
 						<span class="img-icon">

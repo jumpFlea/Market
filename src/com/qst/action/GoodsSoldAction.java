@@ -1,23 +1,18 @@
 package com.qst.action;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import com.qst.model.GoodsOrder;
+import com.qst.model.Page;
+import com.qst.serviceImpl.GoodsSoldsService;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-import org.springframework.stereotype.Component;
-
-import com.qst.model.Goods;
-import com.qst.model.GoodsOrder;
-import com.qst.model.Page;
-import com.qst.serviceImpl.GoodsSoldsService;
-import com.sun.javafx.collections.MappingChange.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Component
 public class GoodsSoldAction {
@@ -31,7 +26,7 @@ public class GoodsSoldAction {
 	public void setGoodsSoldsService(GoodsSoldsService goodsSoldsService) {
 		this.goodsSoldsService = goodsSoldsService;
 	}
-	
+
 	public int getPage() {
 		return page;
 	}
@@ -39,13 +34,13 @@ public class GoodsSoldAction {
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
+
 	/*
 	 * 得到用户卖出的商品（还未发货的）分页查找
 	 */
-	
 
-	
+
+
 	public String getGoodsItems(){
 		Page<GoodsOrder> GoodsOrder =new Page<GoodsOrder>();
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -68,7 +63,7 @@ public class GoodsSoldAction {
 		GoodsOrder.setCountPage(count);
 		request.setAttribute("goodsorder", GoodsOrder);
 		return "goodsitems";
-		
+
 	}
 	/*
 	 * 设置已发货状态
@@ -79,14 +74,14 @@ public class GoodsSoldAction {
 		long ordernumber=  Long.parseLong(request.getParameter("ordernumber"));
 		int pay_type=2;//已发货状态
 		goodsSoldsService.SetOrderType(pay_type, ordernumber);
-		
+
 		return "setOrderpay_type";
 	}
-	
+
 	/*
 	 * 通过uid找到前五个ordernumber
 	 */
-	
+
 	public String getOrdernumber() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -101,7 +96,7 @@ public class GoodsSoldAction {
 		request.setAttribute("count", count);
 		return "getOrdernumber";
 	}
-	
+
 	/*
 	 * 通过ordernumber 找到 对应订单的goods详情 并且设置进入 一个Map中
 	 */
@@ -126,11 +121,11 @@ public class GoodsSoldAction {
 		request.setAttribute("map", map);
 		return "GoodSOrderItems";
 	}
-	
+
 	/*
 	 * 得到 所有商家未回答的订单
 	 */
-	
+
 	public String getNoAnswerGoodsOrder() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
@@ -140,7 +135,7 @@ public class GoodsSoldAction {
 		request.setAttribute("goodsorder", goodsOrders_list);
 		return "getNoAnswerGoodsOrder";
 	}
-	
+
 	/*
 	 * 回答客户的评价
 	 */

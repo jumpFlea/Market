@@ -73,6 +73,19 @@
 			<result name="success" type="chain">showReleaseGoods</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		
+		<!--显示想要修改的商品信息 -->
+		<action name="showUserGoods" class="releaseGoodsAction" method="showUserGoods">
+			<result name="success">/update_release.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<!--修改商品-->
+		<action name="updateUserGoods" class="releaseGoodsAction" method="updateUserGoods">
+			<result name="success" type="chain">showReleaseGoods</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
 
 		<!-- 查询购物车里的所有商品 -->
 		<action name="getshopcargoods" class="com.qst.action.ShopCartAction"

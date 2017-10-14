@@ -2,11 +2,10 @@ package com.qst.model;
 
 import java.util.List;
 
-import com.sun.javafx.collections.MappingChange.Map;
 
 //分页
 public class Page<T> {
-	
+
 
 	// 当前页数
 	private int currentPage;
@@ -19,16 +18,16 @@ public class Page<T> {
 	//设置类型
 	private String attribute;
 	//设置名字
-	private String gname; 
+	private String gname;
 	//为了方便，添增一个int属性
 	private int id;
 
 	private List<T> list;
-	
-	
-	
-	
-	
+
+
+
+
+
 
 	public String getAttribute() {
 		return attribute;
@@ -37,7 +36,7 @@ public class Page<T> {
 	public void setAttribute(String attribute) {
 		this.attribute = attribute;
 	}
-	
+
 	public String getGname() {
 		return gname;
 	}
@@ -45,7 +44,7 @@ public class Page<T> {
 	public void setGname(String gname) {
 		this.gname = gname;
 	}
-	
+
 	public int getBegin() {
 		return begin;
 	}
@@ -78,7 +77,7 @@ public class Page<T> {
 	public void setLimitPage(int limitPage) {
 		this.limitPage = limitPage;
 	}
-	
+
 	public List<T> getList() {
 		return list;
 	}
