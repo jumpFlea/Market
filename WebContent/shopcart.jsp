@@ -291,7 +291,6 @@
         $('.comment-content').find('input').first().attr('checked','checked');
         $('.nn-comment-mask,.nn-comment-content').show();
     }
-
     function submitOrder() {
         var url = "submitOrder.action?";
         $('.detail-bar').each(function () {
