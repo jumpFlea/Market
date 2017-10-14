@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class IndexShowAction extends ActionSupport {
 
 	@Autowired
+	
 	private GoodsService goodsService;
 	private String attribute;
 	private String gname;

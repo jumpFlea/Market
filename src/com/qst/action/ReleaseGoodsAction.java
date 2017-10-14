@@ -47,22 +47,24 @@ public class ReleaseGoodsAction extends ActionSupport {
 
 	// 发布商品
 	public String releaseGoods() {
-		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletRequest request = ServletActionContext.getRequest();//获取request后获取session
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(new Date());
+		//得到系统当前的日期
 		// System.out.println(date);
 		int uid = (int) request.getSession().getAttribute("uid");
 		goods.setU_id(uid);
+		//把uid设置到设置到goods中
 		String savePath = "C:\\Users\\Administrator\\Desktop\\ourImage\\";
 		// 随机产生一个文件名
-		String fileName = UUID.randomUUID().toString() + "_" + uploadFileName;
-		File file = new File(savePath + fileName);
+		String fileName = UUID.randomUUID().toString() + "_" + uploadFileName;//给图片随机生成一个文件名
+		File file = new File(savePath + fileName);//生成一个文件
 		try {
 			FileUtils.copyFile(upload, file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}//抛出异常
 
 //		int imgId = ims.findImageByid(goodId);
 		// 将图片地址放进image里面
@@ -75,7 +77,7 @@ public class ReleaseGoodsAction extends ActionSupport {
 		ims.insertImage(image);
 		// 将发布的商品信息放进goods里面
 		goods.setImage_zhanshi(File.separator + "image" + File.separator + "upload" + File.separator + fileName);
-		goods.setImage_id(image.getImage_id());
+		goods.setImage_id(image.getImage_id());//插入图片的主键
 		rgs.releaseGoods(goods);
 
 		// 把商品的信息也存到user_goods表中

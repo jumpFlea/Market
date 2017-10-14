@@ -46,13 +46,13 @@ function login() {
     $('#login').find('h1').text("登录中......");
 
     $.ajax({
-        url: 'login',
-        method: 'post',
-        data: $('#login-form').serialize(),
-        success:function (data) {
+        url: 'login',//跳转到struts
+        method: 'post',//发起post请求，把数据传入login
+        data: $('#login-form').serialize(),//得到form中的数据。传到login
+        success:function (data) {//data是返回的结果
             if(data.search("yes") !== -1){
                 $('#login').find('h1').text("登录成功, 跳转中......");
-                location.href="indexShow"
+                location.href="indexShow"//从数据库获取数据，传入主界面
 //                setTimeout(refresh,2000);
             }
             else {
@@ -62,18 +62,20 @@ function login() {
     })
 }
 
+//注册
 function signup() {
+	//打印提示信息
     $('#signup').find('h1').text("注册中......");
 
-    var name = $('#username').val();
+    var name = $('#username').val();//获取输入框的值
 
-    $.get('validate?user.username=' + name, function (data) {
+    $.get('validate?user.username=' + name, function (data) {//把获取的值传入user.username中，到action中
         if (data === "success") {
             $.ajax({
                 url: 'signup',
                 method: 'post',
                 data: $('#signup-form').serialize()
-            }).done(function (data) {
+            }).done(function (data) {//匹配返回值
                 if(data.search("yes") !== -1){
                     $('#signup').find('h1').text("注册成功, 刷新中......");
                     setTimeout(refresh,3000);

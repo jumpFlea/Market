@@ -39,7 +39,7 @@
 				<span class="info-settings-txt">发布商品</span>
 			</p>
 			<form action="releaseGoods" enctype="multipart/form-data"
-				method="post">
+				method="post"><!-- 传图的一种方式 -->
 				<div class="info-input-row">
 					<p class="input-wrap">
 						商品名字:<input type="text" name="goods.g_name" />
@@ -62,7 +62,7 @@
 
 					</div>
 					<input class="release_input" type="file" name="upload"
-							onchange="previewImage(this)">
+							onchange="previewImage(this)"><!-- 把图片显示在界面 -->
 					<span class="cover-show"></span>
 					</p>
 				</div>
@@ -96,6 +96,7 @@
 				</div>
 				<div class="button-group">
 					<button type="submit" class="save-btn">保存</button>
+					<!-- 调用post，通过post提交数据 -->
 				</div>
 			</form>
 		</div>
